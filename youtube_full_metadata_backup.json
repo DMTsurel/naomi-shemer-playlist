@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-11T21:38:58Z",
+  "generated_at": "2026-11-11T21:42:06Z",
   "total_playlist_entries": 734,
   "total_unique_videos": 649,
   "healthy_videos_count": 647,
   "songs_with_backup_alternatives": 564,
-  "total_backup_links": 1970,
+  "total_backup_links": 1969,
   "videos": {
     "IUxt7faTExY": {
       "playlist_position": 1,
@@ -28957,7 +28957,6 @@
         "בנאי יוסי ובנאי גברי"
       ],
       "alternative_video_ids": [
-        "hs1Uo7ilYKo",
         "wjFN5MCp7qs"
       ],
       "youtube_metadata": {
