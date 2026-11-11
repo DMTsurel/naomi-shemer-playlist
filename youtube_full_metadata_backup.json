@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-11T21:30:38Z",
+  "generated_at": "2026-11-11T21:38:58Z",
   "total_playlist_entries": 734,
   "total_unique_videos": 649,
   "healthy_videos_count": 647,
   "songs_with_backup_alternatives": 564,
-  "total_backup_links": 1973,
+  "total_backup_links": 1970,
   "videos": {
     "IUxt7faTExY": {
       "playlist_position": 1,
@@ -3999,7 +3999,6 @@
       "alternative_video_ids": [
         "Xc6coB1-EPw",
         "YAkf6oebJ8g",
-        "mq13AHHLul4",
         "VS1Bu7hsvi8"
       ],
       "youtube_metadata": {
@@ -4051,7 +4050,6 @@
         "נעמי שמר = Naomi Shemer"
       ],
       "alternative_video_ids": [
-        "mq13AHHLul4",
         "Xc6coB1-EPw",
         "418kExn65Ug",
         "YAkf6oebJ8g"
@@ -4133,7 +4131,6 @@
       "alternative_video_ids": [
         "418kExn65Ug",
         "YAkf6oebJ8g",
-        "mq13AHHLul4",
         "VS1Bu7hsvi8"
       ],
       "youtube_metadata": {
