@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-11T20:32:44Z",
-  "total_playlist_entries": 754,
-  "total_unique_videos": 670,
-  "healthy_videos_count": 670,
-  "songs_with_backup_alternatives": 584,
-  "total_backup_links": 2040,
+  "generated_at": "2026-11-11T20:33:43Z",
+  "total_playlist_entries": 752,
+  "total_unique_videos": 668,
+  "healthy_videos_count": 668,
+  "songs_with_backup_alternatives": 582,
+  "total_backup_links": 2034,
   "videos": {
     "IUxt7faTExY": {
       "playlist_position": 1,
@@ -23386,80 +23386,8 @@
         "short_description": "מילים ולחן: נעמי שמר"
       }
     },
-    "FU7E6RBq6Po": {
-      "playlist_position": 572,
-      "song_number": null,
-      "song_title": "עולם הפוך",
-      "year": "1985",
-      "role": "",
-      "lyricist": "",
-      "composer": "",
-      "matched_performer": "",
-      "catalog_performers": [],
-      "alternative_video_ids": [
-        "nmyuFw3NILk",
-        "6Z46a9WwmDY",
-        "lfB0Y5mJ1qk"
-      ],
-      "youtube_metadata": {
-        "video_id": "FU7E6RBq6Po",
-        "url": "https://www.youtube.com/watch?v=FU7E6RBq6Po",
-        "playability_status": "OK",
-        "title": "עולם הפוך האחים אסנר ורבקה מיכאלי",
-        "author": "האחים אסנר - הערוץ הרשמי",
-        "channel_id": "UCttWYI3RT_SSgcahRieCT2w",
-        "length_seconds": 230,
-        "view_count": "3776",
-        "publish_date": "2020-07-05T23:44:23-07:00",
-        "category": "Music",
-        "is_unlisted": false,
-        "keywords": [
-          "האחים אסנר",
-          "אסנר",
-          "מיכאלי",
-          "רבקה מיכאלי",
-          "נעמי שמר",
-          "שמר",
-          "חיים אסנר",
-          "עוזי אסנר",
-          "זמר עברי"
-        ],
-        "short_description": "רבקה מיכאלי והאחים אסנר- עולם הפוך/ נעמי שמר\nאת השיר עולם הפוך כתבה נעמי שמר עבור רבקה'לה מיכאלי לתכנית סיבה למסיבה.\nגילינו את השיר הלא מוכר והנפלא של נעמי שמר ומצאנו בו שיר אקטואלי מאין כמוהו.  \nבתאריך 13.7.20 ימלאו תשעים להולדתה של נעמי שמר. \nלכן, פנינו לאהובתנו  מזה שנים, אייקון התרבות, הזמרת ,השחקנית והשדרנית, רבקה מיכאלי חברתה בנפש של נעמי שמר, ויחד הקלטנו גרסה חדשה לשיר .\n\nלהלן מילות השיר:\n\nעולם הפוך, פרה כחולה\nכנר ירוק על גג\nהסוף דומה להתחלה\nויש לי יום יום חג\n\nהארץ היא המדינה\nהשלג הוא שחור\nועל עירי הלבנה\nרובץ ענן אפור\n\nואין לי כוח להבדיל\nבין החכם ובין הכסיל\nבין הימין ובין השמאל\nובין הקודש והחול\nעולם הפוך ומשוגע\nואם אין לחם יש עוגה\nפרה כחולה ואדומה\nעולם לא מי יודע מה\n\nקשה לי לפעמים לקרוא\nת'כתובת על הקיר\nקשה לי לפעמים לדעת\nאיפה ראש העיר\n\nקשה לי לפעמים לספור\nאת כל הטעויות\nקשה לשאת ולפעמים\nפשוט קשה לחיות\n\nואין לי כוח להבדיל...\n\nהאקטואליה היא הנצח\nהדברים קורים\nזה לא כל יום נישוק במצח\nלא כל יום פורים\nולא כל מאמר עיתון\nכמאמר חז\"ל\nכמעט כולם מתים בסוף\nאפילו מרק שאגל  ז\"ל\n\n\nהפקה מוזיקלית: האחים אסנר\nהוקלט באולפני אשל 6.2020\nטכנאי הקלטה ומיקס: זוהר זלץ\nקלידים: האחים אסנר\nתופים: איתן איצקוביץ'\nגיטרות ומנדולינה- אדם טל"
-      }
-    },
-    "nmyuFw3NILk": {
-      "playlist_position": 573,
-      "song_number": null,
-      "song_title": "עולם הפוך",
-      "year": "1985",
-      "role": "",
-      "lyricist": "",
-      "composer": "",
-      "matched_performer": "",
-      "catalog_performers": [],
-      "alternative_video_ids": [
-        "FU7E6RBq6Po",
-        "6Z46a9WwmDY",
-        "lfB0Y5mJ1qk"
-      ],
-      "youtube_metadata": {
-        "video_id": "nmyuFw3NILk",
-        "url": "https://www.youtube.com/watch?v=nmyuFw3NILk",
-        "playability_status": "OK",
-        "title": "רבקה מיכאלי ודוד קריבושי - עולם הפוך | מתוך מופע המחווה לדוד קריבושי (היכל התרבות ת״א - 08.11.24)",
-        "author": "shay kedmi",
-        "channel_id": "UC3_nLCE3ip6N3TKx4AKlUPQ",
-        "length_seconds": 206,
-        "view_count": "296",
-        "publish_date": "2024-11-08T08:02:54-08:00",
-        "category": "People & Blogs",
-        "is_unlisted": false,
-        "keywords": [],
-        "short_description": ""
-      }
-    },
     "Bujd3-vDfE8": {
-      "playlist_position": 574,
+      "playlist_position": 572,
       "song_number": null,
       "song_title": "פרחי אולי",
       "year": "1966",
@@ -23495,7 +23423,7 @@
       }
     },
     "Z-JxFdJcoB4": {
-      "playlist_position": 575,
+      "playlist_position": 573,
       "song_number": null,
       "song_title": "פרנואיד",
       "year": "1978",
@@ -23529,7 +23457,7 @@
       }
     },
     "VhBycovusXA": {
-      "playlist_position": 576,
+      "playlist_position": 574,
       "song_number": null,
       "song_title": "קפה תפארת",
       "year": "1998",
@@ -23572,7 +23500,7 @@
       }
     },
     "oJZEOGPBtp0": {
-      "playlist_position": 577,
+      "playlist_position": 575,
       "song_number": null,
       "song_title": "העוזרת של זרש",
       "year": "1971",
@@ -23601,7 +23529,7 @@
       }
     },
     "4MJ1vA3znA4": {
-      "playlist_position": 578,
+      "playlist_position": 576,
       "song_number": null,
       "song_title": "העוזרת של זרש",
       "year": "1971",
@@ -23638,7 +23566,7 @@
       }
     },
     "DLilbBb5C-k": {
-      "playlist_position": 579,
+      "playlist_position": 577,
       "song_number": null,
       "song_title": "יריד",
       "year": "1976",
@@ -23665,7 +23593,7 @@
       }
     },
     "1D4_GtYfmUE": {
-      "playlist_position": 580,
+      "playlist_position": 578,
       "song_number": null,
       "song_title": "מתפרנסים",
       "year": "1976",
@@ -23692,7 +23620,7 @@
       }
     },
     "piH6EOOP7cY": {
-      "playlist_position": 581,
+      "playlist_position": 579,
       "song_number": null,
       "song_title": "האומנם",
       "year": "1974",
@@ -23719,7 +23647,7 @@
       }
     },
     "SzfqrHxbpug": {
-      "playlist_position": 582,
+      "playlist_position": 580,
       "song_number": null,
       "song_title": "ימי הענבים",
       "year": "1974",
@@ -23763,7 +23691,7 @@
       }
     },
     "r97YIa4BDnM": {
-      "playlist_position": 583,
+      "playlist_position": 581,
       "song_number": null,
       "song_title": "כי לא יהיה להם יום",
       "year": "1968",
@@ -23798,7 +23726,7 @@
       }
     },
     "jzNc8KFQ4S4": {
-      "playlist_position": 584,
+      "playlist_position": 582,
       "song_number": null,
       "song_title": "לא ביאליק",
       "year": "1976",
@@ -23838,7 +23766,7 @@
       }
     },
     "JUiRv74kgHU": {
-      "playlist_position": 585,
+      "playlist_position": 583,
       "song_number": null,
       "song_title": "לא ביאליק",
       "year": "1976",
@@ -23879,7 +23807,7 @@
       }
     },
     "71Pqy6HKns8": {
-      "playlist_position": 586,
+      "playlist_position": 584,
       "song_number": null,
       "song_title": "עמוק בטל",
       "year": "1973",
@@ -23917,7 +23845,7 @@
       }
     },
     "-eINxqt2z0A": {
-      "playlist_position": 587,
+      "playlist_position": 585,
       "song_number": null,
       "song_title": "אני ואחא רון",
       "year": "1958",
@@ -23981,7 +23909,7 @@
       }
     },
     "xam-JFkXggk": {
-      "playlist_position": 588,
+      "playlist_position": 586,
       "song_number": null,
       "song_title": "הדוכיפת",
       "year": "1982",
@@ -24012,7 +23940,7 @@
       }
     },
     "3H9EF4ZzVy8": {
-      "playlist_position": 589,
+      "playlist_position": 587,
       "song_number": null,
       "song_title": "הו מה נאה הוא הבוקר",
       "year": "1956",
@@ -24039,7 +23967,7 @@
       }
     },
     "6BfneC2-IvA": {
-      "playlist_position": 590,
+      "playlist_position": 588,
       "song_number": null,
       "song_title": "סיפור אהבתי לכם",
       "year": "1979",
@@ -24072,7 +24000,7 @@
       }
     },
     "L8jFWAH86Hw": {
-      "playlist_position": 591,
+      "playlist_position": 589,
       "song_number": null,
       "song_title": "עשרת הצדיקים",
       "year": "1960",
@@ -24103,7 +24031,7 @@
       }
     },
     "C-rohkw6OX8": {
-      "playlist_position": 592,
+      "playlist_position": 590,
       "song_number": null,
       "song_title": "סוף העולם",
       "year": "1963",
@@ -24142,7 +24070,7 @@
       }
     },
     "d9pbNfB26wc": {
-      "playlist_position": 593,
+      "playlist_position": 591,
       "song_number": null,
       "song_title": "סוף העולם",
       "year": "1963",
@@ -24189,7 +24117,7 @@
       }
     },
     "kLf2ybtWLCI": {
-      "playlist_position": 594,
+      "playlist_position": 592,
       "song_number": null,
       "song_title": "צי הצללים",
       "year": "1965",
@@ -24222,7 +24150,7 @@
       }
     },
     "hs1Uo7ilYKo": {
-      "playlist_position": 595,
+      "playlist_position": 593,
       "song_number": null,
       "song_title": "חד גדיא",
       "year": "1979",
@@ -24252,7 +24180,7 @@
       }
     },
     "KXjJoVHJsQw": {
-      "playlist_position": 596,
+      "playlist_position": 594,
       "song_number": null,
       "song_title": "חד גדיא",
       "year": "1979",
@@ -24282,7 +24210,7 @@
       }
     },
     "gfYmkBTQVD4": {
-      "playlist_position": 597,
+      "playlist_position": 595,
       "song_number": null,
       "song_title": "מוטב בבית",
       "year": "1976",
@@ -24309,7 +24237,7 @@
       }
     },
     "XixXG6ffyy0": {
-      "playlist_position": 598,
+      "playlist_position": 596,
       "song_number": null,
       "song_title": "מי רוכב על מי",
       "year": "1964",
@@ -24342,7 +24270,7 @@
       }
     },
     "jOpau37GjhY": {
-      "playlist_position": 599,
+      "playlist_position": 597,
       "song_number": null,
       "song_title": "בא הגדוד",
       "year": "1958",
@@ -24395,7 +24323,7 @@
       }
     },
     "XeD27Barwbk": {
-      "playlist_position": 600,
+      "playlist_position": 598,
       "song_number": null,
       "song_title": "בא הגדוד",
       "year": "1958",
@@ -24441,7 +24369,7 @@
       }
     },
     "0re6w_ZITxg": {
-      "playlist_position": 601,
+      "playlist_position": 599,
       "song_number": null,
       "song_title": "בשלו הפירות בגני",
       "year": "1960",
@@ -24476,7 +24404,7 @@
       }
     },
     "1dAeJminXHM": {
-      "playlist_position": 602,
+      "playlist_position": 600,
       "song_number": null,
       "song_title": "דרכים",
       "year": "1960",
@@ -24518,7 +24446,7 @@
       }
     },
     "t_qzuM6V2Co": {
-      "playlist_position": 603,
+      "playlist_position": 601,
       "song_number": null,
       "song_title": "הסוחר מוונציה",
       "year": "1964",
@@ -24568,7 +24496,7 @@
       }
     },
     "Bac-K0Wjp2A": {
-      "playlist_position": 604,
+      "playlist_position": 602,
       "song_number": null,
       "song_title": "הסוחר מוונציה",
       "year": "1964",
@@ -24597,7 +24525,7 @@
       }
     },
     "OzrUXu1pKkg": {
-      "playlist_position": 605,
+      "playlist_position": 603,
       "song_number": null,
       "song_title": "ט\"ו בשבט שלי",
       "year": "1985",
@@ -24631,7 +24559,7 @@
       }
     },
     "acNmIrbrp0k": {
-      "playlist_position": 606,
+      "playlist_position": 604,
       "song_number": null,
       "song_title": "נעלה צפונה",
       "year": "1964",
@@ -24658,7 +24586,7 @@
       }
     },
     "OdYRuoXrHHw": {
-      "playlist_position": 607,
+      "playlist_position": 605,
       "song_number": null,
       "song_title": "פרידה",
       "year": "2004",
@@ -24698,7 +24626,7 @@
       }
     },
     "EZ2zDG6qrJE": {
-      "playlist_position": 608,
+      "playlist_position": 606,
       "song_number": null,
       "song_title": "פת במלח",
       "year": "1988",
@@ -24734,7 +24662,7 @@
       }
     },
     "T3qo2SYP52U": {
-      "playlist_position": 609,
+      "playlist_position": 607,
       "song_number": null,
       "song_title": "אילן",
       "year": "1979",
@@ -24773,7 +24701,7 @@
       }
     },
     "B7rC1GyPlqM": {
-      "playlist_position": 610,
+      "playlist_position": 608,
       "song_number": null,
       "song_title": "אילן",
       "year": "1979",
@@ -24812,7 +24740,7 @@
       }
     },
     "SfPOduJnKvk": {
-      "playlist_position": 611,
+      "playlist_position": 609,
       "song_number": null,
       "song_title": "אצל ורדה השמנה",
       "year": "1963",
@@ -24843,7 +24771,7 @@
       }
     },
     "pUFhGuyD6j4": {
-      "playlist_position": 612,
+      "playlist_position": 610,
       "song_number": null,
       "song_title": "בלדה על סל תפירה",
       "year": "1963",
@@ -24874,7 +24802,7 @@
       }
     },
     "7ziQJmP02M0": {
-      "playlist_position": 613,
+      "playlist_position": 611,
       "song_number": null,
       "song_title": "הנישואין",
       "year": "1975",
@@ -24905,7 +24833,7 @@
       }
     },
     "z91zsr8vHnU": {
-      "playlist_position": 614,
+      "playlist_position": 612,
       "song_number": null,
       "song_title": "חפש את האישה",
       "year": "1958",
@@ -24935,7 +24863,7 @@
       }
     },
     "dfPBgVKT_H8": {
-      "playlist_position": 615,
+      "playlist_position": 613,
       "song_number": null,
       "song_title": "חפש את האישה",
       "year": "1958",
@@ -24969,7 +24897,7 @@
       }
     },
     "OfsdkuisiNo": {
-      "playlist_position": 616,
+      "playlist_position": 614,
       "song_number": null,
       "song_title": "ירדנה",
       "year": "1958",
@@ -25017,7 +24945,7 @@
       }
     },
     "9o-4qxrv584": {
-      "playlist_position": 617,
+      "playlist_position": 615,
       "song_number": null,
       "song_title": "יש לי מנגינה בלב",
       "year": "1971",
@@ -25044,7 +24972,7 @@
       }
     },
     "Eff5K5VrmKE": {
-      "playlist_position": 618,
+      "playlist_position": 616,
       "song_number": null,
       "song_title": "מצד אל צד",
       "year": "1964",
@@ -25076,7 +25004,7 @@
       }
     },
     "erKzXsvfheA": {
-      "playlist_position": 619,
+      "playlist_position": 617,
       "song_number": null,
       "song_title": "רומנס בכפר",
       "year": "1958",
@@ -25105,7 +25033,7 @@
       }
     },
     "6yrG087cato": {
-      "playlist_position": 620,
+      "playlist_position": 618,
       "song_number": null,
       "song_title": "רומנס בכפר",
       "year": "1958",
@@ -25138,7 +25066,7 @@
       }
     },
     "R-oz2dlpbvY": {
-      "playlist_position": 621,
+      "playlist_position": 619,
       "song_number": null,
       "song_title": "שיר פורח",
       "year": "1963",
@@ -25185,7 +25113,7 @@
       }
     },
     "ExOobxzS4tc": {
-      "playlist_position": 622,
+      "playlist_position": 620,
       "song_number": null,
       "song_title": "שיר פורח",
       "year": "1963",
@@ -25214,7 +25142,7 @@
       }
     },
     "X3GCh50sW8A": {
-      "playlist_position": 623,
+      "playlist_position": 621,
       "song_number": null,
       "song_title": "שיר תודה",
       "year": "1975",
@@ -25266,7 +25194,7 @@
       }
     },
     "7t6dTKHZY6U": {
-      "playlist_position": 624,
+      "playlist_position": 622,
       "song_number": null,
       "song_title": "תישן חמודי תישן",
       "year": "1968",
@@ -25300,7 +25228,7 @@
       }
     },
     "JH-1IrNb_P4": {
-      "playlist_position": 625,
+      "playlist_position": 623,
       "song_number": null,
       "song_title": "האחרת",
       "year": "1990",
@@ -25357,7 +25285,7 @@
       }
     },
     "ubenw8IJ9dE": {
-      "playlist_position": 626,
+      "playlist_position": 624,
       "song_number": null,
       "song_title": "הורה נחל עוז",
       "year": "1953",
@@ -25384,7 +25312,7 @@
       }
     },
     "jYVg9ERVMv0": {
-      "playlist_position": 627,
+      "playlist_position": 625,
       "song_number": null,
       "song_title": "השד יודע",
       "year": "1959",
@@ -25415,7 +25343,7 @@
       }
     },
     "cAOakJcPmGs": {
-      "playlist_position": 628,
+      "playlist_position": 626,
       "song_number": null,
       "song_title": "שייקספיר איננו",
       "year": "1964",
@@ -25468,7 +25396,7 @@
       }
     },
     "8tNy2en1CpE": {
-      "playlist_position": 629,
+      "playlist_position": 627,
       "song_number": null,
       "song_title": "שייקספיר איננו",
       "year": "1964",
@@ -25509,7 +25437,7 @@
       }
     },
     "hZwuhnWXkLE": {
-      "playlist_position": 630,
+      "playlist_position": 628,
       "song_number": null,
       "song_title": "אלף תשע מאות שמונים וארבע",
       "year": "1984",
@@ -25541,7 +25469,7 @@
       }
     },
     "EEq9IuWDBlM": {
-      "playlist_position": 631,
+      "playlist_position": 629,
       "song_number": null,
       "song_title": "בלי מילים",
       "year": "1963",
@@ -25574,7 +25502,7 @@
       }
     },
     "KSTaBxvL4JQ": {
-      "playlist_position": 632,
+      "playlist_position": 630,
       "song_number": null,
       "song_title": "בלי מילים",
       "year": "1963",
@@ -25616,7 +25544,7 @@
       }
     },
     "k0LjOdjBdYU": {
-      "playlist_position": 633,
+      "playlist_position": 631,
       "song_number": null,
       "song_title": "המכונית האדומה",
       "year": "1971",
@@ -25680,7 +25608,7 @@
       }
     },
     "mxCqvGI5iu0": {
-      "playlist_position": 634,
+      "playlist_position": 632,
       "song_number": null,
       "song_title": "לבנות שפיה",
       "year": "1975",
@@ -25709,7 +25637,7 @@
       }
     },
     "Ae_oPwsp_P0": {
-      "playlist_position": 635,
+      "playlist_position": 633,
       "song_number": null,
       "song_title": "לרקוד איתך",
       "year": "1966",
@@ -25736,7 +25664,7 @@
       }
     },
     "7m1hm4WJKAM": {
-      "playlist_position": 636,
+      "playlist_position": 634,
       "song_number": null,
       "song_title": "אין לי קו",
       "year": "2099",
@@ -25775,7 +25703,7 @@
       }
     },
     "R1tJE7-evoQ": {
-      "playlist_position": 637,
+      "playlist_position": 635,
       "song_number": null,
       "song_title": "בלדה מודרנית",
       "year": "1958",
@@ -25813,7 +25741,7 @@
       }
     },
     "wFYq_Is8wJk": {
-      "playlist_position": 638,
+      "playlist_position": 636,
       "song_number": null,
       "song_title": "הבו לנו זמר",
       "year": "1957",
@@ -25840,7 +25768,7 @@
       }
     },
     "tz4ISVJyEfI": {
-      "playlist_position": 639,
+      "playlist_position": 637,
       "song_number": null,
       "song_title": "הינשוף והירח",
       "year": "1956",
@@ -25867,7 +25795,7 @@
       }
     },
     "HH2wou4FvsA": {
-      "playlist_position": 640,
+      "playlist_position": 638,
       "song_number": null,
       "song_title": "הלילה הזה הוא דומם",
       "year": "1957",
@@ -25894,7 +25822,7 @@
       }
     },
     "QKmscJgKCYs": {
-      "playlist_position": 641,
+      "playlist_position": 639,
       "song_number": null,
       "song_title": "ט\"ו באב",
       "year": "1958",
@@ -25924,7 +25852,7 @@
       }
     },
     "evAV9e6QUlI": {
-      "playlist_position": 642,
+      "playlist_position": 640,
       "song_number": null,
       "song_title": "ט\"ו באב",
       "year": "1958",
@@ -25972,7 +25900,7 @@
       }
     },
     "uITVQ8JRMg4": {
-      "playlist_position": 643,
+      "playlist_position": 641,
       "song_number": null,
       "song_title": "ט\"ו באב",
       "year": "1958",
@@ -26002,7 +25930,7 @@
       }
     },
     "COoXTOZQYQ4": {
-      "playlist_position": 644,
+      "playlist_position": 642,
       "song_number": null,
       "song_title": "כיתה בארץ",
       "year": "1968",
@@ -26039,7 +25967,7 @@
       }
     },
     "J1mbZ9eGho0": {
-      "playlist_position": 645,
+      "playlist_position": 643,
       "song_number": null,
       "song_title": "שיר עבודה",
       "year": "1958",
@@ -26070,7 +25998,7 @@
       }
     },
     "K1DBCpPxqeM": {
-      "playlist_position": 646,
+      "playlist_position": 644,
       "song_number": null,
       "song_title": "אוניית הכאב",
       "year": "2004",
@@ -26100,7 +26028,7 @@
       }
     },
     "OxafdSA-QkE": {
-      "playlist_position": 647,
+      "playlist_position": 645,
       "song_number": null,
       "song_title": "התפוזים",
       "year": "1964",
@@ -26159,7 +26087,7 @@
       }
     },
     "omNa4PW1lU8": {
-      "playlist_position": 648,
+      "playlist_position": 646,
       "song_number": null,
       "song_title": "יש לי מסיבה",
       "year": "1987",
@@ -26216,7 +26144,7 @@
       }
     },
     "cITPhRNWoq0": {
-      "playlist_position": 649,
+      "playlist_position": 647,
       "song_number": null,
       "song_title": "'רות ושות",
       "year": "1961",
@@ -26243,7 +26171,7 @@
       }
     },
     "sCQfgFoAQu4": {
-      "playlist_position": 650,
+      "playlist_position": 648,
       "song_number": null,
       "song_title": "אל מחנה השחרורים",
       "year": "1961",
@@ -26270,7 +26198,7 @@
       }
     },
     "p3PIKVi8goc": {
-      "playlist_position": 651,
+      "playlist_position": 649,
       "song_number": null,
       "song_title": "הכתר השרביט והגלימה",
       "year": "1986",
@@ -26330,7 +26258,7 @@
       }
     },
     "_vJ6UtXHybA": {
-      "playlist_position": 652,
+      "playlist_position": 650,
       "song_number": null,
       "song_title": "הכתר השרביט והגלימה",
       "year": "1986",
@@ -26360,7 +26288,7 @@
       }
     },
     "V_AZsXtgxvY": {
-      "playlist_position": 653,
+      "playlist_position": 651,
       "song_number": null,
       "song_title": "יום הולדת שמח",
       "year": "1965",
@@ -26387,7 +26315,7 @@
       }
     },
     "YMrwmCzH330": {
-      "playlist_position": 654,
+      "playlist_position": 652,
       "song_number": null,
       "song_title": "כמו נערה",
       "year": "1964",
@@ -26431,7 +26359,7 @@
       }
     },
     "NhX0XzGmv9A": {
-      "playlist_position": 655,
+      "playlist_position": 653,
       "song_number": null,
       "song_title": "נערת הסיפון",
       "year": "1964",
@@ -26460,7 +26388,7 @@
       }
     },
     "_LilpxfdvKc": {
-      "playlist_position": 656,
+      "playlist_position": 654,
       "song_number": null,
       "song_title": "אהבתיך גם כך",
       "year": "1956",
@@ -26496,7 +26424,7 @@
       }
     },
     "IXn5sqpAhqc": {
-      "playlist_position": 657,
+      "playlist_position": 655,
       "song_number": null,
       "song_title": "בלדה על מושבה נידחת",
       "year": "1958",
@@ -26523,7 +26451,7 @@
       }
     },
     "Ya2SuHzZAXo": {
-      "playlist_position": 658,
+      "playlist_position": 656,
       "song_number": null,
       "song_title": "בתיה הסיירת",
       "year": "1958",
@@ -26553,7 +26481,7 @@
       }
     },
     "xAvvvAO6glU": {
-      "playlist_position": 659,
+      "playlist_position": 657,
       "song_number": null,
       "song_title": "הבית הקטן",
       "year": "1958",
@@ -26590,7 +26518,7 @@
       }
     },
     "DtlDXf6tveY": {
-      "playlist_position": 660,
+      "playlist_position": 658,
       "song_number": null,
       "song_title": "היי שלי",
       "year": "1958",
@@ -26617,7 +26545,7 @@
       }
     },
     "Hv0SuDUsjyc": {
-      "playlist_position": 661,
+      "playlist_position": 659,
       "song_number": null,
       "song_title": "זאת הארץ",
       "year": "1958",
@@ -26644,7 +26572,7 @@
       }
     },
     "ZKGMTf5XLCk": {
-      "playlist_position": 662,
+      "playlist_position": 660,
       "song_number": null,
       "song_title": "לא לא לא",
       "year": "1966",
@@ -26671,7 +26599,7 @@
       }
     },
     "OkWKy3URsDg": {
-      "playlist_position": 663,
+      "playlist_position": 661,
       "song_number": null,
       "song_title": "אביב בתל אביב (שיר יפני)",
       "year": "1966",
@@ -26705,7 +26633,7 @@
       }
     },
     "q-9lO4eg7-w": {
-      "playlist_position": 664,
+      "playlist_position": 662,
       "song_number": null,
       "song_title": "פרולוג",
       "year": "1964",
@@ -26732,7 +26660,7 @@
       }
     },
     "gEacqh5DPk4": {
-      "playlist_position": 665,
+      "playlist_position": 663,
       "song_number": null,
       "song_title": "שיר השייטת",
       "year": "1967",
@@ -26765,7 +26693,7 @@
       }
     },
     "ydCddPTqZmo": {
-      "playlist_position": 666,
+      "playlist_position": 664,
       "song_number": null,
       "song_title": "אביב",
       "year": "1978",
@@ -26810,7 +26738,7 @@
       }
     },
     "oMZHElIjza4": {
-      "playlist_position": 667,
+      "playlist_position": 665,
       "song_number": null,
       "song_title": "אביב",
       "year": "1978",
@@ -26844,7 +26772,7 @@
       }
     },
     "L1QLv-RFy7A": {
-      "playlist_position": 668,
+      "playlist_position": 666,
       "song_number": null,
       "song_title": "היה היה פעם מלך",
       "year": "1976",
@@ -26881,7 +26809,7 @@
       }
     },
     "dGSCRDVe9NE": {
-      "playlist_position": 669,
+      "playlist_position": 667,
       "song_number": null,
       "song_title": "פקדת הארץ",
       "year": "1976",
@@ -26910,7 +26838,7 @@
       }
     },
     "wk0pllJl1nU": {
-      "playlist_position": 670,
+      "playlist_position": 668,
       "song_number": null,
       "song_title": "פקדת הארץ",
       "year": "1976",
