@@ -1287,16 +1287,9 @@ def generate_files():
       </div>
     </header>
 
-    <!-- סרגל לשוניות -->
-    <div class="nav-bar">
-      <div class="tabs-bar">
-        <button id="tabBtnYt" class="tab-btn active" onclick="switchTab('yt')">
-          🎵 נגן הפלייליסט ({total_videos})
-        </button>
-        <button id="tabBtnArch" class="tab-btn" onclick="switchTab('arch')">
-          🏛️ שירים נדירים בארכיון ({unmatched_songs_count})
-        </button>
-      </div>
+    <!-- סרגל עליון מינימליסטי (מונה בלבד) -->
+    <div id="topStatusRow" class="nav-bar" style="margin-bottom: 10px;">
+      <button id="backToPlayerBtn" class="btn btn-outline btn-sm" style="display:none;" onclick="switchTab('yt')">← חזרה לנגן הפלייליסט ({total_videos} ביצועים)</button>
       <span id="ytCountChip" class="count-chip"></span>
     </div>
 
@@ -1369,18 +1362,12 @@ def generate_files():
               <option value="unknown">ללא שנה ({d_unk})</option>
             </select>
             <button id="advFilterBtn" class="btn btn-outline btn-sm" onclick="toggleAdvancedFilters()">
-              ⚙️ סינון וייצוא <span id="activeFiltersBadge" style="display:none; background:var(--gold); color:#000; padding:0 6px; border-radius:999px; font-size:11px;"></span>
+              ⚙️ סינון מתקדם <span id="activeFiltersBadge" style="display:none; background:var(--gold); color:#000; padding:0 6px; border-radius:999px; font-size:11px;"></span>
             </button>
           </div>
 
-          <!-- מגירת סינון מתקדם וייצוא (מוסתרת כברירת מחדל) -->
+          <!-- מגירת סינון מתקדם (מוסתרת כברירת מחדל) -->
           <div id="advancedDrawer" class="advanced-drawer">
-            <select id="layerFilter" onchange="renderTable()">
-              <option value="ALL">כל השכבות ({total_videos})</option>
-              <option value="1">🌟 שכבה א': קלאסיקות ({l1})</option>
-              <option value="2">💿 שכבה ב': אלבומים ({l2})</option>
-              <option value="3">💎 שכבה ג': נדירים ({l3})</option>
-            </select>
             <select id="tierFilter" onchange="renderTable()">
               <option value="ALL">כל סוגי הביצועים ({total_videos})</option>
               <option value="1_album_naomi">אלבום של נעמי שמר ({t1})</option>
@@ -1398,13 +1385,6 @@ def generate_files():
               <option value="performance_only">ביצוע בלבד ({r_p})</option>
             </select>
             <button class="btn btn-outline btn-sm" onclick="resetAllFilters()" title="אפס את כל המסננים">↺ איפוס</button>
-            <div style="margin-right:auto; display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
-              <span style="color:var(--muted); font-size:12px;">ייצוא:</span>
-              <button class="btn btn-outline btn-sm" onclick="exportFilteredCsv()">CSV</button>
-              <button class="btn btn-outline btn-sm" onclick="exportFilteredM3u8()">M3U8</button>
-              <button class="btn btn-outline btn-sm" onclick="copyFilteredLinks()">📋 העתק קישורים</button>
-              <span id="exportStatus" style="color:var(--green); font-weight:600; display:none; font-size:12px;">✔ הועתק!</span>
-            </div>
           </div>
 
           <div class="table-wrap">
@@ -1414,7 +1394,7 @@ def generate_files():
                   <th style="width:44px; text-align:center;">#</th>
                   <th>שיר</th>
                   <th>מבצע ואלבום</th>
-                  <th style="text-align:left;">סיווג ואורך</th>
+                  <th style="width:68px; text-align:left;">אורך</th>
                 </tr>
               </thead>
               <tbody id="songsBody"></tbody>
@@ -1471,6 +1451,14 @@ def generate_files():
         </div>
       </div>
     </div>
+
+    <!-- פוטר שקט בתחתית העמוד למעבר לארכיון המשלים -->
+    <footer style="margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 13px;">
+      <span>קטלוג שירי נעמי שמר · {total_videos} ביצועים ביוטיוב</span>
+      <button id="footerArchToggleBtn" class="btn btn-outline btn-sm" onclick="switchTab(currentTab === 'yt' ? 'arch' : 'yt')">
+        🏛️ הצג גם {unmatched_songs_count} שירים נדירים מהארכיון שאינם ביוטיוב
+      </button>
+    </footer>
   </div>
 
   <script>
@@ -1611,10 +1599,18 @@ def generate_files():
       const isYt = currentTab === "yt";
       document.getElementById("tabYtContent").style.display = isYt ? "block" : "none";
       document.getElementById("tabArchContent").style.display = isYt ? "none" : "block";
-      document.getElementById("tabBtnYt").classList.toggle("active", isYt);
-      document.getElementById("tabBtnArch").classList.toggle("active", !isYt);
-      document.getElementById("ytCountChip").style.display = isYt ? "inline" : "none";
-      if (!skipSync) syncUrlAndStorageState();
+      const backBtn = document.getElementById("backToPlayerBtn");
+      if (backBtn) backBtn.style.display = isYt ? "none" : "inline-flex";
+      const footerBtn = document.getElementById("footerArchToggleBtn");
+      if (footerBtn) {{
+        footerBtn.textContent = isYt
+          ? `🏛️ הצג גם ${{ARCHIVE_SONGS.length}} שירים נדירים מהארכיון שאינם ביוטיוב`
+          : `🎵 חזרה לנגן הפלייליסט הראשי (${{SONGS.length}} ביצועים)`;
+      }}
+      if (!skipSync) {{
+        syncUrlAndStorageState();
+        window.scrollTo({{ top: 0, behavior: "smooth" }});
+      }}
     }}
 
     function toggleAdvancedFilters() {{
@@ -1629,7 +1625,6 @@ def generate_files():
       document.getElementById("searchInput").value = "";
       document.getElementById("sortSelect").value = "canonical";
       document.getElementById("decadeFilter").value = "ALL";
-      document.getElementById("layerFilter").value = "ALL";
       document.getElementById("tierFilter").value = "ALL";
       document.getElementById("roleFilter").value = "ALL";
       renderTable();
@@ -1642,7 +1637,6 @@ def generate_files():
         if (s) url.searchParams.set("song", s.n);
         const q = document.getElementById("searchInput").value.trim();
         const sortBy = document.getElementById("sortSelect").value;
-        const lf = document.getElementById("layerFilter").value;
         const tf = document.getElementById("tierFilter").value;
         const rf = document.getElementById("roleFilter").value;
         const df = document.getElementById("decadeFilter").value;
@@ -1653,7 +1647,6 @@ def generate_files():
         }};
         setOrDel("q", q, "");
         setOrDel("sort", sortBy, "canonical");
-        setOrDel("layer", lf, "ALL");
         setOrDel("tier", tf, "ALL");
         setOrDel("role", rf, "ALL");
         setOrDel("decade", df, "ALL");
@@ -1665,7 +1658,6 @@ def generate_files():
           localStorage.setItem("naomi_playlist_state", JSON.stringify({{
             song: s ? s.n : 1,
             sort: sortBy,
-            layer: lf,
             tier: tf,
             role: rf,
             decade: df,
@@ -1794,77 +1786,15 @@ def generate_files():
       if (currentIndex - 1 >= 0) playSongAt(currentIndex - 1);
     }}
 
-    function exportFilteredCsv() {{
-      if (!filteredSongs.length) return;
-      const headers = ["index", "title", "year", "performer", "album", "role", "tier", "duration", "video_id", "youtube_url"];
-      const csvEsc = v => `"${{String(v ?? "").replace(/"/g, '""')}}"`;
-      const rows = [headers.join(",")];
-      filteredSongs.forEach(s => {{
-        rows.push([
-          s.n,
-          csvEsc(s.raw_title),
-          csvEsc(s.year),
-          csvEsc(s.perf || s.ch),
-          csvEsc(s.alb),
-          csvEsc(s.role_label),
-          csvEsc(s.tier_label),
-          csvEsc(s.dur),
-          csvEsc(s.vid),
-          csvEsc(`https://www.youtube.com/watch?v=${{s.vid}}`)
-        ].join(","));
-      }});
-      const blob = new Blob(["\\uFEFF" + rows.join("\\n")], {{ type: "text/csv;charset=utf-8;" }});
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `naomi_shemer_filtered_${{filteredSongs.length}}.csv`;
-      a.click();
-    }}
-
-    function exportFilteredM3u8() {{
-      if (!filteredSongs.length) return;
-      const lines = ["#EXTM3U", "#PLAYLIST:שירי נעמי שמר – תצוגה מסוננת"];
-      filteredSongs.forEach(s => {{
-        const parts = (s.dur || "").split(":").map(Number);
-        let secs = -1;
-        if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) secs = parts[0] * 60 + parts[1];
-        else if (parts.length === 3 && !isNaN(parts[0])) secs = parts[0] * 3600 + parts[1] * 60 + parts[2];
-        const artist = s.perf || s.ch || "נעמי שמר";
-        lines.push(`#EXTINF:${{secs}},${{artist}} - ${{s.raw_title}}`);
-        lines.push(`https://www.youtube.com/watch?v=${{s.vid}}`);
-      }});
-      const blob = new Blob([lines.join("\\n") + "\\n"], {{ type: "audio/x-mpegurl;charset=utf-8;" }});
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `naomi_shemer_filtered_${{filteredSongs.length}}.m3u8`;
-      a.click();
-    }}
-
-    function copyFilteredLinks() {{
-      if (!filteredSongs.length) return;
-      const text = filteredSongs.map(s => `https://www.youtube.com/watch?v=${{s.vid}}`).join("\\n");
-      const showOk = () => {{
-        const st = document.getElementById("exportStatus");
-        if (st) {{
-          st.style.display = "inline";
-          setTimeout(() => st.style.display = "none", 3000);
-        }}
-      }};
-      if (navigator.clipboard && navigator.clipboard.writeText) {{
-        navigator.clipboard.writeText(text).then(showOk);
-      }}
-    }}
-
     function renderTable(skipSync = false) {{
       const currentVid = filteredSongs[currentIndex] ? filteredSongs[currentIndex].vid : null;
       const q = document.getElementById("searchInput").value.trim().toLowerCase();
       const sortBy = document.getElementById("sortSelect").value;
-      const lf = document.getElementById("layerFilter").value;
       const tf = document.getElementById("tierFilter").value;
       const rf = document.getElementById("roleFilter").value;
       const df = document.getElementById("decadeFilter").value;
 
       filteredSongs = SONGS.filter(s => {{
-        if (lf !== "ALL" && String(s.layer) !== lf) return false;
         if (tf !== "ALL" && s.tier !== tf) return false;
         if (rf !== "ALL" && s.role_cat !== rf) return false;
         if (df !== "ALL" && s.decade !== df) return false;
@@ -1912,7 +1842,7 @@ def generate_files():
         ? `${{SONGS.length}} ביצועים`
         : `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים`;
 
-      const activeAdvCount = [lf !== "ALL", tf !== "ALL", rf !== "ALL"].filter(Boolean).length;
+      const activeAdvCount = [tf !== "ALL", rf !== "ALL"].filter(Boolean).length;
       const advBadge = document.getElementById("activeFiltersBadge");
       if (advBadge) {{
         if (activeAdvCount > 0) {{
@@ -1922,14 +1852,6 @@ def generate_files():
           advBadge.style.display = "none";
         }}
       }}
-
-      const shortTierMap = {{
-        "1_album_naomi": "אלבום נעמי שמר",
-        "2_album_original": "אלבום מקורי",
-        "3_naomi_performance": "ביצוע נעמי שמר",
-        "4_original_performance": "ביצוע מקורי",
-        "5_cover": "ביצוע נוסף"
-      }};
 
       const tbody = document.getElementById("songsBody");
       tbody.innerHTML = filteredSongs.map((s, i) => {{
@@ -1947,17 +1869,13 @@ def generate_files():
               ${{s.ver_total > 1 ? `<span class="ver-badge" title="שיר זה מופיע ב-${{s.ver_total}} ביצועים">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>` : ""}}
               ${{roleSub}}
             </div>
-            ${{s.opening_line ? `<div class="opening-line">"${{esc(s.opening_line)}}"</div>` : ""}}
           </td>
           <td>
             <div class="perf-primary">${{esc(s.perf || s.ch)}}</div>
             ${{s.alb ? `<div class="perf-album">${{esc(s.alb)}}</div>` : ""}}
           </td>
-          <td>
-            <div class="meta-col">
-              <span class="badge t-${{esc(s.tier)}}">${{esc(shortTierMap[s.tier] || s.tier_label)}}</span>
-              <span class="dur-text">${{esc(s.dur)}}</span>
-            </div>
+          <td style="text-align:left;">
+            <span class="dur-text">${{esc(s.dur)}}</span>
           </td>
         </tr>`;
       }}).join("");
@@ -2049,7 +1967,6 @@ def generate_files():
       const params = new URLSearchParams(window.location.search);
       const qParam = params.get("q");
       const sortParam = params.get("sort") || saved.sort;
-      const layerParam = params.get("layer") || saved.layer;
       const tierParam = params.get("tier") || saved.tier;
       const roleParam = params.get("role") || saved.role;
       const decadeParam = params.get("decade") || saved.decade;
@@ -2058,7 +1975,6 @@ def generate_files():
 
       if (qParam !== null) document.getElementById("searchInput").value = qParam;
       if (sortParam) document.getElementById("sortSelect").value = sortParam;
-      if (layerParam) document.getElementById("layerFilter").value = layerParam;
       if (tierParam) document.getElementById("tierFilter").value = tierParam;
       if (roleParam) document.getElementById("roleFilter").value = roleParam;
       if (decadeParam) document.getElementById("decadeFilter").value = decadeParam;
