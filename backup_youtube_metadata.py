@@ -162,8 +162,9 @@ def main():
         try:
             old = json.loads(METADATA_BACKUP_PATH.read_text(encoding="utf-8"))
             for k, v in old.get("videos", {}).items():
-                if v.get("playability_status") == "OK" and v.get("title"):
-                    existing_archive[k] = v
+                ym = v.get("youtube_metadata") if isinstance(v, dict) and "youtube_metadata" in v else v
+                if isinstance(ym, dict) and ym.get("playability_status") == "OK" and ym.get("title"):
+                    existing_archive[k] = ym
         except Exception:
             pass
 
