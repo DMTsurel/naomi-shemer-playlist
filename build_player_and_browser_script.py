@@ -1888,12 +1888,16 @@ def generate_files():
         if (sortBy === "title_asc") return a.raw_title.localeCompare(b.raw_title, "he") || (a.n - b.n);
         if (sortBy === "perf_asc") return (a.perf || a.ch).localeCompare(b.perf || b.ch, "he") || (a.n - b.n);
         if (sortBy === "albums") {{
-          const aIsAlbum = a.alb_group && !a.alb_group.startsWith("סינגל");
-          const bIsAlbum = b.alb_group && !b.alb_group.startsWith("סינגל");
+          const aIsAlbum = a.alb_group && !a.alb_group.startsWith("סינגל") && !a.alb_group.startsWith("ביצוע ");
+          const bIsAlbum = b.alb_group && !b.alb_group.startsWith("סינגל") && !b.alb_group.startsWith("ביצוע ");
           if (aIsAlbum !== bIsAlbum) return aIsAlbum ? -1 : 1;
           const aNaomi = a.tier === "1_album_naomi" ? 0 : 1;
           const bNaomi = b.tier === "1_album_naomi" ? 0 : 1;
           if (aNaomi !== bNaomi) return aNaomi - bNaomi;
+          const grpCmp = (a.alb_group || "").localeCompare(b.alb_group || "", "he");
+          if (grpCmp !== 0) return grpCmp;
+          const trkCmp = (a.alb_trk || 999) - (b.alb_trk || 999);
+          if (trkCmp !== 0) return trkCmp;
           return (a.chrono_n || a.n) - (b.chrono_n || b.n);
         }}
         return a.n - b.n;
