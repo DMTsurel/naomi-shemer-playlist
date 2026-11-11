@@ -504,6 +504,22 @@ def generate_files():
         trk = item.get("album_track_number", "")
         alb_str = f"{ag} (#{trk})" if (ag and trk) else (ag or sel.get("matched_album", ""))
 
+        alts_list = []
+        seen_alt_vids = {sel["video_id"]}
+        for a in item.get("alternative_videos", []):
+            avid = a.get("video_id", "")
+            if avid and avid not in seen_alt_vids:
+                seen_alt_vids.add(avid)
+                alts_list.append({
+                    "vid": avid,
+                    "vtitle": a.get("video_title", ""),
+                    "ch": a.get("channel", ""),
+                    "dur": a.get("duration", ""),
+                    "src": a.get("source", "direct_alternative"),
+                })
+                if len(alts_list) >= 6:
+                    break
+
         songs_js.append({
             "n": item["index"],
             "chrono_n": item.get("chrono_index", item["index"]),
@@ -530,6 +546,7 @@ def generate_files():
             "opening_line": item.get("opening_line", ""),
             "notes": norm_notes(item.get("notes", [])),
             "links": item.get("archive_links", []),
+            "alts": alts_list,
         })
 
     archive_songs_js = []
@@ -843,7 +860,14 @@ def generate_files():
           <div id="nowPlayingMeta" style="color:var(--muted); font-size:13px; margin-bottom:8px;"></div>
           <div id="nowPlayingRole" style="margin-bottom:8px;"></div>
           <div id="nowPlayingQuote" class="quote-box" style="display:none;"></div>
+          <div id="failoverBanner" style="display:none; background:rgba(245,158,11,0.18); border:1px solid var(--gold); color:#fcd34d; padding:7px 10px; border-radius:8px; font-size:12.5px; margin-bottom:8px;"></div>
           <iframe id="ytFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <div id="backupSourcesBox" style="display:none; margin-top:8px; padding:8px 10px; background:rgba(15,23,42,0.65); border:1px solid var(--border); border-radius:8px; font-size:12.5px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+              <span style="color:var(--muted); font-weight:600;">🛡️ מקור גיבוי / ביצוע חלופי:</span>
+              <select id="backupSelect" onchange="switchVideoSource(this.value)" style="flex:1; min-width:180px; padding:5px 8px; font-size:12px;"></select>
+            </div>
+          </div>
           <div id="nowPlayingLinks" class="archive-pills" style="margin-top:10px;"></div>
           <div style="display:flex; justify-content:space-between; margin-top:14px; gap:8px; flex-wrap:wrap;">
             <button class="btn btn-outline" onclick="playPrev()">⏮ השיר הקודם</button>
@@ -970,6 +994,90 @@ def generate_files():
 
     let filteredSongs = [...SONGS];
     let currentIndex = 0;
+    let currentAltIdx = -1; // -1 = primary video, 0..N = index in s.alts
+    let ytPlayer = null;
+    let ytApiReady = false;
+
+    function loadYouTubeIframeAPI() {{
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(tag);
+    }}
+
+    window.onYouTubeIframeAPIReady = function() {{
+      try {{
+        ytPlayer = new YT.Player("ytFrame", {{
+          events: {{
+            onReady: function() {{ ytApiReady = true; }},
+            onStateChange: function(ev) {{
+              if (ev.data === 0) {{ // YT.PlayerState.ENDED
+                playNext();
+              }}
+            }},
+            onError: function(ev) {{
+              handleVideoPlaybackError(ev.data);
+            }}
+          }}
+        }});
+      }} catch (e) {{}}
+    }};
+
+    function handleVideoPlaybackError(errCode) {{
+      const s = filteredSongs[currentIndex];
+      if (!s) return;
+      const alts = s.alts || [];
+      const nextAltIdx = currentAltIdx + 1;
+      const banner = document.getElementById("failoverBanner");
+      if (nextAltIdx < alts.length) {{
+        currentAltIdx = nextAltIdx;
+        const alt = alts[currentAltIdx];
+        if (banner) {{
+          banner.style.display = "block";
+          banner.innerHTML = `⚠️ הסרטון הראשי אינו זמין כעת (קוד ${{errCode}}). הנגן עבר אוטומטית למקור גיבוי #${{currentAltIdx + 1}}: <strong>${{esc(alt.vtitle || alt.vid)}}</strong>`;
+        }}
+        const sel = document.getElementById("backupSelect");
+        if (sel) sel.value = alt.vid;
+        loadVideoByIdOrSrc(alt.vid, true);
+        document.getElementById("openOnYt").href = `https://www.youtube.com/watch?v=${{alt.vid}}`;
+      }} else {{
+        if (banner) {{
+          banner.style.display = "block";
+          banner.innerHTML = `⚠️ הסרטון אינו זמין (קוד ${{errCode}}) ולא נמצאו מקורות גיבוי נוספים. עובר לשיר הבא...`;
+        }}
+        setTimeout(() => playNext(), 1800);
+      }}
+    }}
+
+    function loadVideoByIdOrSrc(vid, autoplay) {{
+      const frame = document.getElementById("ytFrame");
+      const originParam = window.location.origin && window.location.origin !== "null" ? `&origin=${{encodeURIComponent(window.location.origin)}}` : "";
+      if (ytApiReady && ytPlayer && typeof ytPlayer.loadVideoById === "function") {{
+        if (autoplay) ytPlayer.loadVideoById(vid);
+        else ytPlayer.cueVideoById(vid);
+      }} else {{
+        frame.src = `https://www.youtube.com/embed/${{vid}}?enablejsapi=1&rel=0${{autoplay ? "&autoplay=1" : ""}}${{originParam}}`;
+      }}
+    }}
+
+    function switchVideoSource(vid) {{
+      const s = filteredSongs[currentIndex];
+      if (!s) return;
+      const banner = document.getElementById("failoverBanner");
+      if (vid === s.vid) {{
+        currentAltIdx = -1;
+        if (banner) banner.style.display = "none";
+      }} else {{
+        const alts = s.alts || [];
+        currentAltIdx = alts.findIndex(a => a.vid === vid);
+        const alt = alts[currentAltIdx];
+        if (banner && alt) {{
+          banner.style.display = "block";
+          banner.innerHTML = `🛡️ מנגן מקור גיבוי #${{currentAltIdx + 1}}: <strong>${{esc(alt.vtitle || alt.vid)}}</strong> (${{esc(alt.ch || "")}})`;
+        }}
+      }}
+      loadVideoByIdOrSrc(vid, true);
+      document.getElementById("openOnYt").href = `https://www.youtube.com/watch?v=${{vid}}`;
+    }}
 
     function switchTab(tab) {{
       const isYt = tab === "yt";
@@ -1023,14 +1131,34 @@ def generate_files():
       }}
       document.getElementById("nowPlayingLinks").innerHTML = renderArchivePills(s.links, false);
       document.getElementById("openOnYt").href = `https://www.youtube.com/watch?v=${{s.vid}}`;
+      const banner = document.getElementById("failoverBanner");
+      if (banner) banner.style.display = "none";
+      const bBox = document.getElementById("backupSourcesBox");
+      const bSel = document.getElementById("backupSelect");
+      const alts = s.alts || [];
+      if (bBox && bSel) {{
+        if (alts.length > 0) {{
+          bBox.style.display = "block";
+          const opts = [`<option value="${{s.vid}}">⭐ מקור ראשי: ${{esc(s.vtitle)}} (${{esc(s.ch)}})</option>`];
+          alts.forEach((a, i) => {{
+            const tag = a.src === "same_song_performance" ? "ביצוע נוסף" : "עותק גיבוי";
+            opts.push(`<option value="${{a.vid}}">🔄 גיבוי #${{i + 1}} (${{tag}}): ${{esc(a.vtitle || a.vid)}} (${{esc(a.ch || "")}})</option>`);
+          }});
+          bSel.innerHTML = opts.join("");
+          bSel.value = s.vid;
+        }} else {{
+          bBox.style.display = "none";
+        }}
+      }}
     }}
 
     function playSongAt(idx) {{
       if (idx < 0 || idx >= filteredSongs.length) return;
       currentIndex = idx;
+      currentAltIdx = -1;
       const s = filteredSongs[idx];
       updateNowPlayingCard(s);
-      document.getElementById("ytFrame").src = `https://www.youtube.com/embed/${{s.vid}}?autoplay=1`;
+      loadVideoByIdOrSrc(s.vid, true);
       document.querySelectorAll("tr.song-row").forEach((tr, i) => {{
         tr.classList.toggle("active", i === idx);
       }});
@@ -1192,9 +1320,12 @@ def generate_files():
         }}
       }} catch (e) {{}}
       currentIndex = initIdx;
+      currentAltIdx = -1;
       const s = SONGS[initIdx];
       updateNowPlayingCard(s);
-      document.getElementById("ytFrame").src = `https://www.youtube.com/embed/${{s.vid}}`;
+      const originParam = window.location.origin && window.location.origin !== "null" ? `&origin=${{encodeURIComponent(window.location.origin)}}` : "";
+      document.getElementById("ytFrame").src = `https://www.youtube.com/embed/${{s.vid}}?enablejsapi=1&rel=0${{originParam}}`;
+      loadYouTubeIframeAPI();
       document.querySelectorAll("tr.song-row").forEach((tr, i) => {{
         tr.classList.toggle("active", i === initIdx);
       }});
