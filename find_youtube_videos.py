@@ -896,6 +896,31 @@ def classify_and_score_candidate(
     vid_desc = cand.get("description", "")
     dur_str = cand.get("duration", "")
 
+    BAD_VIDEO_IDS = {
+        "0-81T23NXr8",  # קטע קצר וקטוע (46 שניות) של "שנה טובה"
+        "OvN5nJ9bn2Y",  # שיר הילדים "שנה טובה" של לוין קיפניס ונחום נרדי
+        "60221_oJK1U",  # "כמו חצב - יהורם גאון" מזוהה בטעות כביצוע של נעמי שמר
+        "qS_vPd2O1no",  # נעמי לוי - אחרי השקיעה בשדה (איכות ירודה, הוחלף ב-wO3U1xG7Um0)
+        "T5o_o8lO-1M",  # הדואר בא - קטע קטוע של 29 שניות
+        "Brq81oCuNKc",  # בגינה - קטע קצרצר של 52 שניות
+        "-7qKw4AIGP4",  # אשכולית - קטע קצרצר של 61 שניות
+        "dkW3-FfpOEY",  # אשכולית - קטע קצרצר של 58 שניות
+        "88v6EjrMWqc",  # בגינה - קטע קצרצר של 37 שניות
+        "Bz_jX9OyuX8",  # בגינה - קטע קצרצר של 49 שניות
+        "Bac-K0Wjp2A",  # הסוחר מוונציה - קטע קטוע של 37 שניות
+        "3KL06zK4_gM",  # שיר ערש לצבעים - קטע מקוצר של 59 שניות
+        "FQson2Wm0iw",  # שיר ערש לצבעים - קטע מקוצר של 59 שניות
+        "IIPwpVXfwWk",  # שיר ערש לצבעים - קטע מקוצר של 1:02
+        "oLvAFNYoWm0",  # שיר ערש לצבעים - קטע מקוצר של 1:03
+        "uknSL-k0Mk4",  # קלי קלות - מערכון באורך 7:56 במקום השיר (1:22)
+        "pTt_42SgJ0U",  # קלי קלות - מערכון באורך 7:56
+        "REpB-rlPJ2k",  # קלי קלות - מערכון באורך 7:56
+        "rQkXmnBSc70",  # סיירת עולם - מערכון שלם באורך 10:22 במקום השיר (3:46)
+        "lVWcND5JGXw",  # סיירת עולם - מערכון באורך 11:06
+    }
+    if cand.get("video_id") in BAD_VIDEO_IDS:
+        return None
+
     # אם מדובר ברצועה שהגיעה ישירות מפלייליסט אלבום רשמי (OLAK5uy_...)
     if cand.get("forced_tier"):
         tier = cand["forced_tier"]
@@ -955,17 +980,15 @@ def classify_and_score_candidate(
     )
     dur_sec = parse_duration_seconds(dur_str)
     if dur_sec is not None:
-        min_dur = 25 if (is_topic_or_provided or "כאן | מוזיקה" in vid_channel) else 35
-        if dur_sec < min_dur or dur_sec > 780:
+        if dur_sec < 40 or dur_sec > 450:
             return None
 
-    if cand.get("video_id") in ("0-81T23NXr8", "OvN5nJ9bn2Y", "60221_oJK1U"):
-        # 0-81T23NXr8: קטע קצר וקטוע (46 שניות) של "שנה טובה"
-        # OvN5nJ9bn2Y: שיר הילדים "שנה טובה" של לוין קיפניס ונחום נרדי ששויך בטעות בהפצה דיגיטלית לנעמי שמר
-        # 60221_oJK1U: "כמו חצב - יהורם גאון" מזוהה בטעות כביצוע של נעמי שמר בגלל "בתכנית עם נעמי שמר" בתיאור
-        return None
-
     penalty = 0
+    if dur_sec is not None:
+        if dur_sec < 70:
+            penalty -= 350
+        elif dur_sec > 330 and "מחרוזת" not in song["title"]:
+            penalty -= 250
     if "מחרוזת" in vid_title and "מחרוזת" not in song["title"]:
         penalty -= 700
     if "גרסה מחודשת" in f"{vid_title} {vid_desc}":
@@ -1243,6 +1266,19 @@ def main() -> None:
             print(f"נטענו {len(search_cache)} שאילתות חיפוש קיימות מהמטמון.")
         except Exception:
             search_cache = {}
+
+    # השלמת אורכי סרטונים (duration) לרצועות אלבומי Topic מתוך מטמון החיפושים
+    vid_to_dur: Dict[str, str] = {}
+    for cached_items in search_cache.values():
+        for cit in cached_items:
+            cvid = cit.get("video_id", "")
+            cdur = cit.get("duration", "")
+            if cvid and cdur:
+                vid_to_dur[cvid] = cdur
+    for tlist in topic_tracks_map.values():
+        for tr in tlist:
+            if not tr.get("duration") and tr.get("video_id") in vid_to_dur:
+                tr["duration"] = vid_to_dur[tr["video_id"]]
 
     # בניית קבוצת כל שמות השירים המרובי-מילים לצורך מניעת התאמות שגויות בשירים בני מילה אחת
     all_multiword_titles: Set[str] = set()

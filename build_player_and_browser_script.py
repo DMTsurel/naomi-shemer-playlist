@@ -156,6 +156,305 @@ def generate_files():
     with open(js_path, "w", encoding="utf-8") as f:
         f.write(js_script)
 
+    # 1b. יצירת update_existing_playlist_in_browser.js (עדכון הפלייליסט הקיים PLFHErlX6i22g + וידוא מלא מול שרתי יוטיוב)
+    vid_to_title = {item["selected_video"]["video_id"]: f"{item['title']} ({item.get('year','')})" for item in matched_entries}
+    update_js_script = f"""// ============================================================================
+// עדכון הפלייליסט הקיים ביוטיוב (PLFHErlX6i22g) + וידוא אוטומטי של הסדר הסופי!
+// הוראות הפעלה:
+// 1. פתח את https://www.youtube.com/playlist?list=PLFHErlX6i22g בדפדפן (מחובר לחשבון שלך).
+// 2. לחץ Cmd+Option+J (במק) או F12 כדי לפתוח את ה-Console.
+// 3. הדבק את כל הקוד הזה ב-Console ולחץ Enter.
+// הסקריפט יעדכן את הפלייליסט הקיים (PLFHErlX6i22g), ובסיום יקרא מחדש את כל הרצועות
+// משרתי יוטיוב כדי לוודא ב-100% שהסידור הסופי תואם לרשימת היעד (ויתקן אוטומטית כל סטייה).
+// ============================================================================
+(async function updateExistingNaomiShemerPlaylist() {{
+  const PLAYLIST_ID = "PLFHErlX6i22g";
+  const TARGET_VIDEO_IDS = {json.dumps(video_ids, ensure_ascii=False)};
+  const VIDEO_TITLES = {json.dumps(vid_to_title, ensure_ascii=False)};
+
+  if (!window.ytcfg || typeof window.ytcfg.get !== "function") {{
+    alert("שגיאה: יש להריץ את הסקריפט מתוך לשונית פתוחה של https://www.youtube.com");
+    return;
+  }}
+
+  function getCookie(name) {{
+    const m = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([.$?*|{{}}()\\[\\]\\\\/+^])/g, "\\\\$1") + "=([^;]*)"));
+    return m ? decodeURIComponent(m[1]) : null;
+  }}
+
+  const sapisid = getCookie("SAPISID") || getCookie("__Secure-3PAPISID");
+  if (!sapisid) {{
+    alert("שגיאה: לא נמצא חיבור לחשבון יוטיוב. אנא התחבר לחשבון היוטיוב שלך ונסה שוב.");
+    return;
+  }}
+
+  async function makeSapisidHash(origin) {{
+    const ts = Math.floor(Date.now() / 1000);
+    const input = ts + " " + sapisid + " " + origin;
+    const buf = await crypto.subtle.digest("SHA-1", new TextEncoder().encode(input));
+    const hex = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+    return "SAPISIDHASH " + ts + "_" + hex;
+  }}
+
+  async function ytPost(endpoint, bodyObj) {{
+    const origin = window.location.origin;
+    const auth = await makeSapisidHash(origin);
+    const headers = {{
+      "Content-Type": "application/json",
+      "Authorization": auth,
+      "X-Origin": origin,
+      "X-Goog-AuthUser": String(window.ytcfg.get("SESSION_INDEX") ?? "0"),
+    }};
+    const visitor = window.ytcfg.get("VISITOR_DATA");
+    if (visitor) headers["X-Goog-Visitor-Id"] = visitor;
+
+    const resp = await fetch(origin + endpoint + "?prettyPrint=false", {{
+      method: "POST",
+      credentials: "same-origin",
+      headers,
+      body: JSON.stringify({{
+        context: window.ytcfg.get("INNERTUBE_CONTEXT"),
+        ...bodyObj
+      }})
+    }});
+    if (!resp.ok) {{
+      const txt = await resp.text();
+      throw new Error("HTTP " + resp.status + ": " + txt.slice(0, 300));
+    }}
+    return resp.json();
+  }}
+
+  // שליפת כל הסרטונים הקיימים כרגע בפלייליסט (כולל setVideoId לצורך עריכה/מחיקה/הזזה מדויקת)
+  function extractVideosAndContinuation(obj, itemsOut, tokensOut) {{
+    if (!obj || typeof obj !== "object") return;
+    if (Array.isArray(obj)) {{
+      for (const el of obj) extractVideosAndContinuation(el, itemsOut, tokensOut);
+      return;
+    }}
+    if (obj.playlistVideoRenderer) {{
+      const r = obj.playlistVideoRenderer;
+      if (r.videoId) {{
+        itemsOut.push({{
+          videoId: r.videoId,
+          setVideoId: r.setVideoId || null
+        }});
+      }}
+      return;
+    }}
+    if (obj.continuationItemRenderer) {{
+      const tok = obj.continuationItemRenderer?.continuationEndpoint?.continuationCommand?.token;
+      if (tok) tokensOut.push(tok);
+      return;
+    }}
+    for (const k of Object.keys(obj)) {{
+      extractVideosAndContinuation(obj[k], itemsOut, tokensOut);
+    }}
+  }}
+
+  async function fetchCurrentPlaylistItems() {{
+    const items = [];
+    const tokens = [];
+    const firstPage = await ytPost("/youtubei/v1/browse", {{ browseId: "VL" + PLAYLIST_ID }});
+    extractVideosAndContinuation(firstPage, items, tokens);
+    while (tokens.length > 0) {{
+      const tok = tokens.shift();
+      const nextPage = await ytPost("/youtubei/v1/browse", {{ continuation: tok }});
+      extractVideosAndContinuation(nextPage, items, tokens);
+    }}
+    return items;
+  }}
+
+  console.log("🔍 קורא את מצב הפלייליסט הקיים ביוטיוב (" + PLAYLIST_ID + ")...");
+  let currentItems = await fetchCurrentPlaylistItems();
+  console.log(`📋 נמצאו כרגע בפלייליסט ${{currentItems.length}} סרטונים (יעד רצוי: ${{TARGET_VIDEO_IDS.length}} סרטונים).`);
+
+  const curIds = currentItems.map(x => x.videoId);
+  if (curIds.length === TARGET_VIDEO_IDS.length && curIds.every((v, i) => v === TARGET_VIDEO_IDS[i])) {{
+    console.log("✅ [וידוא הושלם] הפלייליסט כבר מסודר ומעודכן ב-100% לפי הסדר המבוקש!");
+    return;
+  }}
+
+  // בדיקה אם מדובר בשינוי נקודתי (עד 25 החלפות באותו אורך/סדר) או בסידור מחדש מלא
+  let diffPositions = [];
+  if (curIds.length === TARGET_VIDEO_IDS.length) {{
+    for (let i = 0; i < curIds.length; i++) {{
+      if (curIds[i] !== TARGET_VIDEO_IDS[i]) diffPositions.push(i);
+    }}
+  }}
+
+  const BATCH_SIZE = 50;
+
+  if (curIds.length === TARGET_VIDEO_IDS.length && diffPositions.length > 0 && diffPositions.length <= 25) {{
+    console.log(`⚡ זוהו ${{diffPositions.length}} החלפות נקודתיות בלבד! מעדכן במקום תוך שמירה על המיקומים...`);
+    for (const idx of diffPositions) {{
+      const oldItem = currentItems[idx];
+      const newVid = TARGET_VIDEO_IDS[idx];
+      console.log(`🔄 מחליף רצועה #${{idx + 1}} (${{VIDEO_TITLES[newVid] || newVid}}): ${{oldItem.videoId}} -> ${{newVid}}`);
+      const addRes = await ytPost("/youtubei/v1/browse/edit_playlist", {{
+        playlistId: PLAYLIST_ID,
+        actions: [{{ action: "ACTION_ADD_VIDEO", addedVideoId: newVid }}]
+      }});
+      const newSetVideoId = addRes?.playlistEditResults?.[0]?.playlistEditVideoAddedResultData?.setVideoId;
+      if (newSetVideoId && oldItem.setVideoId) {{
+        await ytPost("/youtubei/v1/browse/edit_playlist", {{
+          playlistId: PLAYLIST_ID,
+          actions: [{{
+            action: "ACTION_MOVE_VIDEO_BEFORE",
+            setVideoId: newSetVideoId,
+            movedSetVideoIdSuccessor: oldItem.setVideoId
+          }}]
+        }});
+      }}
+      await ytPost("/youtubei/v1/browse/edit_playlist", {{
+        playlistId: PLAYLIST_ID,
+        actions: [oldItem.setVideoId
+          ? {{ action: "ACTION_REMOVE_VIDEO", setVideoId: oldItem.setVideoId }}
+          : {{ action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: oldItem.videoId }}
+        ]
+      }});
+    }}
+  }} else {{
+    console.log("🔄 מבצע עדכון סדר מלא בתוך הפלייליסט הקיים (" + PLAYLIST_ID + ")...");
+    // שלב א': ניקוי הרשימה הישנה (עם וידוא שהרשימה התרוקנה לגמרי לפני הוספה)
+    let pass = 1;
+    while (currentItems.length > 0 && pass <= 3) {{
+      for (let i = 0; i < currentItems.length; i += BATCH_SIZE) {{
+        const batch = currentItems.slice(i, i + BATCH_SIZE);
+        console.log(`🗑️ מנקה סדר ישן (סבב ${{pass}}: ${{i + 1}} עד ${{Math.min(i + BATCH_SIZE, currentItems.length)}} מתוך ${{currentItems.length}})...`);
+        await ytPost("/youtubei/v1/browse/edit_playlist", {{
+          playlistId: PLAYLIST_ID,
+          actions: batch.map(item => item.setVideoId
+            ? {{ action: "ACTION_REMOVE_VIDEO", setVideoId: item.setVideoId }}
+            : {{ action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: item.videoId }}
+          )
+        }});
+        await new Promise(r => setTimeout(r, 450));
+      }}
+      await new Promise(r => setTimeout(r, 1000));
+      currentItems = await fetchCurrentPlaylistItems();
+      pass++;
+    }}
+
+    // שלב ב': הוספת כל הסרטונים לפי הסדר החדש
+    for (let i = 0; i < TARGET_VIDEO_IDS.length; i += BATCH_SIZE) {{
+      const batch = TARGET_VIDEO_IDS.slice(i, i + BATCH_SIZE);
+      console.log(`⏳ מוסיף בסדר החדש ${{i + 1}} עד ${{Math.min(i + BATCH_SIZE, TARGET_VIDEO_IDS.length)}} מתוך ${{TARGET_VIDEO_IDS.length}}...`);
+      await ytPost("/youtubei/v1/browse/edit_playlist", {{
+        playlistId: PLAYLIST_ID,
+        actions: batch.map(vid => ({{
+          action: "ACTION_ADD_VIDEO",
+          addedVideoId: vid
+        }}))
+      }});
+      await new Promise(r => setTimeout(r, 550));
+    }}
+  }}
+
+  // ============================================================================
+  // שלב ג': וידוא סופי של הסידור בשרתי יוטיוב ותיקון אוטומטי של כל אי-התאמה
+  // ============================================================================
+  console.log("🔎 מבצע וידוא סופי של סדר השירים מול שרתי יוטיוב...");
+  await new Promise(r => setTimeout(r, 1500));
+  let finalItems = await fetchCurrentPlaylistItems();
+  let finalIds = finalItems.map(x => x.videoId);
+
+  // 1. בדיקת התאמה מלאה של הרשימה והסדר
+  if (finalIds.length === TARGET_VIDEO_IDS.length && finalIds.every((v, i) => v === TARGET_VIDEO_IDS[i])) {{
+    console.log(`✅ [וידוא הושלם בהצלחה - 100% התאמה!] כל ${{finalIds.length}} השירים נמצאים בפלייליסט ${{PLAYLIST_ID}} בדיוק בסדר המבוקש!`);
+    console.log("🔄 מרענן את העמוד בעוד 2 שניות כדי להציג את הרשימה המעודכנת...");
+    setTimeout(() => location.reload(), 2000);
+    return;
+  }}
+
+  console.warn(`⚠️ נמצא פער בבדיקה הראשונית: בפלייליסט יש ${{finalIds.length}} שירים לעומת ${{TARGET_VIDEO_IDS.length}} ברשימת היעד. מנתח ומתקן...`);
+
+  // 2. איתור סרטונים שיוטיוב לא הצליח להוסיף (למשל סרטון שהפך לפרטי/נמחק)
+  const finalSet = new Set(finalIds);
+  const targetSet = new Set(TARGET_VIDEO_IDS);
+  const missingFromYt = [];
+  TARGET_VIDEO_IDS.forEach((vid, idx) => {{
+    if (!finalSet.has(vid)) {{
+      missingFromYt.push({{ index: idx + 1, videoId: vid, title: VIDEO_TITLES[vid] || vid }});
+    }}
+  }});
+
+  if (missingFromYt.length > 0) {{
+    console.log(`🔧 מנסה להוסיף שוב ${{missingFromYt.length}} סרטונים שחסרים בפלייליסט...`);
+    for (const m of missingFromYt) {{
+      try {{
+        await ytPost("/youtubei/v1/browse/edit_playlist", {{
+          playlistId: PLAYLIST_ID,
+          actions: [{{ action: "ACTION_ADD_VIDEO", addedVideoId: m.videoId }}]
+        }});
+        console.log(`  ➕ נוסף בהצלחה: #${{m.index}} ${{m.title}} (${{m.videoId}})`);
+      }} catch (err) {{
+        console.error(`  ❌ יוטיוב דחה את הסרטון #${{m.index}} ${{m.title}} (${{m.videoId}}):`, err.message);
+      }}
+    }}
+  }}
+
+  // 3. הסרת סרטונים עודפים או כפולים שאינם ברשימת היעד
+  const seenCounts = {{}};
+  const targetCounts = {{}};
+  TARGET_VIDEO_IDS.forEach(v => {{ targetCounts[v] = (targetCounts[v] || 0) + 1; }});
+  const toRemoveExtra = [];
+  for (const item of finalItems) {{
+    seenCounts[item.videoId] = (seenCounts[item.videoId] || 0) + 1;
+    if (!targetSet.has(item.videoId) || seenCounts[item.videoId] > (targetCounts[item.videoId] || 0)) {{
+      toRemoveExtra.push(item);
+    }}
+  }}
+  if (toRemoveExtra.length > 0) {{
+    console.log(`🧹 מסיר ${{toRemoveExtra.length}} סרטונים עודפים/כפולים...`);
+    await ytPost("/youtubei/v1/browse/edit_playlist", {{
+      playlistId: PLAYLIST_ID,
+      actions: toRemoveExtra.map(item => item.setVideoId
+        ? {{ action: "ACTION_REMOVE_VIDEO", setVideoId: item.setVideoId }}
+        : {{ action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: item.videoId }}
+      )
+    }});
+  }}
+
+  // 4. בדיקה חוזרת של הסדר היחסי ותיקון מיקומים במידת הצורך
+  await new Promise(r => setTimeout(r, 1200));
+  finalItems = await fetchCurrentPlaylistItems();
+  finalIds = finalItems.map(x => x.videoId);
+  const availableTargets = TARGET_VIDEO_IDS.filter(v => finalIds.includes(v));
+
+  let orderMismatches = [];
+  for (let i = 0; i < Math.min(finalIds.length, availableTargets.length); i++) {{
+    if (finalIds[i] !== availableTargets[i]) {{
+      orderMismatches.push({{
+        position: i + 1,
+        expected: availableTargets[i],
+        expectedTitle: VIDEO_TITLES[availableTargets[i]] || availableTargets[i],
+        actual: finalIds[i],
+        actualTitle: VIDEO_TITLES[finalIds[i]] || finalIds[i]
+      }});
+    }}
+  }}
+
+  if (orderMismatches.length === 0 && finalIds.length === TARGET_VIDEO_IDS.length) {{
+    console.log(`✅ [וידוא הושלם בהצלחה לאחר תיקון!] כל ${{finalIds.length}} השירים נמצאים בפלייליסט בדיוק בסדר המבוקש!`);
+    setTimeout(() => location.reload(), 2000);
+  }} else if (orderMismatches.length === 0) {{
+    console.log(`✅ [וידוא סדר הושלם] הסדר של כל ${{finalIds.length}} הסרטונים הזמינים תואם ב-100% לסדר המבוקש!`);
+    const stillMissing = TARGET_VIDEO_IDS.filter(v => !finalIds.includes(v)).map(v => ({{ videoId: v, title: VIDEO_TITLES[v] || v }}));
+    if (stillMissing.length > 0) {{
+      console.warn("⚠️ סרטונים שיוטיוב לא איפשר להוסיף (כנראה הוסרו/נחסמו ביוטיוב):", stillMissing);
+      console.table(stillMissing);
+    }}
+    setTimeout(() => location.reload(), 3000);
+  }} else {{
+    console.warn(`⚠️ נמצאו ${{orderMismatches.length}} אי-התאמות מיקום (מתוך ${{finalIds.length}} שירים):`);
+    console.table(orderMismatches.slice(0, 20));
+  }}
+}})();
+"""
+    update_js_path = os.path.join(BASE_DIR, "update_existing_playlist_in_browser.js")
+    with open(update_js_path, "w", encoding="utf-8") as f:
+        f.write(update_js_script)
+
     # 2. בניית נתוני SONGS ו-ARCHIVE_SONGS עבור ה-HTML
     def norm_notes(val) -> list:
         if not val:
@@ -170,6 +469,7 @@ def generate_files():
     tier_counts = {}
     role_counts = {}
     decade_counts = {}
+    layer_counts = {1: 0, 2: 0, 3: 0}
 
     for item in matched_entries:
         sel = item["selected_video"]
@@ -180,6 +480,9 @@ def generate_files():
             role_suffix = " [ביצוע מקורי]"
         elif dual_role == "naomi_performance":
             role_suffix = " [ביצוע נעמי שמר]"
+        elif dual_role == "additional_performance":
+            perf_lbl = sel.get("matched_performer", "").strip()
+            role_suffix = f" [ביצוע: {perf_lbl}]" if perf_lbl else " [ביצוע נוסף]"
         else:
             role_suffix = ""
 
@@ -193,12 +496,21 @@ def generate_files():
         dec = get_decade(yr_display)
         decade_counts[dec] = decade_counts.get(dec, 0) + 1
 
+        lyr = int(item.get("canonical_layer", 2))
+        layer_counts[lyr] = layer_counts.get(lyr, 0) + 1
+        lyr_label = item.get("canonical_layer_label", "")
+
         ag = item.get("album_group", "")
         trk = item.get("album_track_number", "")
         alb_str = f"{ag} (#{trk})" if (ag and trk) else (ag or sel.get("matched_album", ""))
 
         songs_js.append({
             "n": item["index"],
+            "chrono_n": item.get("chrono_index", item["index"]),
+            "canon_score": item.get("canonical_score", 0),
+            "acum_v": item.get("acum_versions_count", 0),
+            "layer": lyr,
+            "layer_label": lyr_label,
             "title": display_title,
             "raw_title": item["title"],
             "year": yr_display,
@@ -211,6 +523,8 @@ def generate_files():
             "tier_label": item["tier_label"],
             "perf": sel.get("matched_performer") or (", ".join(item.get("catalog_performers", [])[:2])),
             "alb": alb_str,
+            "alb_group": ag,
+            "alb_trk": int(trk) if str(trk).isdigit() else 999,
             "role_cat": rcat,
             "role_label": item.get("role_label_heb", "מילים ולחן: נעמי שמר"),
             "opening_line": item.get("opening_line", ""),
@@ -273,6 +587,10 @@ def generate_files():
     d_80 = decade_counts.get("1980s", 0)
     d_90 = decade_counts.get("1990s+", 0)
     d_unk = decade_counts.get("unknown", 0)
+
+    l1 = layer_counts.get(1, 0)
+    l2 = layer_counts.get(2, 0)
+    l3 = layer_counts.get(3, 0)
 
     html_content = f"""<!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -493,20 +811,19 @@ def generate_files():
     </div>
 
     <div class="card upload-box">
-      <h2 style="margin:0 0 8px; font-size:19px;">🚀 יצירת הפלייליסט המלא בחשבון היוטיוב שלך (כל {matched_songs_count} השירים / {total_videos} הביצועים ב-10 שניות)</h2>
-      <p style="margin:0 0 12px; color:#cbd5e1; font-size:14px;">
-        הסקריפט שלהלן משתמש בחיבור הפעיל שלך ליוטיוב ויוצר את הפלייליסט המלא ({total_videos} ביצועים עבור {matched_songs_count} שירים, כולל ביצועים כפולים של המבצע המקורי ושל נעמי שמר) בחשבון היוטיוב שלך תוך כ-10 שניות:
-      </p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
-        <button class="btn btn-gold" onclick="copyConsoleScript()">📋 העתק סקריפט ליצירת הפלייליסט ({total_videos} ביצועים)</button>
-        <a class="btn btn-blue" href="https://www.youtube.com" target="_blank">🔗 פתח את YouTube בלשונית חדשה</a>
-        <span id="copyStatus" style="color:var(--green); font-weight:600; display:none;">✔ הסקריפט הועתק ללוח!</span>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div style="flex:1; min-width:280px;">
+          <h2 style="margin:0 0 6px; font-size:20px; color:#fff;">🎵 הפלייליסט המלא זמין להאזנה ב-YouTube</h2>
+          <p style="margin:0; color:#cbd5e1; font-size:14.5px;">
+            כל <strong>{total_videos} הביצועים</strong> ({matched_songs_count} שירים) מסודרים מהקלאסיקות הגדולות ושירי הילדים והחגים הקאנוניים אל הפנינים הנדירות — כולל ביצועי המבצעים המקוריים וביצועיה של נעמי שמר. בדף זה ניתן גם למיין את הרשימה לפי סדר כרונולוגי (1953–2004), אלבומים, תפוצה או א'-ב':
+          </p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+          <a class="btn btn-gold" href="https://www.youtube.com/playlist?list=PLFHErlX6i22g" target="_blank">▶️ פתח את הפלייליסט המלא ב-YouTube ({total_videos} שירים) ↗</a>
+          <button class="btn btn-outline" onclick="copyShareUrl()">🔗 שתף קישור לשיר המתנגן</button>
+          <span id="shareStatus" style="color:var(--green); font-weight:600; display:none; font-size:13px;">✔ הקישור הועתק!</span>
+        </div>
       </div>
-      <ol class="steps">
-        <li>לחץ על הכפתור הצהוב למעלה להעתקת הסקריפט, ופתח את <a href="https://www.youtube.com" target="_blank" style="color:var(--accent);">youtube.com</a> (ודא שאתה מחובר לחשבון שלך).</li>
-        <li>בלשונית של יוטיוב, לחץ על <code>Cmd + Option + J</code> (במק) או <code>F12</code> כדי לפתוח את ה-Console של הדפדפן. (אם מופיעה אזהרת הדבקה של כרום, הקלד <code>allow pasting</code> ולחץ Enter).</li>
-        <li>הדבק (<code>Cmd + V</code>) את הסקריפט ב-Console ולחץ <code>Enter</code> — תוך 10 שניות הפלייליסט <strong>"שירי נעמי שמר - האוסף המקיף ({total_videos} ביצועים, {matched_songs_count} שירים)"</strong> ייווצר בחשבונך וייפתח אוטומטית!</li>
-      </ol>
     </div>
 
     <div class="tabs-bar">
@@ -520,12 +837,6 @@ def generate_files():
 
     <!-- לשונית 1: פלייליסט יוטיוב -->
     <div id="tabYtContent">
-      <div class="card">
-        <h3 style="margin:0 0 6px; font-size:16px;">▶️ פתיחה מיידית כפלייליסטים ביוטיוב (ללא צורך בהרצת סקריפט)</h3>
-        <div style="color:var(--muted); font-size:13px;">לחיצה על כל כפתור פותחת מיד פלייליסט מתנגן ביוטיוב (במקטעים של 50 שירים לפי הסדר הכרונולוגי):</div>
-        <div class="instant-grid" id="instantLinks"></div>
-      </div>
-
       <div class="player-layout">
         <div class="card sticky-player">
           <div id="nowPlayingTitle" style="font-weight:700; font-size:17px; margin-bottom:4px;">בחר שיר מהרשימה לניגון</div>
@@ -534,7 +845,7 @@ def generate_files():
           <div id="nowPlayingQuote" class="quote-box" style="display:none;"></div>
           <iframe id="ytFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           <div id="nowPlayingLinks" class="archive-pills" style="margin-top:10px;"></div>
-          <div style="display:flex; justify-content:space-between; margin-top:14px;">
+          <div style="display:flex; justify-content:space-between; margin-top:14px; gap:8px; flex-wrap:wrap;">
             <button class="btn btn-outline" onclick="playPrev()">⏮ השיר הקודם</button>
             <a id="openOnYt" class="btn btn-outline" href="#" target="_blank">פתח ביוטיוב ↗</a>
             <button class="btn btn-outline" onclick="playNext()">השיר הבא ⏭</button>
@@ -544,6 +855,21 @@ def generate_files():
         <div class="card">
           <div class="controls">
             <input type="text" id="searchInput" placeholder="חיפוש לפי שם שיר, שורת פתיחה, מבצע, אלבום או יוצר שותף..." oninput="renderTable()" />
+            <select id="sortSelect" onchange="renderTable()" style="border-color: var(--gold); font-weight: 600;">
+              <option value="canonical">🌟 מיון: מהקלאסיקות האהובות לנדירים (ברירת מחדל)</option>
+              <option value="chrono_asc">📅 מיון: סדר כרונולוגי (מהמוקדם למאוחר: 1953–2004)</option>
+              <option value="chrono_desc">⏪ מיון: סדר כרונולוגי הפוך (מהמאוחר למוקדם)</option>
+              <option value="albums">💿 מיון: לפי אלבומים מקוריים (אלבומי נעמי שמר תחילה)</option>
+              <option value="popularity">🔥 מיון: לפי תפוצה ומספר גרסאות באקו"ם</option>
+              <option value="title_asc">🔤 מיון: לפי שם השיר (א'–ת')</option>
+              <option value="perf_asc">🎤 מיון: לפי שם המבצע (א'–ת')</option>
+            </select>
+            <select id="layerFilter" onchange="renderTable()">
+              <option value="ALL">כל השכבות ({total_videos})</option>
+              <option value="1">🌟 שכבה א': קלאסיקות ושירי ילדים קאנוניים ({l1})</option>
+              <option value="2">💿 שכבה ב': אלבומים וביצועים מוכרים ({l2})</option>
+              <option value="3">💎 שכבה ג': פנינים נדירות וארכיון ({l3})</option>
+            </select>
             <select id="tierFilter" onchange="renderTable()">
               <option value="ALL">כל רמות העדיפות ({total_videos})</option>
               <option value="1_album_naomi">1. אלבום של נעמי שמר ({t1})</option>
@@ -641,7 +967,6 @@ def generate_files():
     function esc(s) {{ const d = document.createElement("div"); d.textContent = s; return d.innerHTML; }}
     const SONGS = {json.dumps(songs_js, ensure_ascii=False, indent=2)};
     const ARCHIVE_SONGS = {json.dumps(archive_songs_js, ensure_ascii=False, indent=2)};
-    const CONSOLE_SCRIPT = {json.dumps(js_script, ensure_ascii=False)};
 
     let filteredSongs = [...SONGS];
     let currentIndex = 0;
@@ -654,44 +979,19 @@ def generate_files():
       document.getElementById("tabBtnArch").classList.toggle("active", !isYt);
     }}
 
-    function copyConsoleScript() {{
-      const showSuccess = () => {{
-        const st = document.getElementById("copyStatus");
+    function copyShareUrl() {{
+      const s = filteredSongs[currentIndex] || SONGS[0];
+      if (!s) return;
+      const url = new URL(window.location.href);
+      url.searchParams.set("song", s.n);
+      const shareStr = url.toString();
+      const showOk = () => {{
+        const st = document.getElementById("shareStatus");
         st.style.display = "inline";
-        setTimeout(() => st.style.display = "none", 5000);
-      }};
-      const fallbackCopy = () => {{
-        const ta = document.createElement("textarea");
-        ta.value = CONSOLE_SCRIPT;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-        showSuccess();
+        setTimeout(() => st.style.display = "none", 3500);
       }};
       if (navigator.clipboard && navigator.clipboard.writeText) {{
-        navigator.clipboard.writeText(CONSOLE_SCRIPT).then(showSuccess).catch(fallbackCopy);
-      }} else {{
-        fallbackCopy();
-      }}
-    }}
-
-    function buildInstantLinks() {{
-      const container = document.getElementById("instantLinks");
-      const chunkSize = 50;
-      for (let i = 0; i < SONGS.length; i += chunkSize) {{
-        const chunk = SONGS.slice(i, i + chunkSize);
-        const ids = chunk.map(s => s.vid).join(",");
-        const url = "https://www.youtube.com/watch_videos?video_ids=" + ids;
-        const a = document.createElement("a");
-        a.className = "btn btn-outline";
-        a.href = url;
-        a.target = "_blank";
-        a.textContent = `חלק ${{Math.floor(i / chunkSize) + 1}} (שירים ${{i + 1}}–${{i + chunk.length}})`;
-        container.appendChild(a);
+        navigator.clipboard.writeText(shareStr).then(showOk);
       }}
     }}
 
@@ -734,6 +1034,11 @@ def generate_files():
       document.querySelectorAll("tr.song-row").forEach((tr, i) => {{
         tr.classList.toggle("active", i === idx);
       }});
+      try {{
+        const url = new URL(window.location.href);
+        url.searchParams.set("song", s.n);
+        window.history.replaceState({{}}, "", url.toString());
+      }} catch (e) {{}}
     }}
 
     function playNext() {{
@@ -744,12 +1049,16 @@ def generate_files():
     }}
 
     function renderTable() {{
+      const currentVid = filteredSongs[currentIndex] ? filteredSongs[currentIndex].vid : null;
       const q = document.getElementById("searchInput").value.trim().toLowerCase();
+      const sortBy = document.getElementById("sortSelect").value;
+      const lf = document.getElementById("layerFilter").value;
       const tf = document.getElementById("tierFilter").value;
       const rf = document.getElementById("roleFilter").value;
       const df = document.getElementById("decadeFilter").value;
 
       filteredSongs = SONGS.filter(s => {{
+        if (lf !== "ALL" && String(s.layer) !== lf) return false;
         if (tf !== "ALL" && s.tier !== tf) return false;
         if (rf !== "ALL" && s.role_cat !== rf) return false;
         if (df !== "ALL" && s.decade !== df) return false;
@@ -765,17 +1074,53 @@ def generate_files():
         );
       }});
 
+      filteredSongs.sort((a, b) => {{
+        if (sortBy === "canonical") return a.n - b.n;
+        if (sortBy === "chrono_asc") return (a.chrono_n || a.n) - (b.chrono_n || b.n);
+        if (sortBy === "chrono_desc") return (b.chrono_n || b.n) - (a.chrono_n || a.n);
+        if (sortBy === "popularity") return (b.canon_score - a.canon_score) || (a.n - b.n);
+        if (sortBy === "title_asc") return a.raw_title.localeCompare(b.raw_title, "he") || (a.n - b.n);
+        if (sortBy === "perf_asc") return (a.perf || a.ch).localeCompare(b.perf || b.ch, "he") || (a.n - b.n);
+        if (sortBy === "albums") {{
+          const aIsAlbum = a.alb_group && !a.alb_group.startsWith("סינגל");
+          const bIsAlbum = b.alb_group && !b.alb_group.startsWith("סינגל");
+          if (aIsAlbum !== bIsAlbum) return aIsAlbum ? -1 : 1;
+          const aNaomi = a.tier === "1_album_naomi" ? 0 : 1;
+          const bNaomi = b.tier === "1_album_naomi" ? 0 : 1;
+          if (aNaomi !== bNaomi) return aNaomi - bNaomi;
+          return (a.chrono_n || a.n) - (b.chrono_n || b.n);
+        }}
+        return a.n - b.n;
+      }});
+
+      if (currentVid) {{
+        const foundIdx = filteredSongs.findIndex(x => x.vid === currentVid);
+        if (foundIdx >= 0) currentIndex = foundIdx;
+      }}
+
       document.getElementById("ytCountChip").textContent = `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים`;
+
+      const layerBadgeMap = {{
+        1: `<span class="badge" style="background:rgba(245,158,11,0.18); color:#fcd34d; margin-top:4px;">🌟 שכבה א' (קלאסיקה)</span>`,
+        2: `<span class="badge" style="background:rgba(56,189,248,0.15); color:#7dd3fc; margin-top:4px;">💿 שכבה ב' (אלבומים)</span>`,
+        3: `<span class="badge" style="background:rgba(148,163,184,0.15); color:#cbd5e1; margin-top:4px;">💎 שכבה ג' (נדירים)</span>`
+      }};
 
       const tbody = document.getElementById("songsBody");
       tbody.innerHTML = filteredSongs.map((s, i) => `
         <tr class="song-row ${{i === currentIndex ? "active" : ""}}" onclick="playSongAt(${{i}})">
-          <td>${{s.n}}</td>
+          <td>
+            <div style="font-weight:700;">${{i + 1}}</div>
+            ${{sortBy !== "canonical" ? `<div style="font-size:11px; color:var(--muted);">(#${{s.n}})</div>` : ""}}
+          </td>
           <td>
             <div style="font-weight:600;">${{s.title}}</div>
             ${{s.opening_line ? `<div class="opening-line">"${{s.opening_line}}"</div>` : ""}}
           </td>
-          <td><span class="badge r-${{s.role_cat}}">${{s.role_label}}</span></td>
+          <td>
+            <div><span class="badge r-${{s.role_cat}}">${{s.role_label}}</span></div>
+            <div>${{layerBadgeMap[s.layer] || ""}}</div>
+          </td>
           <td><span class="badge t-${{s.tier}}">${{s.tier_label}}</span></td>
           <td>${{[s.perf, s.alb].filter(Boolean).join(" / ") || s.ch}}</td>
           <td>
@@ -834,13 +1179,25 @@ def generate_files():
       `).join("");
     }}
 
-    buildInstantLinks();
     renderTable();
     renderArchiveTable();
     if (SONGS.length > 0) {{
-      const s = SONGS[0];
+      let initIdx = 0;
+      try {{
+        const params = new URLSearchParams(window.location.search);
+        const songParam = parseInt(params.get("song") || "", 10);
+        if (!isNaN(songParam)) {{
+          const foundIdx = SONGS.findIndex(x => x.n === songParam);
+          if (foundIdx >= 0) initIdx = foundIdx;
+        }}
+      }} catch (e) {{}}
+      currentIndex = initIdx;
+      const s = SONGS[initIdx];
       updateNowPlayingCard(s);
       document.getElementById("ytFrame").src = `https://www.youtube.com/embed/${{s.vid}}`;
+      document.querySelectorAll("tr.song-row").forEach((tr, i) => {{
+        tr.classList.toggle("active", i === initIdx);
+      }});
     }}
   </script>
 </body>

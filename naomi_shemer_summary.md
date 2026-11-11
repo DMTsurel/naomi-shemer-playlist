@@ -6,7 +6,7 @@
   - שירים עם רשימת מבצעים: 388
   - שירים המשויכים לאלבום/ספר: 374
   - שירים עם שורת פתיחה (אתחלתא מהספרייה הלאומית): 368
-  - שירים עם מזהה יוטיוב ישיר (מתוך המאגרים): 66
+  - שירים עם מזהה יוטיוב ישיר (מתוך המאגרים): 72
 - **פילוח שירים לפי מקור:**
   - אקו"ם (ACUM): 377 יצירות
   - הספרייה הלאומית (NLI - בית לזמר העברי + ארכיון נעמי שמר): 390 שירים
@@ -54,10 +54,10 @@
 | 18 | אותלו | מילים, לחן | shironet, acum, musicbrainz, nli | 7 | לביא אריק, גשר הירקון, רביעיית שירה ז כרמל |  |
 | 19 | אחד אפס | לחן | acum | 1 |  |  |
 | 20 | אחותי רוחמה | מילים, לחן | wikipedia, shironet, acum, pizmonet, musicbrainz, nli | 28 | הגשש החיוור, אורה זיטנר, זיטנר אורה, האירוסים | p1AfgNT1WBA, vVQ0Xmtb9_Q |
-| 21 | אחינו הקטן | מילים, לחן, ביצוע | shironet, stereo_ve_mono, musicbrainz, nli | 0 | יפה ירקוני, נעמי שמר | SlqNCBP0jb8 |
+| 21 | אחינו הקטן | מילים, לחן, ביצוע | shironet, stereo_ve_mono, musicbrainz, nli | 0 | יפה ירקוני, נעמי שמר | SlqNCBP0jb8, uquTBB0PbFY |
 | 22 | אחר קציר | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, musicbrainz, nli | 3 | שמר נעמי, גבעטרון, דנדי, הגבעטרון |  |
 | 23 | אחרי השיעורים | תרגום | nli | 0 |  |  |
-| 24 | אחרי השקיעה בשדה | מילים, לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 30 | נעמי לוי, מקהלת צדיקוב, נעמי שמר, שמר נעמי | qS_vPd2O1no |
+| 24 | אחרי השקיעה בשדה | מילים, לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 30 | נעמי לוי, מקהלת צדיקוב, נעמי שמר, שמר נעמי | wO3U1xG7Um0, ZEJS25vrGoU |
 | 25 | אי הא שה | מילים, תרגום | acum, discogs, nli | 2 | להקת גייסות השריון, מגי ואלה |  |
 | 26 | איילת אהבים | תרגום, מילים | wikipedia, shironet, acum, discogs, musicbrainz, nli | 1 | שלישיית גשר הירקון, שלושרים, איינשטיין אריק ורביץ יהודית, גשר הירקון |  |
 | 27 | איך את נראית | תרגום, מילים | wikipedia, shironet, acum, musicbrainz, nli | 2 | יוסי בנאי, בנאי יוסי וגלעדי מוטי, גיאת גלית אלימלך שרון ורביץ נתי, גוריון ישראל |  |
@@ -94,12 +94,12 @@
 | 58 | ארץ ישראל שייכת לעם ישראל | מילים | acum | 1 | הבלין מוטי |  |
 | 59 | ארץ רעשה | לחן | shironet, acum, pizmonet, nli | 1 | להקת פיקוד דרום, להקת פיקוד הדרום |  |
 | 60 | אשכבה | ביצוע | acum | 2 | שמר נעמי |  |
-| 61 | אשכולית | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, musicbrainz, nli | 5 | יפה ירקוני, נעמי שמר, ירקוני יפה, נתנאלה | 2fN25prFVzg |
+| 61 | אשכולית | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, musicbrainz, nli | 5 | יפה ירקוני, נעמי שמר, ירקוני יפה, נתנאלה | 2fN25prFVzg, eX1bnKDHvnc |
 | 62 | אשרוק לי שיר עליז | תרגום, מילים | wikipedia, shironet, acum, discogs, musicbrainz, nli | 16 | רבקה רז, רז רבקה, CHACKSFIELD FRANK & HIS ORCHESTRA, גל ריקי |  |
 | 63 | את הכי הכי | מילים, לחן | shironet, acum, stereo_ve_mono, musicbrainz, nli | 4 | גבעטרון, גאון יהורם, הגבעטרון |  |
 | 64 | בא הגדוד | מילים | acum, nli | 2 | תיאטרון הורוד, להקת פיקוד מרכז |  |
 | 65 | בארץ להד"ם | מילים, לחן, ביצוע, עיבוד | wikipedia, shironet, acum, stereo_ve_mono, pizmonet, discogs, musicbrainz, nli | 50 | אלוני מירי, הכל עובר חביבי, חבורת בימות, גורדון רינה | 2r8xIuCvwlw, nsMdkPmgSGo |
-| 66 | בגינה | מילים, לחן, ביצוע | shironet, acum, discogs, musicbrainz, nli | 3 | ריקה זראי, נעמי שמר, Naomi Shemer, Yaffa Yarkoni, זמיר ורדה |  |
+| 66 | בגינה | מילים, לחן, ביצוע | shironet, acum, discogs, musicbrainz, nli | 3 | ריקה זראי, נעמי שמר, Naomi Shemer, Yaffa Yarkoni, זמיר ורדה | dZtHel6cUW8 |
 | 67 | בגני נטעתיך | לחן | wikipedia, shironet, acum, discogs, musicbrainz, nli | 42 | אחיות שמר, רותם שוש, דגן צילה, גלרון נורית |  |
 | 68 | בדירתי הלא גדולה אשר ברחוב אמיל זולא | מילים | nli | 0 |  |  |
 | 69 | בדמייך חיי | מילים, לחן | shironet, acum, stereo_ve_mono, discogs, nli | 19 | רולנד רונית, רולנד רונית ואלהרר דודו, חדד שרית, פרקש דורית |  |
@@ -144,7 +144,7 @@
 | 108 | ג’ינג’י | לחן, ביצוע | stereo_ve_mono, discogs, musicbrainz | 0 | עודד תאומי, נעמי שמר, נעמי שמר, עודד תאומי |  |
 | 109 | דבורת הדבש | מילים | nli | 0 |  |  |
 | 110 | דבר מה נפלא כל כך | תרגום, מילים | wikipedia, shironet, acum, discogs, musicbrainz, nli | 1 | עפרה דירון, דירון עפרה |  |
-| 111 | דוגרת | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 3 | נתנאלה, נעמי שמר, ירקוני יפה, Naomi Shemer, Yaffa Yarkoni | tdmIZXjr4BY |
+| 111 | דוגרת | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 3 | נתנאלה, נעמי שמר, ירקוני יפה, Naomi Shemer, Yaffa Yarkoni | tdmIZXjr4BY, ipzIvlpBkbU |
 | 112 | דולי | מילים | wikipedia, acum, nli | 1 | נורית גלרון וסימפונט רעננה, גלרון נורית וסימפונט רעננה |  |
 | 113 | דיוקן אמי | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 25 | שמר נעמי, גלעדי תמר, גאון יהורם, רז רבקה |  |
 | 114 | דרכים | מילים | shironet, acum | 2 | ישראלי שמעון ותז' ק"י, ישראלי שמעון |  |
@@ -161,7 +161,7 @@
 | 125 | הגביר | מילים, לחן | acum, stereo_ve_mono, pizmonet, discogs, nli | 2 | חבורת בימות, גלוסקא אופירה ורננים, משתתפי מסעות בנימין השלישי | Ti6nFst0JaE |
 | 126 | הגברת ישראלה | מילים, לחן, ביצוע | acum, stereo_ve_mono, discogs, nli | 1 | שמר נעמי, נעמי שמר |  |
 | 127 | הד | לחן | nli | 0 |  |  |
-| 128 | הדואר בא | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 40 | יפה ירקוני, נעמי שמר, שמר נעמי, ירקוני יפה | G6tzIXT3ThM |
+| 128 | הדואר בא | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 40 | יפה ירקוני, נעמי שמר, שמר נעמי, ירקוני יפה | G6tzIXT3ThM, SgzeIwaaGMU |
 | 129 | הדוד שמחה | לחן, ביצוע | stereo_ve_mono, discogs, musicbrainz | 0 | נעמי שמר, עודד תאומי, נעמי שמר, עודד תאומי |  |
 | 130 | הדוכיפת | לחן | acum, nli | 2 | צוות אני פשוש |  |
 | 131 | הו מה נאה הוא הבוקר | תרגום | wikipedia, acum, nli | 1 | מרדכי בן שחר, בן שחר מרדכי ותזמורת קול ישראל |  |
@@ -200,7 +200,7 @@
 | 164 | הנחל זורם | מילים | nli | 0 |  |  |
 | 165 | הנישואין | תרגום | wikipedia, acum | 1 | תיקי דיין, דיין תיקי |  |
 | 166 | הנרקוד | תרגום, מילים | wikipedia, shironet, acum, discogs, musicbrainz, nli | 1 | רבקה רז ואריק לביא, רז רבקה, גרבר יוסי, לביא אריק ורז רבקה |  |
-| 167 | הסוחר מוונציה | מילים, לחן, ביצוע | acum, stereo_ve_mono, nli | 1 | נעמי שמר, החמאם |  |
+| 167 | הסוחר מוונציה | מילים, לחן, ביצוע | acum, stereo_ve_mono, nli | 1 | נעמי שמר, החמאם | t_qzuM6V2Co |
 | 168 | העוזרת של זרש | מילים, לחן | shironet, acum, nli | 3 | דיין תיקי ושמר נעמי, מיכאלי רבקה |  |
 | 169 | העולם העגול | מילים | nli | 0 |  |  |
 | 170 | העיר באפור | מילים, לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 93 | שלישיית גשר הירקון, נעמי שמר, שמר נעמי, גשר הירקון | 5kl6qHnbp9Y, -9U3mvb1KsQ |
@@ -355,7 +355,7 @@
 | 319 | סוף העולם | מילים, לחן | acum, nli | 1 | להקת הנחל |  |
 | 320 | סופת ליל חורף | ביצוע | acum | 1 | שמר נעמי |  |
 | 321 | סטניסלא | תרגום | nli | 0 |  |  |
-| 322 | סיירת עולם | מילים, לחן | shironet, acum, nli | 5 | מיכאלי רבקה מושונוב מוני ובר-אבא שלמה, מיכאלי רבקה וצפיר טוביה, קרן דרור וכהן איציק |  |
+| 322 | סיירת עולם | מילים, לחן | shironet, acum, nli | 5 | מיכאלי רבקה מושונוב מוני ובר-אבא שלמה, מיכאלי רבקה וצפיר טוביה, קרן דרור וכהן איציק | kO9D3crjEsU |
 | 323 | סימן שעוד לא הגענו | מילים, לחן, ביצוע, עיבוד | shironet, acum, stereo_ve_mono, pizmonet, discogs, musicbrainz, nli | 32 | שמר נעמי, הכל עובר חביבי, תזמורת שפיה, ריבלין ספי ומור אברהם | aKAvYLWF97U |
 | 324 | סימני דרך | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 58 | שמר נעמי, גאון יהורם, גאון יהורם ושגב טל, ברלין גבי |  |
 | 325 | סינמה בלש | מילים, לחן | stereo_ve_mono, discogs, nli | 0 |  |  |
@@ -369,7 +369,7 @@
 | 333 | עוד לא אהבתי די | מילים, לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, pizmonet, discogs, musicbrainz, nli | 157 | שמר נעמי, גאון יהורם, סקסטה, גל נירה | V4QSoLFj-NM |
 | 334 | עוד לא אכלנו | מילים, לחן | wikipedia, shironet, acum, discogs, musicbrainz, nli | 13 | להקת הנחל, להקות צהל, מקהלה, מקהלת הדיסקונטאים |  |
 | 335 | עוד מעט מסך | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, nli | 3 | הכל עובר חביבי, שמר נעמי והחביבים, תזמורת סימפונית ירושלים, נעמי שמר |  |
-| 336 | עולם הפוך | מילים, לחן | shironet, acum, nli | 4 | מיכאלי רבקה, מיכאלי רבקה והאחים אסנר, תזמורת סימפונית חיפה, אסנר עוזי ואסנר חיים |  |
+| 336 | עולם הפוך | מילים, לחן | shironet, acum, nli | 4 | מיכאלי רבקה, מיכאלי רבקה והאחים אסנר, תזמורת סימפונית חיפה, אסנר עוזי ואסנר חיים | lfB0Y5mJ1qk |
 | 337 | עיר ואם | מילים, לחן, ביצוע | shironet, acum, discogs, musicbrainz, nli | 11 | שמר נעמי, רז רוחמה, חבורת שוהם, חוג הזמר גולדשטיין גורן אשד נוגה |  |
 | 338 | עיר לבנה | מילים, לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 58 | איינשטיין אריק, ארצי שלמה, בר שמעון, דותן עירית |  |
 | 339 | על אם הדרך | לחן | shironet, acum, stereo_ve_mono, pizmonet, discogs, musicbrainz, nli | 26 | להקת חיל הים, זהבי דפנה, ראובני דורית, תזמורת | Xoh_DVe4WcA |
@@ -416,7 +416,7 @@
 | 380 | קומה אחא סבה סב | עיבוד | nli | 0 |  |  |
 | 381 | קומי צאי | לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 72 | יהורם גאון, נעמי שמר, שמר נעמי, גאון יהורם |  |
 | 382 | קיצור החדשות | מילים, לחן | acum, stereo_ve_mono, nli | 1 | בר שמעון, שמעון בר |  |
-| 383 | קלי קלות | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 1 | שמר נעמי, עודד תאומי, נעמי שמר, נעמי שמר, עודד תאומי |  |
+| 383 | קלי קלות | מילים, לחן, ביצוע | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 1 | שמר נעמי, עודד תאומי, נעמי שמר, נעמי שמר, עודד תאומי | YxZ7ZOkU2pA, m58C3mRgm5E |
 | 384 | קפה שחור | מילים, לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 12 | שמר נעמי, בר שמעון, גל נירה, להקת גייסות השריון |  |
 | 385 | קפה תפארת | מילים, לחן | shironet, acum, nli | 4 | פרקש דורית, חבורת הזמר שיר בהר |  |
 | 386 | קרן יער | מילים, לחן | shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 14 | גאון יהורם, גבעטרון, שלישיית אדלר, מקהלה |  |
@@ -464,7 +464,7 @@
 | 428 | שיר עם סיאמי | מילים, תרגום | acum, discogs, nli | 5 | עזיקרי עליזה וחמישיית גלבוע, עזיקרי עליזה, סיגלוב הדסה, להקת גייסות השריון |  |
 | 429 | שיר ערבי נחל | תרגום, מילים | wikipedia, acum, nli | 3 | הפרברים, רז רוחמה |  |
 | 430 | שיר ערש למקרים מיוחדים | מילים, לחן, ביצוע | shironet, acum, discogs, nli | 6 | מיכאלי רבקה, שמר נעמי, חבורת בימות, פייפר בועז |  |
-| 431 | שיר ערש לצבעים | מילים, לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 11 | הדודאים, שמר נעמי, נתנאלה, הנדל הלנה |  |
+| 431 | שיר ערש לצבעים | מילים, לחן, ביצוע | wikipedia, shironet, acum, stereo_ve_mono, discogs, musicbrainz, nli | 11 | הדודאים, שמר נעמי, נתנאלה, הנדל הלנה | -1__PIJhhPI, a1OLtIB8TdU |
 | 432 | שיר פורח | תרגום | wikipedia, acum | 1 | מקהלת גברי השריון |  |
 | 433 | שיר תודה | מילים, לחן | acum, pizmonet | 1 | אלוני מירי וליטני דני, מירי אלוני, דני ליטני | X3GCh50sW8A |
 | 434 | שירו לי שירו לי הוי כלי זמר ולי נגון | תרגום | nli | 0 |  |  |
