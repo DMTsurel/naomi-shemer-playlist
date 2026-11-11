@@ -82,36 +82,7 @@ def enrich_alternative_videos(data: dict) -> int:
     return enriched_count
 
 
-def fetch_video_metadata(vid: str) -> dict:
-    url = f"https://www.youtube.com/watch?v={vid}"
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": (
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/124.0.0.0 Safari/537.36"
-            ),
-            "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7",
-        },
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
-    except Exception as e:
-        return {"video_id": vid, "status": "fetch_error", "error": str(e)}
-
-    m = re.search(r"var ytInitialPlayerResponse\s*=\s*(\{.*?\});", html)
-    if not m:
-        m = re.search(r"ytInitialPlayerResponse\s*=\s*(\{.*?\});", html)
-    if not m:
-        return {"video_id": vid, "status": "parse_error"}
-
-    try:
-        pr = json.loads(m.group(1))
-    except Exception as e:
-        return {"video_id": vid, "status": "json_error", "error": str(e)}
-
+def _parse_player_response(vid: str, url: str, pr: dict) -> dict:
     playability = pr.get("playabilityStatus", {})
     status = playability.get("status", "UNKNOWN")
     vd = pr.get("videoDetails", {})
@@ -119,7 +90,6 @@ def fetch_video_metadata(vid: str) -> dict:
         pr.get("microformat", {})
         .get("playerMicroformatRenderer", {})
     )
-
     return {
         "video_id": vid,
         "url": url,
@@ -135,6 +105,97 @@ def fetch_video_metadata(vid: str) -> dict:
         "keywords": vd.get("keywords", []),
         "short_description": vd.get("shortDescription", ""),
     }
+
+
+def fetch_video_metadata(vid: str) -> dict:
+    url = f"https://www.youtube.com/watch?v={vid}"
+    # 1. Primary path: YouTube InnerTube player endpoint (structured JSON, less prone to HTML regex failure)
+    innertube_url = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
+    payload = json.dumps({
+        "videoId": vid,
+        "context": {
+            "client": {
+                "hl": "he",
+                "gl": "IL",
+                "clientName": "WEB",
+                "clientVersion": "2.20240726.00.00",
+            }
+        },
+    }).encode("utf-8")
+    req_api = urllib.request.Request(
+        innertube_url,
+        data=payload,
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": (
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req_api, timeout=12) as resp:
+            pr = json.loads(resp.read().decode("utf-8", errors="replace"))
+            parsed = _parse_player_response(vid, url, pr)
+            if parsed.get("title"):
+                return parsed
+    except Exception:
+        pass
+
+    # 2. Secondary path: scrape /watch?v= page
+    req_html = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": (
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+            "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req_html, timeout=15) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+        m = re.search(r"var ytInitialPlayerResponse\s*=\s*(\{.*?\});", html)
+        if not m:
+            m = re.search(r"ytInitialPlayerResponse\s*=\s*(\{.*?\});", html)
+        if m:
+            pr = json.loads(m.group(1))
+            parsed = _parse_player_response(vid, url, pr)
+            if parsed.get("title"):
+                return parsed
+    except Exception:
+        pass
+
+    # 3. Fallback path: YouTube oEmbed API (never HTTP 429 rate-limited)
+    oembed_url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={vid}&format=json"
+    req_oe = urllib.request.Request(
+        oembed_url,
+        headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"},
+    )
+    try:
+        with urllib.request.urlopen(req_oe, timeout=12) as resp:
+            oe = json.loads(resp.read().decode("utf-8", errors="replace"))
+            return {
+                "video_id": vid,
+                "url": url,
+                "playability_status": "OK",
+                "title": oe.get("title", ""),
+                "author": oe.get("author_name", ""),
+                "channel_id": "",
+                "length_seconds": 0,
+                "view_count": "",
+                "publish_date": "",
+                "category": "Music",
+                "is_unlisted": False,
+                "keywords": [],
+                "short_description": "",
+            }
+    except Exception as e:
+        return {"video_id": vid, "status": "fetch_error", "error": str(e)}
 
 
 def main():
@@ -173,7 +234,7 @@ def main():
 
     results = dict(existing_archive)
     t0 = time.time()
-    with ThreadPoolExecutor(max_workers=20) as ex:
+    with ThreadPoolExecutor(max_workers=6) as ex:
         fut_map = {ex.submit(fetch_video_metadata, vid): vid for vid in to_fetch}
         done_count = 0
         for fut in as_completed(fut_map):
@@ -197,14 +258,14 @@ def main():
             ok_count += 1
         ordered_videos[vid] = {
             "playlist_position": idx,
-            "song_number": item.get("number"),
+            "song_number": item.get("index", idx),
             "song_title": item.get("title", ""),
             "year": item.get("year", ""),
-            "role": item.get("role", ""),
+            "role": item.get("role_label_heb", ""),
             "lyricist": item.get("lyricist", ""),
             "composer": item.get("composer", ""),
-            "matched_performer": item.get("matched_performer", ""),
-            "catalog_performers": item.get("performers", []),
+            "matched_performer": sel.get("matched_performer") or item.get("matched_performer", ""),
+            "catalog_performers": item.get("catalog_performers", []),
             "alternative_video_ids": [
                 a.get("video_id") for a in item.get("alternative_videos", []) if a.get("video_id")
             ],

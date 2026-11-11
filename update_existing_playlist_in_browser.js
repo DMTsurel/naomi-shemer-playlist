@@ -114,44 +114,97 @@
     return;
   }
 
-  // בדיקה אם מדובר בשינוי נקודתי (עד 25 החלפות באותו אורך/סדר) או בסידור מחדש מלא
-  let diffPositions = [];
-  if (curIds.length === TARGET_VIDEO_IDS.length) {
-    for (let i = 0; i < curIds.length; i++) {
-      if (curIds[i] !== TARGET_VIDEO_IDS[i]) diffPositions.push(i);
+  // חישוב תת-הסדרה המשותפת הארוכה ביותר (LCS) לצורך עדכון כירורגי מהיר ללא מחיקת כל הפלייליסט
+  function computeLcsSet(a, b) {
+    const n = a.length, m = b.length;
+    const dp = Array.from({ length: n + 1 }, () => new Int16Array(m + 1));
+    for (let i = n - 1; i >= 0; i--) {
+      for (let j = m - 1; j >= 0; j--) {
+        dp[i][j] = a[i] === b[j] ? 1 + dp[i + 1][j + 1] : Math.max(dp[i + 1][j], dp[i][j + 1]);
+      }
     }
+    const keepInA = new Set();
+    let i = 0, j = 0;
+    while (i < n && j < m) {
+      if (a[i] === b[j]) {
+        keepInA.add(a[i]);
+        i++; j++;
+      } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+        i++;
+      } else {
+        j++;
+      }
+    }
+    return keepInA;
   }
 
   const BATCH_SIZE = 50;
+  const targetSetInit = new Set(TARGET_VIDEO_IDS);
+  const seenInCur = new Set();
+  const toDeleteItems = [];
+  for (const it of currentItems) {
+    if (!targetSetInit.has(it.videoId) || seenInCur.has(it.videoId)) {
+      toDeleteItems.push(it);
+    } else {
+      seenInCur.add(it.videoId);
+    }
+  }
+  const toAddVids = TARGET_VIDEO_IDS.filter(v => !seenInCur.has(v));
+  const survivingCurIds = currentItems.filter(it => !toDeleteItems.includes(it)).map(it => it.videoId);
+  const commonTargetIds = TARGET_VIDEO_IDS.filter(v => seenInCur.has(v));
+  const lcsKeep = computeLcsSet(survivingCurIds, commonTargetIds);
+  const estMoves = (commonTargetIds.length - lcsKeep.size) + toAddVids.length;
+  const totalSurgicalOps = toDeleteItems.length + toAddVids.length + estMoves;
 
-  if (curIds.length === TARGET_VIDEO_IDS.length && diffPositions.length > 0 && diffPositions.length <= 25) {
-    console.log(`⚡ זוהו ${diffPositions.length} החלפות נקודתיות בלבד! מעדכן במקום תוך שמירה על המיקומים...`);
-    for (const idx of diffPositions) {
-      const oldItem = currentItems[idx];
-      const newVid = TARGET_VIDEO_IDS[idx];
-      console.log(`🔄 מחליף רצועה #${idx + 1} (${VIDEO_TITLES[newVid] || newVid}): ${oldItem.videoId} -> ${newVid}`);
-      const addRes = await ytPost("/youtubei/v1/browse/edit_playlist", {
-        playlistId: PLAYLIST_ID,
-        actions: [{ action: "ACTION_ADD_VIDEO", addedVideoId: newVid }]
-      });
-      const newSetVideoId = addRes?.playlistEditResults?.[0]?.playlistEditVideoAddedResultData?.setVideoId;
-      if (newSetVideoId && oldItem.setVideoId) {
+  if (currentItems.length > 0 && totalSurgicalOps <= 120) {
+    console.log(`⚡ מבצע עדכון כירורגי מהיר (${toDeleteItems.length} מחיקות, ${toAddVids.length} הוספות, ${estMoves} הזזות מיקום)...`);
+    if (toDeleteItems.length > 0) {
+      for (let i = 0; i < toDeleteItems.length; i += BATCH_SIZE) {
+        const batch = toDeleteItems.slice(i, i + BATCH_SIZE);
         await ytPost("/youtubei/v1/browse/edit_playlist", {
           playlistId: PLAYLIST_ID,
-          actions: [{
-            action: "ACTION_MOVE_VIDEO_BEFORE",
-            setVideoId: newSetVideoId,
-            movedSetVideoIdSuccessor: oldItem.setVideoId
-          }]
+          actions: batch.map(item => item.setVideoId
+            ? { action: "ACTION_REMOVE_VIDEO", setVideoId: item.setVideoId }
+            : { action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: item.videoId }
+          )
         });
       }
-      await ytPost("/youtubei/v1/browse/edit_playlist", {
-        playlistId: PLAYLIST_ID,
-        actions: [oldItem.setVideoId
-          ? { action: "ACTION_REMOVE_VIDEO", setVideoId: oldItem.setVideoId }
-          : { action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: oldItem.videoId }
-        ]
-      });
+    }
+    if (toAddVids.length > 0) {
+      for (let i = 0; i < toAddVids.length; i += BATCH_SIZE) {
+        const batch = toAddVids.slice(i, i + BATCH_SIZE);
+        await ytPost("/youtubei/v1/browse/edit_playlist", {
+          playlistId: PLAYLIST_ID,
+          actions: batch.map(vid => ({ action: "ACTION_ADD_VIDEO", addedVideoId: vid }))
+        });
+      }
+    }
+    if (estMoves > 0) {
+      await new Promise(r => setTimeout(r, 900));
+      currentItems = await fetchCurrentPlaylistItems();
+      const curMap = new Map(currentItems.map(it => [it.videoId, it.setVideoId]));
+      const presentTarget = TARGET_VIDEO_IDS.filter(v => curMap.has(v));
+      const lcsNow = computeLcsSet(currentItems.map(it => it.videoId), presentTarget);
+      // עוברים מהסוף להתחלה ומזיזים רק רצועות שאינן ב-LCS אל לפני הרצועה העוקבת שלהן
+      for (let k = presentTarget.length - 2; k >= 0; k--) {
+        const vid = presentTarget[k];
+        if (!lcsNow.has(vid)) {
+          const nextVid = presentTarget[k + 1];
+          const setVid = curMap.get(vid);
+          const succSetVid = curMap.get(nextVid);
+          if (setVid && succSetVid) {
+            await ytPost("/youtubei/v1/browse/edit_playlist", {
+              playlistId: PLAYLIST_ID,
+              actions: [{
+                action: "ACTION_MOVE_VIDEO_BEFORE",
+                setVideoId: setVid,
+                movedSetVideoIdSuccessor: succSetVid
+              }]
+            });
+            lcsNow.add(vid);
+          }
+        }
+      }
     }
   } else {
     console.log("🔄 מבצע עדכון סדר מלא בתוך הפלייליסט הקיים (" + PLAYLIST_ID + ")...");

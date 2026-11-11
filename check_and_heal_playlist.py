@@ -184,7 +184,7 @@ def main():
         if item.get("selected_video", {}).get("video_id")
     }
 
-    print(f"Checking health of {len(matched_items)} playlist videos via oEmbed...")
+    print(f"Checking health of {len(matched_items)} primary playlist videos via oEmbed...")
     health_map = {}
     with ThreadPoolExecutor(max_workers=20) as ex:
         fut_map = {
@@ -195,6 +195,36 @@ def main():
             res = fut.result()
             health_map[res["video_id"]] = res
 
+    # Also check all unique alternative_videos so dead backup links are pruned automatically
+    alt_vids = set()
+    for item in matched_items:
+        for a in item.get("alternative_videos", []):
+            avid = a.get("video_id")
+            if avid and avid not in health_map:
+                alt_vids.add(avid)
+
+    if alt_vids:
+        print(f"Checking health of {len(alt_vids)} unique alternative backup videos via oEmbed...")
+        with ThreadPoolExecutor(max_workers=20) as ex:
+            fut_map = {ex.submit(check_video_health, avid): avid for avid in alt_vids}
+            for fut in as_completed(fut_map):
+                res = fut.result()
+                health_map[res["video_id"]] = res
+
+    pruned_alts_count = 0
+    for item in matched_items:
+        orig_alts = item.get("alternative_videos", [])
+        if not orig_alts:
+            continue
+        healthy_alts = [
+            a for a in orig_alts
+            if health_map.get(a.get("video_id"), {}).get("status") in ("OK", "TRANSIENT_ERROR")
+        ]
+        if len(healthy_alts) != len(orig_alts):
+            pruned_alts_count += len(orig_alts) - len(healthy_alts)
+            if not args.dry_run:
+                item["alternative_videos"] = healthy_alts
+
     broken_items = []
     for item in matched_items:
         vid = item["selected_video"]["video_id"]
@@ -203,8 +233,8 @@ def main():
             broken_items.append((item, h))
 
     print(
-        f"Health check complete: {len(matched_items) - len(broken_items)}/{len(matched_items)} OK, "
-        f"{len(broken_items)} broken/unavailable."
+        f"Health check complete: {len(matched_items) - len(broken_items)}/{len(matched_items)} primary OK, "
+        f"{len(broken_items)} broken/unavailable, {pruned_alts_count} dead backup links pruned."
     )
 
     healed_records = []
@@ -326,16 +356,22 @@ def main():
         report_lines.append("")
 
     if not healed_records and not unhealed_records:
-        report_lines.append("✅ **כל 670 הסרטונים בפלייליסט תקינים, זמינים וניתנים להטמעה ולניגון!**\n")
+        report_lines.append(
+            f"✅ **כל {len(matched_items)} הסרטונים בפלייליסט תקינים, זמינים וניתנים להטמעה ולניגון!**\n"
+        )
 
     REPORT_PATH.write_text("\n".join(report_lines), encoding="utf-8")
 
-    if healed_records and not args.dry_run:
+    if (healed_records or pruned_alts_count > 0) and not args.dry_run:
         JSON_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
         sync_csv_and_md(data)
         subprocess.run([sys.executable, str(BASE_DIR / "backup_youtube_metadata.py")], check=True)
         subprocess.run([sys.executable, str(BASE_DIR / "build_player_and_browser_script.py")], check=True)
-        print(f"Auto-healed {len(healed_records)} videos and regenerated all playlist files.")
+        subprocess.run([sys.executable, str(BASE_DIR / "export_streaming_and_wayback.py")], check=True)
+        print(
+            f"Auto-healed {len(healed_records)} videos, pruned {pruned_alts_count} dead backup links, "
+            "and regenerated all playlist files."
+        )
     else:
         print("All videos healthy — no file changes needed.")
 
