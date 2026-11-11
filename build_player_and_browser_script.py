@@ -6,11 +6,190 @@
 מתוך naomi_shemer_youtube_playlist.json.
 """
 
+import csv
 import json
 import os
 import re
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def _parse_duration_seconds(dur_str: str) -> int:
+    if not dur_str:
+        return -1
+    parts = [p for p in str(dur_str).strip().split(":") if p.isdigit()]
+    if len(parts) == 2:
+        return int(parts[0]) * 60 + int(parts[1])
+    if len(parts) == 3:
+        return int(parts[0]) * 3600 + int(parts[1]) * 60 + int(parts[2])
+    return -1
+
+
+def _clean_artist_name(item: dict, sel: dict) -> str:
+    perf = sel.get("matched_performer") or item.get("matched_performer") or ""
+    if not perf:
+        cat_perfs = item.get("catalog_performers") or item.get("performers") or []
+        if cat_perfs:
+            perf = cat_perfs[0]
+    if not perf:
+        ch = sel.get("channel", "")
+        perf = re.sub(r"\s*-\s*Topic$", "", ch).strip()
+    if not perf or perf.lower() in ("various artists", "release"):
+        perf = "נעמי שמר"
+    return perf
+
+
+def sync_all_secondary_exports(data: dict) -> list:
+    """מייצר ומסנכרן את כל קובצי הפלט המשניים (CSV, MD, M3U8, Streaming CSV, Wayback URLs)."""
+    playlist = data["playlist"]
+    matched = [x for x in playlist if x.get("selected_video")]
+    csv_path = os.path.join(BASE_DIR, "naomi_shemer_youtube_playlist.csv")
+    md_path = os.path.join(BASE_DIR, "naomi_shemer_youtube_playlist.md")
+    stream_csv_path = os.path.join(BASE_DIR, "naomi_shemer_streaming_import.csv")
+    m3u8_path = os.path.join(BASE_DIR, "naomi_shemer_youtube_stream.m3u8")
+    wayback_path = os.path.join(BASE_DIR, "wayback_backup_urls.txt")
+
+    # 1. naomi_shemer_youtube_playlist.csv
+    fieldnames = [
+        "index", "chrono_index", "canonical_layer", "canonical_score", "title",
+        "year", "role_category", "role_label_heb", "lyricist", "composer",
+        "translator", "tier", "tier_label", "matched_performer", "matched_album",
+        "album_group", "album_track_number", "video_id", "video_url",
+        "video_title", "channel", "duration", "views", "opening_line", "notes"
+    ]
+    with open(csv_path, "w", encoding="utf-8-sig", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w.writeheader()
+        for item in playlist:
+            sel = item.get("selected_video") or {}
+            notes_val = item.get("notes", [])
+            if isinstance(notes_val, list):
+                notes_str = " | ".join(str(x) for x in notes_val)
+            else:
+                notes_str = str(notes_val or "")
+            w.writerow({
+                "index": item.get("index", ""),
+                "chrono_index": item.get("chrono_index", ""),
+                "canonical_layer": item.get("canonical_layer", ""),
+                "canonical_score": item.get("canonical_score", ""),
+                "title": item.get("title", ""),
+                "year": item.get("year", ""),
+                "role_category": item.get("role_category", ""),
+                "role_label_heb": item.get("role_label_heb", ""),
+                "lyricist": item.get("lyricist", ""),
+                "composer": item.get("composer", ""),
+                "translator": item.get("translator", ""),
+                "tier": item.get("tier", ""),
+                "tier_label": item.get("tier_label", ""),
+                "matched_performer": sel.get("matched_performer") or item.get("matched_performer", ""),
+                "matched_album": sel.get("matched_album", ""),
+                "album_group": item.get("album_group", ""),
+                "album_track_number": item.get("album_track_number", ""),
+                "video_id": sel.get("video_id", ""),
+                "video_url": f"https://www.youtube.com/watch?v={sel['video_id']}" if sel.get("video_id") else "",
+                "video_title": sel.get("video_title", ""),
+                "channel": sel.get("channel", ""),
+                "duration": sel.get("duration", ""),
+                "views": sel.get("views", ""),
+                "opening_line": item.get("opening_line", ""),
+                "notes": notes_str,
+            })
+
+    # 2. naomi_shemer_youtube_playlist.md
+    md_lines = [
+        f"# פלייליסט שירי נעמי שמר ביוטיוב ({len(matched)} ביצועים)",
+        "",
+        "| # | שנה | שם השיר | תפקיד | סיווג | מבצע / ערוץ | קישור ליוטיוב | אורך |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
+    for i, item in enumerate(matched, 1):
+        sel = item["selected_video"]
+        vid = sel["video_id"]
+        yr = item.get("year") if item.get("year") and str(item.get("year")) != "2099" else "—"
+        perf = sel.get("matched_performer") or sel.get("channel", "")
+        vtitle = sel.get("video_title", "").replace("|", "·")
+        md_lines.append(
+            f"| {i} | {yr} | **{item['title']}** | {item.get('role_label_heb','')} | "
+            f"{item.get('tier_label','')} | {perf} | [{vtitle}](https://www.youtube.com/watch?v={vid}) | {sel.get('duration','')} |"
+        )
+    with open(md_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(md_lines) + "\n")
+
+    # 3. naomi_shemer_streaming_import.csv
+    with open(stream_csv_path, "w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "playlist_order", "title", "artist", "album", "year",
+                "composer_lyricist_role", "duration", "youtube_url",
+                "youtube_id", "backup_youtube_urls",
+            ],
+        )
+        writer.writeheader()
+        for idx, item in enumerate(matched, 1):
+            sel = item["selected_video"]
+            vid = sel["video_id"]
+            yr = item.get("year", "")
+            yr_clean = yr if (yr and str(yr) != "2099") else ""
+            alb = item.get("album_group") or sel.get("matched_album") or ""
+            artist = _clean_artist_name(item, sel)
+            alts = [
+                f"https://www.youtube.com/watch?v={a['video_id']}"
+                for a in item.get("alternative_videos", [])[:5]
+                if a.get("video_id") and a.get("video_id") != vid
+            ]
+            writer.writerow({
+                "playlist_order": idx,
+                "title": item.get("title", ""),
+                "artist": artist,
+                "album": alb,
+                "year": yr_clean,
+                "composer_lyricist_role": item.get("role_label_heb", "מילים ולחן: נעמי שמר"),
+                "duration": sel.get("duration", ""),
+                "youtube_url": f"https://www.youtube.com/watch?v={vid}",
+                "youtube_id": vid,
+                "backup_youtube_urls": " | ".join(alts),
+            })
+
+    # 4. naomi_shemer_youtube_stream.m3u8
+    m3u_lines = [
+        "#EXTM3U",
+        f"#PLAYLIST:שירי נעמי שמר – האוסף המקיף ({len(matched)} ביצועים ביוטיוב)",
+    ]
+    for item in matched:
+        sel = item["selected_video"]
+        vid = sel["video_id"]
+        sec = _parse_duration_seconds(sel.get("duration", ""))
+        artist = _clean_artist_name(item, sel)
+        title = item.get("title", "")
+        yr = item.get("year", "")
+        yr_str = f" ({yr})" if (yr and str(yr) != "2099") else ""
+        m3u_lines.append(f"#EXTINF:{sec},{artist} - {title}{yr_str}")
+        m3u_lines.append(f"https://www.youtube.com/watch?v={vid}")
+    with open(m3u8_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(m3u_lines) + "\n")
+
+    # 5. wayback_backup_urls.txt
+    urls = ["https://www.youtube.com/playlist?list=PLFHErlX6i22g"]
+    seen = set(urls)
+    for item in playlist:
+        sel = item.get("selected_video") or {}
+        vid = sel.get("video_id")
+        if vid:
+            u = f"https://www.youtube.com/watch?v={vid}"
+            if u not in seen:
+                seen.add(u)
+                urls.append(u)
+        for lk in item.get("archive_links", []):
+            lu = lk.get("url", "")
+            if lu and ("nli.org.il/he/items/" in lu or "shironet.mako.co.il/artist?type=lyrics" in lu):
+                if lu not in seen:
+                    seen.add(lu)
+                    urls.append(lu)
+    with open(wayback_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(urls) + "\n")
+
+    return [csv_path, md_path, stream_csv_path, m3u8_path, wayback_path]
 
 
 def get_decade(year_str: str) -> str:
@@ -967,13 +1146,36 @@ def generate_files():
       .player-layout {{ grid-template-columns: 1fr; }}
     }}
     .sticky-player {{ position: sticky; top: 16px; }}
-    iframe {{
+    .yt-frame-wrap {{
       width: 100%;
       aspect-ratio: 16/9;
       border-radius: 12px;
+      overflow: hidden;
       border: 1px solid var(--border);
       background: #000;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }}
+    .yt-frame-wrap iframe, #ytFrame {{
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }}
+    @media (max-width: 768px) {{
+      .container {{ padding: 12px 10px 32px; }}
+      .sticky-player {{
+        position: sticky;
+        top: 6px;
+        z-index: 25;
+        padding: 10px 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+      }}
+      .yt-frame-wrap {{ max-height: 185px; }}
+      #nowPlayingTitle {{ font-size: 17px !important; }}
+      #nowPlayingMeta {{ font-size: 12.5px !important; margin-bottom: 5px !important; }}
+      .quote-box {{ display: none !important; }}
+      th, td {{ padding: 8px 7px; font-size: 12.5px; }}
+      .song-main-title {{ font-size: 13.5px; }}
     }}
 
     /* Now Playing Card */
@@ -1057,6 +1259,26 @@ def generate_files():
       padding: 0 5px;
       background: rgba(15, 23, 42, 0.7);
     }}
+    .search-clear {{
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(148, 163, 184, 0.18);
+      color: var(--text);
+      border: none;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 11px;
+      line-height: 1;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }}
+    .search-clear:hover {{ background: rgba(245, 158, 11, 0.35); color: #fff; }}
     input, select {{
       background: rgba(11, 17, 32, 0.75);
       color: var(--text);
@@ -1123,6 +1345,21 @@ def generate_files():
     tr.song-row.multi-ver-row:not(.active) td:first-child {{
       border-right: 3px solid rgba(56, 189, 248, 0.38);
     }}
+    tr.album-group-header td {{
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--gold-soft);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+      border-top: 1px solid rgba(245, 158, 11, 0.18);
+    }}
+    .album-group-count {{
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 12px;
+      margin-right: 6px;
+    }}
 
     .row-num {{
       font-weight: 600;
@@ -1132,6 +1369,13 @@ def generate_files():
       text-align: center;
     }}
     tr.song-row.active .row-num {{ color: var(--gold-soft); font-weight: 700; }}
+    .playing-ind {{
+      display: none;
+      color: var(--gold);
+      font-size: 11px;
+      margin-left: 2px;
+    }}
+    tr.song-row.active .playing-ind {{ display: inline; }}
 
     .song-main-title {{
       font-weight: 600;
@@ -1197,6 +1441,12 @@ def generate_files():
       font-weight: 600;
       background: rgba(56, 189, 248, 0.13);
       color: var(--accent);
+      cursor: pointer;
+      transition: all 0.14s;
+    }}
+    .ver-badge:hover {{
+      background: var(--accent);
+      color: #0f172a;
     }}
     .t-1_album_naomi {{ background: rgba(245, 158, 11, 0.16); color: #fbbf24; }}
     .t-2_album_original {{ background: rgba(16, 185, 129, 0.16); color: #34d399; }}
@@ -1299,7 +1549,9 @@ def generate_files():
         <!-- כרטיס הנגן הדביק -->
         <div class="card sticky-player">
           <div id="failoverBanner" style="display:none; background:rgba(245,158,11,0.18); border:1px solid var(--gold); color:#fcd34d; padding:7px 10px; border-radius:8px; font-size:12.5px; margin-bottom:8px;"></div>
-          <iframe id="ytFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <div id="ytFrameWrap" class="yt-frame-wrap">
+            <div id="ytFrame"></div>
+          </div>
 
           <div class="np-header">
             <div class="np-title-row">
@@ -1320,8 +1572,8 @@ def generate_files():
           </div>
 
           <!-- פרטים משניים מוסתרים במגירה נקייה -->
-          <details class="np-details">
-            <summary>⚙️ מקורות גיבוי, גלילה וקיצורי מקלדת</summary>
+          <details id="npDetails" class="np-details">
+            <summary id="npDetailsSummary">⚙️ מקורות גיבוי, גלילה וקיצורי מקלדת</summary>
             <div style="margin-top:8px; display:flex; flex-direction:column; gap:8px;">
               <div id="backupSourcesBox" style="display:none;">
                 <label style="display:block; margin-bottom:4px; color:var(--text-secondary);">🛡️ החלף למקור גיבוי / ביצוע חלופי:</label>
@@ -1340,8 +1592,9 @@ def generate_files():
           <!-- שורת חיפוש ומיון נקייה -->
           <div class="toolbar">
             <div class="search-wrap">
-              <input type="text" id="searchInput" placeholder="חיפוש שיר, שורת פתיחה, מבצע או אלבום..." oninput="renderTable()" />
-              <span class="search-kbd">/</span>
+              <input type="text" id="searchInput" placeholder="חיפוש שיר, שורת פתיחה, מבצע או אלבום..." oninput="onSearchInput('yt')" />
+              <span id="searchKbd" class="search-kbd">/</span>
+              <button id="searchClearBtn" class="search-clear" type="button" onclick="clearSearch('yt')" title="נקה חיפוש (Esc)">✕</button>
             </div>
             <select id="sortSelect" onchange="renderTable()">
               <option value="canonical">🌟 מיון: קלאסיקות תחילה</option>
@@ -1418,7 +1671,8 @@ def generate_files():
         </div>
         <div class="toolbar">
           <div class="search-wrap">
-            <input type="text" id="archSearchInput" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע..." oninput="renderArchiveTable()" />
+            <input type="text" id="archSearchInput" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע..." oninput="onSearchInput('arch')" />
+            <button id="archSearchClearBtn" class="search-clear" type="button" onclick="clearSearch('arch')" title="נקה חיפוש (Esc)">✕</button>
           </div>
           <select id="archRoleFilter" onchange="renderArchiveTable()">
             <option value="ALL">כל התפקידים ({unmatched_songs_count})</option>
@@ -1474,6 +1728,7 @@ def generate_files():
     let filteredSongs = [...SONGS];
     let currentIndex = 0;
     let currentAltIdx = -1; // -1 = primary video, 0..N = index in s.alts
+    let playHistory = [];
     let ytPlayer = null;
     let ytApiReady = false;
     let ytApiFailed = false;
@@ -1507,7 +1762,17 @@ def generate_files():
 
     window.onYouTubeIframeAPIReady = function() {{
       try {{
+        const initReq = pendingVideoLoad || {{ vid: (filteredSongs[currentIndex] || SONGS[0]).vid, autoplay: false }};
+        pendingVideoLoad = null;
         ytPlayer = new YT.Player("ytFrame", {{
+          width: "100%",
+          height: "100%",
+          videoId: initReq.vid,
+          playerVars: {{
+            rel: 0,
+            enablejsapi: 1,
+            autoplay: initReq.autoplay ? 1 : 0
+          }},
           events: {{
             onReady: function() {{
               ytApiReady = true;
@@ -1530,6 +1795,11 @@ def generate_files():
         }});
       }} catch (e) {{
         ytApiFailed = true;
+        if (pendingVideoLoad) {{
+          const req = pendingVideoLoad;
+          pendingVideoLoad = null;
+          loadVideoByIdOrSrc(req.vid, req.autoplay);
+        }}
       }}
     }};
 
@@ -1539,6 +1809,7 @@ def generate_files():
       const alts = s.alts || [];
       const nextAltIdx = currentAltIdx + 1;
       const banner = document.getElementById("failoverBanner");
+      const npDet = document.getElementById("npDetails");
       if (nextAltIdx < alts.length) {{
         currentAltIdx = nextAltIdx;
         const alt = alts[currentAltIdx];
@@ -1546,6 +1817,7 @@ def generate_files():
           banner.style.display = "block";
           banner.innerHTML = `⚠️ הסרטון הראשי אינו זמין כעת (קוד ${{esc(errCode)}}). הנגן עבר אוטומטית למקור גיבוי #${{currentAltIdx + 1}}: <strong>${{esc(alt.vtitle || alt.vid)}}</strong>`;
         }}
+        if (npDet) npDet.open = true;
         const sel = document.getElementById("backupSelect");
         if (sel) sel.value = alt.vid;
         loadVideoByIdOrSrc(alt.vid, true);
@@ -1569,9 +1841,17 @@ def generate_files():
         pendingVideoLoad = {{ vid, autoplay }};
         return;
       }}
-      const frame = document.getElementById("ytFrame");
+      const wrap = document.getElementById("ytFrameWrap");
       const originParam = window.location.origin && window.location.origin !== "null" ? `&origin=${{encodeURIComponent(window.location.origin)}}` : "";
-      frame.src = `https://www.youtube.com/embed/${{encodeURIComponent(vid)}}?enablejsapi=1&rel=0${{autoplay ? "&autoplay=1" : ""}}${{originParam}}`;
+      const srcUrl = `https://www.youtube.com/embed/${{encodeURIComponent(vid)}}?enablejsapi=1&rel=0${{autoplay ? "&autoplay=1" : ""}}${{originParam}}`;
+      let frame = document.getElementById("ytFrame");
+      if (!frame || frame.tagName.toLowerCase() !== "iframe") {{
+        if (wrap) {{
+          wrap.innerHTML = `<iframe id="ytFrame" src="${{srcUrl}}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        }}
+      }} else {{
+        frame.src = srcUrl;
+      }}
     }}
 
     function switchVideoSource(vid) {{
@@ -1621,8 +1901,57 @@ def generate_files():
       if (btn) btn.classList.toggle("btn-active", isOpen);
     }}
 
+    function updateSearchClearUI(which) {{
+      if (which === "arch") {{
+        const inp = document.getElementById("archSearchInput");
+        const clr = document.getElementById("archSearchClearBtn");
+        if (inp && clr) clr.style.display = inp.value.length > 0 ? "inline-flex" : "none";
+      }} else {{
+        const inp = document.getElementById("searchInput");
+        const clr = document.getElementById("searchClearBtn");
+        const kbd = document.getElementById("searchKbd");
+        const hasVal = inp && inp.value.length > 0;
+        if (clr) clr.style.display = hasVal ? "inline-flex" : "none";
+        if (kbd) kbd.style.display = hasVal ? "none" : "inline";
+      }}
+    }}
+
+    function onSearchInput(which) {{
+      updateSearchClearUI(which);
+      if (which === "arch") renderArchiveTable();
+      else renderTable();
+    }}
+
+    function clearSearch(which) {{
+      if (which === "arch") {{
+        const inp = document.getElementById("archSearchInput");
+        if (inp) {{ inp.value = ""; inp.focus(); }}
+        updateSearchClearUI("arch");
+        renderArchiveTable();
+      }} else {{
+        const inp = document.getElementById("searchInput");
+        if (inp) {{ inp.value = ""; inp.focus(); }}
+        updateSearchClearUI("yt");
+        renderTable();
+      }}
+    }}
+
+    function filterBySongTitle(ev, rawTitle) {{
+      if (ev && typeof ev.stopPropagation === "function") ev.stopPropagation();
+      const inp = document.getElementById("searchInput");
+      if (!inp) return;
+      if (inp.value.trim() === rawTitle) {{
+        inp.value = "";
+      }} else {{
+        inp.value = rawTitle;
+      }}
+      updateSearchClearUI("yt");
+      renderTable();
+    }}
+
     function resetAllFilters() {{
       document.getElementById("searchInput").value = "";
+      updateSearchClearUI("yt");
       document.getElementById("sortSelect").value = "canonical";
       document.getElementById("decadeFilter").value = "ALL";
       document.getElementById("tierFilter").value = "ALL";
@@ -1696,7 +2025,9 @@ def generate_files():
     function updateNowPlayingCard(s) {{
       document.getElementById("nowPlayingTitle").textContent = `${{s.n}}. ${{s.raw_title}}${{s.year ? " (" + s.year + ")" : ""}}`;
       document.getElementById("nowPlayingMeta").textContent = `${{s.perf || s.ch}}${{s.alb ? " · " + s.alb : ""}}`;
-      const verBadgeHtml = s.ver_total > 1 ? `<span class="ver-badge">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>` : "";
+      const verBadgeHtml = s.ver_total > 1
+        ? `<span class="ver-badge" onclick="filterBySongTitle(event, ${{JSON.stringify(s.raw_title).replace(/"/g, '&quot;')}})" title="לחץ להצגת כל ${{s.ver_total}} הביצועים של שיר זה">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>`
+        : "";
       const tierShort = s.tier_label.replace(/^[0-9]\.\s*/, "");
       document.getElementById("nowPlayingRole").innerHTML = `<span class="badge t-${{esc(s.tier)}}">${{esc(tierShort)}}</span><span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>${{verBadgeHtml}}`;
       const qBox = document.getElementById("nowPlayingQuote");
@@ -1716,7 +2047,13 @@ def generate_files():
       if (banner) banner.style.display = "none";
       const bBox = document.getElementById("backupSourcesBox");
       const bSel = document.getElementById("backupSelect");
+      const npSum = document.getElementById("npDetailsSummary");
       const alts = s.alts || [];
+      if (npSum) {{
+        npSum.textContent = alts.length > 0
+          ? `⚙️ מקורות גיבוי (${{alts.length}}), גלילה וקיצורי מקלדת`
+          : `⚙️ גלילה וקיצורי מקלדת`;
+      }}
       if (bBox && bSel) {{
         if (alts.length > 0) {{
           bBox.style.display = "block";
@@ -1740,8 +2077,12 @@ def generate_files():
       }}
     }}
 
-    function playSongAt(idx, shouldScroll = true) {{
+    function playSongAt(idx, shouldScroll = true, skipHistory = false) {{
       if (idx < 0 || idx >= filteredSongs.length) return;
+      if (!skipHistory && currentIndex !== idx && filteredSongs[currentIndex]) {{
+        playHistory.push( filteredSongs[currentIndex].vid );
+        if (playHistory.length > 100) playHistory.shift();
+      }}
       currentIndex = idx;
       currentAltIdx = -1;
       const s = filteredSongs[idx];
@@ -1779,11 +2120,20 @@ def generate_files():
         playSongAt(randIdx);
         return;
       }}
-      if (currentIndex + 1 < filteredSongs.length) playSongAt(currentIndex + 1);
+      playSongAt((currentIndex + 1) % filteredSongs.length);
     }}
 
     function playPrev() {{
-      if (currentIndex - 1 >= 0) playSongAt(currentIndex - 1);
+      if (!filteredSongs.length) return;
+      if (shuffleEnabled && playHistory.length > 0) {{
+        const prevVid = playHistory.pop();
+        const prevIdx = filteredSongs.findIndex(x => x.vid === prevVid);
+        if (prevIdx >= 0) {{
+          playSongAt(prevIdx, true, true);
+          return;
+        }}
+      }}
+      playSongAt((currentIndex - 1 + filteredSongs.length) % filteredSongs.length, true, true);
     }}
 
     function renderTable(skipSync = false) {{
@@ -1853,20 +2203,45 @@ def generate_files():
         }}
       }}
 
+      const albumCounts = {{}};
+      if (sortBy === "albums") {{
+        filteredSongs.forEach(s => {{
+          const g = s.alb_group || "ללא שיוך לאלבום";
+          albumCounts[g] = (albumCounts[g] || 0) + 1;
+        }});
+      }}
+
+      let lastAlbGroup = null;
       const tbody = document.getElementById("songsBody");
-      tbody.innerHTML = filteredSongs.map((s, i) => {{
+      const htmlRows = [];
+      filteredSongs.forEach((s, i) => {{
+        if (sortBy === "albums") {{
+          const grp = s.alb_group || "ללא שיוך לאלבום";
+          if (grp !== lastAlbGroup) {{
+            lastAlbGroup = grp;
+            htmlRows.push(`
+              <tr class="album-group-header">
+                <td colspan="4">💿 ${{esc(grp)}} <span class="album-group-count">(${{albumCounts[grp]}} רצועות)</span></td>
+              </tr>
+            `);
+          }}
+        }}
         const roleSub = s.role_cat !== "words_and_music" ? `<span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>` : "";
-        return `
+        const titleAttrEsc = JSON.stringify(s.raw_title).replace(/"/g, "&quot;");
+        const subNumHtml = sortBy === "albums" && s.alb_trk
+          ? `<div style="font-size:10.5px; color:var(--gold-soft); opacity:0.85;">רצועה #${{s.alb_trk}}</div>`
+          : (sortBy !== "canonical" ? `<div style="font-size:10.5px; opacity:0.65;">#${{s.n}}</div>` : "");
+        htmlRows.push(`
         <tr class="song-row ${{i === currentIndex ? "active" : ""}} ${{s.ver_total > 1 ? "multi-ver-row" : ""}}" onclick="playSongAt(${{i}}, false)">
           <td class="row-num">
-            <div>${{i + 1}}</div>
-            ${{sortBy !== "canonical" ? `<div style="font-size:10.5px; opacity:0.65;">#${{s.n}}</div>` : ""}}
+            <div><span class="playing-ind">▶</span>${{i + 1}}</div>
+            ${{subNumHtml}}
           </td>
           <td>
             <div class="song-main-title">
               <span>${{esc(s.raw_title)}}</span>
               ${{s.year ? `<span class="song-year">(${{esc(s.year)}})</span>` : ""}}
-              ${{s.ver_total > 1 ? `<span class="ver-badge" title="שיר זה מופיע ב-${{s.ver_total}} ביצועים">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>` : ""}}
+              ${{s.ver_total > 1 ? `<span class="ver-badge" onclick="filterBySongTitle(event, ${{titleAttrEsc}})" title="לחץ לסינון כל ${{s.ver_total}} הביצועים של שיר זה">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>` : ""}}
               ${{roleSub}}
             </div>
           </td>
@@ -1877,8 +2252,9 @@ def generate_files():
           <td style="text-align:left;">
             <span class="dur-text">${{esc(s.dur)}}</span>
           </td>
-        </tr>`;
-      }}).join("");
+        </tr>`);
+      }});
+      tbody.innerHTML = htmlRows.join("");
 
       if (!skipSync) syncUrlAndStorageState();
     }}
@@ -1933,7 +2309,15 @@ def generate_files():
     document.addEventListener("keydown", function(ev) {{
       const tag = (ev.target && ev.target.tagName) ? ev.target.tagName.toLowerCase() : "";
       if (tag === "input" || tag === "textarea" || tag === "select" || (ev.target && ev.target.isContentEditable)) {{
-        if (ev.key === "Escape") ev.target.blur();
+        if (ev.key === "Escape") {{
+          if (ev.target.id === "searchInput" && ev.target.value) {{
+            clearSearch("yt");
+          }} else if (ev.target.id === "archSearchInput" && ev.target.value) {{
+            clearSearch("arch");
+          }} else {{
+            ev.target.blur();
+          }}
+        }}
         return;
       }}
       if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
@@ -1973,11 +2357,20 @@ def generate_files():
       const tabParam = params.get("tab") || saved.tab;
       const shufParam = params.get("shuffle");
 
-      if (qParam !== null) document.getElementById("searchInput").value = qParam;
+      if (qParam !== null) {{
+        document.getElementById("searchInput").value = qParam;
+        updateSearchClearUI("yt");
+      }}
       if (sortParam) document.getElementById("sortSelect").value = sortParam;
       if (tierParam) document.getElementById("tierFilter").value = tierParam;
       if (roleParam) document.getElementById("roleFilter").value = roleParam;
       if (decadeParam) document.getElementById("decadeFilter").value = decadeParam;
+      if ((tierParam && tierParam !== "ALL") || (roleParam && roleParam !== "ALL")) {{
+        const drw = document.getElementById("advancedDrawer");
+        const btn = document.getElementById("advFilterBtn");
+        if (drw) drw.classList.add("open");
+        if (btn) btn.classList.add("btn-active");
+      }}
       if (shufParam === "1" || (shufParam === null && saved.shuffle)) {{
         shuffleEnabled = true;
         const btn = document.getElementById("shuffleBtn");
@@ -1996,8 +2389,7 @@ def generate_files():
         currentAltIdx = -1;
         const s = filteredSongs[initIdx] || SONGS[0];
         updateNowPlayingCard(s);
-        const originParam = window.location.origin && window.location.origin !== "null" ? `&origin=${{encodeURIComponent(window.location.origin)}}` : "";
-        document.getElementById("ytFrame").src = `https://www.youtube.com/embed/${{encodeURIComponent(s.vid)}}?enablejsapi=1&rel=0${{originParam}}`;
+        pendingVideoLoad = {{ vid: s.vid, autoplay: false }};
         loadYouTubeIframeAPI();
         document.querySelectorAll("tr.song-row").forEach((tr, i) => {{
           tr.classList.toggle("active", i === initIdx);
@@ -2017,7 +2409,11 @@ def generate_files():
     with open(index_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"עודכנו בהצלחה:\n  1. {js_path}\n  2. {html_path}\n  3. {index_path}")
+    secondary_paths = sync_all_secondary_exports(data)
+    all_out = [js_path, update_js_path, html_path, index_path] + secondary_paths
+    print("עודכנו בהצלחה כל קובצי הפרויקט:")
+    for idx_p, p in enumerate(all_out, 1):
+        print(f"  {idx_p}. {p}")
 
 
 if __name__ == "__main__":

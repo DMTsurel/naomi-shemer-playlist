@@ -110,7 +110,7 @@ def main():
     # 2. Generate naomi_shemer_youtube_stream.m3u8
     m3u_lines = [
         "#EXTM3U",
-        "#PLAYLIST:שירי נעמי שמר – האוסף המקיף (670 ביצועים ביוטיוב)",
+        f"#PLAYLIST:שירי נעמי שמר – האוסף המקיף ({len(matched)} ביצועים ביוטיוב)",
     ]
     for idx, item in enumerate(matched, 1):
         sel = item["selected_video"]
