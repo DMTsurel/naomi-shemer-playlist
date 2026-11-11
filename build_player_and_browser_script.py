@@ -778,21 +778,31 @@ def generate_files():
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>פלייליסט שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים ביוטיוב + {unmatched_songs_count} שירי ארכיון)</title>
+  <title>שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים ביוטיוב + {unmatched_songs_count} שירי ארכיון)</title>
   <meta name="description" content="האוסף הכרונולוגי המקיף של שירי נעמי שמר ({total_catalog_songs} שירים מאוחדים מ-9 מאגרים): {total_videos} ביצועים מקוריים ביוטיוב ו-{unmatched_songs_count} שירי ארכיון נדירים עם קישורים לספרייה הלאומית, שירונט, זמרשת ואקו&quot;ם." />
-  <meta property="og:title" content="פלייליסט שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים + {unmatched_songs_count} שירי ארכיון)" />
+  <meta property="og:title" content="שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים + {unmatched_songs_count} שירי ארכיון)" />
   <meta property="og:description" content="נגן אינטראקטיבי וקטלוג כרונולוגי מלא של כל {total_catalog_songs} שירי נעמי שמר: אלבומים מקוריים, ביצועי נעמי שמר, תרגומים וארכיון הספרייה הלאומית." />
   <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@600;700;800&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {{
-      --bg: #0f172a;
-      --card: #1e293b;
-      --card-hover: #26354d;
-      --border: #334155;
+      --bg: #0b1120;
+      --bg-grad: radial-gradient(1200px 600px at 85% -10%, rgba(245, 158, 11, 0.10), transparent 60%),
+                 radial-gradient(1000px 500px at 10% 0%, rgba(56, 189, 248, 0.08), transparent 55%),
+                 #0b1120;
+      --card: rgba(22, 32, 51, 0.85);
+      --card-solid: #162033;
+      --card-hover: rgba(38, 53, 77, 0.55);
+      --border: rgba(148, 163, 184, 0.14);
+      --border-strong: rgba(148, 163, 184, 0.25);
       --text: #f8fafc;
+      --text-secondary: #cbd5e1;
       --muted: #94a3b8;
       --accent: #38bdf8;
       --gold: #f59e0b;
+      --gold-soft: #fbbf24;
       --green: #10b981;
       --purple: #c084fc;
       --rose: #fb7185;
@@ -800,329 +810,554 @@ def generate_files():
     * {{ box-sizing: border-box; }}
     body {{
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
+      font-family: "Heebo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-grad);
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.5;
-      padding: 24px;
+      padding: 20px 24px 36px;
+      min-height: 100vh;
     }}
-    .container {{ max-width: 1380px; margin: 0 auto; }}
-    h1 {{ margin: 0 0 8px; font-size: 28px; color: #fff; }}
-    .subtitle {{ color: var(--muted); margin-bottom: 20px; font-size: 15px; }}
+    .container {{ max-width: 1420px; margin: 0 auto; }}
+
+    /* Top Header */
+    .top-header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }}
+    .brand-title {{
+      font-family: "Frank Ruhl Libre", Georgia, serif;
+      margin: 0 0 4px;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: #fff;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }}
+    .brand-count {{
+      font-family: "Heebo", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gold-soft);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      padding: 2px 10px;
+      border-radius: 999px;
+    }}
+    .subtitle {{
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
+      max-width: 780px;
+    }}
+    .header-actions {{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }}
+
+    /* Cards */
     .card {{
       background: var(--card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.35);
     }}
-    .upload-box {{
-      border: 2px solid var(--gold);
-      background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(30,41,59,0.95));
-    }}
+
+    /* Buttons */
     .btn {{
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      border: none;
-      font-size: 14px;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 15px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      font-family: inherit;
+      font-size: 13.5px;
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.15s;
+      transition: all 0.15s ease;
+      white-space: nowrap;
     }}
-    .btn:hover {{ opacity: 0.92; transform: translateY(-1px); }}
-    .btn-gold {{ background: var(--gold); color: #000; font-size: 15px; padding: 12px 22px; }}
-    .btn-blue {{ background: var(--accent); color: #0f172a; }}
-    .btn-outline {{ background: transparent; color: var(--text); border: 1px solid var(--border); }}
-    .btn-outline.btn-active {{ background: rgba(245,158,11,0.22); color: #fbbf24; border-color: var(--gold); }}
-    .btn-sm {{ padding: 6px 12px; font-size: 12.5px; border-radius: 6px; }}
-    .ver-badge {{
-      display: inline-block;
-      padding: 1px 7px;
-      border-radius: 999px;
-      font-size: 11px;
+    .btn:hover {{ transform: translateY(-1px); }}
+    .btn-gold {{
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      color: #0f172a;
       font-weight: 700;
-      background: rgba(56,189,248,0.16);
-      color: var(--accent);
-      border: 1px solid rgba(56,189,248,0.35);
-      margin-right: 6px;
-      vertical-align: middle;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
     }}
-    tr.song-row.multi-ver-row td:first-child {{
-      border-right: 3px solid rgba(56,189,248,0.45);
+    .btn-gold:hover {{ box-shadow: 0 6px 18px rgba(245, 158, 11, 0.35); }}
+    .btn-outline {{
+      background: rgba(15, 23, 42, 0.55);
+      color: var(--text-secondary);
+      border-color: var(--border-strong);
     }}
-    .export-bar {{
+    .btn-outline:hover {{
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(56, 189, 248, 0.10);
+    }}
+    .btn-outline.btn-active {{
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--gold-soft);
+      border-color: var(--gold);
+    }}
+    .btn-sm {{ padding: 6px 11px; font-size: 12.5px; border-radius: 8px; }}
+    .btn-icon {{ padding: 8px 12px; font-size: 14px; }}
+
+    /* Top Bar: Tabs + Search + Quick Filters */
+    .nav-bar {{
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 12px;
-      padding: 8px 12px;
-      background: rgba(15,23,42,0.55);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 13px;
-    }}
-    .kbd-hint {{
-      margin-top: 10px;
-      font-size: 11.5px;
-      color: var(--muted);
-      text-align: center;
-    }}
-    kbd {{
-      background: #0f172a;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1px 5px;
-      font-size: 11px;
-      color: #cbd5e1;
-    }}
-    .steps {{ margin: 14px 0 0; padding-right: 20px; color: #e2e8f0; font-size: 14px; }}
-    .steps li {{ margin-bottom: 6px; }}
-    .instant-grid {{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }}
-    /* Tabs */
-    .tabs-bar {{
-      display: flex;
+      align-items: center;
       gap: 12px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 12px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
+    }}
+    .tabs-bar {{
+      display: inline-flex;
+      background: rgba(15, 23, 42, 0.75);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      gap: 4px;
     }}
     .tab-btn {{
-      background: var(--card);
+      background: transparent;
       color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 700;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.15s;
     }}
-    .tab-btn:hover {{ color: var(--text); border-color: var(--accent); }}
+    .tab-btn:hover {{ color: var(--text); }}
     .tab-btn.active {{
-      background: rgba(56,189,248,0.15);
-      color: var(--accent);
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent);
+      background: var(--card-solid);
+      color: var(--gold-soft);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     }}
+
+    /* Layout */
     .player-layout {{
       display: grid;
-      grid-template-columns: 430px 1fr;
+      grid-template-columns: 390px 1fr;
       gap: 20px;
       align-items: start;
     }}
-    @media (max-width: 1024px) {{
+    @media (max-width: 1080px) {{
       .player-layout {{ grid-template-columns: 1fr; }}
     }}
-    .sticky-player {{ position: sticky; top: 20px; }}
-    iframe {{ width: 100%; aspect-ratio: 16/9; border-radius: 8px; border: none; background: #000; }}
-    .controls {{ display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }}
-    input, select {{
-      background: #0f172a;
-      color: var(--text);
+    .sticky-player {{ position: sticky; top: 16px; }}
+    iframe {{
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
       border: 1px solid var(--border);
-      padding: 9px 12px;
-      border-radius: 8px;
+      background: #000;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }}
+
+    /* Now Playing Card */
+    .np-header {{ margin-top: 12px; }}
+    .np-title-row {{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }}
+    #nowPlayingTitle {{
+      font-family: "Frank Ruhl Libre", Georgia, serif;
+      font-weight: 700;
+      font-size: 21px;
+      color: #fff;
+      line-height: 1.25;
+    }}
+    #nowPlayingMeta {{
+      color: var(--text-secondary);
+      font-size: 13.5px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }}
+    .np-badges {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 10px;
+    }}
+    .transport-bar {{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-top: 12px;
+    }}
+    .np-details {{
+      margin-top: 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }}
+    .np-details summary {{
+      cursor: pointer;
+      user-select: none;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 3px 0;
+    }}
+    .np-details summary:hover {{ color: var(--text-secondary); }}
+
+    /* Filter Toolbar */
+    .toolbar {{
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }}
+    .search-wrap {{
+      position: relative;
+      flex: 1;
+      min-width: 240px;
+    }}
+    .search-wrap input {{
+      width: 100%;
+      padding-left: 34px;
+    }}
+    .search-kbd {{
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--border-strong);
+      border-radius: 5px;
+      padding: 0 5px;
+      background: rgba(15, 23, 42, 0.7);
+    }}
+    input, select {{
+      background: rgba(11, 17, 32, 0.75);
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 13.5px;
+      transition: border-color 0.15s;
+    }}
+    input:focus, select:focus {{
+      outline: none;
+      border-color: var(--accent);
+    }}
+    .advanced-drawer {{
+      display: none;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      background: rgba(11, 17, 32, 0.55);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }}
+    .advanced-drawer.open {{ display: flex; }}
+
+    /* Clean 4-Column Song List Table */
+    .table-wrap {{
+      max-height: 700px;
+      overflow-y: auto;
+      border-radius: 10px;
+    }}
+    .table-wrap::-webkit-scrollbar {{ width: 7px; }}
+    .table-wrap::-webkit-scrollbar-track {{ background: transparent; }}
+    .table-wrap::-webkit-scrollbar-thumb {{ background: rgba(148, 163, 184, 0.22); border-radius: 999px; }}
+    .table-wrap::-webkit-scrollbar-thumb:hover {{ background: rgba(148, 163, 184, 0.38); }}
+
+    table {{ width: 100%; border-collapse: collapse; font-size: 13.5px; }}
+    th, td {{
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+      vertical-align: middle;
+    }}
+    th {{
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      position: sticky;
+      top: 0;
+      background: var(--card-solid);
+      z-index: 2;
+    }}
+    tr.song-row {{ cursor: pointer; transition: background 0.12s; }}
+    tr.song-row:hover {{ background: var(--card-hover); }}
+    tr.song-row.active {{
+      background: rgba(245, 158, 11, 0.13);
+    }}
+    tr.song-row.active td:first-child {{
+      border-right: 3px solid var(--gold);
+    }}
+    tr.song-row.multi-ver-row:not(.active) td:first-child {{
+      border-right: 3px solid rgba(56, 189, 248, 0.38);
+    }}
+
+    .row-num {{
+      font-weight: 600;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      width: 44px;
+      text-align: center;
+    }}
+    tr.song-row.active .row-num {{ color: var(--gold-soft); font-weight: 700; }}
+
+    .song-main-title {{
+      font-weight: 600;
+      font-size: 14.5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }}
+    .song-year {{
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 12.5px;
+    }}
+    .opening-line {{
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }}
+    .perf-primary {{
+      font-weight: 500;
+      color: var(--text-secondary);
       font-size: 13.5px;
     }}
-    input {{ flex: 1; min-width: 220px; }}
-    table {{ width: 100%; border-collapse: collapse; font-size: 13.5px; }}
-    th, td {{ padding: 10px 10px; border-bottom: 1px solid var(--border); text-align: right; vertical-align: top; }}
-    th {{ color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--card); z-index: 2; }}
-    tr.song-row {{ cursor: pointer; transition: background 0.1s; }}
-    tr.song-row:hover {{ background: rgba(56,189,248,0.08); }}
-    tr.song-row.active {{ background: rgba(245,158,11,0.18); }}
+    .perf-album {{
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 1px;
+    }}
+    .meta-col {{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      white-space: nowrap;
+    }}
+    .dur-text {{
+      color: var(--muted);
+      font-size: 12.5px;
+      font-variant-numeric: tabular-nums;
+    }}
+
+    /* Subtle Badges */
     .badge {{
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 11.5px;
+      border-radius: 6px;
+      font-size: 11px;
       font-weight: 600;
       white-space: nowrap;
     }}
-    .t-1_album_naomi {{ background: rgba(245,158,11,0.2); color: #fbbf24; }}
-    .t-2_album_original {{ background: rgba(16,185,129,0.2); color: #34d399; }}
-    .t-3_naomi_performance {{ background: rgba(56,189,248,0.2); color: #38bdf8; }}
-    .t-4_original_performance {{ background: rgba(168,85,247,0.2); color: #c084fc; }}
-    .t-5_cover {{ background: rgba(148,163,184,0.2); color: #cbd5e1; }}
-
-    .r-words_and_music {{ background: rgba(245,158,11,0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }}
-    .r-music_only {{ background: rgba(56,189,248,0.15); color: #7dd3fc; border: 1px solid rgba(56,189,248,0.3); }}
-    .r-words_only {{ background: rgba(192,132,252,0.15); color: #d8b4fe; border: 1px solid rgba(192,132,252,0.3); }}
-    .r-translation {{ background: rgba(16,185,129,0.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }}
-    .r-performance_only {{ background: rgba(251,113,133,0.15); color: #fda4af; border: 1px solid rgba(251,113,133,0.3); }}
-
-    .table-wrap {{ max-height: 680px; overflow-y: auto; }}
-    .opening-line {{
-      color: #94a3b8;
-      font-size: 12px;
-      font-style: italic;
-      margin-top: 3px;
-    }}
-    .quote-box {{
-      background: rgba(15,23,42,0.65);
-      border-right: 3px solid var(--gold);
-      padding: 8px 12px;
+    .ver-badge {{
+      display: inline-block;
+      padding: 1px 6px;
       border-radius: 6px;
-      font-size: 13px;
-      color: #e2e8f0;
+      font-size: 10.5px;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.13);
+      color: var(--accent);
+    }}
+    .t-1_album_naomi {{ background: rgba(245, 158, 11, 0.16); color: #fbbf24; }}
+    .t-2_album_original {{ background: rgba(16, 185, 129, 0.16); color: #34d399; }}
+    .t-3_naomi_performance {{ background: rgba(56, 189, 248, 0.16); color: #38bdf8; }}
+    .t-4_original_performance {{ background: rgba(168, 85, 247, 0.16); color: #c084fc; }}
+    .t-5_cover {{ background: rgba(148, 163, 184, 0.14); color: #cbd5e1; }}
+
+    .r-words_and_music {{ background: rgba(245, 158, 11, 0.12); color: #fcd34d; }}
+    .r-music_only {{ background: rgba(56, 189, 248, 0.12); color: #7dd3fc; }}
+    .r-words_only {{ background: rgba(192, 132, 252, 0.12); color: #d8b4fe; }}
+    .r-translation {{ background: rgba(16, 185, 129, 0.12); color: #6ee7b7; }}
+    .r-performance_only {{ background: rgba(251, 113, 133, 0.12); color: #fda4af; }}
+
+    .quote-box {{
+      background: rgba(11, 17, 32, 0.6);
+      border-right: 3px solid var(--gold);
+      padding: 7px 11px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
       margin-bottom: 10px;
     }}
     .archive-pills {{
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
+      gap: 5px;
     }}
     .arch-pill {{
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      padding: 3px 9px;
+      gap: 3px;
+      padding: 3px 8px;
       border-radius: 6px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 600;
       text-decoration: none;
-      background: rgba(56,189,248,0.12);
+      background: rgba(56, 189, 248, 0.10);
       color: var(--accent);
-      border: 1px solid rgba(56,189,248,0.3);
+      border: 1px solid rgba(56, 189, 248, 0.22);
       transition: all 0.15s;
     }}
-    .arch-pill:hover {{
-      background: var(--accent);
-      color: #0f172a;
-    }}
+    .arch-pill:hover {{ background: var(--accent); color: #0f172a; }}
     .arch-pill.nli {{
-      background: rgba(245,158,11,0.14);
+      background: rgba(245, 158, 11, 0.12);
       color: #fbbf24;
-      border-color: rgba(245,158,11,0.35);
+      border-color: rgba(245, 158, 11, 0.28);
     }}
-    .arch-pill.nli:hover {{
-      background: #fbbf24;
-      color: #0f172a;
-    }}
+    .arch-pill.nli:hover {{ background: #fbbf24; color: #0f172a; }}
     .arch-pill.shironet {{
-      background: rgba(16,185,129,0.14);
+      background: rgba(16, 185, 129, 0.12);
       color: #34d399;
-      border-color: rgba(16,185,129,0.35);
+      border-color: rgba(16, 185, 129, 0.28);
     }}
-    .arch-pill.shironet:hover {{
-      background: #34d399;
-      color: #0f172a;
-    }}
+    .arch-pill.shironet:hover {{ background: #34d399; color: #0f172a; }}
     .count-chip {{
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12.5px;
       margin-right: auto;
+      white-space: nowrap;
+    }}
+    kbd {{
+      background: #0f172a;
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 11px;
+      color: #cbd5e1;
     }}
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים ביוטיוב · {total_catalog_songs} שירים בקטלוג)</h1>
-    <div class="subtitle">
-      איחוד של 9 מאגרים (אקו"ם, הספרייה הלאומית – בית לזמר העברי, שירונט, ויקיפדיה, סטריאו ומונו, פזמונט, זמרשת, Discogs ו-MusicBrainz) · כולל תפקיד נעמי שמר ויוצרים שותפים, שורות פתיחה וקישורים ישירים לארכיון הצליל הלאומי ולמילות השירים
-    </div>
-
-    <div class="card upload-box">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div style="flex:1; min-width:280px;">
-          <h2 style="margin:0 0 6px; font-size:20px; color:#fff;">🎵 הפלייליסט המלא זמין להאזנה ב-YouTube</h2>
-          <p style="margin:0; color:#cbd5e1; font-size:14.5px;">
-            כל <strong>{total_videos} הביצועים</strong> ({matched_songs_count} שירים) מסודרים מהקלאסיקות הגדולות ושירי הילדים והחגים הקאנוניים אל הפנינים הנדירות — כולל ביצועי המבצעים המקוריים וביצועיה של נעמי שמר. בדף זה ניתן גם למיין את הרשימה לפי סדר כרונולוגי (1953–2004), אלבומים, תפוצה או א'-ב':
-          </p>
-        </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-          <a class="btn btn-gold" href="https://www.youtube.com/playlist?list=PLFHErlX6i22g" target="_blank">▶️ פתח את הפלייליסט המלא ב-YouTube ({total_videos} שירים) ↗</a>
-          <button class="btn btn-outline" onclick="copyShareUrl()">🔗 שתף קישור לשיר המתנגן</button>
-          <span id="shareStatus" style="color:var(--green); font-weight:600; display:none; font-size:13px;">✔ הקישור הועתק!</span>
-        </div>
+    <!-- כותרת עליונה אלגנטית ומאוחדת -->
+    <header class="top-header">
+      <div>
+        <h1 class="brand-title">
+          שירי נעמי שמר
+          <span class="brand-count">{total_videos} ביצועים · {total_catalog_songs} שירים בקטלוג</span>
+        </h1>
+        <p class="subtitle">
+          האוסף המקיף מאוחד מ-9 מאגרים (אקו"ם, הספרייה הלאומית, שירונט, זמרשת ועוד) — מסודר מהקלאסיקות הגדולות אל הפנינים הנדירות.
+        </p>
       </div>
-    </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="copyShareUrl()">🔗 שתף שיר מתנגן</button>
+        <span id="shareStatus" style="color:var(--green); font-weight:600; display:none; font-size:12.5px;">✔ הועתק!</span>
+        <a class="btn btn-gold" href="https://www.youtube.com/playlist?list=PLFHErlX6i22g" target="_blank" rel="noopener">▶️ פתח פלייליסט ב-YouTube ↗</a>
+      </div>
+    </header>
 
-    <div class="tabs-bar">
-      <button id="tabBtnYt" class="tab-btn active" onclick="switchTab('yt')">
-        🎵 הפלייליסט המלא ביוטיוב ({total_videos} ביצועים · {matched_songs_count} שירים)
-      </button>
-      <button id="tabBtnArch" class="tab-btn" onclick="switchTab('arch')">
-        🏛️ פלייליסט ארכיון משלים – שירים נדירים שלא ביוטיוב ({unmatched_songs_count} שירים בספרייה הלאומית, שירונט וזמרשת)
-      </button>
+    <!-- סרגל לשוניות -->
+    <div class="nav-bar">
+      <div class="tabs-bar">
+        <button id="tabBtnYt" class="tab-btn active" onclick="switchTab('yt')">
+          🎵 נגן הפלייליסט ({total_videos})
+        </button>
+        <button id="tabBtnArch" class="tab-btn" onclick="switchTab('arch')">
+          🏛️ שירים נדירים בארכיון ({unmatched_songs_count})
+        </button>
+      </div>
+      <span id="ytCountChip" class="count-chip"></span>
     </div>
 
     <!-- לשונית 1: פלייליסט יוטיוב -->
     <div id="tabYtContent">
       <div class="player-layout">
+        <!-- כרטיס הנגן הדביק -->
         <div class="card sticky-player">
-          <div id="nowPlayingTitle" style="font-weight:700; font-size:17px; margin-bottom:4px;">בחר שיר מהרשימה לניגון</div>
-          <div id="nowPlayingMeta" style="color:var(--muted); font-size:13px; margin-bottom:8px;"></div>
-          <div id="nowPlayingRole" style="margin-bottom:8px;"></div>
-          <div id="nowPlayingQuote" class="quote-box" style="display:none;"></div>
           <div id="failoverBanner" style="display:none; background:rgba(245,158,11,0.18); border:1px solid var(--gold); color:#fcd34d; padding:7px 10px; border-radius:8px; font-size:12.5px; margin-bottom:8px;"></div>
           <iframe id="ytFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          <div id="backupSourcesBox" style="display:none; margin-top:8px; padding:8px 10px; background:rgba(15,23,42,0.65); border:1px solid var(--border); border-radius:8px; font-size:12.5px;">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
-              <span style="color:var(--muted); font-weight:600;">🛡️ מקור גיבוי / ביצוע חלופי:</span>
-              <select id="backupSelect" onchange="switchVideoSource(this.value)" style="flex:1; min-width:180px; padding:5px 8px; font-size:12px;"></select>
+
+          <div class="np-header">
+            <div class="np-title-row">
+              <div id="nowPlayingTitle">בחר שיר מהרשימה</div>
             </div>
+            <div id="nowPlayingMeta"></div>
+            <div id="nowPlayingRole" class="np-badges"></div>
+            <div id="nowPlayingQuote" class="quote-box" style="display:none;"></div>
+            <div id="nowPlayingLinks" class="archive-pills" style="margin-bottom:6px;"></div>
           </div>
-          <div id="nowPlayingLinks" class="archive-pills" style="margin-top:10px;"></div>
-          <div style="display:flex; justify-content:space-between; margin-top:14px; gap:8px; flex-wrap:wrap;">
-            <button class="btn btn-outline" onclick="playPrev()" title="השיר הקודם (P)">⏮ הקודם</button>
-            <button class="btn btn-outline" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯ ניגון/השהיה</button>
-            <button id="shuffleBtn" class="btn btn-outline" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀 אקראי</button>
-            <button class="btn btn-outline" onclick="scrollToActiveRow()" title="גלול לשיר המתנגן בטבלה">🎯 גלול לשיר</button>
-            <a id="openOnYt" class="btn btn-outline" href="#" target="_blank">פתח ביוטיוב ↗</a>
-            <button class="btn btn-outline" onclick="playNext()" title="השיר הבא (N)">הבא ⏭</button>
+
+          <div class="transport-bar">
+            <button class="btn btn-outline btn-icon" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
+            <button class="btn btn-outline btn-icon" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯</button>
+            <button class="btn btn-outline btn-icon" onclick="playNext()" title="השיר הבא (N)">⏭</button>
+            <button id="shuffleBtn" class="btn btn-outline btn-icon" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀</button>
+            <a id="openOnYt" class="btn btn-outline btn-icon" href="#" target="_blank" rel="noopener" title="פתח ביוטיוב">↗ YT</a>
           </div>
-          <div class="kbd-hint">
-            קיצורי מקלדת: <kbd>Space</kbd>/<kbd>K</kbd> ניגון/השהיה · <kbd>N</kbd>/<kbd>P</kbd> הבא/הקודם · <kbd>S</kbd> אקראי · <kbd>/</kbd> חיפוש
-          </div>
+
+          <!-- פרטים משניים מוסתרים במגירה נקייה -->
+          <details class="np-details">
+            <summary>⚙️ מקורות גיבוי, גלילה וקיצורי מקלדת</summary>
+            <div style="margin-top:8px; display:flex; flex-direction:column; gap:8px;">
+              <div id="backupSourcesBox" style="display:none;">
+                <label style="display:block; margin-bottom:4px; color:var(--text-secondary);">🛡️ החלף למקור גיבוי / ביצוע חלופי:</label>
+                <select id="backupSelect" onchange="switchVideoSource(this.value)" style="width:100%; padding:6px 8px; font-size:12px;"></select>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+                <button class="btn btn-outline btn-sm" onclick="scrollToActiveRow()">🎯 גלול לשיר המתנגן בטבלה</button>
+                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>/</kbd> חיפוש</span>
+              </div>
+            </div>
+          </details>
         </div>
 
-        <div class="card">
-          <div class="controls">
-            <input type="text" id="searchInput" placeholder="חיפוש לפי שם שיר, שורת פתיחה, מבצע, אלבום או יוצר שותף... (לחץ / לחיפוש מהיר)" oninput="renderTable()" />
-            <select id="sortSelect" onchange="renderTable()" style="border-color: var(--gold); font-weight: 600;">
-              <option value="canonical">🌟 מיון: מהקלאסיקות האהובות לנדירים (ברירת מחדל)</option>
-              <option value="chrono_asc">📅 מיון: סדר כרונולוגי (מהמוקדם למאוחר: 1953–2004)</option>
-              <option value="chrono_desc">⏪ מיון: סדר כרונולוגי הפוך (מהמאוחר למוקדם)</option>
-              <option value="albums">💿 מיון: לפי אלבומים מקוריים (אלבומי נעמי שמר תחילה)</option>
-              <option value="popularity">🔥 מיון: לפי תפוצה ומספר גרסאות באקו"ם</option>
-              <option value="title_asc">🔤 מיון: לפי שם השיר (א'–ת')</option>
-              <option value="perf_asc">🎤 מיון: לפי שם המבצע (א'–ת')</option>
-            </select>
-            <select id="layerFilter" onchange="renderTable()">
-              <option value="ALL">כל השכבות ({total_videos})</option>
-              <option value="1">🌟 שכבה א': קלאסיקות ושירי ילדים קאנוניים ({l1})</option>
-              <option value="2">💿 שכבה ב': אלבומים וביצועים מוכרים ({l2})</option>
-              <option value="3">💎 שכבה ג': פנינים נדירות וארכיון ({l3})</option>
-            </select>
-            <select id="tierFilter" onchange="renderTable()">
-              <option value="ALL">כל רמות העדיפות ({total_videos})</option>
-              <option value="1_album_naomi">1. אלבום של נעמי שמר ({t1})</option>
-              <option value="2_album_original">2. אלבום של המבצע המקורי ({t2})</option>
-              <option value="3_naomi_performance">3. ביצוע של נעמי שמר ({t3})</option>
-              <option value="4_original_performance">4. ביצוע מקורי ({t4})</option>
-              <option value="5_cover">5. קאבר / ביצוע נוסף ({t5})</option>
-            </select>
-            <select id="roleFilter" onchange="renderTable()">
-              <option value="ALL">כל תפקידי היצירה ({total_videos})</option>
-              <option value="words_and_music">מילים ולחן: נעמי שמר ({r_wm})</option>
-              <option value="music_only">לחן: נעמי שמר · מילים: אחרים ({r_m})</option>
-              <option value="words_only">מילים: נעמי שמר · לחן: אחרים ({r_w})</option>
-              <option value="translation">תרגום / נוסח עברי: נעמי שמר ({r_t})</option>
-              <option value="performance_only">ביצוע בלבד: נעמי שמר ({r_p})</option>
+        <!-- כרטיס רשימת השירים -->
+        <div class="card" style="padding: 16px;">
+          <!-- שורת חיפוש ומיון נקייה -->
+          <div class="toolbar">
+            <div class="search-wrap">
+              <input type="text" id="searchInput" placeholder="חיפוש שיר, שורת פתיחה, מבצע או אלבום..." oninput="renderTable()" />
+              <span class="search-kbd">/</span>
+            </div>
+            <select id="sortSelect" onchange="renderTable()">
+              <option value="canonical">🌟 מיון: קלאסיקות תחילה</option>
+              <option value="chrono_asc">📅 כרונולוגי (1953–2004)</option>
+              <option value="chrono_desc">⏪ כרונולוגי הפוך</option>
+              <option value="albums">💿 לפי אלבומים מקוריים</option>
+              <option value="popularity">🔥 לפי תפוצה באקו"ם</option>
+              <option value="title_asc">🔤 שם השיר (א'–ת')</option>
+              <option value="perf_asc">🎤 שם המבצע (א'–ת')</option>
             </select>
             <select id="decadeFilter" onchange="renderTable()">
               <option value="ALL">כל העשורים ({total_videos})</option>
@@ -1130,31 +1365,56 @@ def generate_files():
               <option value="1960s">שנות ה-60 ({d_60})</option>
               <option value="1970s">שנות ה-70 ({d_70})</option>
               <option value="1980s">שנות ה-80 ({d_80})</option>
-              <option value="1990s+">שנות ה-90 ואילך ({d_90})</option>
-              <option value="unknown">ללא שנה מתועדת ({d_unk})</option>
+              <option value="1990s+">שנות ה-90+ ({d_90})</option>
+              <option value="unknown">ללא שנה ({d_unk})</option>
             </select>
-            <span id="ytCountChip" class="count-chip"></span>
+            <button id="advFilterBtn" class="btn btn-outline btn-sm" onclick="toggleAdvancedFilters()">
+              ⚙️ סינון וייצוא <span id="activeFiltersBadge" style="display:none; background:var(--gold); color:#000; padding:0 6px; border-radius:999px; font-size:11px;"></span>
+            </button>
           </div>
-          <div class="export-bar">
-            <span style="color:var(--muted); font-weight:600;">📥 ייצוא התצוגה המסוננת הנוכחית:</span>
-            <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
-              <button class="btn btn-outline btn-sm" onclick="exportFilteredCsv()">📄 הורד CSV</button>
-              <button class="btn btn-outline btn-sm" onclick="exportFilteredM3u8()">🎧 הורד M3U8</button>
-              <button class="btn btn-outline btn-sm" onclick="copyFilteredLinks()">📋 העתק קישורי YouTube</button>
+
+          <!-- מגירת סינון מתקדם וייצוא (מוסתרת כברירת מחדל) -->
+          <div id="advancedDrawer" class="advanced-drawer">
+            <select id="layerFilter" onchange="renderTable()">
+              <option value="ALL">כל השכבות ({total_videos})</option>
+              <option value="1">🌟 שכבה א': קלאסיקות ({l1})</option>
+              <option value="2">💿 שכבה ב': אלבומים ({l2})</option>
+              <option value="3">💎 שכבה ג': נדירים ({l3})</option>
+            </select>
+            <select id="tierFilter" onchange="renderTable()">
+              <option value="ALL">כל סוגי הביצועים ({total_videos})</option>
+              <option value="1_album_naomi">אלבום של נעמי שמר ({t1})</option>
+              <option value="2_album_original">אלבום מבצע מקורי ({t2})</option>
+              <option value="3_naomi_performance">ביצוע נעמי שמר ({t3})</option>
+              <option value="4_original_performance">ביצוע מקורי ({t4})</option>
+              <option value="5_cover">ביצוע נוסף / קאבר ({t5})</option>
+            </select>
+            <select id="roleFilter" onchange="renderTable()">
+              <option value="ALL">כל תפקידי היצירה ({total_videos})</option>
+              <option value="words_and_music">מילים ולחן: נעמי שמר ({r_wm})</option>
+              <option value="music_only">לחן בלבד ({r_m})</option>
+              <option value="words_only">מילים בלבד ({r_w})</option>
+              <option value="translation">תרגום ({r_t})</option>
+              <option value="performance_only">ביצוע בלבד ({r_p})</option>
+            </select>
+            <button class="btn btn-outline btn-sm" onclick="resetAllFilters()" title="אפס את כל המסננים">↺ איפוס</button>
+            <div style="margin-right:auto; display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
+              <span style="color:var(--muted); font-size:12px;">ייצוא:</span>
+              <button class="btn btn-outline btn-sm" onclick="exportFilteredCsv()">CSV</button>
+              <button class="btn btn-outline btn-sm" onclick="exportFilteredM3u8()">M3U8</button>
+              <button class="btn btn-outline btn-sm" onclick="copyFilteredLinks()">📋 העתק קישורים</button>
               <span id="exportStatus" style="color:var(--green); font-weight:600; display:none; font-size:12px;">✔ הועתק!</span>
             </div>
           </div>
+
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>שם השיר ושורת פתיחה</th>
-                  <th>תפקיד ויוצרים</th>
-                  <th>סיווג הביצוע</th>
-                  <th>מבצע / אלבום</th>
-                  <th>כותרת הסרטון ומאגרים</th>
-                  <th>אורך</th>
+                  <th style="width:44px; text-align:center;">#</th>
+                  <th>שיר</th>
+                  <th>מבצע ואלבום</th>
+                  <th style="text-align:left;">סיווג ואורך</th>
                 </tr>
               </thead>
               <tbody id="songsBody"></tbody>
@@ -1166,41 +1426,44 @@ def generate_files():
 
     <!-- לשונית 2: ארכיון שירים נדירים שלא ביוטיוב -->
     <div id="tabArchContent" style="display:none;">
-      <div class="card" style="border-color: var(--accent);">
-        <h3 style="margin:0 0 8px; font-size:18px; color:var(--accent);">🏛️ ארכיון משלים: {unmatched_songs_count} שירים מתוך הקטלוג שאינם זמינים ביוטיוב</h3>
-        <p style="margin:0 0 12px; color:#cbd5e1; font-size:14px;">
-          שירים אלה אותרו בארכיוני <strong>הספרייה הלאומית (בית לזמר העברי וארכיון הצליל הלאומי)</strong>, <strong>אקו"ם</strong>, <strong>שירונט</strong>, <strong>זמרשת</strong> ו<strong>פזמונט</strong>, אך טרם הועלו ליוטיוב (חלקם הקלטות רדיו נדירות בקול ישראל, שירי הצגות ומופעים מוקדמים משנות ה-50 וה-60, או לחנים מכתבי יד וספרי תווים).
-          לכל שיר צורפו קישורים ישירים להאזנה או לעיון בכרטיס היצירה ב<strong>ספרייה הלאומית</strong>, לקריאת המילים ב<strong>שירונט</strong>, ולחיפוש ב<strong>זמרשת</strong> ו<strong>אקו"ם</strong>.
-        </p>
-        <div class="controls">
-          <input type="text" id="archSearchInput" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה, מבצע מתועד או יוצר שותף..." oninput="renderArchiveTable()" />
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+          <div>
+            <h3 style="margin:0 0 4px; font-size:18px; color:#fff;">🏛️ ארכיון משלים: {unmatched_songs_count} שירים נדירים שאינם ביוטיוב</h3>
+            <p style="margin:0; color:var(--muted); font-size:13.5px;">
+              שירים שאותרו בספרייה הלאומית, אקו"ם, שירונט וזמרשת (הקלטות רדיו, שירי הצגות מוקדמים או כתבי יד) עם קישורים ישירים למילים ולהאזנה בארכיון.
+            </p>
+          </div>
+          <span id="archCountChip" class="count-chip"></span>
+        </div>
+        <div class="toolbar">
+          <div class="search-wrap">
+            <input type="text" id="archSearchInput" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע..." oninput="renderArchiveTable()" />
+          </div>
           <select id="archRoleFilter" onchange="renderArchiveTable()">
-            <option value="ALL">כל תפקידי היצירה ({unmatched_songs_count})</option>
-            <option value="words_and_music">מילים ולחן: נעמי שמר ({ar_wm})</option>
-            <option value="music_only">לחן: נעמי שמר · מילים: אחרים ({ar_m})</option>
-            <option value="words_only">מילים: נעמי שמר · לחן: אחרים ({ar_w})</option>
-            <option value="translation">תרגום / נוסח עברי: נעמי שמר ({ar_t})</option>
-            <option value="performance_only">ביצוע בלבד: נעמי שמר ({ar_p})</option>
+            <option value="ALL">כל התפקידים ({unmatched_songs_count})</option>
+            <option value="words_and_music">מילים ולחן ({ar_wm})</option>
+            <option value="music_only">לחן בלבד ({ar_m})</option>
+            <option value="words_only">מילים בלבד ({ar_w})</option>
+            <option value="translation">תרגום ({ar_t})</option>
+            <option value="performance_only">ביצוע בלבד ({ar_p})</option>
           </select>
           <select id="archSourceFilter" onchange="renderArchiveTable()">
             <option value="ALL">כל המאגרים ({unmatched_songs_count})</option>
-            <option value="nli">קיים כרטיס ישיר בספרייה הלאומית – בית לזמר ({as_nli})</option>
-            <option value="acum">קיים במאגר אקו"ם ({as_acum})</option>
-            <option value="shironet">קיימות מילים בשירונט ({as_shir})</option>
+            <option value="nli">הספרייה הלאומית ({as_nli})</option>
+            <option value="acum">אקו"ם ({as_acum})</option>
+            <option value="shironet">שירונט ({as_shir})</option>
           </select>
-          <span id="archCountChip" class="count-chip"></span>
         </div>
         <div class="table-wrap" style="max-height: 720px;">
           <table>
             <thead>
               <tr>
-                <th>#</th>
-                <th>שנה</th>
-                <th>שם השיר ושמות חלופיים</th>
-                <th>תפקיד נעמי שמר ויוצרים שותפים</th>
-                <th>מבצעים ואלבומים מתועדים</th>
-                <th>שורת פתיחה והערות</th>
-                <th>קישורים להאזנה ולמילים בארכיון</th>
+                <th style="width:44px;">#</th>
+                <th>שיר ושנה</th>
+                <th>מבצעים ותפקיד</th>
+                <th>שורת פתיחה</th>
+                <th>קישורים לארכיון</th>
               </tr>
             </thead>
             <tbody id="archiveBody"></tbody>
@@ -1350,7 +1613,26 @@ def generate_files():
       document.getElementById("tabArchContent").style.display = isYt ? "none" : "block";
       document.getElementById("tabBtnYt").classList.toggle("active", isYt);
       document.getElementById("tabBtnArch").classList.toggle("active", !isYt);
+      document.getElementById("ytCountChip").style.display = isYt ? "inline" : "none";
       if (!skipSync) syncUrlAndStorageState();
+    }}
+
+    function toggleAdvancedFilters() {{
+      const drw = document.getElementById("advancedDrawer");
+      const btn = document.getElementById("advFilterBtn");
+      if (!drw) return;
+      const isOpen = drw.classList.toggle("open");
+      if (btn) btn.classList.toggle("btn-active", isOpen);
+    }}
+
+    function resetAllFilters() {{
+      document.getElementById("searchInput").value = "";
+      document.getElementById("sortSelect").value = "canonical";
+      document.getElementById("decadeFilter").value = "ALL";
+      document.getElementById("layerFilter").value = "ALL";
+      document.getElementById("tierFilter").value = "ALL";
+      document.getElementById("roleFilter").value = "ALL";
+      renderTable();
     }}
 
     function syncUrlAndStorageState() {{
@@ -1420,15 +1702,16 @@ def generate_files():
     }}
 
     function updateNowPlayingCard(s) {{
-      document.getElementById("nowPlayingTitle").textContent = `${{s.n}}. ${{s.title}}`;
-      document.getElementById("nowPlayingMeta").textContent = `${{s.tier_label}} · ${{s.perf || s.ch}} ${{s.alb ? "· " + s.alb : ""}}`;
-      const verBadgeHtml = s.ver_total > 1 ? ` <span class="ver-badge">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>` : "";
-      document.getElementById("nowPlayingRole").innerHTML = `<span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>${{verBadgeHtml}}`;
+      document.getElementById("nowPlayingTitle").textContent = `${{s.n}}. ${{s.raw_title}}${{s.year ? " (" + s.year + ")" : ""}}`;
+      document.getElementById("nowPlayingMeta").textContent = `${{s.perf || s.ch}}${{s.alb ? " · " + s.alb : ""}}`;
+      const verBadgeHtml = s.ver_total > 1 ? `<span class="ver-badge">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>` : "";
+      const tierShort = s.tier_label.replace(/^[0-9]\.\s*/, "");
+      document.getElementById("nowPlayingRole").innerHTML = `<span class="badge t-${{esc(s.tier)}}">${{esc(tierShort)}}</span><span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>${{verBadgeHtml}}`;
       const qBox = document.getElementById("nowPlayingQuote");
       const parts = [];
       const notesArr = Array.isArray(s.notes) ? s.notes : (s.notes ? [s.notes] : []);
-      if (s.opening_line) parts.push(`<strong>שורת פתיחה:</strong> "${{esc(s.opening_line)}}"`);
-      if (notesArr.length) parts.push(`<strong>הערות:</strong> ${{notesArr.map(esc).join(" · ")}}`);
+      if (s.opening_line) parts.push(`"${{esc(s.opening_line)}}"`);
+      if (notesArr.length) parts.push(`<span style="color:var(--muted); font-size:11.5px;">${{notesArr.map(esc).join(" · ")}}</span>`);
       if (parts.length > 0) {{
         qBox.innerHTML = parts.join("<br/>");
         qBox.style.display = "block";
@@ -1621,41 +1904,59 @@ def generate_files():
         if (foundIdx >= 0) currentIndex = foundIdx;
       }}
 
-      document.getElementById("ytCountChip").textContent = `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים`;
+      document.getElementById("ytCountChip").textContent = filteredSongs.length === SONGS.length
+        ? `${{SONGS.length}} ביצועים`
+        : `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים`;
 
-      const layerBadgeMap = {{
-        1: `<span class="badge" style="background:rgba(245,158,11,0.18); color:#fcd34d; margin-top:4px;">🌟 שכבה א' (קלאסיקה)</span>`,
-        2: `<span class="badge" style="background:rgba(56,189,248,0.15); color:#7dd3fc; margin-top:4px;">💿 שכבה ב' (אלבומים)</span>`,
-        3: `<span class="badge" style="background:rgba(148,163,184,0.15); color:#cbd5e1; margin-top:4px;">💎 שכבה ג' (נדירים)</span>`
+      const activeAdvCount = [lf !== "ALL", tf !== "ALL", rf !== "ALL"].filter(Boolean).length;
+      const advBadge = document.getElementById("activeFiltersBadge");
+      if (advBadge) {{
+        if (activeAdvCount > 0) {{
+          advBadge.textContent = activeAdvCount;
+          advBadge.style.display = "inline-block";
+        }} else {{
+          advBadge.style.display = "none";
+        }}
+      }}
+
+      const shortTierMap = {{
+        "1_album_naomi": "אלבום נעמי שמר",
+        "2_album_original": "אלבום מקורי",
+        "3_naomi_performance": "ביצוע נעמי שמר",
+        "4_original_performance": "ביצוע מקורי",
+        "5_cover": "ביצוע נוסף"
       }};
 
       const tbody = document.getElementById("songsBody");
-      tbody.innerHTML = filteredSongs.map((s, i) => `
+      tbody.innerHTML = filteredSongs.map((s, i) => {{
+        const roleSub = s.role_cat !== "words_and_music" ? `<span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>` : "";
+        return `
         <tr class="song-row ${{i === currentIndex ? "active" : ""}} ${{s.ver_total > 1 ? "multi-ver-row" : ""}}" onclick="playSongAt(${{i}}, false)">
-          <td>
-            <div style="font-weight:700;">${{i + 1}}</div>
-            ${{sortBy !== "canonical" ? `<div style="font-size:11px; color:var(--muted);">(#${{s.n}})</div>` : ""}}
+          <td class="row-num">
+            <div>${{i + 1}}</div>
+            ${{sortBy !== "canonical" ? `<div style="font-size:10.5px; opacity:0.65;">#${{s.n}}</div>` : ""}}
           </td>
           <td>
-            <div style="font-weight:600;">
-              ${{esc(s.title)}}
-              ${{s.ver_total > 1 ? `<span class="ver-badge" title="שיר זה מופיע בפלייליסט ב-${{s.ver_total}} ביצועים שונים">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>` : ""}}
+            <div class="song-main-title">
+              <span>${{esc(s.raw_title)}}</span>
+              ${{s.year ? `<span class="song-year">(${{esc(s.year)}})</span>` : ""}}
+              ${{s.ver_total > 1 ? `<span class="ver-badge" title="שיר זה מופיע ב-${{s.ver_total}} ביצועים">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>` : ""}}
+              ${{roleSub}}
             </div>
             ${{s.opening_line ? `<div class="opening-line">"${{esc(s.opening_line)}}"</div>` : ""}}
           </td>
           <td>
-            <div><span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span></div>
-            <div>${{layerBadgeMap[s.layer] || ""}}</div>
+            <div class="perf-primary">${{esc(s.perf || s.ch)}}</div>
+            ${{s.alb ? `<div class="perf-album">${{esc(s.alb)}}</div>` : ""}}
           </td>
-          <td><span class="badge t-${{esc(s.tier)}}">${{esc(s.tier_label)}}</span></td>
-          <td>${{esc([s.perf, s.alb].filter(Boolean).join(" / ") || s.ch)}}</td>
           <td>
-            <div style="color:#cbd5e1;">${{esc(s.vtitle)}}</div>
-            ${{renderArchivePills(s.links, true)}}
+            <div class="meta-col">
+              <span class="badge t-${{esc(s.tier)}}">${{esc(shortTierMap[s.tier] || s.tier_label)}}</span>
+              <span class="dur-text">${{esc(s.dur)}}</span>
+            </div>
           </td>
-          <td style="color:var(--muted);">${{esc(s.dur)}}</td>
-        </tr>
-      `).join("");
+        </tr>`;
+      }}).join("");
 
       if (!skipSync) syncUrlAndStorageState();
     }}
@@ -1682,25 +1983,25 @@ def generate_files():
         );
       }});
 
-      document.getElementById("archCountChip").textContent = `מציג ${{filteredArch.length}} מתוך ${{ARCHIVE_SONGS.length}} שירי ארכיון`;
+      document.getElementById("archCountChip").textContent = `${{filteredArch.length}} מתוך ${{ARCHIVE_SONGS.length}} שירי ארכיון`;
 
       const tbody = document.getElementById("archiveBody");
-      tbody.innerHTML = filteredArch.map(s => `
+      tbody.innerHTML = filteredArch.map((s, idx) => `
         <tr>
-          <td>${{s.n}}</td>
-          <td style="color:var(--muted);">${{esc(s.year)}}</td>
+          <td class="row-num">${{idx + 1}}</td>
           <td>
-            <div style="font-weight:700; color:#fff;">${{esc(s.title)}}</div>
-            ${{s.alt_titles && s.alt_titles.length ? `<div style="font-size:12px; color:var(--muted);">שמות נוספים: ${{esc(s.alt_titles.join(", "))}}</div>` : ""}}
-          </td>
-          <td><span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span></td>
-          <td>
-            <div>${{s.perfs ? esc(s.perfs) : "<span style='color:var(--muted);'>לא מתועד מבצע</span>"}}</div>
-            ${{s.albums ? `<div style="font-size:12px; color:var(--muted);">אלבום/אוסף: ${{esc(s.albums)}}</div>` : ""}}
+            <div class="song-main-title">
+              <span>${{esc(s.title)}}</span>
+              ${{s.year && s.year !== "ללא שנה" ? `<span class="song-year">(${{esc(s.year)}})</span>` : ""}}
+            </div>
+            ${{s.alt_titles && s.alt_titles.length ? `<div class="perf-album">שמות נוספים: ${{esc(s.alt_titles.join(", "))}}</div>` : ""}}
           </td>
           <td>
-            ${{s.opening_line ? `<div style="font-style:italic; color:#e2e8f0;">"${{esc(s.opening_line)}}"</div>` : "<span style='color:var(--muted);'>—</span>"}}
-            ${{(Array.isArray(s.notes) ? s.notes : (s.notes ? [s.notes] : [])).length ? `<div style="font-size:12px; color:var(--gold); margin-top:3px;">${{(Array.isArray(s.notes) ? s.notes : [s.notes]).map(esc).join(" · ")}}</div>` : ""}}
+            <div class="perf-primary">${{s.perfs ? esc(s.perfs) : "<span style='color:var(--muted);'>לא מתועד מבצע</span>"}}</div>
+            <div style="margin-top:3px;"><span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span></div>
+          </td>
+          <td>
+            ${{s.opening_line ? `<div class="opening-line" style="-webkit-line-clamp:2;">"${{esc(s.opening_line)}}"</div>` : "<span style='color:var(--muted);'>—</span>"}}
           </td>
           <td>${{renderArchivePills(s.links, false)}}</td>
         </tr>
