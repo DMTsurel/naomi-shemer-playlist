@@ -34140,8 +34140,8 @@
       ],
       "opening_line": "ירק הוא הברוש ותכל הוא הים",
       "year": "1968",
-      "album_group": "ביצוע נעמי שמר (אחרי האלבום: שולי נתן שרה נעמי שמר)",
-      "album_track_number": "",
+      "album_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
+      "album_track_number": 10,
       "dual_role": "naomi_performance",
       "roles": [
         "author",
@@ -34210,8 +34210,8 @@
         "הטיול הקטן: כל שירי נעמי שמר לילדים",
         "נעמי שמר - כל השירים"
       ],
-      "tier": "3_naomi_performance",
-      "tier_label": "3. ביצוע של נעמי שמר",
+      "tier": "1_album_naomi",
+      "tier_label": "1. אלבום של נעמי שמר",
       "selected_video": {
         "video_id": "vczM9eWy1yw",
         "url": "https://www.youtube.com/watch?v=vczM9eWy1yw",
@@ -34219,13 +34219,31 @@
         "channel": "כאן | מוזיקה",
         "duration": "1:57",
         "description": "מזהה יוטיוב מתוך מאגרי נעמי שמר (אקו\"ם / סטריאו ומונו / פזמונט)",
-        "tier": "3_naomi_performance",
-        "tier_label": "3. ביצוע של נעמי שמר",
+        "tier": "1_album_naomi",
+        "tier_label": "1. אלבום של נעמי שמר",
         "matched_performer": "נעמי שמר",
-        "matched_album": "",
+        "matched_album": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
         "score": 2878
       },
       "alternative_videos": [
+        {
+          "video_id": "3KL06zK4_gM",
+          "url": "https://www.youtube.com/watch?v=3KL06zK4_gM",
+          "video_title": "נעמי שמר - שיר ערש לצבעים",
+          "channel": "Israeli Classics קלאסיקה ישראלית",
+          "duration": "0:59",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "FQson2Wm0iw",
+          "url": "https://www.youtube.com/watch?v=FQson2Wm0iw",
+          "video_title": "שיר ערש לצבעים",
+          "channel": "Naomi Shemer - Topic",
+          "duration": "0:59",
+          "views": "",
+          "source": "direct_alternative"
+        },
         {
           "video_id": "-1__PIJhhPI",
           "url": "https://www.youtube.com/watch?v=-1__PIJhhPI",
@@ -76296,8 +76314,8 @@
       ],
       "opening_line": "מעוז צור ישועתי",
       "year": "1971",
-      "album_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-      "album_track_number": 9,
+      "album_group": "ימי כסלו עם נעמי שמר (1979)",
+      "album_track_number": "",
       "dual_role": "naomi_performance",
       "roles": [
         "author",
