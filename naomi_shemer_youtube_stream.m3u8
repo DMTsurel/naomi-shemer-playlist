@@ -1,5 +1,5 @@
 #EXTM3U
-#PLAYLIST:שירי נעמי שמר – האוסף המקיף (649 ביצועים ביוטיוב)
+#PLAYLIST:שירי נעמי שמר – האוסף המקיף (650 ביצועים ביוטיוב)
 #EXTINF:293,שולי נתן - ירושלים של זהב (1967)
 https://www.youtube.com/watch?v=IUxt7faTExY
 #EXTINF:222,נעמי שמר - ירושלים של זהב (1967)
@@ -48,8 +48,8 @@ https://www.youtube.com/watch?v=AvJZwh25uZ4
 https://www.youtube.com/watch?v=AxnQ3qrsp64
 #EXTINF:207,עופר לוי ולאה לופטין - הכל פתוח (1993)
 https://www.youtube.com/watch?v=ryXmue6dutA
-#EXTINF:194,נעמי שמר - הכל פתוח (1993)
-https://www.youtube.com/watch?v=fiU_B2M84Ww
+#EXTINF:386,נעמי שמר (פסטיבל עין-גב, 1993) - הכל פתוח (1993)
+https://www.youtube.com/watch?v=6hTkFqKThes
 #EXTINF:219,הכל עובר חביבי - החגיגה נגמרת (1976)
 https://www.youtube.com/watch?v=gTXgnxD6Cuc
 #EXTINF:207,נעמי שמר - החגיגה נגמרת (1976)
@@ -274,8 +274,6 @@ https://www.youtube.com/watch?v=jMlzihkguOU
 https://www.youtube.com/watch?v=g6clciS1riA
 #EXTINF:147,משה בקר - גיא (1987)
 https://www.youtube.com/watch?v=PXL8ltjFDCk
-#EXTINF:152,משתתפי אצלנו בפסנתר (משה בקר) - גיא (1987)
-https://www.youtube.com/watch?v=CSjnGcglVJI
 #EXTINF:207,להקת פיקוד צפון - כד הקמח (1971)
 https://www.youtube.com/watch?v=CeRvSDeJx-I
 #EXTINF:175,להקת הנח"ל - הטיול הגדול (1963)
@@ -400,6 +398,8 @@ https://www.youtube.com/watch?v=Jg42GYm1qv0
 https://www.youtube.com/watch?v=3iaTDb1K41o
 #EXTINF:162,משתתפי אצלנו בפסנתר - אלף בית (1975)
 https://www.youtube.com/watch?v=5VQkcCM1fmc
+#EXTINF:194,משתתפי אצלנו בפסנתר - הכל פתוח (1993)
+https://www.youtube.com/watch?v=fiU_B2M84Ww
 #EXTINF:189,אריק לביא - החגיגה נגמרת (1976)
 https://www.youtube.com/watch?v=iPj5rmj8GZQ
 #EXTINF:198,הגבעטרון - החגיגה נגמרת (1976)
@@ -476,6 +476,8 @@ https://www.youtube.com/watch?v=6qiFa7eU34M
 https://www.youtube.com/watch?v=sQTl_NH1n0o
 #EXTINF:139,משתתפי אצלנו בפסנתר - נגיד (1975)
 https://www.youtube.com/watch?v=xI2m7tKJ40E
+#EXTINF:152,משתתפי אצלנו בפסנתר (משה בקר) - גיא (1987)
+https://www.youtube.com/watch?v=CSjnGcglVJI
 #EXTINF:118,שולי נתן - חליל מקנה-סוף (1977)
 https://www.youtube.com/watch?v=qrvKQtQgb2s
 #EXTINF:230,יהודית רביץ - בכל שנה בסתיו גיורא (1982)
