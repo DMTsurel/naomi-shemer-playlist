@@ -350,7 +350,7 @@ def generate_files():
 // ============================================================================
 (async function createNaomiShemerPlaylist() {{
   const VIDEO_IDS = {json.dumps(video_ids, ensure_ascii=False)};
-  const PLAYLIST_TITLE = "שירי נעמי שמר - האוסף המקיף ({total_videos} ביצועים, {matched_songs_count} שירים)";
+  const PLAYLIST_TITLE = "שירי נעמי שמר";
   const PLAYLIST_DESC = "אוסף מקיף של שירי נעמי שמר (אלבומיה של נעמי שמר, ביצועים מקוריים מתוך אלבומים, הקלטות ארכיון וקאברים נבחרים). נוצר מתוך איחוד 9 מאגרים (אקו\\"ם, הספרייה הלאומית, שירונט, ויקיפדיה, סטריאו ומונו, פזמונט, זמרשת, Discogs ו-MusicBrainz).";
 
   if (!window.ytcfg || typeof window.ytcfg.get !== "function") {{
@@ -457,6 +457,7 @@ def generate_files():
 // ============================================================================
 (async function updateExistingNaomiShemerPlaylist() {{
   const PLAYLIST_ID = "PLFHErlX6i22g";
+  const PLAYLIST_TITLE = "שירי נעמי שמר";
   const TARGET_VIDEO_IDS = {json.dumps(video_ids, ensure_ascii=False)};
   const VIDEO_TITLES = {json.dumps(vid_to_title, ensure_ascii=False)};
 
@@ -512,49 +513,150 @@ def generate_files():
     return resp.json();
   }}
 
-  // שליפת כל הסרטונים הקיימים כרגע בפלייליסט (כולל setVideoId לצורך עריכה/מחיקה/הזזה מדויקת)
-  function extractVideosAndContinuation(obj, itemsOut, tokensOut) {{
+  // שליפת כל הסרטונים הקיימים כרגע בפלייליסט (תומך הן ב-lockupViewModel החדש והן ב-playlistVideoRenderer הישן)
+  function findSetVideoId(node, depth = 0) {{
+    if (!node || typeof node !== "object" || depth > 12) return null;
+    if (typeof node.setVideoId === "string" && node.setVideoId) return node.setVideoId;
+    if (Array.isArray(node)) {{
+      for (const el of node) {{
+        const found = findSetVideoId(el, depth + 1);
+        if (found) return found;
+      }}
+      return null;
+    }}
+    for (const k of Object.keys(node)) {{
+      const found = findSetVideoId(node[k], depth + 1);
+      if (found) return found;
+    }}
+    return null;
+  }}
+
+  function findWatchVideoId(node, depth = 0) {{
+    if (!node || typeof node !== "object" || depth > 10) return null;
+    if (node.watchEndpoint && typeof node.watchEndpoint.videoId === "string" && node.watchEndpoint.videoId) {{
+      return node.watchEndpoint.videoId;
+    }}
+    if (Array.isArray(node)) {{
+      for (const el of node) {{
+        const found = findWatchVideoId(el, depth + 1);
+        if (found) return found;
+      }}
+      return null;
+    }}
+    for (const k of Object.keys(node)) {{
+      if (k === "menuButton") continue;
+      const found = findWatchVideoId(node[k], depth + 1);
+      if (found) return found;
+    }}
+    return null;
+  }}
+
+  function extractVideosAndContinuation(obj, itemsOut, tokensOut, seenTokens) {{
     if (!obj || typeof obj !== "object") return;
     if (Array.isArray(obj)) {{
-      for (const el of obj) extractVideosAndContinuation(el, itemsOut, tokensOut);
+      for (const el of obj) extractVideosAndContinuation(el, itemsOut, tokensOut, seenTokens);
       return;
     }}
     if (obj.playlistVideoRenderer) {{
       const r = obj.playlistVideoRenderer;
-      if (r.videoId) {{
+      const svid = r.setVideoId || findSetVideoId(r) || null;
+      if (r.videoId || svid) {{
         itemsOut.push({{
-          videoId: r.videoId,
-          setVideoId: r.setVideoId || null
+          videoId: r.videoId || null,
+          setVideoId: svid
+        }});
+      }}
+      return;
+    }}
+    if (obj.lockupViewModel) {{
+      const lv = obj.lockupViewModel;
+      const vid = lv.contentId || findWatchVideoId(lv);
+      const svid = findSetVideoId(lv);
+      if ((vid && (lv.contentType === "LOCKUP_CONTENT_TYPE_VIDEO" || !lv.contentType)) || svid) {{
+        itemsOut.push({{
+          videoId: vid || null,
+          setVideoId: svid
         }});
       }}
       return;
     }}
     if (obj.continuationItemRenderer) {{
       const tok = obj.continuationItemRenderer?.continuationEndpoint?.continuationCommand?.token;
-      if (tok) tokensOut.push(tok);
+      if (tok && !seenTokens.has(tok)) {{
+        seenTokens.add(tok);
+        tokensOut.push(tok);
+      }}
+      return;
+    }}
+    if (obj.continuationItemViewModel) {{
+      const civ = obj.continuationItemViewModel;
+      const tok =
+        civ?.continuationCommand?.innertubeCommand?.continuationCommand?.token ||
+        civ?.continuationEndpoint?.continuationCommand?.token;
+      if (tok && !seenTokens.has(tok)) {{
+        seenTokens.add(tok);
+        tokensOut.push(tok);
+      }}
       return;
     }}
     for (const k of Object.keys(obj)) {{
-      extractVideosAndContinuation(obj[k], itemsOut, tokensOut);
+      extractVideosAndContinuation(obj[k], itemsOut, tokensOut, seenTokens);
     }}
   }}
 
   async function fetchCurrentPlaylistItems() {{
     const items = [];
     const tokens = [];
+    const seenTokens = new Set();
     const firstPage = await ytPost("/youtubei/v1/browse", {{ browseId: "VL" + PLAYLIST_ID }});
-    extractVideosAndContinuation(firstPage, items, tokens);
+    extractVideosAndContinuation(firstPage, items, tokens, seenTokens);
     while (tokens.length > 0) {{
       const tok = tokens.shift();
       const nextPage = await ytPost("/youtubei/v1/browse", {{ continuation: tok }});
-      extractVideosAndContinuation(nextPage, items, tokens);
+      extractVideosAndContinuation(nextPage, items, tokens, seenTokens);
     }}
     return items;
+  }}
+
+  function buildRemoveActions(items) {{
+    const actions = [];
+    const seenVid = new Set();
+    for (const item of items) {{
+      if (item.setVideoId) {{
+        actions.push({{ action: "ACTION_REMOVE_VIDEO", setVideoId: item.setVideoId }});
+      }} else if (item.videoId && !seenVid.has(item.videoId)) {{
+        seenVid.add(item.videoId);
+        actions.push({{ action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: item.videoId }});
+      }}
+    }}
+    return actions;
+  }}
+
+  // עדכון שם הפלייליסט ל-"שירי נעמי שמר"
+  try {{
+    await ytPost("/youtubei/v1/browse/edit_playlist", {{
+      playlistId: PLAYLIST_ID,
+      actions: [{{ action: "ACTION_SET_PLAYLIST_NAME", playlistName: PLAYLIST_TITLE }}]
+    }});
+    console.log(`🏷️ שם הפלייליסט עודכן ל: "${{PLAYLIST_TITLE}}"`);
+  }} catch (e) {{
+    console.warn("⚠️ לא הצלחתי לעדכן את שם הפלייליסט אוטומטית:", e.message);
   }}
 
   console.log("🔍 קורא את מצב הפלייליסט הקיים ביוטיוב (" + PLAYLIST_ID + ")...");
   let currentItems = await fetchCurrentPlaylistItems();
   console.log(`📋 נמצאו כרגע בפלייליסט ${{currentItems.length}} סרטונים (יעד רצוי: ${{TARGET_VIDEO_IDS.length}} סרטונים).`);
+
+  // הגנה: אם הקריאה מיוטיוב החזירה 0 סרטונים בזמן שעל הדף עצמו יש סרטונים — עצור מיד לפני הוספה כפולה!
+  if (currentItems.length === 0 && window.ytInitialData) {{
+    const pageItems = [];
+    const dummyTokens = [];
+    extractVideosAndContinuation(window.ytInitialData, pageItems, dummyTokens, new Set());
+    if (pageItems.length > 0) {{
+      console.error(`❌ עצירת חירום: בדף מופיעים ${{pageItems.length}} סרטונים אך קריאת ה-API החזירה 0. לא מוסיף כדי למנוע כפילויות!`);
+      return;
+    }}
+  }}
 
   const curIds = currentItems.map(x => x.videoId);
   if (curIds.length === TARGET_VIDEO_IDS.length && curIds.every((v, i) => v === TARGET_VIDEO_IDS[i])) {{
@@ -604,18 +706,18 @@ def generate_files():
   const estMoves = (commonTargetIds.length - lcsKeep.size) + toAddVids.length;
   const totalSurgicalOps = toDeleteItems.length + toAddVids.length + estMoves;
 
-  if (currentItems.length > 0 && totalSurgicalOps <= 120) {{
+  const hasAllSetIds = currentItems.every(it => Boolean(it.setVideoId));
+  if (currentItems.length > 0 && totalSurgicalOps <= 120 && (estMoves === 0 || hasAllSetIds)) {{
     console.log(`⚡ מבצע עדכון כירורגי מהיר (${{toDeleteItems.length}} מחיקות, ${{toAddVids.length}} הוספות, ${{estMoves}} הזזות מיקום)...`);
     if (toDeleteItems.length > 0) {{
-      for (let i = 0; i < toDeleteItems.length; i += BATCH_SIZE) {{
-        const batch = toDeleteItems.slice(i, i + BATCH_SIZE);
+      const delActions = buildRemoveActions(toDeleteItems);
+      for (let i = 0; i < delActions.length; i += BATCH_SIZE) {{
+        const batch = delActions.slice(i, i + BATCH_SIZE);
         await ytPost("/youtubei/v1/browse/edit_playlist", {{
           playlistId: PLAYLIST_ID,
-          actions: batch.map(item => item.setVideoId
-            ? {{ action: "ACTION_REMOVE_VIDEO", setVideoId: item.setVideoId }}
-            : {{ action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: item.videoId }}
-          )
+          actions: batch
         }});
+        await new Promise(r => setTimeout(r, 400));
       }}
     }}
     if (toAddVids.length > 0) {{
@@ -625,6 +727,7 @@ def generate_files():
           playlistId: PLAYLIST_ID,
           actions: batch.map(vid => ({{ action: "ACTION_ADD_VIDEO", addedVideoId: vid }}))
         }});
+        await new Promise(r => setTimeout(r, 500));
       }}
     }}
     if (estMoves > 0) {{
@@ -658,22 +761,26 @@ def generate_files():
     console.log("🔄 מבצע עדכון סדר מלא בתוך הפלייליסט הקיים (" + PLAYLIST_ID + ")...");
     // שלב א': ניקוי הרשימה הישנה (עם וידוא שהרשימה התרוקנה לגמרי לפני הוספה)
     let pass = 1;
-    while (currentItems.length > 0 && pass <= 3) {{
-      for (let i = 0; i < currentItems.length; i += BATCH_SIZE) {{
-        const batch = currentItems.slice(i, i + BATCH_SIZE);
-        console.log(`🗑️ מנקה סדר ישן (סבב ${{pass}}: ${{i + 1}} עד ${{Math.min(i + BATCH_SIZE, currentItems.length)}} מתוך ${{currentItems.length}})...`);
+    while (currentItems.length > 0 && pass <= 10) {{
+      const delActions = buildRemoveActions(currentItems);
+      if (delActions.length === 0) break;
+      for (let i = 0; i < delActions.length; i += BATCH_SIZE) {{
+        const batch = delActions.slice(i, i + BATCH_SIZE);
+        console.log(`🗑️ מנקה סדר ישן (סבב ${{pass}}: ${{i + 1}} עד ${{Math.min(i + BATCH_SIZE, delActions.length)}} מתוך ${{delActions.length}})...`);
         await ytPost("/youtubei/v1/browse/edit_playlist", {{
           playlistId: PLAYLIST_ID,
-          actions: batch.map(item => item.setVideoId
-            ? {{ action: "ACTION_REMOVE_VIDEO", setVideoId: item.setVideoId }}
-            : {{ action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: item.videoId }}
-          )
+          actions: batch
         }});
         await new Promise(r => setTimeout(r, 450));
       }}
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise(r => setTimeout(r, 1200));
       currentItems = await fetchCurrentPlaylistItems();
       pass++;
+    }}
+
+    if (currentItems.length > 0) {{
+      console.error(`❌ עצירה לפני הוספה: נותרו עדיין ${{currentItems.length}} סרטונים בפלייליסט לאחר ניקוי. רענן את העמוד והרץ שוב כדי להשלים ללא כפילויות.`);
+      return;
     }}
 
     // שלב ב': הוספת כל הסרטונים לפי הסדר החדש
@@ -719,7 +826,7 @@ def generate_files():
     }}
   }});
 
-  if (missingFromYt.length > 0) {{
+  if (missingFromYt.length > 0 && missingFromYt.length <= 40) {{
     console.log(`🔧 מנסה להוסיף שוב ${{missingFromYt.length}} סרטונים שחסרים בפלייליסט...`);
     for (const m of missingFromYt) {{
       try {{
@@ -731,10 +838,13 @@ def generate_files():
       }} catch (err) {{
         console.error(`  ❌ יוטיוב דחה את הסרטון #${{m.index}} ${{m.title}} (${{m.videoId}}):`, err.message);
       }}
+      await new Promise(r => setTimeout(r, 250));
     }}
+  }} else if (missingFromYt.length > 40) {{
+    console.warn(`⚠️ חסרים ${{missingFromYt.length}} סרטונים — מדלג על הוספה פרטנית כדי למנוע חסימת קצב מיוטיוב.`);
   }}
 
-  // 3. הסרת סרטונים עודפים או כפולים שאינם ברשימת היעד
+  // 3. הסרת סרטונים עודפים או כפולים שאינם ברשימת היעד (באצוות של 50)
   const seenCounts = {{}};
   const targetCounts = {{}};
   TARGET_VIDEO_IDS.forEach(v => {{ targetCounts[v] = (targetCounts[v] || 0) + 1; }});
@@ -746,14 +856,16 @@ def generate_files():
     }}
   }}
   if (toRemoveExtra.length > 0) {{
-    console.log(`🧹 מסיר ${{toRemoveExtra.length}} סרטונים עודפים/כפולים...`);
-    await ytPost("/youtubei/v1/browse/edit_playlist", {{
-      playlistId: PLAYLIST_ID,
-      actions: toRemoveExtra.map(item => item.setVideoId
-        ? {{ action: "ACTION_REMOVE_VIDEO", setVideoId: item.setVideoId }}
-        : {{ action: "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", removedVideoId: item.videoId }}
-      )
-    }});
+    const extraActions = buildRemoveActions(toRemoveExtra);
+    console.log(`🧹 מסיר ${{extraActions.length}} סרטונים עודפים/כפולים...`);
+    for (let i = 0; i < extraActions.length; i += BATCH_SIZE) {{
+      const batch = extraActions.slice(i, i + BATCH_SIZE);
+      await ytPost("/youtubei/v1/browse/edit_playlist", {{
+        playlistId: PLAYLIST_ID,
+        actions: batch
+      }});
+      await new Promise(r => setTimeout(r, 450));
+    }}
   }}
 
   // 4. בדיקה חוזרת של הסדר היחסי ותיקון מיקומים במידת הצורך
