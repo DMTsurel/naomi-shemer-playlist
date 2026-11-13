@@ -1852,7 +1852,7 @@ def main() -> None:
         best_cand, orig_cand, naomi_cand, alts = dual_selection_by_key.get(key, (None, None, None, []))
         role_cat, role_label, co_creators_str = build_creator_credits(s)
         arch_links = build_archive_links(s)
-        song_notes = " ".join(s.get("notes", []))[:300]
+        song_notes = " ".join(s.get("notes", [])).strip()
 
         if orig_cand and naomi_cand:
             # יש לשיר גם ביצוע מקורי של אמן/הרכב אחר וגם ביצוע של נעמי שמר עצמה — נכלול את שניהם!

@@ -1603,9 +1603,15 @@ def generate_files():
       padding: 7px 11px;
       border-radius: 6px;
       font-size: 12.5px;
+      line-height: 1.55;
       color: var(--text-secondary);
       margin-bottom: 10px;
+      max-height: 155px;
+      overflow-y: auto;
     }}
+    .quote-box::-webkit-scrollbar {{ width: 5px; }}
+    .quote-box::-webkit-scrollbar-track {{ background: transparent; }}
+    .quote-box::-webkit-scrollbar-thumb {{ background: rgba(148, 163, 184, 0.25); border-radius: 999px; }}
     .archive-pills {{
       display: flex;
       flex-wrap: wrap;
@@ -2253,8 +2259,9 @@ def generate_files():
       const qBox = document.getElementById("nowPlayingQuote");
       const parts = [];
       const notesArr = Array.isArray(s.notes) ? s.notes : (s.notes ? [s.notes] : []);
+      const formatNoteHtml = (txt) => esc(txt).replace(/\s*~\s*/g, "<br/>");
       if (s.opening_line) parts.push(`"${{esc(s.opening_line)}}"`);
-      if (notesArr.length) parts.push(`<span style="color:var(--muted); font-size:11.5px;">${{notesArr.map(esc).join(" · ")}}</span>`);
+      if (notesArr.length) parts.push(`<span style="color:var(--muted); font-size:11.5px;">${{notesArr.map(formatNoteHtml).join(" · ")}}</span>`);
       if (parts.length > 0) {{
         qBox.innerHTML = parts.join("<br/>");
         qBox.style.display = "block";
