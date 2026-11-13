@@ -1,5 +1,5 @@
 #EXTM3U
-#PLAYLIST:שירי נעמי שמר – האוסף המקיף (649 ביצועים ביוטיוב)
+#PLAYLIST:שירי נעמי שמר – האוסף המקיף (648 ביצועים ביוטיוב)
 #EXTINF:293,שולי נתן - ירושלים של זהב (1967)
 https://www.youtube.com/watch?v=IUxt7faTExY
 #EXTINF:222,נעמי שמר - ירושלים של זהב (1967)
@@ -22,11 +22,7 @@ https://www.youtube.com/watch?v=jk6lOLldgT4
 https://www.youtube.com/watch?v=Xe4H1sCCAJo
 #EXTINF:179,בני אמדורסקי - אני גיטרה (1993)
 https://www.youtube.com/watch?v=mw9uiMMvFGk
-#EXTINF:171,נעמי שמר - אני גיטרה (1993)
-https://www.youtube.com/watch?v=oo8IRR00H30
-#EXTINF:160,יהורם גאון - עוד לא אהבתי די (1977)
-https://www.youtube.com/watch?v=_GD1f91Erg8
-#EXTINF:170,נעמי שמר ויהורם גאון - עוד לא אהבתי די (1977)
+#EXTINF:170,יהורם גאון (בהצגת נעמי שמר) - עוד לא אהבתי די (1977)
 https://www.youtube.com/watch?v=GnxLc7C_yvM
 #EXTINF:160,להקת הנח"ל - מחר (1963)
 https://www.youtube.com/watch?v=tWs6g7hg0BI
@@ -400,8 +396,6 @@ https://www.youtube.com/watch?v=_nDa2esEWJk
 https://www.youtube.com/watch?v=HgMGNLc5ir8
 #EXTINF:173,שולי רנד - שירת העשבים (1981)
 https://www.youtube.com/watch?v=A-6m6CKOdC4
-#EXTINF:183,נעמי שמר וקובי אשרת (סקיצה נדירה 1, 1993) - אני גיטרה (1993)
-https://www.youtube.com/watch?v=Yk82zpkqZjw
 #EXTINF:173,עודד בן חור והגבעטרון - עוד לא אהבתי די (1977)
 https://www.youtube.com/watch?v=E452vwyyVjQ
 #EXTINF:258,אריק איינשטיין - פגישה לאין קץ (1970)
@@ -1280,6 +1274,10 @@ https://www.youtube.com/watch?v=L1QLv-RFy7A
 https://www.youtube.com/watch?v=dGSCRDVe9NE
 #EXTINF:148,הגשש החיוור ושוקולד מנטה מסטיק - פקדת הארץ (1976)
 https://www.youtube.com/watch?v=wk0pllJl1nU
+#EXTINF:183,נעמי שמר וקובי אשרת (סקיצה נדירה 1, 1993) - אני גיטרה (1993)
+https://www.youtube.com/watch?v=Yk82zpkqZjw
+#EXTINF:171,נעמי שמר וקובי אשרת (סקיצה נדירה 2, 1993) - אני גיטרה (1993)
+https://www.youtube.com/watch?v=oo8IRR00H30
 #EXTINF:1821,נעמי שמר (תוכנית ליום ירושלים, 1992) - ירושלים של זהב (1967)
 https://www.youtube.com/watch?v=mnXZeefSK8w
 #EXTINF:5527,נעמי שמר ואמני ישראל (מופע הצדעה מלא, 1991) - על כל אלה (1981)
