@@ -75445,6 +75445,1320 @@
     },
     {
       "index": 624,
+      "title": "אוניית הכאב",
+      "alt_titles": [
+        "אוניית כאב",
+        "אניית כאב"
+      ],
+      "opening_line": "",
+      "year": "2004",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author"
+      ],
+      "role_category": "words_only",
+      "role_label_heb": "מילים: נעמי שמר · לחן: שלמה גרוניך",
+      "co_creators_heb": "לחן: שלמה גרוניך",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1376250",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1376250"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "גרוניך שלמה"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "K1DBCpPxqeM",
+        "url": "https://www.youtube.com/watch?v=K1DBCpPxqeM",
+        "video_title": "שלמה גרוניך מבצע לראשונה את השיר אניית כאב",
+        "channel": "מועצה אזורית עמק יזרעאל",
+        "duration": "4:47",
+        "description": "מזהה יוטיוב מתוך מאגרי נעמי שמר (אקו\"ם / סטריאו ומונו / פזמונט)",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "שלמה גרוניך",
+        "matched_album": "",
+        "score": 1890
+      },
+      "alternative_videos": [
+        {
+          "video_id": "gHzMFPiE8MA",
+          "url": "https://www.youtube.com/watch?v=gHzMFPiE8MA",
+          "video_title": "\\",
+          "channel": "ידיעות אחרונות",
+          "duration": "3:06",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "E3z4DUeGifQ",
+          "url": "https://www.youtube.com/watch?v=E3z4DUeGifQ",
+          "video_title": "אוניית הכאב (מלים: נעמי שמר, לחן: שלמה גרוניך)",
+          "channel": "Talila Eliram",
+          "duration": "2:41",
+          "views": "",
+          "source": "direct_alternative"
+        }
+      ],
+      "chrono_index": 646,
+      "canonical_score": 6.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 2,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 625,
+      "title": "התפוזים",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1964",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1297594",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1297594"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "OxafdSA-QkE",
+        "url": "https://www.youtube.com/watch?v=OxafdSA-QkE",
+        "video_title": "התפוזים התפוזים טובים באלף אחוזים // זמריר מאת נעמי שמר // השיר המלא",
+        "channel": "יואב גינאי Yoav Ginai",
+        "duration": "2:08",
+        "description": "ברוכים הבאים לערוץ הרשמי של יואב גינאי Welcome to the official channel of Yoav Ginai \"התפוזים התפוזים // טובים באלף אחוזים // מן הזהב מן ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "",
+        "matched_album": "",
+        "score": 1920
+      },
+      "alternative_videos": [],
+      "chrono_index": 148,
+      "canonical_score": 6.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 2,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 626,
+      "title": "יש לי מסיבה",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1987",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1017968",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1017968"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "מיכאלי רבקה"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "omNa4PW1lU8",
+        "url": "https://www.youtube.com/watch?v=omNa4PW1lU8",
+        "video_title": "יש לי מסיבה - רבקה מיכאלי (1987)",
+        "channel": "דוד קריבושי - הערוץ הרשמי",
+        "duration": "3:02",
+        "description": "מילים ולחן: נעמי שמר ניצוח וניהול מוסיקלי: דוד קריבושי תזמורת הטיילת של תל אביב: חצוצרות: דני מוסקו, יצחק אלמוג, אברהם פלדר, אריק דוידוב ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "רבקה מיכאלי",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 553,
+      "canonical_score": 6.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 2,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 627,
+      "title": "'רות ושות",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1961",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1257294",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1257294"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "להקת פיקוד מרכז"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "cITPhRNWoq0",
+        "url": "https://www.youtube.com/watch?v=cITPhRNWoq0",
+        "video_title": "להקת פיקוד מרכז - רות ושות' (1961)",
+        "channel": "Israeli Vinyl",
+        "duration": "2:32",
+        "description": "מילים ולחן: נעמי שמר עריכה דיגיטלית: ניר הרוש מתוך התקליט: 'רשות הדיבור לאריה'.",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "להקת פיקוד מרכז",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 105,
+      "canonical_score": 5.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 1,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 628,
+      "title": "אל מחנה השחרורים",
+      "alt_titles": [
+        "אל מחנה שחרורים"
+      ],
+      "opening_line": "",
+      "year": "1961",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1002620",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1002620"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "להקת פיקוד מרכז"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "sCQfgFoAQu4",
+        "url": "https://www.youtube.com/watch?v=sCQfgFoAQu4",
+        "video_title": "להקת פיקוד מרכז - אל מחנה השחרורים (1961)",
+        "channel": "Israeli Vinyl",
+        "duration": "2:50",
+        "description": "מילים ולחן: נעמי שמר עריכה דיגיטלית: ניר הרוש מתוך התקליט: 'רשות הדיבור לאריה'.",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "להקת פיקוד מרכז",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 106,
+      "canonical_score": 5.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 1,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 629,
+      "title": "הכתר השרביט והגלימה",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1986",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1011315",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1011315"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "בקר משה"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "p3PIKVi8goc",
+        "url": "https://www.youtube.com/watch?v=p3PIKVi8goc",
+        "video_title": "הכתר השרביט והגלימה - משה בקר (1986)",
+        "channel": "דוד קריבושי - הערוץ הרשמי",
+        "duration": "2:45",
+        "description": "עיבוד: דוד קריבושי מילים ולחן: נעמי שמר שנת הקלטה: 1986.",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "משה בקר",
+        "matched_album": "",
+        "score": 1880
+      },
+      "alternative_videos": [
+        {
+          "video_id": "o5VoZEX9N2U",
+          "url": "https://www.youtube.com/watch?v=o5VoZEX9N2U",
+          "video_title": "הכתר השרביט והגלימה - משה בקר (1984)",
+          "channel": "דוד קריבושי - הערוץ הרשמי",
+          "duration": "2:54",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "_vJ6UtXHybA",
+          "url": "https://www.youtube.com/watch?v=_vJ6UtXHybA",
+          "video_title": "הכתר השרביט והגלימה - משה בקר | מתוך \"הדרן לשמואל רודנסקי\"",
+          "channel": "משה בקר Moshe Beker",
+          "duration": "3:19",
+          "views": "",
+          "source": "direct_alternative"
+        }
+      ],
+      "chrono_index": 537,
+      "canonical_score": 5.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 1,
+      "dual_role": "original_performance",
+      "ver_idx": 1,
+      "ver_total": 2
+    },
+    {
+      "index": 630,
+      "title": "הכתר השרביט והגלימה",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1986",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1011315",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1011315"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "בקר משה"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "_vJ6UtXHybA",
+        "url": "https://www.youtube.com/watch?v=_vJ6UtXHybA",
+        "video_title": "הכתר השרביט והגלימה - משה בקר (חי מתוך \"הדרן לשמואל רודנסקי\", 1986)",
+        "channel": "משה בקר Moshe Beker",
+        "duration": "3:19",
+        "description": "משה בקר (הופעה חיה, 1986) (הדרן לשמואל רודנסקי (1986))",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "משה בקר (הופעה חיה, 1986)",
+        "matched_album": "הדרן לשמואל רודנסקי (1986)",
+        "score": 3200
+      },
+      "alternative_videos": [
+        {
+          "video_id": "o5VoZEX9N2U",
+          "url": "https://www.youtube.com/watch?v=o5VoZEX9N2U",
+          "video_title": "הכתר השרביט והגלימה - משה בקר (1984)",
+          "channel": "דוד קריבושי - הערוץ הרשמי",
+          "duration": "2:54",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "p3PIKVi8goc",
+          "url": "https://www.youtube.com/watch?v=p3PIKVi8goc",
+          "video_title": "הכתר השרביט והגלימה - משה בקר (1986)",
+          "channel": "דוד קריבושי - הערוץ הרשמי",
+          "duration": "2:45",
+          "views": "",
+          "source": "same_song_performance"
+        }
+      ],
+      "chrono_index": 538,
+      "canonical_score": 5.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 1,
+      "dual_role": "additional_performance",
+      "ver_idx": 2,
+      "ver_total": 2
+    },
+    {
+      "index": 631,
+      "title": "יום הולדת שמח",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1965",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1219551",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1219551"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "לביא אריק"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "V_AZsXtgxvY",
+        "url": "https://www.youtube.com/watch?v=V_AZsXtgxvY",
+        "video_title": "אריק לביא - יום הולדת שמח-  הקלטה גנוזה",
+        "channel": "דודי פטימר",
+        "duration": "2:31",
+        "description": "הקלטה גנוזה שלא יצאה מעולם על תקליט או דיסק של אריק לביא ז\"ל שר \"יום הולדת\" . לכל היודע על מקור הקלטת השיר, אשמח אם תודיעוני כדי להוסיף ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "אריק לביא",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 168,
+      "canonical_score": 5.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 1,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 632,
+      "title": "כמו נערה",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1964",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author"
+      ],
+      "role_category": "words_only",
+      "role_label_heb": "מילים: נעמי שמר · לחן: במבובסקי",
+      "co_creators_heb": "לחן: במבובסקי",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1225535",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1225535"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "רובינא אילנה"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "YMrwmCzH330",
+        "url": "https://www.youtube.com/watch?v=YMrwmCzH330",
+        "video_title": "שיר עד - כמו נערה - מילים: נעמי שמר | לחן: במבובסקי | שירה: אילנה רובינא, 1964 - Ilana Rovina",
+        "channel": "שיר עד - Shir Ad",
+        "duration": "4:12",
+        "description": "מוזמנים להירשם ל\"שיר עד\" ◁ בלחיצה על הפעמון תוכלו לקבל הודעה על כל סרטון חדש שעולה כאן ◁ נשמח לתגובות.",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "אילנה רובינא",
+        "matched_album": "",
+        "score": 1880
+      },
+      "alternative_videos": [],
+      "chrono_index": 149,
+      "canonical_score": 5.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 1,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 633,
+      "title": "נערת הסיפון",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1964",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1025516",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1025516"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "להקת דליה והמלחים",
+        "גשר הירקון"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "NhX0XzGmv9A",
+        "url": "https://www.youtube.com/watch?v=NhX0XzGmv9A",
+        "video_title": "נערת הסיפון להקת דליה והמלחים",
+        "channel": "רחל פרומן קומלוש",
+        "duration": "2:14",
+        "description": "מזהה יוטיוב מתוך מאגרי נעמי שמר (אקו\"ם / סטריאו ומונו / פזמונט)",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "להקת דליה והמלחים",
+        "matched_album": "",
+        "score": 1890
+      },
+      "alternative_videos": [
+        {
+          "video_id": "fVN4cci3DiY",
+          "url": "https://www.youtube.com/watch?v=fVN4cci3DiY",
+          "video_title": "להקה   -נערת הסיפון -  דליה והמלחים",
+          "channel": "מקולית",
+          "duration": "2:30",
+          "views": "",
+          "source": "direct_alternative"
+        }
+      ],
+      "chrono_index": 152,
+      "canonical_score": 5.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 1,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 634,
+      "title": "אהבתיך גם כך",
+      "alt_titles": [],
+      "opening_line": "רק אתמול הכרתיך אבל לי לא אכפת",
+      "year": "1956",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "translator"
+      ],
+      "role_category": "translation",
+      "role_label_heb": "תרגום: נעמי שמר (מקור: שרל אזנבור)",
+      "co_creators_heb": "מקור: שרל אזנבור",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037491570205171/NLI"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "nli"
+      ],
+      "catalog_performers": [
+        "ג'ינה ג'וי"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "_LilpxfdvKc",
+        "url": "https://www.youtube.com/watch?v=_LilpxfdvKc",
+        "video_title": "ג'ינה ג'וי  - אהבתיך גם כך",
+        "channel": "מקולית",
+        "duration": "2:31",
+        "description": "ביצוע: ג'ינה ג'וי מילים: נעמי שמר (תחת השם \"אליפז\") לחן: האזינו לאוסף שירי ג'ינה ג'וי ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "ג'ינה ג'וי",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 5,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 635,
+      "title": "בלדה על מושבה נידחת",
+      "alt_titles": [
+        "בלדה על מושבה נדחת",
+        "מושבה נידחת"
+      ],
+      "opening_line": "אספר מעשה מופלאי שקרה",
+      "year": "1958",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "composer",
+        "author"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045210205171/NLI"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "nli"
+      ],
+      "catalog_performers": [
+        "אילי גורליצקי"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "IXn5sqpAhqc",
+        "url": "https://www.youtube.com/watch?v=IXn5sqpAhqc",
+        "video_title": "מושבה נידחת - אילי גורליצקי | מילים ולחן: נעמי שמר",
+        "channel": "Noam .Menashe",
+        "duration": "1:55",
+        "description": "הוקלט בארבע בנובמבר 1958 איני בטוח אם השיר היה חלק מהרפטואר של להקת פיקוד המרכז התמונה של להקת פיקוד המרכז מתכניתה השביעית, ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "אילי גורליצקי",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 46,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 636,
+      "title": "בתיה הסיירת",
+      "alt_titles": [
+        "בתיה הסירת"
+      ],
+      "opening_line": "כבר כתבו שירים על כל בנות החמד",
+      "year": "1958",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "composer",
+        "author"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045170205171/NLI"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "nli"
+      ],
+      "catalog_performers": [
+        "להקת פיקוד מרכז"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "Ya2SuHzZAXo",
+        "url": "https://www.youtube.com/watch?v=Ya2SuHzZAXo",
+        "video_title": "בתיה הסיירת - להקת פיקוד מרכז (4/11/58). מילים ולחן: נעמי שמר",
+        "channel": "Noam .Menashe",
+        "duration": "2:20",
+        "description": "מתוך התכנית \"האלוף על הגג\" שהוצגה ב-10/9/58. אין לי מידע על הזמרת, וגם נראה שהיא מופיעה רק בתכנית הזה, כי בתכנית לפניה \"האדם הנכון בזמן ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "להקת פיקוד מרכז",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 47,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 637,
+      "title": "הבית הקטן",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1958",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "composer",
+        "performer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [],
+      "notes": "",
+      "sources": [
+        "stereo_ve_mono"
+      ],
+      "catalog_performers": [
+        "נעמי שמר"
+      ],
+      "catalog_albums": [],
+      "tier": "3_naomi_performance",
+      "tier_label": "3. ביצוע של נעמי שמר",
+      "selected_video": {
+        "video_id": "xAvvvAO6glU",
+        "url": "https://www.youtube.com/watch?v=xAvvvAO6glU",
+        "video_title": "נעמי שמר - הבית הקטן (1958) | Naomi Shemer",
+        "channel": "אוצר הזמר העברי",
+        "duration": "2:59",
+        "description": "מילים ולחן: נעמי שמר הביצוע הוקלט בתכנית הרדיו \"שלושה בסירה אחת\", בהנחייתו של יצחק שמעוני. הוא שודר בתכנית הרדיו של אברהם זיגמן ברשת ג', ...",
+        "tier": "3_naomi_performance",
+        "tier_label": "3. ביצוע של נעמי שמר",
+        "matched_performer": "נעמי שמר",
+        "matched_album": "",
+        "score": 2840
+      },
+      "alternative_videos": [],
+      "chrono_index": 48,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 638,
+      "title": "היי שלי",
+      "alt_titles": [
+        "הי שלי לי די בפת במלח",
+        "הוא סירך היחידי הוא סירך הבלעדי"
+      ],
+      "opening_line": "היי שלי לי די בפת במלח",
+      "year": "1958",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "composer",
+        "author"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045030205171/NLI"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "nli"
+      ],
+      "catalog_performers": [
+        "שייקה לוי",
+        "להקת פיקוד המרכז"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "DtlDXf6tveY",
+        "url": "https://www.youtube.com/watch?v=DtlDXf6tveY",
+        "video_title": "היי שלי - שייקה לוי ולהקת פיקוד המרכז | מילים ולחן: נעמי שמר",
+        "channel": "Noam .Menashe",
+        "duration": "2:40",
+        "description": "הוקלט ב4/11/58 הסולנית היא ניצה פרחי באמצע השיר נשמע קול אישה, לדעתי זאת נעמי שמר עצמה. ככל הנראה בוצע בתכנית \"האדם הנכון במקום ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "שייקה לוי",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 50,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 639,
+      "title": "זאת הארץ",
+      "alt_titles": [
+        "ארץ זו"
+      ],
+      "opening_line": "זאת הארץ הן היתה רק שיר בלב",
+      "year": "1958",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "translator"
+      ],
+      "role_category": "translation",
+      "role_label_heb": "תרגום: נעמי שמר (מקור: מרגוט לבארי)",
+      "co_creators_heb": "מקור: מרגוט לבארי",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045000205171/NLI"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "nli"
+      ],
+      "catalog_performers": [
+        "אולי שוקן"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "Hv0SuDUsjyc",
+        "url": "https://www.youtube.com/watch?v=Hv0SuDUsjyc",
+        "video_title": "זאת הארץ - אולי שוקן. מילים: נעמי שמר | לחן: אנריקו שמרל",
+        "channel": "Noam .Menashe",
+        "duration": "3:25",
+        "description": "הוקלט ב18/4/58. מלווה תזמורת צה\"ל בעיבוד ובניצוח שלום ריקליס השיר כמובן נכתב לעשור למדינה לפי תיאור של פרסום של חברת \"אילן\", השיר נכתב ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "אולי שוקן",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 54,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 640,
+      "title": "לא לא לא",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1966",
+      "album_group": "רביעיית האחיות שמר",
+      "album_track_number": 4,
+      "roles": [
+        "translator"
+      ],
+      "role_category": "translation",
+      "role_label_heb": "תרגום / נוסח עברי: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [],
+      "notes": "",
+      "sources": [
+        "wikipedia"
+      ],
+      "catalog_performers": [
+        "האחיות שמר"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "ZKGMTf5XLCk",
+        "url": "https://www.youtube.com/watch?v=ZKGMTf5XLCk",
+        "video_title": "האחיות שמר שרות ביטלס -לא לא לא -1966 -מעלה דודי פטימר",
+        "channel": "דודי פטימר",
+        "duration": "2:31",
+        "description": "מילים: נעמי שמר לחן: לנון ומקרטני (I SHOULD HAVE KNOWN BETTER)",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "האחיות שמר",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 192,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 641,
+      "title": "אביב בתל אביב (שיר יפני)",
+      "alt_titles": [
+        "שיר יפני",
+        "אביב בתל אביב"
+      ],
+      "opening_line": "",
+      "year": "1966",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "author",
+        "performer"
+      ],
+      "role_category": "words_only",
+      "role_label_heb": "מילים וביצוע: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [],
+      "notes": "",
+      "sources": [
+        "lali_shemer_archive"
+      ],
+      "catalog_performers": [
+        "נעמי שמר"
+      ],
+      "catalog_albums": [],
+      "tier": "3_naomi_performance",
+      "tier_label": "3. ביצוע של נעמי שמר",
+      "selected_video": {
+        "video_id": "OkWKy3URsDg",
+        "url": "https://www.youtube.com/watch?v=OkWKy3URsDg",
+        "video_title": "אביב בתל אביב, \"שיר יפני\" מאת נעמי שמר, 1966 הקלטה נדירה",
+        "channel": "ללי שמר",
+        "duration": "0:38",
+        "description": "הקלטה נדירה ללא לחן מתוך תכנית רדיו ששילבה אילתור וכתיבה ספונטנית, 1966.",
+        "tier": "3_naomi_performance",
+        "tier_label": "3. ביצוע של נעמי שמר",
+        "matched_performer": "נעמי שמר",
+        "matched_album": "ארכיון ללי שמר (1966)",
+        "score": 3500
+      },
+      "alternative_videos": [],
+      "chrono_index": 200,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 642,
+      "title": "פרולוג",
+      "alt_titles": [],
+      "opening_line": "",
+      "year": "1965",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "composer",
+        "author"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045640205171/NLI"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "nli"
+      ],
+      "catalog_performers": [
+        "משתתפי התכנית שייקספיר איננו"
+      ],
+      "catalog_albums": [],
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "selected_video": {
+        "video_id": "q-9lO4eg7-w",
+        "url": "https://www.youtube.com/watch?v=q-9lO4eg7-w",
+        "video_title": "משתתפי התכנית \"שייקספיר איננו\" - פרולוג / נעמי שמר (1965)",
+        "channel": "Shir ivri",
+        "duration": "1:38",
+        "description": "מילים ולחן: נעמי שמר עיבוד: אריה לבנון השיר \"פרולוג\" חובר (מילים ולחן) עבור התכנית השמינית של תיאטרון \"החמאם\", \"שייקספיר איננו\", שהוצגה בשנים ...",
+        "tier": "4_original_performance",
+        "tier_label": "4. ביצוע מקורי",
+        "matched_performer": "משתתפי התכנית שייקספיר איננו",
+        "matched_album": "",
+        "score": 1840
+      },
+      "alternative_videos": [],
+      "chrono_index": 166,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 643,
+      "title": "שיר השייטת",
+      "alt_titles": [
+        "שיר השיטת",
+        "כאשר השייטת צופרת ואנחנו עונים"
+      ],
+      "opening_line": "כאשר השיטת צופרת ואנחנו עונים",
+      "year": "1967",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "composer",
+        "author"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037044550205171/NLI"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "nli"
+      ],
+      "catalog_performers": [
+        "חבורת בית רוטשילד",
+        "אפי נצר וחבורתו"
+      ],
+      "catalog_albums": [],
+      "tier": "2_album_original",
+      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+      "selected_video": {
+        "video_id": "gEacqh5DPk4",
+        "url": "https://www.youtube.com/watch?v=gEacqh5DPk4",
+        "video_title": "שיר השייטת",
+        "channel": "Release - Topic",
+        "duration": "2:44",
+        "description": "Provided to YouTube by Hataklit שיר השייטת · אפי נצר וחבורתו חבורת בית רוטשילד ואפי נצר (דיסק כפול אני ושירי \\ שירי העפלה וחיל הים) ...",
+        "tier": "2_album_original",
+        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+        "matched_performer": "חבורת בית רוטשילד",
+        "matched_album": "חבורת בית רוטשילד ואפי נצר",
+        "score": 3937
+      },
+      "alternative_videos": [
+        {
+          "video_id": "AWoLLDS4VII",
+          "url": "https://www.youtube.com/watch?v=AWoLLDS4VII",
+          "video_title": "שיר השייטת - חבורת בית רוטשילד (1965)",
+          "channel": "אפי נצר - הערוץ הרשמי",
+          "duration": "2:49",
+          "views": "",
+          "source": "direct_alternative"
+        }
+      ],
+      "chrono_index": 233,
+      "canonical_score": 4.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 644,
+      "title": "סביבון סב סב",
+      "alt_titles": [
+        "באנו חושך לגרש",
+        "ימי החנוכה",
+        "כד קטן",
+        "חג חנוכה שמח"
+      ],
+      "opening_line": "",
+      "year": "1977",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "performer"
+      ],
+      "role_category": "performance_only",
+      "role_label_heb": "ביצוע: נעמי שמר (מילים: לוין קיפניס, אברהם אברונין · לחן: עממי, יואל ולבה)",
+      "co_creators_heb": "מילים: לוין קיפניס, אברהם אברונין · לחן: עממי, יואל ולבה",
+      "archive_links": [
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1005404",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1005404"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "acum"
+      ],
+      "catalog_performers": [
+        "שמר נעמי",
+        "בן ישראל אפי",
+        "הולצמן רותי",
+        "עמיהוד דליה",
+        "פינה בעמק",
+        "שביט ציפי ודטנר נתן",
+        "להקה קולית",
+        "מקהלה",
+        "רננים",
+        "גלוסקא אופירה",
+        "בית השיטה",
+        "לברי מרק",
+        "גרוניך שלמה",
+        "בן דוד יוריק",
+        "ירקוני יפה",
+        "זהר עוזי",
+        "לסלאו חנה",
+        "צוות שלוש ארבע חמש וחצי",
+        "ערוץ הילדים",
+        "שביט ציפי",
+        "מן טל בן יזרעאל ומינדי טיאר",
+        "פרץ אבי"
+      ],
+      "catalog_albums": [
+        "05     1 חגיגה של חגים",
+        "05    חגיגה של חגים א",
+        "1 זמר לך לגיל הרך",
+        "1 חג לי",
+        "1 צלילי המוסיקה",
+        "1 שירי חגים",
+        "100 שירי פעוטות",
+        "2 שירי חגים",
+        "2017 השתלמות קצב לחנוכה",
+        "(בתוך ערכה CD)ערכת פעילות לחנוכה",
+        "1  עוד מעט ירד אלינו",
+        "1 שירי חגים מספר",
+        "2 חגיגה בצלילים מס",
+        "100 שירים ראשונים",
+        "2 -מכללת לוינסקי"
+      ],
+      "tier": "3_naomi_performance",
+      "tier_label": "3. ביצוע של נעמי שמר",
+      "selected_video": {
+        "video_id": "UhSscH59sdA",
+        "url": "https://www.youtube.com/watch?v=UhSscH59sdA",
+        "video_title": "צחוק ישראלי - רון בכר - Israeli archive -  חג חנוכה שמח - נעמי שמר - נר ראשון -  מחרוזת",
+        "channel": "אוצרות ארכיון ישראלי - רון בכר - Israeli archive",
+        "duration": "6:52",
+        "description": "צחוק ישראלי - רון בכר - Israeli archive - חג חנוכה שמח - נעמי שמר - נר ראשון - מחרוזת.",
+        "tier": "3_naomi_performance",
+        "tier_label": "3. ביצוע של נעמי שמר",
+        "matched_performer": "נעמי שמר",
+        "matched_album": "",
+        "score": 1890
+      },
+      "alternative_videos": [],
+      "chrono_index": 444,
+      "canonical_score": 45.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 497,
+      "ver_idx": 1,
+      "ver_total": 1
+    },
+    {
+      "index": 645,
+      "title": "אביב",
+      "alt_titles": [
+        "מחרוזת אביב"
+      ],
+      "opening_line": "",
+      "year": "1978",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "roles": [
+        "performer"
+      ],
+      "role_category": "performance_only",
+      "role_label_heb": "ביצוע: נעמי שמר (מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר)",
+      "co_creators_heb": "מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר",
+      "archive_links": [],
+      "notes": "",
+      "sources": [
+        "stereo_ve_mono"
+      ],
+      "catalog_performers": [
+        "נעמי שמר"
+      ],
+      "catalog_albums": [],
+      "tier": "3_naomi_performance",
+      "tier_label": "3. ביצוע של נעמי שמר",
+      "selected_video": {
+        "video_id": "ydCddPTqZmo",
+        "url": "https://www.youtube.com/watch?v=ydCddPTqZmo",
+        "video_title": "נעמי שמר - מחרוזת אביב, שירי פסח",
+        "channel": "Gila Hassid",
+        "duration": "2:34",
+        "description": "מחרוזת אביב, שירים לחג האביב, פסח, מתוך תכנית הטלויזיה ימי ניסן, בהנחיית נעמי שמר ובהשתתפות גילה-חסיד, יעל-גולדברגר, עופר-שפריר, ברק, ...",
+        "tier": "3_naomi_performance",
+        "tier_label": "3. ביצוע של נעמי שמר",
+        "matched_performer": "נעמי שמר",
+        "matched_album": "",
+        "score": 2140
+      },
+      "alternative_videos": [
+        {
+          "video_id": "oMZHElIjza4",
+          "url": "https://www.youtube.com/watch?v=oMZHElIjza4",
+          "video_title": "לספר ביציאת מצרים עם נעמי שמר – תוכנית מלאה לפסח (1992)",
+          "channel": "dayingale",
+          "duration": "25:15",
+          "views": "",
+          "source": "same_song_performance"
+        }
+      ],
+      "chrono_index": 452,
+      "canonical_score": 2.0,
+      "canonical_layer": 3,
+      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
+      "acum_versions_count": 0,
+      "dual_role": "original_performance",
+      "ver_idx": 1,
+      "ver_total": 2
+    },
+    {
+      "index": 646,
       "title": "אני גיטרה",
       "alt_titles": [],
       "opening_line": "אני גיטרה הרוח מנגן עלי",
@@ -75566,1320 +76880,6 @@
       "acum_versions_count": 194,
       "ver_idx": 2,
       "ver_total": 3
-    },
-    {
-      "index": 625,
-      "title": "אוניית הכאב",
-      "alt_titles": [
-        "אוניית כאב",
-        "אניית כאב"
-      ],
-      "opening_line": "",
-      "year": "2004",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author"
-      ],
-      "role_category": "words_only",
-      "role_label_heb": "מילים: נעמי שמר · לחן: שלמה גרוניך",
-      "co_creators_heb": "לחן: שלמה גרוניך",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1376250",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1376250"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "גרוניך שלמה"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "K1DBCpPxqeM",
-        "url": "https://www.youtube.com/watch?v=K1DBCpPxqeM",
-        "video_title": "שלמה גרוניך מבצע לראשונה את השיר אניית כאב",
-        "channel": "מועצה אזורית עמק יזרעאל",
-        "duration": "4:47",
-        "description": "מזהה יוטיוב מתוך מאגרי נעמי שמר (אקו\"ם / סטריאו ומונו / פזמונט)",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "שלמה גרוניך",
-        "matched_album": "",
-        "score": 1890
-      },
-      "alternative_videos": [
-        {
-          "video_id": "gHzMFPiE8MA",
-          "url": "https://www.youtube.com/watch?v=gHzMFPiE8MA",
-          "video_title": "\\",
-          "channel": "ידיעות אחרונות",
-          "duration": "3:06",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "E3z4DUeGifQ",
-          "url": "https://www.youtube.com/watch?v=E3z4DUeGifQ",
-          "video_title": "אוניית הכאב (מלים: נעמי שמר, לחן: שלמה גרוניך)",
-          "channel": "Talila Eliram",
-          "duration": "2:41",
-          "views": "",
-          "source": "direct_alternative"
-        }
-      ],
-      "chrono_index": 646,
-      "canonical_score": 6.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 2,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 626,
-      "title": "התפוזים",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1964",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1297594",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1297594"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "OxafdSA-QkE",
-        "url": "https://www.youtube.com/watch?v=OxafdSA-QkE",
-        "video_title": "התפוזים התפוזים טובים באלף אחוזים // זמריר מאת נעמי שמר // השיר המלא",
-        "channel": "יואב גינאי Yoav Ginai",
-        "duration": "2:08",
-        "description": "ברוכים הבאים לערוץ הרשמי של יואב גינאי Welcome to the official channel of Yoav Ginai \"התפוזים התפוזים // טובים באלף אחוזים // מן הזהב מן ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "",
-        "matched_album": "",
-        "score": 1920
-      },
-      "alternative_videos": [],
-      "chrono_index": 148,
-      "canonical_score": 6.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 2,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 627,
-      "title": "יש לי מסיבה",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1987",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1017968",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1017968"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "מיכאלי רבקה"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "omNa4PW1lU8",
-        "url": "https://www.youtube.com/watch?v=omNa4PW1lU8",
-        "video_title": "יש לי מסיבה - רבקה מיכאלי (1987)",
-        "channel": "דוד קריבושי - הערוץ הרשמי",
-        "duration": "3:02",
-        "description": "מילים ולחן: נעמי שמר ניצוח וניהול מוסיקלי: דוד קריבושי תזמורת הטיילת של תל אביב: חצוצרות: דני מוסקו, יצחק אלמוג, אברהם פלדר, אריק דוידוב ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "רבקה מיכאלי",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 553,
-      "canonical_score": 6.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 2,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 628,
-      "title": "'רות ושות",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1961",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1257294",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1257294"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "להקת פיקוד מרכז"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "cITPhRNWoq0",
-        "url": "https://www.youtube.com/watch?v=cITPhRNWoq0",
-        "video_title": "להקת פיקוד מרכז - רות ושות' (1961)",
-        "channel": "Israeli Vinyl",
-        "duration": "2:32",
-        "description": "מילים ולחן: נעמי שמר עריכה דיגיטלית: ניר הרוש מתוך התקליט: 'רשות הדיבור לאריה'.",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "להקת פיקוד מרכז",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 105,
-      "canonical_score": 5.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 1,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 629,
-      "title": "אל מחנה השחרורים",
-      "alt_titles": [
-        "אל מחנה שחרורים"
-      ],
-      "opening_line": "",
-      "year": "1961",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1002620",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1002620"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "להקת פיקוד מרכז"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "sCQfgFoAQu4",
-        "url": "https://www.youtube.com/watch?v=sCQfgFoAQu4",
-        "video_title": "להקת פיקוד מרכז - אל מחנה השחרורים (1961)",
-        "channel": "Israeli Vinyl",
-        "duration": "2:50",
-        "description": "מילים ולחן: נעמי שמר עריכה דיגיטלית: ניר הרוש מתוך התקליט: 'רשות הדיבור לאריה'.",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "להקת פיקוד מרכז",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 106,
-      "canonical_score": 5.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 1,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 630,
-      "title": "הכתר השרביט והגלימה",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1986",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1011315",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1011315"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "בקר משה"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "p3PIKVi8goc",
-        "url": "https://www.youtube.com/watch?v=p3PIKVi8goc",
-        "video_title": "הכתר השרביט והגלימה - משה בקר (1986)",
-        "channel": "דוד קריבושי - הערוץ הרשמי",
-        "duration": "2:45",
-        "description": "עיבוד: דוד קריבושי מילים ולחן: נעמי שמר שנת הקלטה: 1986.",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "משה בקר",
-        "matched_album": "",
-        "score": 1880
-      },
-      "alternative_videos": [
-        {
-          "video_id": "o5VoZEX9N2U",
-          "url": "https://www.youtube.com/watch?v=o5VoZEX9N2U",
-          "video_title": "הכתר השרביט והגלימה - משה בקר (1984)",
-          "channel": "דוד קריבושי - הערוץ הרשמי",
-          "duration": "2:54",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "_vJ6UtXHybA",
-          "url": "https://www.youtube.com/watch?v=_vJ6UtXHybA",
-          "video_title": "הכתר השרביט והגלימה - משה בקר | מתוך \"הדרן לשמואל רודנסקי\"",
-          "channel": "משה בקר Moshe Beker",
-          "duration": "3:19",
-          "views": "",
-          "source": "direct_alternative"
-        }
-      ],
-      "chrono_index": 537,
-      "canonical_score": 5.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 1,
-      "dual_role": "original_performance",
-      "ver_idx": 1,
-      "ver_total": 2
-    },
-    {
-      "index": 631,
-      "title": "הכתר השרביט והגלימה",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1986",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1011315",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1011315"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "בקר משה"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "_vJ6UtXHybA",
-        "url": "https://www.youtube.com/watch?v=_vJ6UtXHybA",
-        "video_title": "הכתר השרביט והגלימה - משה בקר (חי מתוך \"הדרן לשמואל רודנסקי\", 1986)",
-        "channel": "משה בקר Moshe Beker",
-        "duration": "3:19",
-        "description": "משה בקר (הופעה חיה, 1986) (הדרן לשמואל רודנסקי (1986))",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "משה בקר (הופעה חיה, 1986)",
-        "matched_album": "הדרן לשמואל רודנסקי (1986)",
-        "score": 3200
-      },
-      "alternative_videos": [
-        {
-          "video_id": "o5VoZEX9N2U",
-          "url": "https://www.youtube.com/watch?v=o5VoZEX9N2U",
-          "video_title": "הכתר השרביט והגלימה - משה בקר (1984)",
-          "channel": "דוד קריבושי - הערוץ הרשמי",
-          "duration": "2:54",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "p3PIKVi8goc",
-          "url": "https://www.youtube.com/watch?v=p3PIKVi8goc",
-          "video_title": "הכתר השרביט והגלימה - משה בקר (1986)",
-          "channel": "דוד קריבושי - הערוץ הרשמי",
-          "duration": "2:45",
-          "views": "",
-          "source": "same_song_performance"
-        }
-      ],
-      "chrono_index": 538,
-      "canonical_score": 5.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 1,
-      "dual_role": "additional_performance",
-      "ver_idx": 2,
-      "ver_total": 2
-    },
-    {
-      "index": 632,
-      "title": "יום הולדת שמח",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1965",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1219551",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1219551"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "לביא אריק"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "V_AZsXtgxvY",
-        "url": "https://www.youtube.com/watch?v=V_AZsXtgxvY",
-        "video_title": "אריק לביא - יום הולדת שמח-  הקלטה גנוזה",
-        "channel": "דודי פטימר",
-        "duration": "2:31",
-        "description": "הקלטה גנוזה שלא יצאה מעולם על תקליט או דיסק של אריק לביא ז\"ל שר \"יום הולדת\" . לכל היודע על מקור הקלטת השיר, אשמח אם תודיעוני כדי להוסיף ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "אריק לביא",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 168,
-      "canonical_score": 5.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 1,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 633,
-      "title": "כמו נערה",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1964",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author"
-      ],
-      "role_category": "words_only",
-      "role_label_heb": "מילים: נעמי שמר · לחן: במבובסקי",
-      "co_creators_heb": "לחן: במבובסקי",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1225535",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1225535"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "רובינא אילנה"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "YMrwmCzH330",
-        "url": "https://www.youtube.com/watch?v=YMrwmCzH330",
-        "video_title": "שיר עד - כמו נערה - מילים: נעמי שמר | לחן: במבובסקי | שירה: אילנה רובינא, 1964 - Ilana Rovina",
-        "channel": "שיר עד - Shir Ad",
-        "duration": "4:12",
-        "description": "מוזמנים להירשם ל\"שיר עד\" ◁ בלחיצה על הפעמון תוכלו לקבל הודעה על כל סרטון חדש שעולה כאן ◁ נשמח לתגובות.",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "אילנה רובינא",
-        "matched_album": "",
-        "score": 1880
-      },
-      "alternative_videos": [],
-      "chrono_index": 149,
-      "canonical_score": 5.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 1,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 634,
-      "title": "נערת הסיפון",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1964",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1025516",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1025516"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "להקת דליה והמלחים",
-        "גשר הירקון"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "NhX0XzGmv9A",
-        "url": "https://www.youtube.com/watch?v=NhX0XzGmv9A",
-        "video_title": "נערת הסיפון להקת דליה והמלחים",
-        "channel": "רחל פרומן קומלוש",
-        "duration": "2:14",
-        "description": "מזהה יוטיוב מתוך מאגרי נעמי שמר (אקו\"ם / סטריאו ומונו / פזמונט)",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "להקת דליה והמלחים",
-        "matched_album": "",
-        "score": 1890
-      },
-      "alternative_videos": [
-        {
-          "video_id": "fVN4cci3DiY",
-          "url": "https://www.youtube.com/watch?v=fVN4cci3DiY",
-          "video_title": "להקה   -נערת הסיפון -  דליה והמלחים",
-          "channel": "מקולית",
-          "duration": "2:30",
-          "views": "",
-          "source": "direct_alternative"
-        }
-      ],
-      "chrono_index": 152,
-      "canonical_score": 5.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 1,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 635,
-      "title": "אהבתיך גם כך",
-      "alt_titles": [],
-      "opening_line": "רק אתמול הכרתיך אבל לי לא אכפת",
-      "year": "1956",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "translator"
-      ],
-      "role_category": "translation",
-      "role_label_heb": "תרגום: נעמי שמר (מקור: שרל אזנבור)",
-      "co_creators_heb": "מקור: שרל אזנבור",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037491570205171/NLI"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "nli"
-      ],
-      "catalog_performers": [
-        "ג'ינה ג'וי"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "_LilpxfdvKc",
-        "url": "https://www.youtube.com/watch?v=_LilpxfdvKc",
-        "video_title": "ג'ינה ג'וי  - אהבתיך גם כך",
-        "channel": "מקולית",
-        "duration": "2:31",
-        "description": "ביצוע: ג'ינה ג'וי מילים: נעמי שמר (תחת השם \"אליפז\") לחן: האזינו לאוסף שירי ג'ינה ג'וי ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "ג'ינה ג'וי",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 5,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 636,
-      "title": "בלדה על מושבה נידחת",
-      "alt_titles": [
-        "בלדה על מושבה נדחת",
-        "מושבה נידחת"
-      ],
-      "opening_line": "אספר מעשה מופלאי שקרה",
-      "year": "1958",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "composer",
-        "author"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045210205171/NLI"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "nli"
-      ],
-      "catalog_performers": [
-        "אילי גורליצקי"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "IXn5sqpAhqc",
-        "url": "https://www.youtube.com/watch?v=IXn5sqpAhqc",
-        "video_title": "מושבה נידחת - אילי גורליצקי | מילים ולחן: נעמי שמר",
-        "channel": "Noam .Menashe",
-        "duration": "1:55",
-        "description": "הוקלט בארבע בנובמבר 1958 איני בטוח אם השיר היה חלק מהרפטואר של להקת פיקוד המרכז התמונה של להקת פיקוד המרכז מתכניתה השביעית, ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "אילי גורליצקי",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 46,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 637,
-      "title": "בתיה הסיירת",
-      "alt_titles": [
-        "בתיה הסירת"
-      ],
-      "opening_line": "כבר כתבו שירים על כל בנות החמד",
-      "year": "1958",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "composer",
-        "author"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045170205171/NLI"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "nli"
-      ],
-      "catalog_performers": [
-        "להקת פיקוד מרכז"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "Ya2SuHzZAXo",
-        "url": "https://www.youtube.com/watch?v=Ya2SuHzZAXo",
-        "video_title": "בתיה הסיירת - להקת פיקוד מרכז (4/11/58). מילים ולחן: נעמי שמר",
-        "channel": "Noam .Menashe",
-        "duration": "2:20",
-        "description": "מתוך התכנית \"האלוף על הגג\" שהוצגה ב-10/9/58. אין לי מידע על הזמרת, וגם נראה שהיא מופיעה רק בתכנית הזה, כי בתכנית לפניה \"האדם הנכון בזמן ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "להקת פיקוד מרכז",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 47,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 638,
-      "title": "הבית הקטן",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1958",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "composer",
-        "performer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [],
-      "notes": "",
-      "sources": [
-        "stereo_ve_mono"
-      ],
-      "catalog_performers": [
-        "נעמי שמר"
-      ],
-      "catalog_albums": [],
-      "tier": "3_naomi_performance",
-      "tier_label": "3. ביצוע של נעמי שמר",
-      "selected_video": {
-        "video_id": "xAvvvAO6glU",
-        "url": "https://www.youtube.com/watch?v=xAvvvAO6glU",
-        "video_title": "נעמי שמר - הבית הקטן (1958) | Naomi Shemer",
-        "channel": "אוצר הזמר העברי",
-        "duration": "2:59",
-        "description": "מילים ולחן: נעמי שמר הביצוע הוקלט בתכנית הרדיו \"שלושה בסירה אחת\", בהנחייתו של יצחק שמעוני. הוא שודר בתכנית הרדיו של אברהם זיגמן ברשת ג', ...",
-        "tier": "3_naomi_performance",
-        "tier_label": "3. ביצוע של נעמי שמר",
-        "matched_performer": "נעמי שמר",
-        "matched_album": "",
-        "score": 2840
-      },
-      "alternative_videos": [],
-      "chrono_index": 48,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 639,
-      "title": "היי שלי",
-      "alt_titles": [
-        "הי שלי לי די בפת במלח",
-        "הוא סירך היחידי הוא סירך הבלעדי"
-      ],
-      "opening_line": "היי שלי לי די בפת במלח",
-      "year": "1958",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "composer",
-        "author"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045030205171/NLI"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "nli"
-      ],
-      "catalog_performers": [
-        "שייקה לוי",
-        "להקת פיקוד המרכז"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "DtlDXf6tveY",
-        "url": "https://www.youtube.com/watch?v=DtlDXf6tveY",
-        "video_title": "היי שלי - שייקה לוי ולהקת פיקוד המרכז | מילים ולחן: נעמי שמר",
-        "channel": "Noam .Menashe",
-        "duration": "2:40",
-        "description": "הוקלט ב4/11/58 הסולנית היא ניצה פרחי באמצע השיר נשמע קול אישה, לדעתי זאת נעמי שמר עצמה. ככל הנראה בוצע בתכנית \"האדם הנכון במקום ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "שייקה לוי",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 50,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 640,
-      "title": "זאת הארץ",
-      "alt_titles": [
-        "ארץ זו"
-      ],
-      "opening_line": "זאת הארץ הן היתה רק שיר בלב",
-      "year": "1958",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "translator"
-      ],
-      "role_category": "translation",
-      "role_label_heb": "תרגום: נעמי שמר (מקור: מרגוט לבארי)",
-      "co_creators_heb": "מקור: מרגוט לבארי",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045000205171/NLI"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "nli"
-      ],
-      "catalog_performers": [
-        "אולי שוקן"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "Hv0SuDUsjyc",
-        "url": "https://www.youtube.com/watch?v=Hv0SuDUsjyc",
-        "video_title": "זאת הארץ - אולי שוקן. מילים: נעמי שמר | לחן: אנריקו שמרל",
-        "channel": "Noam .Menashe",
-        "duration": "3:25",
-        "description": "הוקלט ב18/4/58. מלווה תזמורת צה\"ל בעיבוד ובניצוח שלום ריקליס השיר כמובן נכתב לעשור למדינה לפי תיאור של פרסום של חברת \"אילן\", השיר נכתב ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "אולי שוקן",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 54,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 641,
-      "title": "לא לא לא",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1966",
-      "album_group": "רביעיית האחיות שמר",
-      "album_track_number": 4,
-      "roles": [
-        "translator"
-      ],
-      "role_category": "translation",
-      "role_label_heb": "תרגום / נוסח עברי: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [],
-      "notes": "",
-      "sources": [
-        "wikipedia"
-      ],
-      "catalog_performers": [
-        "האחיות שמר"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "ZKGMTf5XLCk",
-        "url": "https://www.youtube.com/watch?v=ZKGMTf5XLCk",
-        "video_title": "האחיות שמר שרות ביטלס -לא לא לא -1966 -מעלה דודי פטימר",
-        "channel": "דודי פטימר",
-        "duration": "2:31",
-        "description": "מילים: נעמי שמר לחן: לנון ומקרטני (I SHOULD HAVE KNOWN BETTER)",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "האחיות שמר",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 192,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 642,
-      "title": "אביב בתל אביב (שיר יפני)",
-      "alt_titles": [
-        "שיר יפני",
-        "אביב בתל אביב"
-      ],
-      "opening_line": "",
-      "year": "1966",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "author",
-        "performer"
-      ],
-      "role_category": "words_only",
-      "role_label_heb": "מילים וביצוע: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [],
-      "notes": "",
-      "sources": [
-        "lali_shemer_archive"
-      ],
-      "catalog_performers": [
-        "נעמי שמר"
-      ],
-      "catalog_albums": [],
-      "tier": "3_naomi_performance",
-      "tier_label": "3. ביצוע של נעמי שמר",
-      "selected_video": {
-        "video_id": "OkWKy3URsDg",
-        "url": "https://www.youtube.com/watch?v=OkWKy3URsDg",
-        "video_title": "אביב בתל אביב, \"שיר יפני\" מאת נעמי שמר, 1966 הקלטה נדירה",
-        "channel": "ללי שמר",
-        "duration": "0:38",
-        "description": "הקלטה נדירה ללא לחן מתוך תכנית רדיו ששילבה אילתור וכתיבה ספונטנית, 1966.",
-        "tier": "3_naomi_performance",
-        "tier_label": "3. ביצוע של נעמי שמר",
-        "matched_performer": "נעמי שמר",
-        "matched_album": "ארכיון ללי שמר (1966)",
-        "score": 3500
-      },
-      "alternative_videos": [],
-      "chrono_index": 200,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 643,
-      "title": "פרולוג",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1965",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "composer",
-        "author"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045640205171/NLI"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "nli"
-      ],
-      "catalog_performers": [
-        "משתתפי התכנית שייקספיר איננו"
-      ],
-      "catalog_albums": [],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "q-9lO4eg7-w",
-        "url": "https://www.youtube.com/watch?v=q-9lO4eg7-w",
-        "video_title": "משתתפי התכנית \"שייקספיר איננו\" - פרולוג / נעמי שמר (1965)",
-        "channel": "Shir ivri",
-        "duration": "1:38",
-        "description": "מילים ולחן: נעמי שמר עיבוד: אריה לבנון השיר \"פרולוג\" חובר (מילים ולחן) עבור התכנית השמינית של תיאטרון \"החמאם\", \"שייקספיר איננו\", שהוצגה בשנים ...",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "משתתפי התכנית שייקספיר איננו",
-        "matched_album": "",
-        "score": 1840
-      },
-      "alternative_videos": [],
-      "chrono_index": 166,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 644,
-      "title": "שיר השייטת",
-      "alt_titles": [
-        "שיר השיטת",
-        "כאשר השייטת צופרת ואנחנו עונים"
-      ],
-      "opening_line": "כאשר השיטת צופרת ואנחנו עונים",
-      "year": "1967",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "composer",
-        "author"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037044550205171/NLI"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "nli"
-      ],
-      "catalog_performers": [
-        "חבורת בית רוטשילד",
-        "אפי נצר וחבורתו"
-      ],
-      "catalog_albums": [],
-      "tier": "2_album_original",
-      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-      "selected_video": {
-        "video_id": "gEacqh5DPk4",
-        "url": "https://www.youtube.com/watch?v=gEacqh5DPk4",
-        "video_title": "שיר השייטת",
-        "channel": "Release - Topic",
-        "duration": "2:44",
-        "description": "Provided to YouTube by Hataklit שיר השייטת · אפי נצר וחבורתו חבורת בית רוטשילד ואפי נצר (דיסק כפול אני ושירי \\ שירי העפלה וחיל הים) ...",
-        "tier": "2_album_original",
-        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-        "matched_performer": "חבורת בית רוטשילד",
-        "matched_album": "חבורת בית רוטשילד ואפי נצר",
-        "score": 3937
-      },
-      "alternative_videos": [
-        {
-          "video_id": "AWoLLDS4VII",
-          "url": "https://www.youtube.com/watch?v=AWoLLDS4VII",
-          "video_title": "שיר השייטת - חבורת בית רוטשילד (1965)",
-          "channel": "אפי נצר - הערוץ הרשמי",
-          "duration": "2:49",
-          "views": "",
-          "source": "direct_alternative"
-        }
-      ],
-      "chrono_index": 233,
-      "canonical_score": 4.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 645,
-      "title": "סביבון סב סב",
-      "alt_titles": [
-        "באנו חושך לגרש",
-        "ימי החנוכה",
-        "כד קטן",
-        "חג חנוכה שמח"
-      ],
-      "opening_line": "",
-      "year": "1977",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "performer"
-      ],
-      "role_category": "performance_only",
-      "role_label_heb": "ביצוע: נעמי שמר (מילים: לוין קיפניס, אברהם אברונין · לחן: עממי, יואל ולבה)",
-      "co_creators_heb": "מילים: לוין קיפניס, אברהם אברונין · לחן: עממי, יואל ולבה",
-      "archive_links": [
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1005404",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1005404"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "acum"
-      ],
-      "catalog_performers": [
-        "שמר נעמי",
-        "בן ישראל אפי",
-        "הולצמן רותי",
-        "עמיהוד דליה",
-        "פינה בעמק",
-        "שביט ציפי ודטנר נתן",
-        "להקה קולית",
-        "מקהלה",
-        "רננים",
-        "גלוסקא אופירה",
-        "בית השיטה",
-        "לברי מרק",
-        "גרוניך שלמה",
-        "בן דוד יוריק",
-        "ירקוני יפה",
-        "זהר עוזי",
-        "לסלאו חנה",
-        "צוות שלוש ארבע חמש וחצי",
-        "ערוץ הילדים",
-        "שביט ציפי",
-        "מן טל בן יזרעאל ומינדי טיאר",
-        "פרץ אבי"
-      ],
-      "catalog_albums": [
-        "05     1 חגיגה של חגים",
-        "05    חגיגה של חגים א",
-        "1 זמר לך לגיל הרך",
-        "1 חג לי",
-        "1 צלילי המוסיקה",
-        "1 שירי חגים",
-        "100 שירי פעוטות",
-        "2 שירי חגים",
-        "2017 השתלמות קצב לחנוכה",
-        "(בתוך ערכה CD)ערכת פעילות לחנוכה",
-        "1  עוד מעט ירד אלינו",
-        "1 שירי חגים מספר",
-        "2 חגיגה בצלילים מס",
-        "100 שירים ראשונים",
-        "2 -מכללת לוינסקי"
-      ],
-      "tier": "3_naomi_performance",
-      "tier_label": "3. ביצוע של נעמי שמר",
-      "selected_video": {
-        "video_id": "UhSscH59sdA",
-        "url": "https://www.youtube.com/watch?v=UhSscH59sdA",
-        "video_title": "צחוק ישראלי - רון בכר - Israeli archive -  חג חנוכה שמח - נעמי שמר - נר ראשון -  מחרוזת",
-        "channel": "אוצרות ארכיון ישראלי - רון בכר - Israeli archive",
-        "duration": "6:52",
-        "description": "צחוק ישראלי - רון בכר - Israeli archive - חג חנוכה שמח - נעמי שמר - נר ראשון - מחרוזת.",
-        "tier": "3_naomi_performance",
-        "tier_label": "3. ביצוע של נעמי שמר",
-        "matched_performer": "נעמי שמר",
-        "matched_album": "",
-        "score": 1890
-      },
-      "alternative_videos": [],
-      "chrono_index": 444,
-      "canonical_score": 45.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 497,
-      "ver_idx": 1,
-      "ver_total": 1
-    },
-    {
-      "index": 646,
-      "title": "אביב",
-      "alt_titles": [
-        "מחרוזת אביב"
-      ],
-      "opening_line": "",
-      "year": "1978",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "roles": [
-        "performer"
-      ],
-      "role_category": "performance_only",
-      "role_label_heb": "ביצוע: נעמי שמר (מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר)",
-      "co_creators_heb": "מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר",
-      "archive_links": [],
-      "notes": "",
-      "sources": [
-        "stereo_ve_mono"
-      ],
-      "catalog_performers": [
-        "נעמי שמר"
-      ],
-      "catalog_albums": [],
-      "tier": "3_naomi_performance",
-      "tier_label": "3. ביצוע של נעמי שמר",
-      "selected_video": {
-        "video_id": "ydCddPTqZmo",
-        "url": "https://www.youtube.com/watch?v=ydCddPTqZmo",
-        "video_title": "נעמי שמר - מחרוזת אביב, שירי פסח",
-        "channel": "Gila Hassid",
-        "duration": "2:34",
-        "description": "מחרוזת אביב, שירים לחג האביב, פסח, מתוך תכנית הטלויזיה ימי ניסן, בהנחיית נעמי שמר ובהשתתפות גילה-חסיד, יעל-גולדברגר, עופר-שפריר, ברק, ...",
-        "tier": "3_naomi_performance",
-        "tier_label": "3. ביצוע של נעמי שמר",
-        "matched_performer": "נעמי שמר",
-        "matched_album": "",
-        "score": 2140
-      },
-      "alternative_videos": [
-        {
-          "video_id": "oMZHElIjza4",
-          "url": "https://www.youtube.com/watch?v=oMZHElIjza4",
-          "video_title": "לספר ביציאת מצרים עם נעמי שמר – תוכנית מלאה לפסח (1992)",
-          "channel": "dayingale",
-          "duration": "25:15",
-          "views": "",
-          "source": "same_song_performance"
-        }
-      ],
-      "chrono_index": 452,
-      "canonical_score": 2.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "dual_role": "original_performance",
-      "ver_idx": 1,
-      "ver_total": 2
     },
     {
       "index": 647,
