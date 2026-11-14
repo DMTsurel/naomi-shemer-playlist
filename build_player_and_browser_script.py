@@ -1063,6 +1063,7 @@ def generate_files():
     l1 = layer_counts.get(1, 0)
     l2 = layer_counts.get(2, 0)
     l3 = layer_counts.get(3, 0)
+    unique_songs_count = sum(1 for item in songs_js if item.get("ver_idx") == 1)
 
     html_content = f"""<!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -1763,6 +1764,9 @@ def generate_files():
               <option value="1990s+">שנות ה-90+ ({d_90})</option>
               <option value="unknown">ללא שנה ({d_unk})</option>
             </select>
+            <button id="onePerSongBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleOnePerSong()" aria-pressed="false" title="סנן לביצוע מוביל אחד לכל שיר (מדלג על גרסאות כפולות בלי למחוק אותן)">
+              🎯 ביצוע אחד לכל שיר ({unique_songs_count})
+            </button>
             <button id="advFilterBtn" class="btn btn-outline btn-sm" onclick="toggleAdvancedFilters()">
               ⚙️ סינון מתקדם <span id="activeFiltersBadge" style="display:none; background:var(--gold); color:#000; padding:0 6px; border-radius:999px; font-size:11px;"></span>
             </button>
@@ -1883,6 +1887,7 @@ def generate_files():
     let ytApiFailed = false;
     let pendingVideoLoad = null;
     let shuffleEnabled = false;
+    let onePerSongOnly = false;
     let currentTab = "yt";
     let userInteractedPlayback = false;
 
@@ -2127,6 +2132,19 @@ def generate_files():
       }}
     }}
 
+    function syncOnePerSongUI() {{
+      const btn = document.getElementById("onePerSongBtn");
+      if (!btn) return;
+      btn.classList.toggle("btn-active", onePerSongOnly);
+      btn.setAttribute("aria-pressed", onePerSongOnly ? "true" : "false");
+    }}
+
+    function toggleOnePerSong() {{
+      onePerSongOnly = !onePerSongOnly;
+      syncOnePerSongUI();
+      renderTable();
+    }}
+
     function toggleAdvancedFilters() {{
       const drw = document.getElementById("advancedDrawer");
       const btn = document.getElementById("advFilterBtn");
@@ -2190,6 +2208,8 @@ def generate_files():
       document.getElementById("decadeFilter").value = "ALL";
       document.getElementById("tierFilter").value = "ALL";
       document.getElementById("roleFilter").value = "ALL";
+      onePerSongOnly = false;
+      syncOnePerSongUI();
       renderTable();
     }}
 
@@ -2215,6 +2235,7 @@ def generate_files():
         setOrDel("decade", df, "ALL");
         setOrDel("tab", currentTab, "yt");
         setOrDel("shuffle", shuffleEnabled ? "1" : "", "");
+        setOrDel("oneper", onePerSongOnly ? "1" : "", "");
 
         window.history.replaceState({{}}, "", url.toString());
         if (window.localStorage) {{
@@ -2225,7 +2246,8 @@ def generate_files():
             role: rf,
             decade: df,
             tab: currentTab,
-            shuffle: shuffleEnabled
+            shuffle: shuffleEnabled,
+            oneper: onePerSongOnly
           }}));
         }}
       }} catch (e) {{}}
@@ -2389,6 +2411,7 @@ def generate_files():
       const df = document.getElementById("decadeFilter").value;
 
       filteredSongs = SONGS.filter(s => {{
+        if (onePerSongOnly && s.ver_idx !== 1) return false;
         if (tf !== "ALL" && s.tier !== tf) return false;
         if (rf !== "ALL" && s.role_cat !== rf) return false;
         if (df !== "ALL" && s.decade !== df) return false;
@@ -2430,11 +2453,14 @@ def generate_files():
       if (currentVid) {{
         const foundIdx = filteredSongs.findIndex(x => x.vid === currentVid);
         if (foundIdx >= 0) currentIndex = foundIdx;
+        else if (filteredSongs.length > 0) currentIndex = 0;
       }}
 
       document.getElementById("ytCountChip").textContent = filteredSongs.length === SONGS.length
         ? `${{SONGS.length}} ביצועים`
-        : `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים`;
+        : (onePerSongOnly
+            ? `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים (ביצוע אחד לשיר)`
+            : `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים`);
 
       const activeAdvCount = [tf !== "ALL", rf !== "ALL"].filter(Boolean).length;
       const advBadge = document.getElementById("activeFiltersBadge");
@@ -2600,6 +2626,7 @@ def generate_files():
       const decadeParam = params.get("decade") || saved.decade;
       const tabParam = params.get("tab") || saved.tab;
       const shufParam = params.get("shuffle");
+      const onePerParam = params.get("oneper");
 
       if (qParam !== null) {{
         document.getElementById("searchInput").value = qParam;
@@ -2619,6 +2646,10 @@ def generate_files():
         shuffleEnabled = true;
         const btn = document.getElementById("shuffleBtn");
         if (btn) btn.classList.add("btn-active");
+      }}
+      if (onePerParam === "1" || (onePerParam === null && saved.oneper)) {{
+        onePerSongOnly = true;
+        syncOnePerSongUI();
       }}
       if (tabParam === "arch") switchTab("arch", true);
 
