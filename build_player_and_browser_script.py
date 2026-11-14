@@ -1311,6 +1311,7 @@ def generate_files():
       #nowPlayingTitle {{ font-size: 17px !important; }}
       #nowPlayingMeta {{ font-size: 12.5px !important; margin-bottom: 5px !important; }}
       .quote-box {{ display: none !important; }}
+      .arch-toggle-btn {{ white-space: normal; text-align: center; }}
       th, td {{ padding: 8px 7px; font-size: 12.5px; }}
       .song-main-title {{ font-size: 13.5px; }}
     }}
@@ -1681,8 +1682,11 @@ def generate_files():
       </div>
     </header>
 
-    <!-- סרגל עליון מינימליסטי (מונה בלבד) -->
+    <!-- סרגל עליון למעבר מהיר לארכיון ומונה -->
     <div id="topStatusRow" class="nav-bar" style="margin-bottom: 10px;">
+      <button id="topArchToggleBtn" class="btn btn-outline btn-sm arch-toggle-btn" onclick="switchTab('arch')">
+        🏛️ הצג גם {unmatched_songs_count} שירים נדירים מהארכיון שאינם ביוטיוב
+      </button>
       <button id="backToPlayerBtn" class="btn btn-outline btn-sm" style="display:none;" onclick="switchTab('yt')">← חזרה לנגן הפלייליסט ({total_videos} ביצועים)</button>
       <span id="ytCountChip" class="count-chip"></span>
     </div>
@@ -1854,7 +1858,7 @@ def generate_files():
     <!-- פוטר שקט בתחתית העמוד למעבר לארכיון המשלים -->
     <footer style="margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 13px;">
       <span>קטלוג שירי נעמי שמר · {total_videos} ביצועים ביוטיוב</span>
-      <button id="footerArchToggleBtn" class="btn btn-outline btn-sm" onclick="switchTab(currentTab === 'yt' ? 'arch' : 'yt')">
+      <button id="footerArchToggleBtn" class="btn btn-outline btn-sm arch-toggle-btn" onclick="switchTab(currentTab === 'yt' ? 'arch' : 'yt')">
         🏛️ הצג גם {unmatched_songs_count} שירים נדירים מהארכיון שאינם ביוטיוב
       </button>
     </footer>
@@ -2105,8 +2109,12 @@ def generate_files():
       const isYt = currentTab === "yt";
       document.getElementById("tabYtContent").style.display = isYt ? "block" : "none";
       document.getElementById("tabArchContent").style.display = isYt ? "none" : "block";
+      const topArchBtn = document.getElementById("topArchToggleBtn");
+      if (topArchBtn) topArchBtn.style.display = isYt ? "inline-flex" : "none";
       const backBtn = document.getElementById("backToPlayerBtn");
       if (backBtn) backBtn.style.display = isYt ? "none" : "inline-flex";
+      const ytChip = document.getElementById("ytCountChip");
+      if (ytChip) ytChip.style.display = isYt ? "" : "none";
       const footerBtn = document.getElementById("footerArchToggleBtn");
       if (footerBtn) {{
         footerBtn.textContent = isYt
