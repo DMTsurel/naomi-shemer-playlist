@@ -1722,7 +1722,7 @@ def generate_files():
             </div>
             <select id="sortSelect" onchange="renderTable()">
               <option value="canonical">🌟 מיון: קלאסיקות תחילה</option>
-              <option value="chrono_asc">📅 כרונולוגי (1953–2004)</option>
+              <option value="chrono_asc">📅 כרונולוגי (לפי שנת הקלטה)</option>
               <option value="chrono_desc">⏪ כרונולוגי הפוך</option>
               <option value="albums">💿 לפי אלבומים מקוריים</option>
               <option value="popularity">🔥 לפי תפוצה באקו"ם</option>
