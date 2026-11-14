@@ -1211,25 +1211,6 @@ def generate_files():
       border-radius: 12px;
       box-shadow: 0 6px 20px rgba(245, 158, 11, 0.32);
     }}
-    .unmute-banner {{
-      display: none;
-      width: 100%;
-      background: rgba(245, 158, 11, 0.16);
-      border: 1px solid var(--gold);
-      color: #fde68a;
-      padding: 8px 12px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      cursor: pointer;
-      text-align: center;
-      font-family: inherit;
-    }}
-    .unmute-banner:hover {{
-      background: rgba(245, 158, 11, 0.28);
-      color: #fff;
-    }}
 
     /* Top Bar: Tabs + Search + Quick Filters */
     .nav-bar {{
@@ -1691,7 +1672,6 @@ def generate_files():
       <div class="player-layout">
         <!-- כרטיס הנגן הדביק -->
         <div class="card sticky-player">
-          <button id="unmuteBanner" type="button" class="unmute-banner" onclick="startPlaylistPlayback()">🔇 מתנגן בהשתקה בגלל מגבלת דפדפן — לחץ כאן להפעלת שמע 🔊</button>
           <div id="failoverBanner" style="display:none; background:rgba(245,158,11,0.18); border:1px solid var(--gold); color:#fcd34d; padding:7px 10px; border-radius:8px; font-size:12.5px; margin-bottom:8px;"></div>
           <div id="ytFrameWrap" class="yt-frame-wrap">
             <div id="ytFrame"></div>
@@ -1883,51 +1863,32 @@ def generate_files():
     let shuffleEnabled = false;
     let onePerSongOnly = false;
     let currentTab = "yt";
-    let userInteractedPlayback = false;
 
     function syncPlayButtonUI() {{
       const btn = document.getElementById("playPlaylistBtn");
-      const unmuteEl = document.getElementById("unmuteBanner");
       if (!btn) return;
       if (!ytApiReady || !ytPlayer || typeof ytPlayer.getPlayerState !== "function") {{
         btn.textContent = "▶ נגן פלייליסט";
-        if (unmuteEl) unmuteEl.style.display = "none";
         return;
       }}
       const st = ytPlayer.getPlayerState();
-      const muted = typeof ytPlayer.isMuted === "function" && ytPlayer.isMuted();
-      if (st === 1 && muted) {{
-        btn.textContent = "🔊 הפעל שמע (מתנגן)";
-        if (unmuteEl) unmuteEl.style.display = "block";
-      }} else if (st === 1) {{
+      if (st === 1) {{
         btn.textContent = "⏸ השהה פלייליסט";
-        if (unmuteEl) unmuteEl.style.display = "none";
       }} else if (st === 2) {{
         btn.textContent = "▶ המשך פלייליסט";
-        if (unmuteEl) unmuteEl.style.display = "none";
       }} else {{
         btn.textContent = "▶ נגן פלייליסט";
-        if (unmuteEl) unmuteEl.style.display = "none";
       }}
     }}
 
     function startPlaylistPlayback() {{
       if (currentTab !== "yt") switchTab("yt");
       if (!filteredSongs.length) return;
-      userInteractedPlayback = true;
       if (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") {{
         const st = ytPlayer.getPlayerState();
-        const muted = typeof ytPlayer.isMuted === "function" && ytPlayer.isMuted();
-        if (muted) {{
-          if (typeof ytPlayer.unMute === "function") ytPlayer.unMute();
-          if (st !== 1) ytPlayer.playVideo();
-          syncPlayButtonUI();
-          return;
-        }}
         if (st === 1) {{
           ytPlayer.pauseVideo();
         }} else {{
-          if (typeof ytPlayer.unMute === "function") ytPlayer.unMute();
           ytPlayer.playVideo();
         }}
         syncPlayButtonUI();
@@ -1962,7 +1923,7 @@ def generate_files():
 
     window.onYouTubeIframeAPIReady = function() {{
       try {{
-        const initReq = pendingVideoLoad || {{ vid: (filteredSongs[currentIndex] || SONGS[0]).vid, autoplay: true, initialAuto: true }};
+        const initReq = pendingVideoLoad || {{ vid: (filteredSongs[currentIndex] || SONGS[0]).vid, autoplay: false }};
         pendingVideoLoad = null;
         ytPlayer = new YT.Player("ytFrame", {{
           width: "100%",
@@ -1980,24 +1941,9 @@ def generate_files():
               const req = pendingVideoLoad || initReq;
               pendingVideoLoad = null;
               if (req && req.autoplay) {{
-                if (req.initialAuto && !userInteractedPlayback) {{
-                  try {{ ytPlayer.playVideo(); }} catch (e) {{}}
-                  setTimeout(() => {{
-                    if (userInteractedPlayback || !ytPlayer || typeof ytPlayer.getPlayerState !== "function") return;
-                    const st = ytPlayer.getPlayerState();
-                    if (st !== 1 && st !== 3) {{
-                      try {{
-                        ytPlayer.mute();
-                        ytPlayer.playVideo();
-                      }} catch (e) {{}}
-                    }}
-                    syncPlayButtonUI();
-                  }}, 900);
-                }} else {{
-                  if (typeof ytPlayer.unMute === "function") ytPlayer.unMute();
-                  ytPlayer.loadVideoById(req.vid);
-                }}
-              }} else if (req) {{
+                if (req.vid !== initReq.vid) ytPlayer.loadVideoById(req.vid);
+                else ytPlayer.playVideo();
+              }} else if (req && req.vid !== initReq.vid) {{
                 ytPlayer.cueVideoById(req.vid);
               }}
               syncPlayButtonUI();
@@ -2054,9 +2000,6 @@ def generate_files():
     function loadVideoByIdOrSrc(vid, autoplay) {{
       if (ytApiReady && ytPlayer && typeof ytPlayer.loadVideoById === "function") {{
         if (autoplay) {{
-          if (userInteractedPlayback && typeof ytPlayer.unMute === "function") {{
-            try {{ ytPlayer.unMute(); }} catch (_) {{}}
-          }}
           ytPlayer.loadVideoById(vid);
         }} else {{
           ytPlayer.cueVideoById(vid);
@@ -2070,8 +2013,7 @@ def generate_files():
       }}
       const wrap = document.getElementById("ytFrameWrap");
       const originParam = window.location.origin && window.location.origin !== "null" ? `&origin=${{encodeURIComponent(window.location.origin)}}` : "";
-      const muteParam = autoplay && !userInteractedPlayback ? "&mute=1" : "";
-      const srcUrl = `https://www.youtube.com/embed/${{encodeURIComponent(vid)}}?enablejsapi=1&rel=0${{autoplay ? "&autoplay=1" : ""}}${{muteParam}}${{originParam}}`;
+      const srcUrl = `https://www.youtube.com/embed/${{encodeURIComponent(vid)}}?enablejsapi=1&rel=0${{autoplay ? "&autoplay=1" : ""}}${{originParam}}`;
       let frame = document.getElementById("ytFrame");
       if (!frame || frame.tagName.toLowerCase() !== "iframe") {{
         if (wrap) {{
@@ -2085,7 +2027,6 @@ def generate_files():
     function switchVideoSource(vid) {{
       const s = filteredSongs[currentIndex];
       if (!s) return;
-      userInteractedPlayback = true;
       const banner = document.getElementById("failoverBanner");
       if (vid === s.vid) {{
         currentAltIdx = -1;
@@ -2331,7 +2272,6 @@ def generate_files():
 
     function playSongAt(idx, shouldScroll = true, skipHistory = false) {{
       if (idx < 0 || idx >= filteredSongs.length) return;
-      userInteractedPlayback = true;
       if (!skipHistory && currentIndex !== idx && filteredSongs[currentIndex]) {{
         playHistory.push( filteredSongs[currentIndex].vid );
         if (playHistory.length > 100) playHistory.shift();
@@ -2356,14 +2296,7 @@ def generate_files():
     }}
 
     function togglePlayPause() {{
-      userInteractedPlayback = true;
       if (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") {{
-        if (typeof ytPlayer.isMuted === "function" && ytPlayer.isMuted() && typeof ytPlayer.unMute === "function") {{
-          try {{ ytPlayer.unMute(); }} catch (_) {{}}
-          ytPlayer.playVideo();
-          if (typeof syncPlayButtonUI === "function") syncPlayButtonUI();
-          return;
-        }}
         const st = ytPlayer.getPlayerState();
         if (st === 1) ytPlayer.pauseVideo();
         else ytPlayer.playVideo();
@@ -2659,7 +2592,7 @@ def generate_files():
         currentAltIdx = -1;
         const s = filteredSongs[initIdx] || SONGS[0];
         updateNowPlayingCard(s);
-        pendingVideoLoad = {{ vid: s.vid, autoplay: true, initialAuto: true }};
+        pendingVideoLoad = {{ vid: s.vid, autoplay: false }};
         loadYouTubeIframeAPI();
         document.querySelectorAll("tr.song-row").forEach((tr, i) => {{
           tr.classList.toggle("active", i === initIdx);
