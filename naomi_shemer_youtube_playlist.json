@@ -1,9 +1,9 @@
 {
   "stats": {
-    "total_songs": 455,
-    "matched_songs": 370,
+    "total_songs": 452,
+    "matched_songs": 367,
     "dual_performance_songs": 172,
-    "total_playlist_videos": 650,
+    "total_playlist_videos": 647,
     "unmatched_songs": 85,
     "by_tier": {
       "4. ביצוע מקורי": 213,
@@ -14,10 +14,10 @@
       "5. קאבר / ביצוע נוסף": 5,
       "6. לא נמצא סרטון תואם": 85
     },
-    "total_videos": 650,
-    "total_playlist_entries": 735,
-    "matched_videos": 650,
-    "total_catalog_songs": 455,
+    "total_videos": 647,
+    "total_playlist_entries": 732,
+    "matched_videos": 647,
+    "total_catalog_songs": 452,
     "tier_breakdown": {
       "4_original_performance": 213,
       "1_album_naomi": 77,
@@ -59026,36 +59026,27 @@
       "tier": "1_album_naomi",
       "tier_label": "1. אלבום של נעמי שמר",
       "selected_video": {
-        "video_id": "pTt_42SgJ0U",
-        "url": "https://www.youtube.com/watch?v=pTt_42SgJ0U",
-        "video_title": "עודד תאומי ונעמי שמר - קלי קלות (מתוך \"נעמי שמר שרה לילדים\", 1975)",
-        "channel": "Release - Topic",
-        "duration": "7:56",
-        "description": "ביצוע מקורי: עודד תאומי ונעמי שמר",
+        "video_id": "m58C3mRgm5E",
+        "url": "https://www.youtube.com/watch?v=m58C3mRgm5E",
+        "video_title": "נעמי שמר - קלי קלות",
+        "channel": "Israeli Classics קלאסיקה ישראלית",
+        "duration": "1:21",
+        "description": "מתוך האלבום נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות · מילים, לחן ועיבוד: נעמי שמר",
         "tier": "1_album_naomi",
         "tier_label": "1. אלבום של נעמי שמר",
-        "matched_performer": "עודד תאומי ונעמי שמר",
+        "matched_performer": "נעמי שמר",
         "matched_album": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "score": 3000
+        "score": 5000
       },
       "alternative_videos": [
         {
           "video_id": "YxZ7ZOkU2pA",
           "url": "https://www.youtube.com/watch?v=YxZ7ZOkU2pA",
           "video_title": "קלי קלות",
-          "channel": "נעמי שמר - Topic",
-          "duration": "1:22",
+          "channel": "Naomi Shemer - Topic",
+          "duration": "1:21",
           "views": "",
           "source": "direct_alternative"
-        },
-        {
-          "video_id": "m58C3mRgm5E",
-          "url": "https://www.youtube.com/watch?v=m58C3mRgm5E",
-          "video_title": "נעמי שמר - קלי קלות",
-          "channel": "נעמי שמר - Topic",
-          "duration": "1:22",
-          "views": "",
-          "source": "same_song_performance"
         }
       ],
       "chrono_index": 215,
@@ -59065,7 +59056,7 @@
       "acum_versions_count": 1,
       "ver_idx": 1,
       "ver_total": 1,
-      "matched_performer": "עודד תאומי ונעמי שמר"
+      "matched_performer": "נעמי שמר"
     },
     {
       "index": 432,
@@ -63679,13 +63670,13 @@
       "album_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
       "album_track_number": 4,
       "roles": [
-        "author",
         "composer",
+        "arranger",
         "performer"
       ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
+      "role_category": "music_only",
+      "role_label_heb": "לחן ושיר: נעמי שמר · טקסט: עודד בורלא ועודד תאומי",
+      "co_creators_heb": "טקסט: עודד בורלא ועודד תאומי",
       "archive_links": [
         {
           "source": "acum",
@@ -67795,161 +67786,6 @@
     },
     {
       "index": 526,
-      "title": "ג’ינג’י",
-      "alt_titles": [
-        "ג'ינג'י",
-        "ג׳ינג׳י"
-      ],
-      "opening_line": "",
-      "year": "1971",
-      "album_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-      "album_track_number": 2,
-      "roles": [
-        "composer",
-        "performer"
-      ],
-      "role_category": "music_only",
-      "role_label_heb": "לחן: נעמי שמר · מילים: מרים ילן-שטקליס",
-      "co_creators_heb": "מילים: מרים ילן-שטקליס",
-      "archive_links": [],
-      "notes": "",
-      "sources": [
-        "stereo_ve_mono",
-        "discogs",
-        "musicbrainz"
-      ],
-      "catalog_performers": [
-        "עודד תאומי",
-        "נעמי שמר",
-        "נעמי שמר, עודד תאומי"
-      ],
-      "catalog_albums": [
-        "נעמי שמר, עודד תאומי - נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות (1975)",
-        "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "נָעֳמִי שֶמֶר שָרָה לִילָדִים וְעוֹדֵד תְּאוֹמִי עוֹשֶׂה לָהֶם הַצָּגוֹת"
-      ],
-      "tier": "1_album_naomi",
-      "tier_label": "1. אלבום של נעמי שמר",
-      "selected_video": {
-        "video_id": "ygW51Wri9wQ",
-        "url": "https://www.youtube.com/watch?v=ygW51Wri9wQ",
-        "video_title": "עודד תאומי - ג'ינג'י (מתוך נעמי שמר שרה לילדים, 1975)",
-        "channel": "נעמי שמר - Topic",
-        "duration": "3:02",
-        "description": "Provided to YouTube · נעמי שמר · מתוך האלבום: נעמי שמר שרה לילדים",
-        "tier": "1_album_naomi",
-        "tier_label": "1. אלבום של נעמי שמר",
-        "matched_performer": "עודד תאומי",
-        "matched_album": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "score": 5000
-      },
-      "alternative_videos": [
-        {
-          "video_id": "NZOZmSwxn-Q",
-          "url": "https://www.youtube.com/watch?v=NZOZmSwxn-Q",
-          "video_title": "ג'ינג'י",
-          "channel": "Oded Teomi - Topic",
-          "duration": "3:02",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "lTvJVWW87H8",
-          "url": "https://www.youtube.com/watch?v=lTvJVWW87H8",
-          "video_title": "עודד תאומי - ג'ינג'י",
-          "channel": "Israeli Classics קלאסיקה ישראלית",
-          "duration": "3:01",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "gbLTc0pCJbk",
-          "url": "https://www.youtube.com/watch?v=gbLTc0pCJbk",
-          "video_title": "עודד תאומי  ג'ינג'י",
-          "channel": "dalit williams",
-          "duration": "3:30",
-          "views": "",
-          "source": "direct_alternative"
-        }
-      ],
-      "chrono_index": 214,
-      "canonical_score": 21.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1,
-      "matched_performer": "עודד תאומי"
-    },
-    {
-      "index": 527,
-      "title": "הדוד שמחה",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1971",
-      "album_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-      "album_track_number": 6,
-      "roles": [
-        "composer",
-        "performer"
-      ],
-      "role_category": "music_only",
-      "role_label_heb": "לחן: נעמי שמר · מילים: ע. הלל",
-      "co_creators_heb": "מילים: ע. הלל",
-      "archive_links": [],
-      "notes": "",
-      "sources": [
-        "stereo_ve_mono",
-        "discogs",
-        "musicbrainz"
-      ],
-      "catalog_performers": [
-        "נעמי שמר",
-        "עודד תאומי",
-        "נעמי שמר, עודד תאומי"
-      ],
-      "catalog_albums": [
-        "נעמי שמר, עודד תאומי - נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות (1975)",
-        "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "נָעֳמִי שֶמֶר שָרָה לִילָדִים וְעוֹדֵד תְּאוֹמִי עוֹשֶׂה לָהֶם הַצָּגוֹת"
-      ],
-      "tier": "1_album_naomi",
-      "tier_label": "1. אלבום של נעמי שמר",
-      "selected_video": {
-        "video_id": "4okw4g4Q8e4",
-        "url": "https://www.youtube.com/watch?v=4okw4g4Q8e4",
-        "video_title": "עודד תאומי - הדוד שמחה",
-        "channel": "נעמי שמר - Topic",
-        "duration": "4:42",
-        "description": "Provided to YouTube · נעמי שמר · מתוך האלבום: נעמי שמר שרה לילדים",
-        "tier": "1_album_naomi",
-        "tier_label": "1. אלבום של נעמי שמר",
-        "matched_performer": "עודד תאומי",
-        "matched_album": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "score": 5000
-      },
-      "alternative_videos": [
-        {
-          "video_id": "OsGUCR1KdOI",
-          "url": "https://www.youtube.com/watch?v=OsGUCR1KdOI",
-          "video_title": "הדוד שמחה",
-          "channel": "Oded Teomi - Topic",
-          "duration": "4:43",
-          "views": "",
-          "source": "direct_alternative"
-        }
-      ],
-      "chrono_index": 218,
-      "canonical_score": 21.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1,
-      "matched_performer": "עודד תאומי"
-    },
-    {
-      "index": 528,
       "title": "הכלייזמרים בצפת",
       "alt_titles": [
         "הכלייזמרים מצפת",
@@ -68045,7 +67881,7 @@
       "ver_total": 1
     },
     {
-      "index": 529,
+      "index": 527,
       "title": "כיד המלך",
       "alt_titles": [
         "למגדול ועד קטן"
@@ -68126,7 +67962,7 @@
       "ver_total": 1
     },
     {
-      "index": 530,
+      "index": 528,
       "title": "לכו נרננה",
       "alt_titles": [
         "לכה נרננה",
@@ -68187,7 +68023,7 @@
       "ver_total": 1
     },
     {
-      "index": 531,
+      "index": 529,
       "title": "סינמה בלש",
       "alt_titles": [
         "בואו והציצו"
@@ -68247,83 +68083,7 @@
       "ver_total": 1
     },
     {
-      "index": 532,
-      "title": "פו הדב",
-      "alt_titles": [],
-      "opening_line": "",
-      "year": "1971",
-      "album_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-      "album_track_number": 8,
-      "roles": [
-        "composer",
-        "performer"
-      ],
-      "role_category": "music_only",
-      "role_label_heb": "לחן: נעמי שמר · מילים: א. א. מילן (תרגום: ורה ישראלית ואהרן אמיר)",
-      "co_creators_heb": "מילים: א. א. מילן (תרגום: ורה ישראלית ואהרן אמיר)",
-      "archive_links": [],
-      "notes": "",
-      "sources": [
-        "stereo_ve_mono",
-        "discogs",
-        "musicbrainz"
-      ],
-      "catalog_performers": [
-        "נעמי שמר",
-        "עודד תאומי",
-        "נעמי שמר, עודד תאומי"
-      ],
-      "catalog_albums": [
-        "נעמי שמר, עודד תאומי - נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות (1975)",
-        "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "נָעֳמִי שֶמֶר שָרָה לִילָדִים וְעוֹדֵד תְּאוֹמִי עוֹשֶׂה לָהֶם הַצָּגוֹת"
-      ],
-      "tier": "1_album_naomi",
-      "tier_label": "1. אלבום של נעמי שמר",
-      "selected_video": {
-        "video_id": "dWXjopZ8-1s",
-        "url": "https://www.youtube.com/watch?v=dWXjopZ8-1s",
-        "video_title": "עודד תאומי - פו הדב (מתוך נעמי שמר שרה לילדים, 1975)",
-        "channel": "נעמי שמר - Topic",
-        "duration": "4:51",
-        "description": "Provided to YouTube · נעמי שמר · מתוך האלבום: נעמי שמר שרה לילדים",
-        "tier": "1_album_naomi",
-        "tier_label": "1. אלבום של נעמי שמר",
-        "matched_performer": "עודד תאומי",
-        "matched_album": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "score": 5000
-      },
-      "alternative_videos": [
-        {
-          "video_id": "P1jM22R9zOo",
-          "url": "https://www.youtube.com/watch?v=P1jM22R9zOo",
-          "video_title": "פו הדוב",
-          "channel": "Oded Teomi - Topic",
-          "duration": "4:51",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "FIzMiL6QYZ0",
-          "url": "https://www.youtube.com/watch?v=FIzMiL6QYZ0",
-          "video_title": "עודד תאומי - פו הדוב",
-          "channel": "Israeli Classics קלאסיקה ישראלית",
-          "duration": "4:51",
-          "views": "",
-          "source": "direct_alternative"
-        }
-      ],
-      "chrono_index": 219,
-      "canonical_score": 21.0,
-      "canonical_layer": 3,
-      "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
-      "acum_versions_count": 0,
-      "ver_idx": 1,
-      "ver_total": 1,
-      "matched_performer": "עודד תאומי"
-    },
-    {
-      "index": 533,
+      "index": 530,
       "title": "צמחי הביצה",
       "alt_titles": [
         "צמחי הבצה",
@@ -68385,7 +68145,7 @@
       "ver_total": 1
     },
     {
-      "index": 534,
+      "index": 531,
       "title": "חידות",
       "alt_titles": [
         "נתתי דובדבן"
@@ -68462,7 +68222,7 @@
       "ver_total": 1
     },
     {
-      "index": 535,
+      "index": 532,
       "title": "מגדל בודד",
       "alt_titles": [],
       "opening_line": "מגדל בודד בלילה אורו נודד בלילה",
@@ -68551,7 +68311,7 @@
       "ver_total": 2
     },
     {
-      "index": 536,
+      "index": 533,
       "title": "מגדל בודד",
       "alt_titles": [],
       "opening_line": "מגדל בודד בלילה אורו נודד בלילה",
@@ -68639,7 +68399,7 @@
       "ver_total": 2
     },
     {
-      "index": 537,
+      "index": 534,
       "title": "מותי בא לי פתע",
       "alt_titles": [],
       "opening_line": "מותי בא לי פתע כאחד האדם ידעתי כי קרב",
@@ -68718,7 +68478,7 @@
       "ver_total": 2
     },
     {
-      "index": 538,
+      "index": 535,
       "title": "מותי בא לי פתע",
       "alt_titles": [],
       "opening_line": "מותי בא לי פתע כאחד האדם ידעתי כי קרב",
@@ -68797,7 +68557,7 @@
       "ver_total": 2
     },
     {
-      "index": 539,
+      "index": 536,
       "title": "שלום על הגלים",
       "alt_titles": [],
       "opening_line": "מול כוכב הזהב בצלצול הכבלים",
@@ -68875,7 +68635,7 @@
       "ver_total": 1
     },
     {
-      "index": 540,
+      "index": 537,
       "title": "דולי",
       "alt_titles": [
         "berceuse",
@@ -68952,7 +68712,7 @@
       "ver_total": 1
     },
     {
-      "index": 541,
+      "index": 538,
       "title": "היה היתה עיר",
       "alt_titles": [
         "שכב הירדם",
@@ -69019,7 +68779,7 @@
       "ver_total": 1
     },
     {
-      "index": 542,
+      "index": 539,
       "title": "כל חיי",
       "alt_titles": [],
       "opening_line": "",
@@ -69084,7 +68844,7 @@
       "ver_total": 1
     },
     {
-      "index": 543,
+      "index": 540,
       "title": "מנגנות ויואלדי",
       "alt_titles": [
         "מנגנות ויולדי",
@@ -69171,7 +68931,7 @@
       "ver_total": 2
     },
     {
-      "index": 544,
+      "index": 541,
       "title": "מנגנות ויואלדי",
       "alt_titles": [
         "מנגנות ויולדי",
@@ -69258,7 +69018,7 @@
       "ver_total": 2
     },
     {
-      "index": 545,
+      "index": 542,
       "title": "נסיכה שחורה",
       "alt_titles": [],
       "opening_line": "נסיכה שחורה שלי כלה קטיפה",
@@ -69327,7 +69087,7 @@
       "ver_total": 1
     },
     {
-      "index": 546,
+      "index": 543,
       "title": "עולם הפוך",
       "alt_titles": [
         "עולם הפוך פרה כחולה",
@@ -69429,7 +69189,7 @@
       "ver_total": 1
     },
     {
-      "index": 547,
+      "index": 544,
       "title": "פרחי אולי",
       "alt_titles": [],
       "opening_line": "על ערוגות הלב בנוף טלול וחם",
@@ -69507,7 +69267,7 @@
       "ver_total": 1
     },
     {
-      "index": 548,
+      "index": 545,
       "title": "פרנואיד",
       "alt_titles": [
         "פראנואיד"
@@ -69578,7 +69338,7 @@
       "ver_total": 1
     },
     {
-      "index": 549,
+      "index": 546,
       "title": "קפה תפארת",
       "alt_titles": [],
       "opening_line": "בוא אתי בוא אתי אל גן עדן אמתי",
@@ -69647,7 +69407,7 @@
       "ver_total": 1
     },
     {
-      "index": 550,
+      "index": 547,
       "title": "העוזרת של זרש",
       "alt_titles": [],
       "opening_line": "כאשר הגברת זרש מזומנת לקוקטיל אז נשארת",
@@ -69727,7 +69487,7 @@
       "ver_total": 2
     },
     {
-      "index": 551,
+      "index": 548,
       "title": "העוזרת של זרש",
       "alt_titles": [],
       "opening_line": "כאשר הגברת זרש מזומנת לקוקטיל אז נשארת",
@@ -69806,7 +69566,7 @@
       "ver_total": 2
     },
     {
-      "index": 552,
+      "index": 549,
       "title": "יריד",
       "alt_titles": [
         "היריד"
@@ -69865,7 +69625,7 @@
       "ver_total": 1
     },
     {
-      "index": 553,
+      "index": 550,
       "title": "מתפרנסים",
       "alt_titles": [],
       "opening_line": "יש לי יש לי שלג אשתקד",
@@ -69922,7 +69682,7 @@
       "ver_total": 1
     },
     {
-      "index": 554,
+      "index": 551,
       "title": "האומנם",
       "alt_titles": [
         "האמנם",
@@ -69989,7 +69749,7 @@
       "ver_total": 1
     },
     {
-      "index": 555,
+      "index": 552,
       "title": "ימי הענבים",
       "alt_titles": [
         "ימי ענבים"
@@ -70057,7 +69817,7 @@
       "ver_total": 1
     },
     {
-      "index": 556,
+      "index": 553,
       "title": "כי לא יהיה להם יום",
       "alt_titles": [],
       "opening_line": "כמה יפה השלג בחרמון",
@@ -70153,7 +69913,7 @@
       "ver_total": 1
     },
     {
-      "index": 557,
+      "index": 554,
       "title": "לא ביאליק",
       "alt_titles": [],
       "opening_line": "אני אכניס אותך תחת כנפי",
@@ -70244,7 +70004,7 @@
       "ver_total": 2
     },
     {
-      "index": 558,
+      "index": 555,
       "title": "לא ביאליק",
       "alt_titles": [],
       "opening_line": "אני אכניס אותך תחת כנפי",
@@ -70335,7 +70095,7 @@
       "ver_total": 2
     },
     {
-      "index": 559,
+      "index": 556,
       "title": "עמוק בטל",
       "alt_titles": [
         "עמוק בטל (טנא מלא כוכבים)",
@@ -70430,7 +70190,7 @@
       "ver_total": 1
     },
     {
-      "index": 560,
+      "index": 557,
       "title": "אני ואחא רון",
       "alt_titles": [],
       "opening_line": "כשרון אחי ואנכי נולדנו תאומים לי קראו",
@@ -70498,7 +70258,7 @@
       "ver_total": 1
     },
     {
-      "index": 561,
+      "index": 558,
       "title": "הדוכיפת",
       "alt_titles": [
         "דוכיפת"
@@ -70562,7 +70322,7 @@
       "ver_total": 1
     },
     {
-      "index": 562,
+      "index": 559,
       "title": "הו מה נאה הוא הבוקר",
       "alt_titles": [
         "איזה בוקר יפה",
@@ -70631,7 +70391,7 @@
       "ver_total": 1
     },
     {
-      "index": 563,
+      "index": 560,
       "title": "סיפור אהבתי לכם",
       "alt_titles": [
         "ספור אהבתי לכם"
@@ -70700,7 +70460,7 @@
       "ver_total": 1
     },
     {
-      "index": 564,
+      "index": 561,
       "title": "עשרת הצדיקים",
       "alt_titles": [
         "כצעקתה הכצעקתה"
@@ -70765,7 +70525,7 @@
       "ver_total": 1
     },
     {
-      "index": 565,
+      "index": 562,
       "title": "סוף העולם",
       "alt_titles": [
         "סוף העולם אמצע המדבר שם הכל שעמום"
@@ -70859,7 +70619,7 @@
       "ver_total": 2
     },
     {
-      "index": 566,
+      "index": 563,
       "title": "סוף העולם",
       "alt_titles": [
         "סוף העולם אמצע המדבר שם הכל שעמום"
@@ -70943,7 +70703,7 @@
       "ver_total": 2
     },
     {
-      "index": 567,
+      "index": 564,
       "title": "צי הצללים",
       "alt_titles": [
         "צי הצלילים",
@@ -71021,7 +70781,7 @@
       "ver_total": 1
     },
     {
-      "index": 568,
+      "index": 565,
       "title": "חד גדיא",
       "alt_titles": [],
       "opening_line": "גדי אחד גדי אחד קנה אבינו בשני זוזים",
@@ -71096,7 +70856,7 @@
       "ver_total": 1
     },
     {
-      "index": 569,
+      "index": 566,
       "title": "מוטב בבית",
       "alt_titles": [],
       "opening_line": "",
@@ -71146,7 +70906,7 @@
       "ver_total": 1
     },
     {
-      "index": 570,
+      "index": 567,
       "title": "מי רוכב על מי",
       "alt_titles": [],
       "opening_line": "כשבא אלברטו לצבא כן המפקד ישבו עליו ברכיבה",
@@ -71209,7 +70969,7 @@
       "ver_total": 1
     },
     {
-      "index": 571,
+      "index": 568,
       "title": "בא הגדוד",
       "alt_titles": [
         "הגיע גדוד אל המושב באנו אל המושב"
@@ -71284,7 +71044,7 @@
       "ver_total": 2
     },
     {
-      "index": 572,
+      "index": 569,
       "title": "בא הגדוד",
       "alt_titles": [
         "הגיע גדוד אל המושב באנו אל המושב"
@@ -71368,7 +71128,7 @@
       "ver_total": 2
     },
     {
-      "index": 573,
+      "index": 570,
       "title": "בשלו הפירות בגני",
       "alt_titles": [
         "אחותי",
@@ -71442,7 +71202,7 @@
       "ver_total": 1
     },
     {
-      "index": 574,
+      "index": 571,
       "title": "דרכים",
       "alt_titles": [],
       "opening_line": "",
@@ -71504,7 +71264,7 @@
       "ver_total": 1
     },
     {
-      "index": 575,
+      "index": 572,
       "title": "הסוחר מוונציה",
       "alt_titles": [
         "הסוחר מונציה",
@@ -71581,7 +71341,7 @@
       "ver_total": 2
     },
     {
-      "index": 576,
+      "index": 573,
       "title": "הסוחר מוונציה",
       "alt_titles": [
         "הסוחר מונציה",
@@ -71658,7 +71418,7 @@
       "ver_total": 2
     },
     {
-      "index": 577,
+      "index": 574,
       "title": "ט\"ו בשבט שלי",
       "alt_titles": [
         "ט\"ו בשבט",
@@ -71734,7 +71494,7 @@
       "ver_total": 1
     },
     {
-      "index": 578,
+      "index": 575,
       "title": "נעלה צפונה",
       "alt_titles": [],
       "opening_line": "כבר ירדו פלגים לחולה מלבנון ומחרמון",
@@ -71796,7 +71556,7 @@
       "ver_total": 1
     },
     {
-      "index": 579,
+      "index": 576,
       "title": "פרידה",
       "alt_titles": [],
       "opening_line": "",
@@ -71886,7 +71646,7 @@
       "ver_total": 1
     },
     {
-      "index": 580,
+      "index": 577,
       "title": "פת במלח",
       "alt_titles": [
         "פת ומלח"
@@ -71969,7 +71729,7 @@
       "ver_total": 1
     },
     {
-      "index": 581,
+      "index": 578,
       "title": "אילן",
       "alt_titles": [],
       "opening_line": "",
@@ -72037,7 +71797,7 @@
       "ver_total": 2
     },
     {
-      "index": 582,
+      "index": 579,
       "title": "אילן",
       "alt_titles": [],
       "opening_line": "",
@@ -72105,7 +71865,7 @@
       "ver_total": 2
     },
     {
-      "index": 583,
+      "index": 580,
       "title": "אצל ורדה השמנה",
       "alt_titles": [],
       "opening_line": "תשע בערב אצל ורדה השמנה יש אוירה ומשקאות",
@@ -72167,7 +71927,7 @@
       "ver_total": 1
     },
     {
-      "index": 584,
+      "index": 581,
       "title": "בלדה על סל תפירה",
       "alt_titles": [
         "איפה הימים"
@@ -72231,7 +71991,7 @@
       "ver_total": 1
     },
     {
-      "index": 585,
+      "index": 582,
       "title": "הנישואין",
       "alt_titles": [
         "הרי את מקודשת לי"
@@ -72290,7 +72050,7 @@
       "ver_total": 1
     },
     {
-      "index": 586,
+      "index": 583,
       "title": "חפש את האישה",
       "alt_titles": [
         "חפש את האשה"
@@ -72373,7 +72133,7 @@
       "ver_total": 2
     },
     {
-      "index": 587,
+      "index": 584,
       "title": "חפש את האישה",
       "alt_titles": [
         "חפש את האשה"
@@ -72457,7 +72217,7 @@
       "ver_total": 2
     },
     {
-      "index": 588,
+      "index": 585,
       "title": "ירדנה",
       "alt_titles": [],
       "opening_line": "תכירו שמי ירדנה ילדות עוד קטנטונת",
@@ -72538,7 +72298,7 @@
       "ver_total": 1
     },
     {
-      "index": 589,
+      "index": 586,
       "title": "יש לי מנגינה בלב",
       "alt_titles": [
         "טלפונדו",
@@ -72602,7 +72362,7 @@
       "ver_total": 1
     },
     {
-      "index": 590,
+      "index": 587,
       "title": "מצד אל צד",
       "alt_titles": [
         "טויסט"
@@ -72666,7 +72426,7 @@
       "ver_total": 1
     },
     {
-      "index": 591,
+      "index": 588,
       "title": "רומנס בכפר",
       "alt_titles": [
         "ערב טוב"
@@ -72741,7 +72501,7 @@
       "ver_total": 2
     },
     {
-      "index": 592,
+      "index": 589,
       "title": "רומנס בכפר",
       "alt_titles": [
         "ערב טוב"
@@ -72816,7 +72576,7 @@
       "ver_total": 2
     },
     {
-      "index": 593,
+      "index": 590,
       "title": "שיר פורח",
       "alt_titles": [],
       "opening_line": "",
@@ -72883,7 +72643,7 @@
       "ver_total": 2
     },
     {
-      "index": 594,
+      "index": 591,
       "title": "שיר פורח",
       "alt_titles": [],
       "opening_line": "",
@@ -72950,7 +72710,7 @@
       "ver_total": 2
     },
     {
-      "index": 595,
+      "index": 592,
       "title": "שיר תודה",
       "alt_titles": [
         "[[שיר תודה"
@@ -73030,7 +72790,7 @@
       "ver_total": 1
     },
     {
-      "index": 596,
+      "index": 593,
       "title": "תישן חמודי תישן",
       "alt_titles": [
         "תישן חמודי"
@@ -73093,7 +72853,7 @@
       "ver_total": 1
     },
     {
-      "index": 597,
+      "index": 594,
       "title": "האחרת",
       "alt_titles": [],
       "opening_line": "",
@@ -73181,7 +72941,7 @@
       "ver_total": 1
     },
     {
-      "index": 598,
+      "index": 595,
       "title": "הורה נחל עוז",
       "alt_titles": [
         "הורה נחל עז"
@@ -73243,7 +73003,7 @@
       "ver_total": 1
     },
     {
-      "index": 599,
+      "index": 596,
       "title": "השד יודע",
       "alt_titles": [],
       "opening_line": "מה פתאום קבלתי שושנה מאלמוני",
@@ -73334,7 +73094,7 @@
       "ver_total": 1
     },
     {
-      "index": 600,
+      "index": 597,
       "title": "שייקספיר איננו",
       "alt_titles": [
         "שקספיר איננו"
@@ -73434,7 +73194,7 @@
       "ver_total": 1
     },
     {
-      "index": 601,
+      "index": 598,
       "title": "אלף תשע מאות שמונים וארבע",
       "alt_titles": [
         "שמונים וארבע",
@@ -73497,7 +73257,7 @@
       "ver_total": 1
     },
     {
-      "index": 602,
+      "index": 599,
       "title": "בלי מילים",
       "alt_titles": [
         "בלי מלים"
@@ -73570,7 +73330,7 @@
       "ver_total": 2
     },
     {
-      "index": 603,
+      "index": 600,
       "title": "בלי מילים",
       "alt_titles": [
         "בלי מלים"
@@ -73643,7 +73403,7 @@
       "ver_total": 2
     },
     {
-      "index": 604,
+      "index": 601,
       "title": "המכונית האדומה",
       "alt_titles": [
         "המכונית האדמה",
@@ -73707,7 +73467,7 @@
       "ver_total": 1
     },
     {
-      "index": 605,
+      "index": 602,
       "title": "לבנות שפיה",
       "alt_titles": [],
       "opening_line": "",
@@ -73763,7 +73523,7 @@
       "ver_total": 1
     },
     {
-      "index": 606,
+      "index": 603,
       "title": "לרקוד איתך",
       "alt_titles": [
         "לרקוד אתך"
@@ -73824,7 +73584,7 @@
       "ver_total": 1
     },
     {
-      "index": 607,
+      "index": 604,
       "title": "בלדה מודרנית",
       "alt_titles": [],
       "opening_line": "כשהוא היה אדם פעוט עולל בין עוללים",
@@ -73880,7 +73640,7 @@
       "ver_total": 1
     },
     {
-      "index": 608,
+      "index": 605,
       "title": "הבו לנו זמר",
       "alt_titles": [],
       "opening_line": "סובה סוב סובה סוב שכח מכאוב",
@@ -73933,7 +73693,7 @@
       "ver_total": 1
     },
     {
-      "index": 609,
+      "index": 606,
       "title": "הינשוף והירח",
       "alt_titles": [],
       "opening_line": "על ענף תלוי ירח הוא צוחק",
@@ -73988,7 +73748,7 @@
       "ver_total": 1
     },
     {
-      "index": 610,
+      "index": 607,
       "title": "הלילה הזה הוא דומם",
       "alt_titles": [
         "לילה הזה הוא דומם הלילה כחל ואלם"
@@ -74045,7 +73805,7 @@
       "ver_total": 1
     },
     {
-      "index": 611,
+      "index": 608,
       "title": "ט\"ו באב",
       "alt_titles": [
         "טו באב"
@@ -74120,7 +73880,7 @@
       "ver_total": 3
     },
     {
-      "index": 612,
+      "index": 609,
       "title": "ט\"ו באב",
       "alt_titles": [
         "טו באב"
@@ -74194,7 +73954,7 @@
       "ver_total": 3
     },
     {
-      "index": 613,
+      "index": 610,
       "title": "ט\"ו באב",
       "alt_titles": [
         "טו באב"
@@ -74269,7 +74029,7 @@
       "ver_total": 3
     },
     {
-      "index": 614,
+      "index": 611,
       "title": "כיתה בארץ",
       "alt_titles": [
         "כתה בארץ"
@@ -74336,7 +74096,7 @@
       "ver_total": 1
     },
     {
-      "index": 615,
+      "index": 612,
       "title": "שיר עבודה",
       "alt_titles": [
         "ארוך התלם",
@@ -74392,7 +74152,7 @@
       "ver_total": 1
     },
     {
-      "index": 616,
+      "index": 613,
       "title": "אני גיטרה",
       "alt_titles": [],
       "opening_line": "אני גיטרה הרוח מנגן עלי",
@@ -74516,7 +74276,7 @@
       "ver_total": 3
     },
     {
-      "index": 617,
+      "index": 614,
       "title": "אוניית הכאב",
       "alt_titles": [
         "אוניית כאב",
@@ -74591,7 +74351,7 @@
       "ver_total": 1
     },
     {
-      "index": 618,
+      "index": 615,
       "title": "התפוזים",
       "alt_titles": [],
       "opening_line": "",
@@ -74643,7 +74403,7 @@
       "ver_total": 1
     },
     {
-      "index": 619,
+      "index": 616,
       "title": "יש לי מסיבה",
       "alt_titles": [],
       "opening_line": "",
@@ -74697,7 +74457,7 @@
       "ver_total": 1
     },
     {
-      "index": 620,
+      "index": 617,
       "title": "'רות ושות",
       "alt_titles": [],
       "opening_line": "",
@@ -74751,7 +74511,7 @@
       "ver_total": 1
     },
     {
-      "index": 621,
+      "index": 618,
       "title": "אל מחנה השחרורים",
       "alt_titles": [
         "אל מחנה שחרורים"
@@ -74807,7 +74567,7 @@
       "ver_total": 1
     },
     {
-      "index": 622,
+      "index": 619,
       "title": "הכתר השרביט והגלימה",
       "alt_titles": [],
       "opening_line": "",
@@ -74881,7 +74641,7 @@
       "ver_total": 2
     },
     {
-      "index": 623,
+      "index": 620,
       "title": "הכתר השרביט והגלימה",
       "alt_titles": [],
       "opening_line": "",
@@ -74955,7 +74715,7 @@
       "ver_total": 2
     },
     {
-      "index": 624,
+      "index": 621,
       "title": "יום הולדת שמח",
       "alt_titles": [],
       "opening_line": "",
@@ -75009,7 +74769,7 @@
       "ver_total": 1
     },
     {
-      "index": 625,
+      "index": 622,
       "title": "כמו נערה",
       "alt_titles": [],
       "opening_line": "",
@@ -75062,7 +74822,7 @@
       "ver_total": 1
     },
     {
-      "index": 626,
+      "index": 623,
       "title": "נערת הסיפון",
       "alt_titles": [],
       "opening_line": "",
@@ -75127,7 +74887,7 @@
       "ver_total": 1
     },
     {
-      "index": 627,
+      "index": 624,
       "title": "אהבתיך גם כך",
       "alt_titles": [],
       "opening_line": "רק אתמול הכרתיך אבל לי לא אכפת",
@@ -75180,7 +74940,7 @@
       "ver_total": 1
     },
     {
-      "index": 628,
+      "index": 625,
       "title": "בלדה על מושבה נידחת",
       "alt_titles": [
         "בלדה על מושבה נדחת",
@@ -75237,7 +74997,7 @@
       "ver_total": 1
     },
     {
-      "index": 629,
+      "index": 626,
       "title": "בתיה הסיירת",
       "alt_titles": [
         "בתיה הסירת"
@@ -75293,7 +75053,7 @@
       "ver_total": 1
     },
     {
-      "index": 630,
+      "index": 627,
       "title": "הבית הקטן",
       "alt_titles": [],
       "opening_line": "",
@@ -75342,7 +75102,7 @@
       "ver_total": 1
     },
     {
-      "index": 631,
+      "index": 628,
       "title": "היי שלי",
       "alt_titles": [
         "הי שלי לי די בפת במלח",
@@ -75400,7 +75160,7 @@
       "ver_total": 1
     },
     {
-      "index": 632,
+      "index": 629,
       "title": "זאת הארץ",
       "alt_titles": [
         "ארץ זו"
@@ -75455,7 +75215,7 @@
       "ver_total": 1
     },
     {
-      "index": 633,
+      "index": 630,
       "title": "לא לא לא",
       "alt_titles": [],
       "opening_line": "",
@@ -75502,7 +75262,7 @@
       "ver_total": 1
     },
     {
-      "index": 634,
+      "index": 631,
       "title": "אביב בתל אביב (שיר יפני)",
       "alt_titles": [
         "שיר יפני",
@@ -75553,7 +75313,7 @@
       "ver_total": 1
     },
     {
-      "index": 635,
+      "index": 632,
       "title": "פרולוג",
       "alt_titles": [],
       "opening_line": "",
@@ -75607,7 +75367,7 @@
       "ver_total": 1
     },
     {
-      "index": 636,
+      "index": 633,
       "title": "שיר השייטת",
       "alt_titles": [
         "שיר השיטת",
@@ -75675,7 +75435,7 @@
       "ver_total": 1
     },
     {
-      "index": 637,
+      "index": 634,
       "title": "אביב",
       "alt_titles": [
         "מחרוזת אביב"
@@ -75735,7 +75495,7 @@
       "ver_total": 2
     },
     {
-      "index": 638,
+      "index": 635,
       "title": "היה היה פעם מלך",
       "alt_titles": [
         "הנה היה פעם מלך",
@@ -75794,7 +75554,7 @@
       "ver_total": 1
     },
     {
-      "index": 639,
+      "index": 636,
       "title": "פקדת הארץ",
       "alt_titles": [
         "פקדת הארץ",
@@ -75858,7 +75618,7 @@
       "ver_total": 2
     },
     {
-      "index": 640,
+      "index": 637,
       "title": "פקדת הארץ",
       "alt_titles": [
         "פקדת הארץ",
@@ -75922,7 +75682,7 @@
       "ver_total": 2
     },
     {
-      "index": 641,
+      "index": 638,
       "title": "אני גיטרה",
       "alt_titles": [],
       "opening_line": "אני גיטרה הרוח מנגן עלי",
@@ -76046,7 +75806,7 @@
       "ver_total": 3
     },
     {
-      "index": 642,
+      "index": 639,
       "title": "ירושלים של זהב",
       "alt_titles": [
         "דער קילער ווינט ווי וויין איז",
@@ -76246,7 +76006,7 @@
       "ver_total": 4
     },
     {
-      "index": 643,
+      "index": 640,
       "title": "על כל אלה",
       "alt_titles": [
         "על כל אלה (על הדבש ועל העוקץ)",
@@ -76422,7 +76182,7 @@
       "ver_total": 4
     },
     {
-      "index": 644,
+      "index": 641,
       "title": "עוד לא אהבתי די",
       "alt_titles": [
         "לא אהבתי די"
@@ -76588,7 +76348,7 @@
       "ver_total": 3
     },
     {
-      "index": 645,
+      "index": 642,
       "title": "שבחי מעוז",
       "alt_titles": [
         "מעוז צור",
@@ -76761,7 +76521,7 @@
       "ver_total": 3
     },
     {
-      "index": 646,
+      "index": 643,
       "title": "אלף בית",
       "alt_titles": [
         "אלף - אוהל",
@@ -76945,7 +76705,7 @@
       "ver_total": 5
     },
     {
-      "index": 647,
+      "index": 644,
       "title": "שלומית בונה סוכה",
       "alt_titles": [
         "שלומית בונה סוכת שלום",
@@ -77108,7 +76868,7 @@
       "ver_total": 5
     },
     {
-      "index": 648,
+      "index": 645,
       "title": "בראש השנה",
       "alt_titles": [
         "בראש  השנה",
@@ -77265,7 +77025,7 @@
       "ver_total": 4
     },
     {
-      "index": 649,
+      "index": 646,
       "title": "נר ראשון של חנוכה",
       "alt_titles": [
         "נר ראשון של חנכה",
@@ -77402,7 +77162,7 @@
       "ver_total": 3
     },
     {
-      "index": 650,
+      "index": 647,
       "title": "אביב",
       "alt_titles": [
         "מחרוזת אביב"
@@ -77462,7 +77222,7 @@
       "ver_total": 2
     },
     {
-      "index": 651,
+      "index": 648,
       "title": "אין לי קו",
       "alt_titles": [
         "כבר לך סיפרתי סיפרתי סיפרתי שאין לי אין לי",
@@ -77506,7 +77266,7 @@
       "acum_versions_count": 0
     },
     {
-      "index": 652,
+      "index": 649,
       "title": "מקי הסכינאי",
       "alt_titles": [
         "מקי סכינאי",
@@ -77554,7 +77314,7 @@
       "chrono_index": null
     },
     {
-      "index": 653,
+      "index": 650,
       "title": "בואה נא",
       "alt_titles": [],
       "opening_line": "שוב נצעד יד ביד לא תלך דודי",
@@ -77589,7 +77349,7 @@
       "chrono_index": null
     },
     {
-      "index": 654,
+      "index": 651,
       "title": "עת דודים",
       "alt_titles": [
         "כף עת דודים וחן באה סוף סוף"
@@ -77626,7 +77386,7 @@
       "chrono_index": null
     },
     {
-      "index": 655,
+      "index": 652,
       "title": "שיר על כפר בדרום",
       "alt_titles": [
         "שממה וחוחים ושמים שממה ומישור"
@@ -77662,7 +77422,7 @@
       "chrono_index": null
     },
     {
-      "index": 656,
+      "index": 653,
       "title": "מדינת נדמה לי",
       "alt_titles": [
         "וכששרו איזה פלא על המון במות בידור"
@@ -77700,7 +77460,7 @@
       "chrono_index": null
     },
     {
-      "index": 657,
+      "index": 654,
       "title": "כל דבר פריו נותן",
       "alt_titles": [
         "כל דבר נותן פריו",
@@ -77747,7 +77507,7 @@
       "chrono_index": null
     },
     {
-      "index": 658,
+      "index": 655,
       "title": "שיר הפעמון",
       "alt_titles": [
         "כבר שש כבר בוקר כבר אור אפור"
@@ -77785,7 +77545,7 @@
       "chrono_index": null
     },
     {
-      "index": 659,
+      "index": 656,
       "title": "רביעייה",
       "alt_titles": [
         "קוארטט",
@@ -77825,7 +77585,7 @@
       "chrono_index": null
     },
     {
-      "index": 660,
+      "index": 657,
       "title": "אור וירושלים",
       "alt_titles": [],
       "opening_line": "",
@@ -77876,7 +77636,7 @@
       "chrono_index": null
     },
     {
-      "index": 661,
+      "index": 658,
       "title": "מקהלת ילדי החייל",
       "alt_titles": [
         "מקהלת ילדי החיל"
@@ -77911,7 +77671,7 @@
       "chrono_index": null
     },
     {
-      "index": 662,
+      "index": 659,
       "title": "מרק של שום",
       "alt_titles": [],
       "opening_line": "",
@@ -77946,7 +77706,7 @@
       "chrono_index": null
     },
     {
-      "index": 663,
+      "index": 660,
       "title": "הילדה איילת",
       "alt_titles": [
         "הילדה אילת",
@@ -77985,7 +77745,7 @@
       "chrono_index": null
     },
     {
-      "index": 664,
+      "index": 661,
       "title": "שם חם ויפת",
       "alt_titles": [],
       "opening_line": "נעים מאוד שמי שם ושמי הוא חם",
@@ -78039,7 +77799,7 @@
       "chrono_index": null
     },
     {
-      "index": 665,
+      "index": 662,
       "title": "ניר מה לבן",
       "alt_titles": [
         "ניר מה לבן הוא ודיו מה שחורה",
@@ -78087,7 +77847,7 @@
       "chrono_index": null
     },
     {
-      "index": 666,
+      "index": 663,
       "title": "צבעים",
       "alt_titles": [
         "שיר לצבעים"
@@ -78139,7 +77899,7 @@
       "chrono_index": null
     },
     {
-      "index": 667,
+      "index": 664,
       "title": "שיר חוק חינוך חובה",
       "alt_titles": [
         "וביום הראשון בבוקר כשהשמש תצחק טובה"
@@ -78176,7 +77936,7 @@
       "chrono_index": null
     },
     {
-      "index": 668,
+      "index": 665,
       "title": "יום זה יום יולד בו שיר",
       "alt_titles": [
         "יום זה יולד בו שיר",
@@ -78233,7 +77993,7 @@
       "chrono_index": null
     },
     {
-      "index": 669,
+      "index": 666,
       "title": "זמר נוגה",
       "alt_titles": [],
       "opening_line": "",
@@ -78271,7 +78031,7 @@
       "chrono_index": null
     },
     {
-      "index": 670,
+      "index": 667,
       "title": "לא פעם בקיץ",
       "alt_titles": [],
       "opening_line": "",
@@ -78307,7 +78067,7 @@
       "chrono_index": null
     },
     {
-      "index": 671,
+      "index": 668,
       "title": "שמות המקומות",
       "alt_titles": [
         "שמותיהם של מקומות"
@@ -78342,7 +78102,7 @@
       "chrono_index": null
     },
     {
-      "index": 672,
+      "index": 669,
       "title": "יום הולדת מוזר",
       "alt_titles": [
         "יום הלדת מוזר",
@@ -78381,7 +78141,7 @@
       "chrono_index": null
     },
     {
-      "index": 673,
+      "index": 670,
       "title": "שיר חדש",
       "alt_titles": [],
       "opening_line": "שירו להשם שיר חדש",
@@ -78414,7 +78174,7 @@
       "chrono_index": null
     },
     {
-      "index": 674,
+      "index": 671,
       "title": "בלוז ללויה",
       "alt_titles": [],
       "opening_line": "עצר את על השעונים ואת הטלפון נתק",
@@ -78447,7 +78207,7 @@
       "chrono_index": null
     },
     {
-      "index": 675,
+      "index": 672,
       "title": "פלוגת יסמין",
       "alt_titles": [],
       "opening_line": "פלוגת יסמין עוטפת חקי",
@@ -78503,7 +78263,7 @@
       "chrono_index": null
     },
     {
-      "index": 676,
+      "index": 673,
       "title": "א\"ב של הבריאות",
       "alt_titles": [],
       "opening_line": "",
@@ -78538,7 +78298,7 @@
       "chrono_index": null
     },
     {
-      "index": 677,
+      "index": 674,
       "title": "אוי שמה שמה ישנו נחל ועל הנחל שם גשר יש",
       "alt_titles": [
         "אוי דארטן... איבער דעם וואסערל"
@@ -78573,7 +78333,7 @@
       "chrono_index": null
     },
     {
-      "index": 678,
+      "index": 675,
       "title": "אופרטה",
       "alt_titles": [
         "אותלו ודסדמונה"
@@ -78608,7 +78368,7 @@
       "chrono_index": null
     },
     {
-      "index": 679,
+      "index": 676,
       "title": "אחד אפס",
       "alt_titles": [],
       "opening_line": "",
@@ -78641,7 +78401,7 @@
       "chrono_index": null
     },
     {
-      "index": 680,
+      "index": 677,
       "title": "אחרי השיעורים",
       "alt_titles": [],
       "opening_line": "אחרי השיעורים רכבת ארכה",
@@ -78674,7 +78434,7 @@
       "chrono_index": null
     },
     {
-      "index": 681,
+      "index": 678,
       "title": "אל הכפר",
       "alt_titles": [],
       "opening_line": "",
@@ -78708,7 +78468,7 @@
       "chrono_index": null
     },
     {
-      "index": 682,
+      "index": 679,
       "title": "אנחנו נוער האיחוד",
       "alt_titles": [],
       "opening_line": "",
@@ -78751,7 +78511,7 @@
       "chrono_index": null
     },
     {
-      "index": 683,
+      "index": 680,
       "title": "אשכבה",
       "alt_titles": [],
       "opening_line": "",
@@ -78786,7 +78546,7 @@
       "chrono_index": null
     },
     {
-      "index": 684,
+      "index": 681,
       "title": "בדירתי הלא גדולה אשר ברחוב אמיל זולא",
       "alt_titles": [],
       "opening_line": "",
@@ -78819,7 +78579,7 @@
       "chrono_index": null
     },
     {
-      "index": 685,
+      "index": 682,
       "title": "בוקר בגן",
       "alt_titles": [],
       "opening_line": "",
@@ -78852,7 +78612,7 @@
       "chrono_index": null
     },
     {
-      "index": 686,
+      "index": 683,
       "title": "בים בם בום",
       "alt_titles": [],
       "opening_line": "",
@@ -78906,7 +78666,7 @@
       "chrono_index": null
     },
     {
-      "index": 687,
+      "index": 684,
       "title": "בירח שבט",
       "alt_titles": [],
       "opening_line": "בירח שבט שמזלו הוא דלי",
@@ -78942,7 +78702,7 @@
       "chrono_index": null
     },
     {
-      "index": 688,
+      "index": 685,
       "title": "בכל דור ודור",
       "alt_titles": [],
       "opening_line": "",
@@ -78977,7 +78737,7 @@
       "chrono_index": null
     },
     {
-      "index": 689,
+      "index": 686,
       "title": "בקול הזה",
       "alt_titles": [],
       "opening_line": "",
@@ -79013,7 +78773,7 @@
       "chrono_index": null
     },
     {
-      "index": 690,
+      "index": 687,
       "title": "ברחוב בתל-אביב",
       "alt_titles": [],
       "opening_line": "",
@@ -79046,7 +78806,7 @@
       "chrono_index": null
     },
     {
-      "index": 691,
+      "index": 688,
       "title": "ברכת הפרדה לנחל עז",
       "alt_titles": [],
       "opening_line": "שירה של חג עודה פועמת",
@@ -79081,7 +78841,7 @@
       "chrono_index": null
     },
     {
-      "index": 692,
+      "index": 689,
       "title": "בשנה הבאה",
       "alt_titles": [],
       "opening_line": "",
@@ -79116,7 +78876,7 @@
       "chrono_index": null
     },
     {
-      "index": 693,
+      "index": 690,
       "title": "דבורת הדבש",
       "alt_titles": [],
       "opening_line": "דבורת הדבש היא גם מלכה וגם פועלת",
@@ -79151,7 +78911,7 @@
       "chrono_index": null
     },
     {
-      "index": 694,
+      "index": 691,
       "title": "האדון אופה",
       "alt_titles": [
         "אדון אופה"
@@ -79189,7 +78949,7 @@
       "chrono_index": null
     },
     {
-      "index": 695,
+      "index": 692,
       "title": "הבובה הצטננה",
       "alt_titles": [],
       "opening_line": "",
@@ -79227,7 +78987,7 @@
       "chrono_index": null
     },
     {
-      "index": 696,
+      "index": 693,
       "title": "הד",
       "alt_titles": [
         "זכר אזכר מעברים נצבו הרים כנד"
@@ -79264,7 +79024,7 @@
       "chrono_index": null
     },
     {
-      "index": 697,
+      "index": 694,
       "title": "הולדת השיר",
       "alt_titles": [],
       "opening_line": "",
@@ -79297,7 +79057,7 @@
       "chrono_index": null
     },
     {
-      "index": 698,
+      "index": 695,
       "title": "הלילה השנים עשר",
       "alt_titles": [],
       "opening_line": "",
@@ -79333,7 +79093,7 @@
       "chrono_index": null
     },
     {
-      "index": 699,
+      "index": 696,
       "title": "הנחל זורם",
       "alt_titles": [],
       "opening_line": "",
@@ -79366,7 +79126,7 @@
       "chrono_index": null
     },
     {
-      "index": 700,
+      "index": 697,
       "title": "העולם העגול",
       "alt_titles": [
         "העולם עגול",
@@ -79402,7 +79162,7 @@
       "chrono_index": null
     },
     {
-      "index": 701,
+      "index": 698,
       "title": "העסקן",
       "alt_titles": [],
       "opening_line": "הוא אמר לי בואי נערוך חוג בית יחד",
@@ -79437,7 +79197,7 @@
       "chrono_index": null
     },
     {
-      "index": 702,
+      "index": 699,
       "title": "וריאציות על קורל",
       "alt_titles": [],
       "opening_line": "",
@@ -79473,7 +79233,7 @@
       "chrono_index": null
     },
     {
-      "index": 703,
+      "index": 700,
       "title": "זמר עם",
       "alt_titles": [],
       "opening_line": "",
@@ -79506,7 +79266,7 @@
       "chrono_index": null
     },
     {
-      "index": 704,
+      "index": 701,
       "title": "זמרת האש",
       "alt_titles": [],
       "opening_line": "",
@@ -79541,7 +79301,7 @@
       "chrono_index": null
     },
     {
-      "index": 705,
+      "index": 702,
       "title": "חופש",
       "alt_titles": [],
       "opening_line": "",
@@ -79577,7 +79337,7 @@
       "chrono_index": null
     },
     {
-      "index": 706,
+      "index": 703,
       "title": "כחול ים המים, ימך אילת כפליים",
       "alt_titles": [],
       "opening_line": "",
@@ -79611,7 +79371,7 @@
       "chrono_index": null
     },
     {
-      "index": 707,
+      "index": 704,
       "title": "כף",
       "alt_titles": [],
       "opening_line": "",
@@ -79644,7 +79404,7 @@
       "chrono_index": null
     },
     {
-      "index": 708,
+      "index": 705,
       "title": "לשנה הבאה בירושלים",
       "alt_titles": [],
       "opening_line": "",
@@ -79688,7 +79448,7 @@
       "chrono_index": null
     },
     {
-      "index": 709,
+      "index": 706,
       "title": "מטריות שרבורג",
       "alt_titles": [],
       "opening_line": "",
@@ -79722,7 +79482,7 @@
       "chrono_index": null
     },
     {
-      "index": 710,
+      "index": 707,
       "title": "מכתב אל איש צבא המצולם מגבו",
       "alt_titles": [],
       "opening_line": "שלום גב אמרתי אל לבי",
@@ -79755,7 +79515,7 @@
       "chrono_index": null
     },
     {
-      "index": 711,
+      "index": 708,
       "title": "מרבה רגלים",
       "alt_titles": [],
       "opening_line": "",
@@ -79784,7 +79544,7 @@
       "chrono_index": null
     },
     {
-      "index": 712,
+      "index": 709,
       "title": "משחק",
       "alt_titles": [],
       "opening_line": "",
@@ -79817,7 +79577,7 @@
       "chrono_index": null
     },
     {
-      "index": 713,
+      "index": 710,
       "title": "סוסון קטן",
       "alt_titles": [],
       "opening_line": "ידע ידעתי סוסון קטן",
@@ -79850,7 +79610,7 @@
       "chrono_index": null
     },
     {
-      "index": 714,
+      "index": 711,
       "title": "סופת ליל חורף",
       "alt_titles": [],
       "opening_line": "",
@@ -79885,7 +79645,7 @@
       "chrono_index": null
     },
     {
-      "index": 715,
+      "index": 712,
       "title": "סטניסלא",
       "alt_titles": [],
       "opening_line": "אין מקום לשחוק ואין מקום גם לבני",
@@ -79918,7 +79678,7 @@
       "chrono_index": null
     },
     {
-      "index": 716,
+      "index": 713,
       "title": "עבדולו אהוב שלי בלילות קראת לי",
       "alt_titles": [],
       "opening_line": "",
@@ -79951,7 +79711,7 @@
       "chrono_index": null
     },
     {
-      "index": 717,
+      "index": 714,
       "title": "על החכה",
       "alt_titles": [],
       "opening_line": "ענן שחור שט בשמים",
@@ -79986,7 +79746,7 @@
       "chrono_index": null
     },
     {
-      "index": 718,
+      "index": 715,
       "title": "פורה ומעכה",
       "alt_titles": [],
       "opening_line": "תאנה חנטה פגיה והפתי משתגע",
@@ -80020,7 +79780,7 @@
       "chrono_index": null
     },
     {
-      "index": 719,
+      "index": 716,
       "title": "פלאי פלאים",
       "alt_titles": [
         "פלאי פלאים נבקע ענן טיפות טיפות"
@@ -80057,7 +79817,7 @@
       "chrono_index": null
     },
     {
-      "index": 720,
+      "index": 717,
       "title": "פרשת וינשל",
       "alt_titles": [],
       "opening_line": "",
@@ -80090,7 +79850,7 @@
       "chrono_index": null
     },
     {
-      "index": 721,
+      "index": 718,
       "title": "ציפורים נודדות",
       "alt_titles": [],
       "opening_line": "",
@@ -80126,7 +79886,7 @@
       "chrono_index": null
     },
     {
-      "index": 722,
+      "index": 719,
       "title": "צפון",
       "alt_titles": [],
       "opening_line": "",
@@ -80160,7 +79920,7 @@
       "chrono_index": null
     },
     {
-      "index": 723,
+      "index": 720,
       "title": "צרות נהדרות",
       "alt_titles": [
         "אוי איך שאני בצרות"
@@ -80203,7 +79963,7 @@
       "chrono_index": null
     },
     {
-      "index": 724,
+      "index": 721,
       "title": "קומה אחא סבה סב",
       "alt_titles": [],
       "opening_line": "",
@@ -80236,7 +79996,7 @@
       "chrono_index": null
     },
     {
-      "index": 725,
+      "index": 722,
       "title": "שבעים שנה לדבר",
       "alt_titles": [],
       "opening_line": "",
@@ -80269,7 +80029,7 @@
       "chrono_index": null
     },
     {
-      "index": 726,
+      "index": 723,
       "title": "שיח נקבות",
       "alt_titles": [],
       "opening_line": "שלי איננו מציאה גדולה אולי להיפך",
@@ -80302,7 +80062,7 @@
       "chrono_index": null
     },
     {
-      "index": 727,
+      "index": 724,
       "title": "שיר אקטואלי",
       "alt_titles": [],
       "opening_line": "",
@@ -80337,7 +80097,7 @@
       "chrono_index": null
     },
     {
-      "index": 728,
+      "index": 725,
       "title": "שיר הכלולות",
       "alt_titles": [],
       "opening_line": "קול דודים וקול כלות קול כנור ומקהלות",
@@ -80370,7 +80130,7 @@
       "chrono_index": null
     },
     {
-      "index": 729,
+      "index": 726,
       "title": "שיר הרועה",
       "alt_titles": [],
       "opening_line": "היה היה רועה ואפילו עז לא היתה לו",
@@ -80405,7 +80165,7 @@
       "chrono_index": null
     },
     {
-      "index": 730,
+      "index": 727,
       "title": "שיר לא רציני יצאתי לדרכי",
       "alt_titles": [
         "שיר לא רציני",
@@ -80442,7 +80202,7 @@
       "chrono_index": null
     },
     {
-      "index": 731,
+      "index": 728,
       "title": "שיר לגפן",
       "alt_titles": [],
       "opening_line": "",
@@ -80476,7 +80236,7 @@
       "chrono_index": null
     },
     {
-      "index": 732,
+      "index": 729,
       "title": "שיר לנטשה",
       "alt_titles": [],
       "opening_line": "דו דה זאת נטשה חמודה רה רה ילדתי התעוררה",
@@ -80509,7 +80269,7 @@
       "chrono_index": null
     },
     {
-      "index": 733,
+      "index": 730,
       "title": "שירו לי שירו לי הוי כלי זמר ולי נגון",
       "alt_titles": [
         "דער נייער שער",
@@ -80547,7 +80307,7 @@
       "chrono_index": null
     },
     {
-      "index": 734,
+      "index": 731,
       "title": "שלום אידה נודל",
       "alt_titles": [],
       "opening_line": "נולדנו באותה שנה ולאותו העם",
@@ -80590,7 +80350,7 @@
       "chrono_index": null
     },
     {
-      "index": 735,
+      "index": 732,
       "title": "שלוש פעמים איל",
       "alt_titles": [],
       "opening_line": "",

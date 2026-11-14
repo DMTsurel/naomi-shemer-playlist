@@ -835,7 +835,7 @@ https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=31831
 https://www.youtube.com/watch?v=KEOx2onVNDs
 https://www.nli.org.il/he/items/NNL_MUSIC_AL997008971534405171/NLI
 https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=31821
-https://www.youtube.com/watch?v=pTt_42SgJ0U
+https://www.youtube.com/watch?v=m58C3mRgm5E
 https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043660205171/NLI
 https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=23532
 https://www.youtube.com/watch?v=xypLh9F1IXk
@@ -1040,8 +1040,6 @@ https://www.youtube.com/watch?v=F7KHn6M2VGk
 https://www.youtube.com/watch?v=0XHUVfPJlak
 https://www.youtube.com/watch?v=g57hoYLobng
 https://www.nli.org.il/he/items/NNL_MUSIC_AL997008979052005171/NLI
-https://www.youtube.com/watch?v=ygW51Wri9wQ
-https://www.youtube.com/watch?v=4okw4g4Q8e4
 https://www.youtube.com/watch?v=sFbghpqy0Lo
 https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042280205171/NLI
 https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=18402
@@ -1052,7 +1050,6 @@ https://www.youtube.com/watch?v=sdqrr4rdUPA
 https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043450205171/NLI
 https://www.youtube.com/watch?v=P35Ek5tTy4I
 https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045750205171/NLI
-https://www.youtube.com/watch?v=dWXjopZ8-1s
 https://www.youtube.com/watch?v=0yT4idCIsSE
 https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043380205171/NLI
 https://www.youtube.com/watch?v=g_QXbJmWWO0
