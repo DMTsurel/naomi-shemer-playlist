@@ -2029,20 +2029,20 @@
         "נעמי שמר - אסיף",
         "נעמי שמר - ספר גימל"
       ],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
+      "tier": "2_album_original",
+      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
       "selected_video": {
-        "video_id": "GnxLc7C_yvM",
-        "url": "https://www.youtube.com/watch?v=GnxLc7C_yvM",
-        "video_title": "נעמי שמר מציגה את יהורם גאון בשיר חדש - עוד לא אהבתי די במיקס סטריאופוני - מועדון צוותא ספטמבר 1977",
-        "channel": "David Livneh",
-        "duration": "2:50",
-        "description": "נעמי שמר ויהורם גאון (שירים בצוותא עם נעמי שמר (1977))",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "יהורם גאון (בהצגת נעמי שמר)",
-        "matched_album": "שירים בצוותא עם נעמי שמר (1977)",
-        "score": 3200
+        "video_id": "_GD1f91Erg8",
+        "url": "https://www.youtube.com/watch?v=_GD1f91Erg8",
+        "video_title": "עוד לא אהבתי די - יהורם גאון Did Not Love Enough - Yehoram Gaon",
+        "channel": "YehoramGaonOfficial",
+        "duration": "2:40",
+        "description": "הגרסה הרשמית בביצוע יהורם גאון (מתוך האלבום עוד לא אהבתי די, 1977)",
+        "tier": "2_album_original",
+        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+        "matched_performer": "יהורם גאון",
+        "matched_album": "עוד לא אהבתי די (1977)",
+        "score": 5000
       },
       "alternative_videos": [
         {
@@ -2073,15 +2073,6 @@
           "source": "direct_alternative"
         },
         {
-          "video_id": "_GD1f91Erg8",
-          "url": "https://www.youtube.com/watch?v=_GD1f91Erg8",
-          "video_title": "עוד לא אהבתי די - יהורם גאון Did Not Love Enough - Yehoram Gaon",
-          "channel": "YehoramGaonOfficial",
-          "duration": "2:40",
-          "views": "",
-          "source": "same_song_performance"
-        },
-        {
           "video_id": "E452vwyyVjQ",
           "url": "https://www.youtube.com/watch?v=E452vwyyVjQ",
           "video_title": "עודד בן חור והגבעטרון - עוד לא אהבתי די- 1978",
@@ -2107,7 +2098,8 @@
       "acum_versions_count": 157,
       "dual_role": "original_performance",
       "ver_idx": 1,
-      "ver_total": 3
+      "ver_total": 3,
+      "matched_performer": "יהורם גאון"
     },
     {
       "index": 13,
@@ -28016,15 +28008,6 @@
           "video_title": "עוד לא אהבתי די - יהורם גאון Did Not Love Enough - Yehoram Gaon",
           "channel": "YehoramGaonOfficial",
           "duration": "2:40",
-          "views": "",
-          "source": "same_song_performance"
-        },
-        {
-          "video_id": "GnxLc7C_yvM",
-          "url": "https://www.youtube.com/watch?v=GnxLc7C_yvM",
-          "video_title": "נעמי שמר מציגה את יהורם גאון בשיר חדש - עוד לא אהבתי די במיקס סטריאופוני - מועדון צוותא ספטמבר 1977",
-          "channel": "David Livneh",
-          "duration": "2:50",
           "views": "",
           "source": "same_song_performance"
         },
@@ -76157,15 +76140,6 @@
           "video_title": "עוד לא אהבתי די - יהורם גאון Did Not Love Enough - Yehoram Gaon",
           "channel": "YehoramGaonOfficial",
           "duration": "2:40",
-          "views": "",
-          "source": "same_song_performance"
-        },
-        {
-          "video_id": "GnxLc7C_yvM",
-          "url": "https://www.youtube.com/watch?v=GnxLc7C_yvM",
-          "video_title": "נעמי שמר מציגה את יהורם גאון בשיר חדש - עוד לא אהבתי די במיקס סטריאופוני - מועדון צוותא ספטמבר 1977",
-          "channel": "David Livneh",
-          "duration": "2:50",
           "views": "",
           "source": "same_song_performance"
         },
