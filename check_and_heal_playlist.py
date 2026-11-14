@@ -107,21 +107,24 @@ def sync_csv_and_md(data: dict):
 
     fieldnames = [
         "index", "chrono_index", "canonical_layer", "canonical_score", "title",
-        "year", "role_category", "role_label_heb", "lyricist", "composer",
+        "year", "role_category", "role_label_heb", "co_creators_heb", "lyricist", "composer",
         "translator", "tier", "tier_label", "matched_performer", "matched_album",
         "album_group", "album_track_number", "video_id", "video_url",
-        "video_title", "channel", "duration", "views", "opening_line", "notes"
+        "video_title", "channel", "duration", "views", "opening_line", "nli_url"
     ]
     with open(CSV_PATH, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
         for item in playlist:
             sel = item.get("selected_video") or {}
-            notes_val = item.get("notes", [])
-            if isinstance(notes_val, list):
-                notes_str = " | ".join(str(x) for x in notes_val)
-            else:
-                notes_str = str(notes_val or "")
+            nli_url = next(
+                (
+                    lk.get("url", "")
+                    for lk in item.get("archive_links", [])
+                    if str(lk.get("source", "")).startswith("nli") and lk.get("url")
+                ),
+                "",
+            )
             w.writerow({
                 "index": item.get("index", ""),
                 "chrono_index": item.get("chrono_index", ""),
@@ -131,6 +134,7 @@ def sync_csv_and_md(data: dict):
                 "year": item.get("year", ""),
                 "role_category": item.get("role_category", ""),
                 "role_label_heb": item.get("role_label_heb", ""),
+                "co_creators_heb": item.get("co_creators_heb", ""),
                 "lyricist": item.get("lyricist", ""),
                 "composer": item.get("composer", ""),
                 "translator": item.get("translator", ""),
@@ -147,7 +151,7 @@ def sync_csv_and_md(data: dict):
                 "duration": sel.get("duration", ""),
                 "views": sel.get("views", ""),
                 "opening_line": item.get("opening_line", ""),
-                "notes": notes_str,
+                "nli_url": nli_url,
             })
 
     lines = [

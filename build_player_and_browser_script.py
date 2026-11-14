@@ -49,24 +49,27 @@ def sync_all_secondary_exports(data: dict) -> list:
     m3u8_path = os.path.join(BASE_DIR, "naomi_shemer_youtube_stream.m3u8")
     wayback_path = os.path.join(BASE_DIR, "wayback_backup_urls.txt")
 
-    # 1. naomi_shemer_youtube_playlist.csv
+    # 1. naomi_shemer_youtube_playlist.csv (פרטים עובדתיים וקישור ישיר לספרייה הלאומית, ללא פסקאות מועתקות)
     fieldnames = [
         "index", "chrono_index", "canonical_layer", "canonical_score", "title",
-        "year", "role_category", "role_label_heb", "lyricist", "composer",
+        "year", "role_category", "role_label_heb", "co_creators_heb", "lyricist", "composer",
         "translator", "tier", "tier_label", "matched_performer", "matched_album",
         "album_group", "album_track_number", "video_id", "video_url",
-        "video_title", "channel", "duration", "views", "opening_line", "notes"
+        "video_title", "channel", "duration", "views", "opening_line", "nli_url"
     ]
     with open(csv_path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
         for item in playlist:
             sel = item.get("selected_video") or {}
-            notes_val = item.get("notes", [])
-            if isinstance(notes_val, list):
-                notes_str = " | ".join(str(x) for x in notes_val)
-            else:
-                notes_str = str(notes_val or "")
+            nli_url = next(
+                (
+                    lk.get("url", "")
+                    for lk in item.get("archive_links", [])
+                    if str(lk.get("source", "")).startswith("nli") and lk.get("url")
+                ),
+                "",
+            )
             w.writerow({
                 "index": item.get("index", ""),
                 "chrono_index": item.get("chrono_index", ""),
@@ -76,6 +79,7 @@ def sync_all_secondary_exports(data: dict) -> list:
                 "year": item.get("year", ""),
                 "role_category": item.get("role_category", ""),
                 "role_label_heb": item.get("role_label_heb", ""),
+                "co_creators_heb": item.get("co_creators_heb", ""),
                 "lyricist": item.get("lyricist", ""),
                 "composer": item.get("composer", ""),
                 "translator": item.get("translator", ""),
@@ -92,7 +96,7 @@ def sync_all_secondary_exports(data: dict) -> list:
                 "duration": sel.get("duration", ""),
                 "views": sel.get("views", ""),
                 "opening_line": item.get("opening_line", ""),
-                "notes": notes_str,
+                "nli_url": nli_url,
             })
 
     # 2. naomi_shemer_youtube_playlist.md
@@ -908,16 +912,7 @@ def generate_files():
     with open(update_js_path, "w", encoding="utf-8") as f:
         f.write(update_js_script)
 
-    # 2. בניית נתוני SONGS ו-ARCHIVE_SONGS עבור ה-HTML
-    def norm_notes(val) -> list:
-        if not val:
-            return []
-        if isinstance(val, list):
-            return [str(x).strip() for x in val if str(x).strip()]
-        if isinstance(val, str):
-            return [val.strip()] if val.strip() else []
-        return []
-
+    # 2. בניית נתוני SONGS ו-ARCHIVE_SONGS עבור ה-HTML (ללא פסקאות notes מועתקות; פרטים עובדתיים + קישור לספרייה הלאומית)
     songs_js = []
     tier_counts = {}
     role_counts = {}
@@ -998,8 +993,8 @@ def generate_files():
             "alb_trk": int(trk) if str(trk).isdigit() else 999,
             "role_cat": rcat,
             "role_label": item.get("role_label_heb", "מילים ולחן: נעמי שמר"),
+            "co_creators": item.get("co_creators_heb", ""),
             "opening_line": item.get("opening_line", ""),
-            "notes": norm_notes(item.get("notes", [])),
             "links": item.get("archive_links", []),
             "alts": alts_list,
         })
@@ -1026,7 +1021,6 @@ def generate_files():
             "perfs": ", ".join(item.get("catalog_performers", [])[:5]),
             "albums": ", ".join(item.get("catalog_albums", [])[:3]),
             "opening_line": item.get("opening_line", ""),
-            "notes": norm_notes(item.get("notes", [])),
             "sources": item.get("sources", []),
             "links": item.get("archive_links", []),
         })
@@ -2272,9 +2266,12 @@ def generate_files():
       return `<div class="archive-pills">` + links.map(l => {{
         let cls = "arch-pill";
         const src = String(l.source || "");
-        if (src.startsWith("nli")) cls += " nli";
-        else if (src === "shironet") cls += " shironet";
-        return `<a class="${{cls}}" href="${{esc(l.url)}}" target="_blank" rel="noopener noreferrer" ${{onclickAttr}}>${{esc(l.label)}} ↗</a>`;
+        let label = l.label || "";
+        if (src.startsWith("nli")) {{
+          cls += " nli";
+          label = "📖 סיפור השיר בספרייה הלאומית";
+        }} else if (src === "shironet") cls += " shironet";
+        return `<a class="${{cls}}" href="${{esc(l.url)}}" target="_blank" rel="noopener noreferrer" ${{onclickAttr}}>${{esc(label)}} ↗</a>`;
       }}).join("") + `</div>`;
     }}
 
@@ -2288,10 +2285,8 @@ def generate_files():
       document.getElementById("nowPlayingRole").innerHTML = `<span class="badge t-${{esc(s.tier)}}">${{esc(tierShort)}}</span><span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>${{verBadgeHtml}}`;
       const qBox = document.getElementById("nowPlayingQuote");
       const parts = [];
-      const notesArr = Array.isArray(s.notes) ? s.notes : (s.notes ? [s.notes] : []);
-      const formatNoteHtml = (txt) => esc(txt).replace(/\s*~\s*/g, "<br/>");
       if (s.opening_line) parts.push(`"${{esc(s.opening_line)}}"`);
-      if (notesArr.length) parts.push(`<span style="color:var(--muted); font-size:11.5px;">${{notesArr.map(formatNoteHtml).join(" · ")}}</span>`);
+      if (s.co_creators) parts.push(`<span style="color:var(--muted); font-size:11.5px;">שותפים ליצירה: ${{esc(s.co_creators)}}</span>`);
       if (parts.length > 0) {{
         qBox.innerHTML = parts.join("<br/>");
         qBox.style.display = "block";
