@@ -1277,15 +1277,6 @@
       },
       "alternative_videos": [
         {
-          "video_id": "lDNtdPiL584",
-          "url": "https://www.youtube.com/watch?v=lDNtdPiL584",
-          "video_title": "Naomi Shemer - \"Horchat Eucalyptus\" - חורשת האקליפטוס",
-          "channel": "Snakserge2",
-          "duration": "3:28",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
           "video_id": "kAOX5Fa3jiE",
           "url": "https://www.youtube.com/watch?v=kAOX5Fa3jiE",
           "video_title": "חורשת האקליפטוס",
@@ -1438,19 +1429,28 @@
       "tier": "3_naomi_performance",
       "tier_label": "3. ביצוע של נעמי שמר",
       "selected_video": {
-        "video_id": "lDNtdPiL584",
-        "url": "https://www.youtube.com/watch?v=lDNtdPiL584",
-        "video_title": "Naomi Shemer - \"Horchat Eucalyptus\" - חורשת האקליפטוס",
-        "channel": "Snakserge2",
-        "duration": "3:28",
-        "description": "",
+        "video_id": "My9HiZIPsak",
+        "url": "https://www.youtube.com/watch?v=My9HiZIPsak",
+        "video_title": "Naomi Shemer נעמי שמר - Hurshat Ha'Eucalyptus חורשת האקליפטוס (live, 1988)",
+        "channel": "israelchanel",
+        "duration": "0:53",
+        "description": "הקלטה חיה בכנרת (יום העצמאות 1988) מתוך המלא: https://www.youtube.com/watch?v=kGzusU0FRVc",
         "tier": "3_naomi_performance",
         "tier_label": "3. ביצוע של נעמי שמר",
         "matched_performer": "נעמי שמר",
         "matched_album": "",
-        "score": 2828
+        "score": 2820
       },
       "alternative_videos": [
+        {
+          "video_id": "kGzusU0FRVc",
+          "url": "https://www.youtube.com/watch?v=kGzusU0FRVc",
+          "video_title": "Naomi Shemer נעמי שמר - המופע המלא בכנרת (יום העצמאות 1988, מ-3:27)",
+          "channel": "israelchanel",
+          "duration": "8:28",
+          "views": "",
+          "source": "same_song_performance"
+        },
         {
           "video_id": "TFIrOcriazY",
           "url": "https://www.youtube.com/watch?v=TFIrOcriazY",
@@ -47890,15 +47890,6 @@
       },
       "alternative_videos": [
         {
-          "video_id": "lDNtdPiL584",
-          "url": "https://www.youtube.com/watch?v=lDNtdPiL584",
-          "video_title": "Naomi Shemer - \"Horchat Eucalyptus\" - חורשת האקליפטוס",
-          "channel": "Snakserge2",
-          "duration": "3:28",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
           "video_id": "kAOX5Fa3jiE",
           "url": "https://www.youtube.com/watch?v=kAOX5Fa3jiE",
           "video_title": "חורשת האקליפטוס",
@@ -48097,15 +48088,6 @@
           "video_title": "חורשת האקליפטוס - אילנה רובינא וילדי כנרת- הביצוע הראשון של השיר",
           "channel": "רחל פרומן קומלוש",
           "duration": "4:05",
-          "views": "",
-          "source": "same_song_performance"
-        },
-        {
-          "video_id": "lDNtdPiL584",
-          "url": "https://www.youtube.com/watch?v=lDNtdPiL584",
-          "video_title": "Naomi Shemer - \"Horchat Eucalyptus\" - חורשת האקליפטוס",
-          "channel": "Snakserge2",
-          "duration": "3:28",
           "views": "",
           "source": "same_song_performance"
         }
