@@ -1059,6 +1059,14 @@ def classify_and_score_candidate(
                 "רגעים נפלאים",
                 "האחיות שמר 24",
                 "גרסה מחודשת",
+                # אוספי 2000s / קאברים מאוחרים שאינם הביצוע המקורי
+                "לשיר נעמי שמר",        # 2002 compilation
+                "נעמי שמר אקפלה",        # a-cappella arrangement, not original
+                "100 שירים נבחרים",      # 2002 retrospective compilation
+                "האוסף השלם",            # 2002 retrospective compilation
+                "שירת נעמי",             # general tribute albums
+                "בזמר עברי",             # post-2000 tributes
+                "שרה נעמי שמר - 50",     # 50th birthday tribute
             )
         )
         or ("Gitit Shoval" in combined_tcd and song["title"] != "למה צחקה מיכל")
@@ -1099,16 +1107,16 @@ def classify_and_score_candidate(
         )
     ):
         tier = "2_album_original"
-        eff_idx = 0 if perf_idx >= 999 else perf_idx
-        base_score = (3900 if is_topic_or_provided else 3780) - min(eff_idx * 80, 400)
+        # perf_idx removed: NLI catalog order ≠ chronological order, so we don't penalise by position
+        base_score = 3900 if is_topic_or_provided else 3780
     elif naomi_sings:
         tier = "3_naomi_performance"
         base_score = 2800
         matched_perf = "נעמי שמר"
     elif not is_late_cover_album and (matched_perf or (is_archival_original and mentions_shemer) or cand.get("from_catalog_id")):
         tier = "4_original_performance"
-        eff_idx = 0 if perf_idx >= 999 else perf_idx
-        base_score = 1800 - min(eff_idx * 80, 400)
+        # perf_idx removed: NLI catalog order ≠ chronological order, so we don't penalise by position
+        base_score = 1800
         if is_archival_original:
             base_score += 80
         if any(
@@ -1379,6 +1387,35 @@ def main() -> None:
         "שוקולד מנטה מסטיק",
     )
 
+    # המבצע המקורי הידוע לכל שיר — משמש לבונוס ציון ולהעדפה ב-orig_cand
+    # מפתח = כותרת השיר, ערך = tuple של מחרוזות שמחפשים ב-matched_performer (חלקי ומספיק)
+    PRIMARY_ORIGINAL_PERFORMERS: Dict[str, tuple] = {
+        "לו יהי": ("הגשש החיוור",),
+        "ירושלים של זהב": ("שולי נתן",),
+        "על כל אלה": ("יוסי בנאי",),
+        "שיר השלום": ("להקת הנחל",),
+        "הנה בא שלמה": ("רמי עמיחי",),
+        "חורשת האקליפטוס": ("צילה דגן", "אופירה גלוסקא", "להקת הנחל"),
+        "ארץ ישראל": ("גרי גולדשמידט",),
+        "פגישה לאין קץ": ("שלושרים",),
+        "הר הגעש": ("יורם גאון", "יהורם גאון"),
+        "המגדלור": ("ריקה זראי",),
+        "מה שהיה היה": ("ריקה זראי",),
+        "המחכה": ("ריקה זראי",),
+        "עוד לא אהבתי די": ("יהורם גאון", "יורם גאון"),
+        "שיר ערש לצבעים": ("ריקה זראי",),
+        "אני גיטרה": ("בני אמדורסקי",),
+        "הר הרצל": ("אריק לביא",),
+        "אל תיקחי ממני": ("אריק לביא",),
+        "שיר העמק": ("להקת הנחל",),
+        "אנא אל": ("יהורם גאון", "יורם גאון"),
+        "שיר השמש": ("שלושרים",),
+        "מחר": ("להקת הנחל",),
+        "שיר הבוקר": ("ריקה זראי",),
+        "בוא אליי": ("ריקה זראי",),
+        "שרה": ("ריקה זראי",),
+    }
+
     dual_selection_by_key: Dict[str, Tuple[Optional[Dict[str, Any]], Optional[Dict[str, Any]], Optional[Dict[str, Any]], List[Dict[str, Any]]]] = {}
 
     for s in songs_by_best_score:
@@ -1388,6 +1425,12 @@ def main() -> None:
         orig_cand: Optional[Dict[str, Any]] = None
         naomi_cand: Optional[Dict[str, Any]] = None
         alts: List[Dict[str, Any]] = []
+
+        # המבצע המקורי הידוע (אם קיים) — משמש לבונוס ציון בשלב הסינון
+        known_orig_perfs = PRIMARY_ORIGINAL_PERFORMERS.get(s["title"], ())
+
+        # אוספים כל מועמדי orig תקפים תחילה, ואז בוחרים את בעל הציון הגבוה ביותר
+        orig_candidates: List[Dict[str, Any]] = []
 
         for c in cands:
             vid = c["video_id"]
@@ -1406,7 +1449,7 @@ def main() -> None:
                 continue
 
             # בדיקה האם המועמד הוא ביצוע מקורי של אמן/הרכב מקורי אחר (רמה 2 או 4)
-            if c["tier"] in ("2_album_original", "4_original_performance") and orig_cand is None:
+            if c["tier"] in ("2_album_original", "4_original_performance"):
                 mp = c.get("matched_performer", "")
                 ma = c.get("matched_album", "")
                 vt_ch = f"{c.get('video_title', '')} {c.get('channel', '')} {c.get('description', '')}"
@@ -1427,10 +1470,20 @@ def main() -> None:
                     is_valid_distinct_orig = False
 
                 if is_valid_distinct_orig:
-                    orig_cand = c
+                    # בונוס ציון למבצע מקורי ידוע (PRIMARY_ORIGINAL_PERFORMERS)
+                    if known_orig_perfs and any(kp in mp for kp in known_orig_perfs):
+                        c = dict(c)  # copy to avoid mutating shared dict
+                        c["score"] = c.get("score", 0) + 300
+                    orig_candidates.append(c)
                     continue
 
             alts.append(c)
+
+        # בחירת orig_cand: הטוב ביותר לפי ציון (לא הראשון שמצאנו)
+        if orig_candidates:
+            orig_cand = max(orig_candidates, key=lambda x: x.get("score", 0))
+            # שאר מועמדי orig עוברים לרשימת alts
+            alts.extend(c for c in orig_candidates if c["video_id"] != orig_cand["video_id"])
 
         # סימון ה-video_ids שנבחרו כמשומשים כדי למנוע כפילות בין שירים שונים
         if orig_cand and naomi_cand:
