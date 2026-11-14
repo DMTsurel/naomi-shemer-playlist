@@ -2754,49 +2754,6 @@
       ]
     },
     {
-      "normalized_key": "אין לי קו",
-      "title": "אין לי קו",
-      "alt_titles": [
-        "כבר לך סיפרתי סיפרתי סיפרתי שאין לי אין לי",
-        "כבר לך ספרתי ספרתי ספרתי שאין לי אין לי",
-        "איך האב דיר געזאגט און געזאגט",
-        "איך האב דאך דיר געזאגט און געזאגט"
-      ],
-      "english_title": "",
-      "original_title": "Ikh hob dir gezogt un gezogt (Hebrew)",
-      "year": "",
-      "sources": [
-        "nli"
-      ],
-      "roles": [
-        "translator"
-      ],
-      "authors": [],
-      "composers": [],
-      "translators": [
-        "נעמי שמר"
-      ],
-      "arrangers": [],
-      "performers": [],
-      "albums": [
-        "הד 7, 200"
-      ],
-      "acum_work_ids": [],
-      "acum_versions_count": 0,
-      "shironet_wrkids": [],
-      "shironet_urls": [],
-      "nli_mms_ids": [
-        "990037491620205171",
-        "990033737590205171"
-      ],
-      "opening_line": "כבר לך סיפרתי סיפרתי סיפרתי שאין לי אין לי אין",
-      "notes": [
-        "שיר עממי, וריאנט של המקור היידי, איך האב דיר געזאגט און געזאגט, פורסם על ידי מקס גרונוולד, המבורג, 1899."
-      ],
-      "youtube_ids": [],
-      "wiki_details": []
-    },
-    {
       "normalized_key": "אין לי רגע דל",
       "title": "אין לי רגע דל",
       "alt_titles": [],
@@ -7877,53 +7834,6 @@
       ]
     },
     {
-      "normalized_key": "גינגי",
-      "title": "ג’ינג’י",
-      "alt_titles": [
-        "ג'ינג'י",
-        "ג׳ינג׳י"
-      ],
-      "english_title": "",
-      "original_title": "",
-      "year": "",
-      "sources": [
-        "stereo_ve_mono",
-        "discogs",
-        "musicbrainz"
-      ],
-      "roles": [
-        "composer",
-        "performer"
-      ],
-      "authors": [
-        "מרים ילן-שטקליס"
-      ],
-      "composers": [
-        "נעמי שמר"
-      ],
-      "translators": [],
-      "arrangers": [],
-      "performers": [
-        "עודד תאומי",
-        "נעמי שמר",
-        "נעמי שמר, עודד תאומי"
-      ],
-      "albums": [
-        "נעמי שמר, עודד תאומי - נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות (1975)",
-        "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "נָעֳמִי שֶמֶר שָרָה לִילָדִים וְעוֹדֵד תְּאוֹמִי עוֹשֶׂה לָהֶם הַצָּגוֹת"
-      ],
-      "acum_work_ids": [],
-      "acum_versions_count": 0,
-      "shironet_wrkids": [],
-      "shironet_urls": [],
-      "nli_mms_ids": [],
-      "opening_line": "",
-      "notes": [],
-      "youtube_ids": [],
-      "wiki_details": []
-    },
-    {
       "normalized_key": "דבורת הדבש",
       "title": "דבורת הדבש",
       "alt_titles": [],
@@ -9111,50 +9021,6 @@
         "G6tzIXT3ThM",
         "SgzeIwaaGMU"
       ],
-      "wiki_details": []
-    },
-    {
-      "normalized_key": "הדוד שמחה",
-      "title": "הדוד שמחה",
-      "alt_titles": [],
-      "english_title": "",
-      "original_title": "",
-      "year": "",
-      "sources": [
-        "stereo_ve_mono",
-        "discogs",
-        "musicbrainz"
-      ],
-      "roles": [
-        "composer",
-        "performer"
-      ],
-      "authors": [
-        "ע. הלל"
-      ],
-      "composers": [
-        "נעמי שמר"
-      ],
-      "translators": [],
-      "arrangers": [],
-      "performers": [
-        "נעמי שמר",
-        "עודד תאומי",
-        "נעמי שמר, עודד תאומי"
-      ],
-      "albums": [
-        "נעמי שמר, עודד תאומי - נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות (1975)",
-        "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "נָעֳמִי שֶמֶר שָרָה לִילָדִים וְעוֹדֵד תְּאוֹמִי עוֹשֶׂה לָהֶם הַצָּגוֹת"
-      ],
-      "acum_work_ids": [],
-      "acum_versions_count": 0,
-      "shironet_wrkids": [],
-      "shironet_urls": [],
-      "nli_mms_ids": [],
-      "opening_line": "",
-      "notes": [],
-      "youtube_ids": [],
       "wiki_details": []
     },
     {
@@ -24893,50 +24759,6 @@
       ]
     },
     {
-      "normalized_key": "פו הדב",
-      "title": "פו הדב",
-      "alt_titles": [],
-      "english_title": "",
-      "original_title": "",
-      "year": "",
-      "sources": [
-        "stereo_ve_mono",
-        "discogs",
-        "musicbrainz"
-      ],
-      "roles": [
-        "composer",
-        "performer"
-      ],
-      "authors": [
-        "א. א. מילן (תרגום: ורה ישראלית ואהרן אמיר)"
-      ],
-      "composers": [
-        "נעמי שמר"
-      ],
-      "translators": [],
-      "arrangers": [],
-      "performers": [
-        "נעמי שמר",
-        "עודד תאומי",
-        "נעמי שמר, עודד תאומי"
-      ],
-      "albums": [
-        "נעמי שמר, עודד תאומי - נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות (1975)",
-        "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "נָעֳמִי שֶמֶר שָרָה לִילָדִים וְעוֹדֵד תְּאוֹמִי עוֹשֶׂה לָהֶם הַצָּגוֹת"
-      ],
-      "acum_work_ids": [],
-      "acum_versions_count": 0,
-      "shironet_wrkids": [],
-      "shironet_urls": [],
-      "nli_mms_ids": [],
-      "opening_line": "",
-      "notes": [],
-      "youtube_ids": [],
-      "wiki_details": []
-    },
-    {
       "normalized_key": "פורה ומעכה",
       "title": "פורה ומעכה",
       "alt_titles": [],
@@ -34006,7 +33828,7 @@
     "המכתב של רבקה לנעמי- אריאל הורביץ, 2013(המכתב עצמו 1964)"
   ],
   "stats": {
-    "total_unique_songs": 458,
+    "total_unique_songs": 453,
     "songs_with_performers": 388,
     "songs_with_albums": 374,
     "songs_with_youtube_ids": 72,
