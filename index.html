@@ -560,6 +560,33 @@
       border-color: rgba(16, 185, 129, 0.28);
     }
     .arch-pill.shironet:hover { background: #34d399; color: #0f172a; }
+    .arch-pill.zemereshet {
+      background: rgba(168, 85, 247, 0.13);
+      color: #d8b4fe;
+      border-color: rgba(168, 85, 247, 0.30);
+    }
+    .arch-pill.zemereshet:hover { background: #c084fc; color: #0f172a; }
+    .arch-pill.audio-listen {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.24), rgba(20, 184, 166, 0.20));
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.55);
+      padding: 4px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      box-shadow: 0 1px 6px rgba(16, 185, 129, 0.16);
+    }
+    .arch-pill.audio-listen:hover {
+      background: #10b981;
+      color: #022c22;
+      border-color: #34d399;
+    }
+    .audio-avail-badge {
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.32);
+      font-size: 10.5px;
+      padding: 1px 7px;
+    }
     .count-chip {
       color: var(--muted);
       font-size: 12.5px;
@@ -740,6 +767,9 @@
             <input type="text" id="archSearchInput" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע..." oninput="onSearchInput('arch')" />
             <button id="archSearchClearBtn" class="search-clear" type="button" onclick="clearSearch('arch')" title="נקה חיפוש (Esc)">✕</button>
           </div>
+          <button id="archAudioOnlyBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleArchAudioOnly()" aria-pressed="false" title="סנן לשירים שקיימת עבורם הקלטת שמע פתוחה להאזנה חופשית באתר הספרייה הלאומית או בזמרשת">
+            🎧 קיימת הקלטה להאזנה (9)
+          </button>
           <select id="archRoleFilter" onchange="renderArchiveTable()">
             <option value="ALL">כל התפקידים (84)</option>
             <option value="words_and_music">מילים ולחן (21)</option>
@@ -753,6 +783,7 @@
             <option value="nli">הספרייה הלאומית (53)</option>
             <option value="acum">אקו"ם (36)</option>
             <option value="shironet">שירונט (6)</option>
+            <option value="zemereshet">זמרשת (2)</option>
           </select>
         </div>
         <div class="table-wrap" style="max-height: 720px;">
@@ -41845,9 +41876,9 @@
         "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037045070205171/NLI"
       },
       {
-        "source": "zemereshet",
-        "label": "הקלטה ומידע בזמרשת",
-        "url": "https://www.zemereshet.co.il/m/songs.asp?search=%D7%94%D7%95%D7%A8%D7%94%20%D7%A0%D7%97%D7%9C%20%D7%A2%D7%95%D7%96"
+        "source": "zemereshet_audio",
+        "label": "🎧 האזנה להקלטה בזמרשת",
+        "url": "https://www.zemereshet.co.il/m/song.asp?id=17589"
       }
     ],
     "alts": []
@@ -44304,6 +44335,56 @@
     const ARCHIVE_SONGS = [
   {
     "n": 657,
+    "title": "כחול ים המים, ימך אילת כפליים",
+    "alt_titles": [],
+    "year": "1947",
+    "role_cat": "words_and_music",
+    "role_label": "מילים ולחן: נעמי שמר",
+    "perfs": "",
+    "albums": "",
+    "opening_line": "כחול ים המים ימך אילת כפליים",
+    "sources": [
+      "zemereshet"
+    ],
+    "has_audio": false,
+    "links": [
+      {
+        "source": "zemereshet",
+        "label": "מידע ומילים בזמרשת",
+        "url": "https://www.zemereshet.co.il/m/song.asp?id=17440"
+      }
+    ]
+  },
+  {
+    "n": 658,
+    "title": "אנחנו נוער האיחוד",
+    "alt_titles": [],
+    "year": "1953",
+    "role_cat": "words_and_music",
+    "role_label": "מילים ולחן: נעמי שמר",
+    "perfs": "בנות איילת-השחר, אלי סט, הילה שי, שמר נעמי",
+    "albums": "",
+    "opening_line": "אנחנו נוער האיחוד כולם ביחד וגם לחוד",
+    "sources": [
+      "acum",
+      "zemereshet"
+    ],
+    "has_audio": true,
+    "links": [
+      {
+        "source": "zemereshet_audio",
+        "label": "🎧 האזנה להקלטה בזמרשת",
+        "url": "https://www.zemereshet.co.il/m/song.asp?id=17442"
+      },
+      {
+        "source": "acum",
+        "label": "אקו\"ם #1003785",
+        "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1003785"
+      }
+    ]
+  },
+  {
+    "n": 659,
     "title": "מקי הסכינאי",
     "alt_titles": [
       "מקי סכינאי",
@@ -44323,6 +44404,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44337,19 +44419,25 @@
     ]
   },
   {
-    "n": 658,
+    "n": 660,
     "title": "בואה נא",
     "alt_titles": [],
     "year": "1955",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: ברוניסלב קפר)",
-    "perfs": "",
+    "perfs": "שמשון בר-נוי, תזמורת מוריס",
     "albums": "ספר פה [048",
     "opening_line": "שוב נצעד יד ביד לא תלך דודי",
     "sources": [
       "nli"
     ],
+    "has_audio": true,
     "links": [
+      {
+        "source": "nli_audio",
+        "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990002466590205171/NLI"
+      },
       {
         "source": "nli",
         "label": "הספרייה הלאומית (בית לזמר העברי)",
@@ -44358,7 +44446,34 @@
     ]
   },
   {
-    "n": 659,
+    "n": 661,
+    "title": "כף",
+    "alt_titles": [],
+    "year": "1956",
+    "role_cat": "words_only",
+    "role_label": "מילים: נעמי שמר · לחן: יוחנן זראי",
+    "perfs": "תיאטרון האוהל",
+    "albums": "",
+    "opening_line": "",
+    "sources": [
+      "nli"
+    ],
+    "has_audio": true,
+    "links": [
+      {
+        "source": "nli_audio",
+        "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037415940205171/NLI"
+      },
+      {
+        "source": "nli",
+        "label": "הספרייה הלאומית (בית לזמר העברי)",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990038221790205171/NLI"
+      }
+    ]
+  },
+  {
+    "n": 662,
     "title": "עת דודים",
     "alt_titles": [
       "כף עת דודים וחן באה סוף סוף"
@@ -44366,13 +44481,19 @@
     "year": "1956",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: יוחנן זראי",
-    "perfs": "",
+    "perfs": "להקת פיקוד המרכז",
     "albums": "ח\"ח 2",
     "opening_line": "עת דודים וחן באה סוף סוף",
     "sources": [
       "nli"
     ],
+    "has_audio": true,
     "links": [
+      {
+        "source": "nli_audio",
+        "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990002522910205171/NLI"
+      },
       {
         "source": "nli",
         "label": "הספרייה הלאומית (בית לזמר העברי)",
@@ -44381,7 +44502,7 @@
     ]
   },
   {
-    "n": 660,
+    "n": 663,
     "title": "שיר על כפר בדרום",
     "alt_titles": [
       "שממה וחוחים ושמים שממה ומישור"
@@ -44395,6 +44516,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44404,7 +44526,7 @@
     ]
   },
   {
-    "n": 661,
+    "n": 664,
     "title": "מדינת נדמה לי",
     "alt_titles": [
       "וכששרו איזה פלא על המון במות בידור"
@@ -44418,6 +44540,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44427,7 +44550,7 @@
     ]
   },
   {
-    "n": 662,
+    "n": 665,
     "title": "כל דבר פריו נותן",
     "alt_titles": [
       "כל דבר נותן פריו",
@@ -44443,6 +44566,7 @@
       "acum",
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44457,7 +44581,7 @@
     ]
   },
   {
-    "n": 663,
+    "n": 666,
     "title": "שיר הפעמון",
     "alt_titles": [
       "כבר שש כבר בוקר כבר אור אפור"
@@ -44471,6 +44595,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44480,7 +44605,7 @@
     ]
   },
   {
-    "n": 664,
+    "n": 667,
     "title": "רביעייה",
     "alt_titles": [
       "קוארטט",
@@ -44496,6 +44621,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44505,7 +44631,7 @@
     ]
   },
   {
-    "n": 665,
+    "n": 668,
     "title": "אור וירושלים",
     "alt_titles": [],
     "year": "1966",
@@ -44517,6 +44643,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -44526,7 +44653,7 @@
     ]
   },
   {
-    "n": 666,
+    "n": 669,
     "title": "מקהלת ילדי החייל",
     "alt_titles": [
       "מקהלת ילדי החיל"
@@ -44534,13 +44661,19 @@
     "year": "1967",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר",
-    "perfs": "",
+    "perfs": "מקהלת הילדים שליד עיריית רמת גן, תזמורת רשות השידור",
     "albums": "",
     "opening_line": "מן השחר עד הליל",
     "sources": [
       "nli"
     ],
+    "has_audio": true,
     "links": [
+      {
+        "source": "nli_audio",
+        "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990030216640205171/NLI"
+      },
       {
         "source": "nli",
         "label": "הספרייה הלאומית (בית לזמר העברי)",
@@ -44549,7 +44682,34 @@
     ]
   },
   {
-    "n": 667,
+    "n": 670,
+    "title": "עבדולו אהוב שלי בלילות קראת לי",
+    "alt_titles": [],
+    "year": "1967",
+    "role_cat": "translation",
+    "role_label": "תרגום / נוסח עברי: נעמי שמר",
+    "perfs": "שרה ידגר",
+    "albums": "",
+    "opening_line": "",
+    "sources": [
+      "nli"
+    ],
+    "has_audio": true,
+    "links": [
+      {
+        "source": "nli_audio",
+        "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990030215330205171/NLI"
+      },
+      {
+        "source": "nli",
+        "label": "הספרייה הלאומית (בית לזמר העברי)",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037492470205171/NLI"
+      }
+    ]
+  },
+  {
+    "n": 671,
     "title": "מרק של שום",
     "alt_titles": [],
     "year": "1970",
@@ -44561,6 +44721,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -44570,7 +44731,7 @@
     ]
   },
   {
-    "n": 668,
+    "n": 672,
     "title": "הילדה איילת",
     "alt_titles": [
       "הילדה אילת",
@@ -44586,6 +44747,7 @@
       "wikipedia",
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44595,13 +44757,13 @@
     ]
   },
   {
-    "n": 669,
+    "n": 673,
     "title": "שם חם ויפת",
     "alt_titles": [],
     "year": "1971",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
-    "perfs": "הגשש החיוור ושמר נעמי, ביאליק עידו",
+    "perfs": "הגשש החיוור, הגשש החיוור ושמר נעמי, ביאליק עידו",
     "albums": "הגשש החיוור-נעמי שמר, קסיוס קלי נגד חלפון א, שירים ישראלים ב",
     "opening_line": "נעים מאוד שמי שם ושמי הוא חם",
     "sources": [
@@ -44609,7 +44771,13 @@
       "acum",
       "nli"
     ],
+    "has_audio": true,
     "links": [
+      {
+        "source": "nli_audio",
+        "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990032454750205171/NLI"
+      },
       {
         "source": "nli",
         "label": "הספרייה הלאומית (בית לזמר העברי)",
@@ -44628,7 +44796,7 @@
     ]
   },
   {
-    "n": 670,
+    "n": 674,
     "title": "ניר מה לבן",
     "alt_titles": [
       "ניר מה לבן הוא ודיו מה שחורה",
@@ -44645,6 +44813,7 @@
       "acum",
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44659,7 +44828,7 @@
     ]
   },
   {
-    "n": 671,
+    "n": 675,
     "title": "צבעים",
     "alt_titles": [
       "שיר לצבעים"
@@ -44675,6 +44844,7 @@
       "acum",
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44694,7 +44864,7 @@
     ]
   },
   {
-    "n": 672,
+    "n": 676,
     "title": "שיר חוק חינוך חובה",
     "alt_titles": [
       "וביום הראשון בבוקר כשהשמש תצחק טובה"
@@ -44708,6 +44878,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44717,7 +44888,7 @@
     ]
   },
   {
-    "n": 673,
+    "n": 677,
     "title": "יום זה יום יולד בו שיר",
     "alt_titles": [
       "יום זה יולד בו שיר",
@@ -44726,7 +44897,7 @@
     "year": "1977",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: שאול טשרניחובסקי",
-    "perfs": "אילנית, זיטנר אורה",
+    "perfs": "אילנית, תזמורת רשות השידור, זיטנר אורה",
     "albums": "הוי ארצי מולדתי, סימני דרך, סימני דרך = Road Signs",
     "opening_line": "יום זה - יום ילד בו שיר הקיצותי - על הקיר",
     "sources": [
@@ -44735,7 +44906,13 @@
       "discogs",
       "nli"
     ],
+    "has_audio": true,
     "links": [
+      {
+        "source": "nli_audio",
+        "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990032527280205171/NLI"
+      },
       {
         "source": "nli",
         "label": "הספרייה הלאומית (בית לזמר העברי)",
@@ -44754,7 +44931,7 @@
     ]
   },
   {
-    "n": 674,
+    "n": 678,
     "title": "זמר נוגה",
     "alt_titles": [],
     "year": "1978",
@@ -44767,6 +44944,7 @@
       "acum",
       "musicbrainz"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -44776,7 +44954,7 @@
     ]
   },
   {
-    "n": 675,
+    "n": 679,
     "title": "לא פעם בקיץ",
     "alt_titles": [],
     "year": "1978",
@@ -44789,6 +44967,7 @@
       "shironet",
       "musicbrainz"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "shironet",
@@ -44798,7 +44977,7 @@
     ]
   },
   {
-    "n": 676,
+    "n": 680,
     "title": "שמות המקומות",
     "alt_titles": [
       "שמותיהם של מקומות"
@@ -44812,6 +44991,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44821,7 +45001,7 @@
     ]
   },
   {
-    "n": 677,
+    "n": 681,
     "title": "יום הולדת מוזר",
     "alt_titles": [
       "יום הלדת מוזר",
@@ -44830,13 +45010,19 @@
     "year": "1981",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
-    "perfs": "",
+    "perfs": "אריק לביא, חבורת הזמר מושב חרות",
     "albums": "הקלדה משמיעה",
     "opening_line": "אי יום הלדת מוזר כל שנה זה אותו הדבר",
     "sources": [
       "nli"
     ],
+    "has_audio": true,
     "links": [
+      {
+        "source": "nli_audio",
+        "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990032559080205171/NLI"
+      },
       {
         "source": "nli",
         "label": "הספרייה הלאומית (בית לזמר העברי)",
@@ -44845,7 +45031,7 @@
     ]
   },
   {
-    "n": 678,
+    "n": 682,
     "title": "שיר חדש",
     "alt_titles": [],
     "year": "1985",
@@ -44857,6 +45043,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44866,7 +45053,7 @@
     ]
   },
   {
-    "n": 679,
+    "n": 683,
     "title": "בלוז ללויה",
     "alt_titles": [],
     "year": "1995",
@@ -44878,6 +45065,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44887,7 +45075,7 @@
     ]
   },
   {
-    "n": 680,
+    "n": 684,
     "title": "פלוגת יסמין",
     "alt_titles": [],
     "year": "2000",
@@ -44902,6 +45090,7 @@
       "discogs",
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44921,7 +45110,7 @@
     ]
   },
   {
-    "n": 681,
+    "n": 685,
     "title": "א\"ב של הבריאות",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -44933,6 +45122,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -44942,7 +45132,7 @@
     ]
   },
   {
-    "n": 682,
+    "n": 686,
     "title": "אוי שמה שמה ישנו נחל ועל הנחל שם גשר יש",
     "alt_titles": [
       "אוי דארטן... איבער דעם וואסערל"
@@ -44956,6 +45146,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44965,7 +45156,7 @@
     ]
   },
   {
-    "n": 683,
+    "n": 687,
     "title": "אופרטה",
     "alt_titles": [
       "אותלו ודסדמונה"
@@ -44979,6 +45170,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -44988,7 +45180,7 @@
     ]
   },
   {
-    "n": 684,
+    "n": 688,
     "title": "אחד אפס",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45000,6 +45192,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45009,7 +45202,7 @@
     ]
   },
   {
-    "n": 685,
+    "n": 689,
     "title": "אחרי השיעורים",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45021,6 +45214,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45030,7 +45224,7 @@
     ]
   },
   {
-    "n": 686,
+    "n": 690,
     "title": "אל הכפר",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45042,6 +45236,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45051,34 +45246,7 @@
     ]
   },
   {
-    "n": 687,
-    "title": "אנחנו נוער האיחוד",
-    "alt_titles": [],
-    "year": "ללא שנה",
-    "role_cat": "words_and_music",
-    "role_label": "מילים ולחן: נעמי שמר",
-    "perfs": "שמר נעמי",
-    "albums": "",
-    "opening_line": "",
-    "sources": [
-      "acum",
-      "zemereshet"
-    ],
-    "links": [
-      {
-        "source": "zemereshet",
-        "label": "הקלטה ומידע בזמרשת",
-        "url": "https://www.zemereshet.co.il/m/songs.asp?search=%D7%90%D7%A0%D7%97%D7%A0%D7%95%20%D7%A0%D7%95%D7%A2%D7%A8%20%D7%94%D7%90%D7%99%D7%97%D7%95%D7%93"
-      },
-      {
-        "source": "acum",
-        "label": "אקו\"ם #1003785",
-        "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1003785"
-      }
-    ]
-  },
-  {
-    "n": 688,
+    "n": 691,
     "title": "אשכבה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45090,6 +45258,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45099,7 +45268,7 @@
     ]
   },
   {
-    "n": 689,
+    "n": 692,
     "title": "בדירתי הלא גדולה אשר ברחוב אמיל זולא",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45111,6 +45280,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45120,7 +45290,7 @@
     ]
   },
   {
-    "n": 690,
+    "n": 693,
     "title": "בוקר בגן",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45132,6 +45302,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45141,7 +45312,7 @@
     ]
   },
   {
-    "n": 691,
+    "n": 694,
     "title": "בים בם בום",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45153,6 +45324,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45162,7 +45334,7 @@
     ]
   },
   {
-    "n": 692,
+    "n": 695,
     "title": "בירח שבט",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45174,6 +45346,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45183,7 +45356,7 @@
     ]
   },
   {
-    "n": 693,
+    "n": 696,
     "title": "בכל דור ודור",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45195,6 +45368,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45204,7 +45378,7 @@
     ]
   },
   {
-    "n": 694,
+    "n": 697,
     "title": "בקול הזה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45216,6 +45390,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45225,7 +45400,7 @@
     ]
   },
   {
-    "n": 695,
+    "n": 698,
     "title": "ברחוב בתל-אביב",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45237,6 +45412,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45246,7 +45422,7 @@
     ]
   },
   {
-    "n": 696,
+    "n": 699,
     "title": "ברכת הפרדה לנחל עז",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45258,6 +45434,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45267,7 +45444,7 @@
     ]
   },
   {
-    "n": 697,
+    "n": 700,
     "title": "בשנה הבאה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45279,6 +45456,7 @@
     "sources": [
       "shironet"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "shironet",
@@ -45288,7 +45466,7 @@
     ]
   },
   {
-    "n": 698,
+    "n": 701,
     "title": "דבורת הדבש",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45300,6 +45478,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45309,7 +45488,7 @@
     ]
   },
   {
-    "n": 699,
+    "n": 702,
     "title": "האדון אופה",
     "alt_titles": [
       "אדון אופה"
@@ -45323,6 +45502,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45332,7 +45512,7 @@
     ]
   },
   {
-    "n": 700,
+    "n": 703,
     "title": "הבובה הצטננה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45344,6 +45524,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45353,7 +45534,7 @@
     ]
   },
   {
-    "n": 701,
+    "n": 704,
     "title": "הד",
     "alt_titles": [
       "זכר אזכר מעברים נצבו הרים כנד"
@@ -45367,6 +45548,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45376,7 +45558,7 @@
     ]
   },
   {
-    "n": 702,
+    "n": 705,
     "title": "הולדת השיר",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45388,6 +45570,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45397,7 +45580,7 @@
     ]
   },
   {
-    "n": 703,
+    "n": 706,
     "title": "הלילה השנים עשר",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45409,6 +45592,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45418,7 +45602,7 @@
     ]
   },
   {
-    "n": 704,
+    "n": 707,
     "title": "הנחל זורם",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45430,6 +45614,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45439,7 +45624,7 @@
     ]
   },
   {
-    "n": 705,
+    "n": 708,
     "title": "העולם העגול",
     "alt_titles": [
       "העולם עגול",
@@ -45454,6 +45639,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45463,7 +45649,7 @@
     ]
   },
   {
-    "n": 706,
+    "n": 709,
     "title": "העסקן",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45475,6 +45661,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45484,7 +45671,7 @@
     ]
   },
   {
-    "n": 707,
+    "n": 710,
     "title": "וריאציות על קורל",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45496,6 +45683,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45505,7 +45693,7 @@
     ]
   },
   {
-    "n": 708,
+    "n": 711,
     "title": "זמר עם",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45517,6 +45705,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45526,7 +45715,7 @@
     ]
   },
   {
-    "n": 709,
+    "n": 712,
     "title": "זמרת האש",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45538,6 +45727,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45547,7 +45737,7 @@
     ]
   },
   {
-    "n": 710,
+    "n": 713,
     "title": "חופש",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45559,6 +45749,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45568,49 +45759,7 @@
     ]
   },
   {
-    "n": 711,
-    "title": "כחול ים המים, ימך אילת כפליים",
-    "alt_titles": [],
-    "year": "ללא שנה",
-    "role_cat": "words_and_music",
-    "role_label": "מילים ולחן: נעמי שמר",
-    "perfs": "",
-    "albums": "",
-    "opening_line": "",
-    "sources": [
-      "zemereshet"
-    ],
-    "links": [
-      {
-        "source": "zemereshet",
-        "label": "הקלטה ומידע בזמרשת",
-        "url": "https://www.zemereshet.co.il/m/songs.asp?search=%D7%9B%D7%97%D7%95%D7%9C%20%D7%99%D7%9D%20%D7%94%D7%9E%D7%99%D7%9D%2C%20%D7%99%D7%9E%D7%9A%20%D7%90%D7%99%D7%9C%D7%AA%20%D7%9B%D7%A4%D7%9C%D7%99%D7%99%D7%9D"
-      }
-    ]
-  },
-  {
-    "n": 712,
-    "title": "כף",
-    "alt_titles": [],
-    "year": "ללא שנה",
-    "role_cat": "words_only",
-    "role_label": "מילים: נעמי שמר · לחן: יוחנן זראי",
-    "perfs": "",
-    "albums": "",
-    "opening_line": "",
-    "sources": [
-      "nli"
-    ],
-    "links": [
-      {
-        "source": "nli",
-        "label": "הספרייה הלאומית (בית לזמר העברי)",
-        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990038221790205171/NLI"
-      }
-    ]
-  },
-  {
-    "n": 713,
+    "n": 714,
     "title": "לשנה הבאה בירושלים",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45623,6 +45772,7 @@
       "acum",
       "stereo_ve_mono"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45632,7 +45782,7 @@
     ]
   },
   {
-    "n": 714,
+    "n": 715,
     "title": "מטריות שרבורג",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45645,6 +45795,7 @@
       "wikipedia",
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45654,7 +45805,7 @@
     ]
   },
   {
-    "n": 715,
+    "n": 716,
     "title": "מכתב אל איש צבא המצולם מגבו",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45666,6 +45817,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45675,7 +45827,7 @@
     ]
   },
   {
-    "n": 716,
+    "n": 717,
     "title": "מרבה רגלים",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45687,10 +45839,11 @@
     "sources": [
       "stereo_ve_mono"
     ],
+    "has_audio": false,
     "links": []
   },
   {
-    "n": 717,
+    "n": 718,
     "title": "משחק",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45702,6 +45855,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45711,7 +45865,7 @@
     ]
   },
   {
-    "n": 718,
+    "n": 719,
     "title": "סוסון קטן",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45723,6 +45877,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45732,7 +45887,7 @@
     ]
   },
   {
-    "n": 719,
+    "n": 720,
     "title": "סופת ליל חורף",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45744,6 +45899,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45753,7 +45909,7 @@
     ]
   },
   {
-    "n": 720,
+    "n": 721,
     "title": "סטניסלא",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -45765,32 +45921,12 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
         "label": "הספרייה הלאומית (בית לזמר העברי)",
         "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990033713410205171/NLI"
-      }
-    ]
-  },
-  {
-    "n": 721,
-    "title": "עבדולו אהוב שלי בלילות קראת לי",
-    "alt_titles": [],
-    "year": "ללא שנה",
-    "role_cat": "translation",
-    "role_label": "תרגום / נוסח עברי: נעמי שמר",
-    "perfs": "",
-    "albums": "",
-    "opening_line": "",
-    "sources": [
-      "nli"
-    ],
-    "links": [
-      {
-        "source": "nli",
-        "label": "הספרייה הלאומית (בית לזמר העברי)",
-        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037492470205171/NLI"
       }
     ]
   },
@@ -45807,6 +45943,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45828,6 +45965,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45851,6 +45989,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45872,6 +46011,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45893,6 +46033,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -45914,6 +46055,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45938,6 +46080,7 @@
       "acum",
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45964,6 +46107,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -45985,6 +46129,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -46006,6 +46151,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -46027,6 +46173,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -46048,6 +46195,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -46069,6 +46217,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -46094,6 +46243,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -46115,6 +46265,7 @@
     "sources": [
       "acum"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "acum",
@@ -46136,6 +46287,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -46160,6 +46312,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -46182,6 +46335,7 @@
       "acum",
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -46208,6 +46362,7 @@
     "sources": [
       "nli"
     ],
+    "has_audio": false,
     "links": [
       {
         "source": "nli",
@@ -46228,6 +46383,7 @@
     let pendingVideoLoad = null;
     let shuffleEnabled = false;
     let onePerSongOnly = false;
+    let archAudioOnly = false;
     let currentTab = "yt";
 
     function syncPlayButtonUI() {
@@ -46446,6 +46602,19 @@
       renderTable();
     }
 
+    function syncArchAudioOnlyUI() {
+      const btn = document.getElementById("archAudioOnlyBtn");
+      if (!btn) return;
+      btn.classList.toggle("btn-active", archAudioOnly);
+      btn.setAttribute("aria-pressed", archAudioOnly ? "true" : "false");
+    }
+
+    function toggleArchAudioOnly() {
+      archAudioOnly = !archAudioOnly;
+      syncArchAudioOnlyUI();
+      renderArchiveTable();
+    }
+
     function toggleAdvancedFilters() {
       const drw = document.getElementById("advancedDrawer");
       const btn = document.getElementById("advFilterBtn");
@@ -46537,6 +46706,7 @@
         setOrDel("tab", currentTab, "yt");
         setOrDel("shuffle", shuffleEnabled ? "1" : "", "");
         setOrDel("oneper", onePerSongOnly ? "1" : "", "");
+        setOrDel("archaudio", archAudioOnly ? "1" : "", "");
 
         window.history.replaceState({}, "", url.toString());
         if (window.localStorage) {
@@ -46548,7 +46718,8 @@
             decade: df,
             tab: currentTab,
             shuffle: shuffleEnabled,
-            oneper: onePerSongOnly
+            oneper: onePerSongOnly,
+            archaudio: archAudioOnly
           }));
         }
       } catch (e) {}
@@ -46574,10 +46745,20 @@
         let cls = "arch-pill";
         const src = String(l.source || "");
         let label = l.label || "";
-        if (src.startsWith("nli")) {
+        if (src === "nli_audio") {
+          cls += " audio-listen";
+          label = label || "🎧 האזנה להקלטה בספרייה הלאומית";
+        } else if (src === "zemereshet_audio") {
+          cls += " audio-listen";
+          label = label || "🎧 האזנה להקלטה בזמרשת";
+        } else if (src.startsWith("nli")) {
           cls += " nli";
           label = "📖 סיפור השיר בספרייה הלאומית";
-        } else if (src === "shironet") cls += " shironet";
+        } else if (src === "shironet") {
+          cls += " shironet";
+        } else if (src === "zemereshet") {
+          cls += " zemereshet";
+        }
         return `<a class="${cls}" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer" ${onclickAttr}>${esc(label)} ↗</a>`;
       }).join("") + `</div>`;
     }
@@ -46823,15 +47004,21 @@
       if (!skipSync) syncUrlAndStorageState();
     }
 
-    function renderArchiveTable() {
+    function renderArchiveTable(skipSync = false) {
       const q = document.getElementById("archSearchInput").value.trim().toLowerCase();
       const rf = document.getElementById("archRoleFilter").value;
       const sf = document.getElementById("archSourceFilter").value;
 
       const filteredArch = ARCHIVE_SONGS.filter(s => {
+        if (archAudioOnly && !s.has_audio) return false;
         if (rf !== "ALL" && s.role_cat !== rf) return false;
         if (sf !== "ALL") {
-          const hasSource = (s.links || []).some(l => l.source === sf);
+          const hasSource = (s.links || []).some(l => {
+            const src = String(l.source || "");
+            if (sf === "nli") return src.startsWith("nli");
+            if (sf === "zemereshet") return src.startsWith("zemereshet");
+            return src === sf;
+          });
           if (!hasSource) return false;
         }
         if (!q) return true;
@@ -46845,7 +47032,9 @@
         );
       });
 
-      document.getElementById("archCountChip").textContent = `${filteredArch.length} מתוך ${ARCHIVE_SONGS.length} שירי ארכיון`;
+      document.getElementById("archCountChip").textContent = archAudioOnly
+        ? `${filteredArch.length} שירים עם הקלטה להאזנה (מתוך ${ARCHIVE_SONGS.length} שירי ארכיון)`
+        : `${filteredArch.length} מתוך ${ARCHIVE_SONGS.length} שירי ארכיון`;
 
       const tbody = document.getElementById("archiveBody");
       tbody.innerHTML = filteredArch.map((s, idx) => `
@@ -46855,6 +47044,7 @@
             <div class="song-main-title">
               <span>${esc(s.title)}</span>
               ${s.year && s.year !== "ללא שנה" ? `<span class="song-year">(${esc(s.year)})</span>` : ""}
+              ${s.has_audio ? `<span class="badge audio-avail-badge">🎧 הקלטה להאזנה</span>` : ""}
             </div>
             ${s.alt_titles && s.alt_titles.length ? `<div class="perf-album">שמות נוספים: ${esc(s.alt_titles.join(", "))}</div>` : ""}
           </td>
@@ -46868,6 +47058,8 @@
           <td>${renderArchivePills(s.links, false)}</td>
         </tr>
       `).join("");
+
+      if (!skipSync) syncUrlAndStorageState();
     }
 
     document.addEventListener("keydown", function(ev) {
@@ -46921,6 +47113,7 @@
       const tabParam = params.get("tab") || saved.tab;
       const shufParam = params.get("shuffle");
       const onePerParam = params.get("oneper");
+      const archAudioParam = params.get("archaudio");
 
       if (qParam !== null) {
         document.getElementById("searchInput").value = qParam;
@@ -46945,10 +47138,14 @@
         onePerSongOnly = true;
         syncOnePerSongUI();
       }
+      if (archAudioParam === "1" || (archAudioParam === null && saved.archaudio)) {
+        archAudioOnly = true;
+        syncArchAudioOnlyUI();
+      }
       if (tabParam === "arch") switchTab("arch", true);
 
       renderTable(true);
-      renderArchiveTable();
+      renderArchiveTable(true);
 
       if (SONGS.length > 0) {
         let initSongNum = parseInt(params.get("song") || saved.song || "1", 10);

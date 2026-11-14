@@ -1852,9 +1852,32 @@ def main() -> None:
             role_label = f"ביצוע: נעמי שמר ({co_str})" if co_str else "ביצוע / עיבוד: נעמי שמר"
         return role_cat, role_label, co_str
 
+    OPEN_NLI_AUDIO_MMS: Dict[str, str] = {
+        "שם חם ויפת": "990032454750205171",
+        "יום זה יום יולד בו שיר": "990032527280205171",
+        "יום הולדת מוזר": "990032559080205171",
+        "מקהלת ילדי החייל": "990030216640205171",
+        "בואה נא": "990002466590205171",
+        "עת דודים": "990002522910205171",
+        "כף": "990037415940205171",
+        "עבדולו אהוב שלי בלילות קראת לי": "990030215330205171",
+    }
+    DIRECT_ZEMERESHET_SONGS: Dict[str, Tuple[str, bool]] = {
+        "הורה נחל עוז": ("17589", True),
+        "אנחנו נוער האיחוד": ("17442", True),
+        "כחול ים המים, ימך אילת כפליים": ("17440", False),
+    }
+
     def build_archive_links(s: Dict[str, Any]) -> List[Dict[str, str]]:
         """בונה קישורים ישירים לארכיונים (הספרייה הלאומית, שירונט, זמרשת ואקו\"ם)."""
         links: List[Dict[str, str]] = []
+        audio_mms = OPEN_NLI_AUDIO_MMS.get(s["title"])
+        if audio_mms:
+            links.append({
+                "source": "nli_audio",
+                "label": "🎧 האזנה להקלטה בספרייה הלאומית",
+                "url": f"https://www.nli.org.il/he/items/NNL_MUSIC_AL{audio_mms}/NLI",
+            })
         nli_ids = s.get("nli_mms_ids", [])
         if nli_ids:
             links.append({
@@ -1876,13 +1899,22 @@ def main() -> None:
                 "label": "מילים בשירונט",
                 "url": shironet_urls[0],
             })
-        if "zemereshet" in s.get("sources", []):
-            q_zem = urllib.parse.quote(s["title"])
-            links.append({
-                "source": "zemereshet",
-                "label": "הקלטה ומידע בזמרשת",
-                "url": f"https://www.zemereshet.co.il/m/songs.asp?search={q_zem}",
-            })
+        if "zemereshet" in s.get("sources", []) or s["title"] in DIRECT_ZEMERESHET_SONGS:
+            zem_info = DIRECT_ZEMERESHET_SONGS.get(s["title"])
+            if zem_info:
+                zid, has_zem_audio = zem_info
+                links.append({
+                    "source": "zemereshet_audio" if has_zem_audio else "zemereshet",
+                    "label": "🎧 האזנה להקלטה בזמרשת" if has_zem_audio else "מידע ומילים בזמרשת",
+                    "url": f"https://www.zemereshet.co.il/m/song.asp?id={zid}",
+                })
+            else:
+                q_zem = urllib.parse.quote(s["title"])
+                links.append({
+                    "source": "zemereshet",
+                    "label": "הקלטה ומידע בזמרשת",
+                    "url": f"https://www.zemereshet.co.il/m/songs.asp?search={q_zem}",
+                })
         acum_ids = s.get("acum_work_ids", [])
         if acum_ids:
             links.append({

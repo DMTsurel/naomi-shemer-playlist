@@ -3581,7 +3581,7 @@
       "alt_titles": [],
       "english_title": "ANAHNU NOAR HAIHUD",
       "original_title": "",
-      "year": "",
+      "year": 1953,
       "sources": [
         "acum",
         "zemereshet"
@@ -3600,7 +3600,10 @@
       "translators": [],
       "arrangers": [],
       "performers": [
-        "שמר נעמי"
+        "שמר נעמי",
+        "בנות איילת-השחר",
+        "אלי סט",
+        "הילה שי"
       ],
       "albums": [],
       "acum_work_ids": [
@@ -3610,7 +3613,7 @@
       "shironet_wrkids": [],
       "shironet_urls": [],
       "nli_mms_ids": [],
-      "opening_line": "",
+      "opening_line": "אנחנו נוער האיחוד כולם ביחד וגם לחוד",
       "notes": [],
       "youtube_ids": [],
       "wiki_details": []
@@ -5585,7 +5588,10 @@
         "נעמי שמר"
       ],
       "arrangers": [],
-      "performers": [],
+      "performers": [
+        "שמשון בר-נוי",
+        "תזמורת מוריס"
+      ],
       "albums": [
         "ספר פה [048"
       ],
@@ -14546,7 +14552,10 @@
       ],
       "translators": [],
       "arrangers": [],
-      "performers": [],
+      "performers": [
+        "אריק לביא",
+        "חבורת הזמר מושב חרות"
+      ],
       "albums": [
         "הקלדה משמיעה"
       ],
@@ -14631,7 +14640,8 @@
       ],
       "performers": [
         "אילנית",
-        "זיטנר אורה"
+        "זיטנר אורה",
+        "תזמורת רשות השידור"
       ],
       "albums": [
         "הוי ארצי מולדתי",
@@ -15753,7 +15763,7 @@
       "alt_titles": [],
       "english_title": "",
       "original_title": "",
-      "year": "",
+      "year": 1947,
       "sources": [
         "zemereshet"
       ],
@@ -15772,7 +15782,7 @@
       "shironet_wrkids": [],
       "shironet_urls": [],
       "nli_mms_ids": [],
-      "opening_line": "",
+      "opening_line": "כחול ים המים ימך אילת כפליים",
       "notes": [],
       "youtube_ids": [],
       "wiki_details": []
@@ -16546,7 +16556,7 @@
       "alt_titles": [],
       "english_title": "",
       "original_title": "",
-      "year": "",
+      "year": 1956,
       "sources": [
         "nli"
       ],
@@ -16561,7 +16571,9 @@
       ],
       "translators": [],
       "arrangers": [],
-      "performers": [],
+      "performers": [
+        "תיאטרון האוהל"
+      ],
       "albums": [],
       "acum_work_ids": [],
       "acum_versions_count": 0,
@@ -20216,7 +20228,10 @@
       ],
       "translators": [],
       "arrangers": [],
-      "performers": [],
+      "performers": [
+        "מקהלת הילדים שליד עיריית רמת גן",
+        "תזמורת רשות השידור"
+      ],
       "albums": [],
       "acum_work_ids": [],
       "acum_versions_count": 0,
@@ -22826,7 +22841,7 @@
       "alt_titles": [],
       "english_title": "",
       "original_title": "",
-      "year": "",
+      "year": 1967,
       "sources": [
         "nli"
       ],
@@ -22839,7 +22854,9 @@
         "נעמי שמר"
       ],
       "arrangers": [],
-      "performers": [],
+      "performers": [
+        "שרה ידגר"
+      ],
       "albums": [],
       "acum_work_ids": [],
       "acum_versions_count": 0,
@@ -24630,7 +24647,9 @@
       ],
       "translators": [],
       "arrangers": [],
-      "performers": [],
+      "performers": [
+        "להקת פיקוד המרכז"
+      ],
       "albums": [
         "ח\"ח 2"
       ],
@@ -30578,7 +30597,8 @@
       ],
       "performers": [
         "הגשש החיוור ושמר נעמי",
-        "ביאליק עידו"
+        "ביאליק עידו",
+        "הגשש החיוור"
       ],
       "albums": [
         "הגשש החיוור-נעמי שמר",

@@ -66,9 +66,16 @@ def sync_all_secondary_exports(data: dict) -> list:
                 (
                     lk.get("url", "")
                     for lk in item.get("archive_links", [])
-                    if str(lk.get("source", "")).startswith("nli") and lk.get("url")
+                    if str(lk.get("source", "")) == "nli" and lk.get("url")
                 ),
-                "",
+                next(
+                    (
+                        lk.get("url", "")
+                        for lk in item.get("archive_links", [])
+                        if str(lk.get("source", "")).startswith("nli") and lk.get("url")
+                    ),
+                    "",
+                ),
             )
             w.writerow({
                 "index": item.get("index", ""),
@@ -1002,15 +1009,27 @@ def generate_files():
     archive_songs_js = []
     arch_role_counts = {}
     arch_src_counts = {}
+    as_audio = 0
     for item in unmatched_entries:
         yr = item.get("year", "")
         yr_display = yr if (yr and str(yr) != "2099") else "ללא שנה"
         rcat = item.get("role_category", "words_and_music")
         arch_role_counts[rcat] = arch_role_counts.get(rcat, 0) + 1
-        for lk in item.get("archive_links", []):
-            src_key = lk.get("source", "")
-            if src_key:
-                arch_src_counts[src_key] = arch_src_counts.get(src_key, 0) + 1
+        links_list = item.get("archive_links", [])
+        has_audio = any(lk.get("source") in ("nli_audio", "zemereshet_audio") for lk in links_list)
+        if has_audio:
+            as_audio += 1
+        seen_src_groups = set()
+        for lk in links_list:
+            src_key = str(lk.get("source", ""))
+            if src_key.startswith("nli"):
+                seen_src_groups.add("nli")
+            elif src_key.startswith("zemereshet"):
+                seen_src_groups.add("zemereshet")
+            elif src_key:
+                seen_src_groups.add(src_key)
+        for sg in seen_src_groups:
+            arch_src_counts[sg] = arch_src_counts.get(sg, 0) + 1
         archive_songs_js.append({
             "n": item["index"],
             "title": item["title"],
@@ -1022,7 +1041,8 @@ def generate_files():
             "albums": ", ".join(item.get("catalog_albums", [])[:3]),
             "opening_line": item.get("opening_line", ""),
             "sources": item.get("sources", []),
-            "links": item.get("archive_links", []),
+            "has_audio": has_audio,
+            "links": links_list,
         })
 
     ar_wm = arch_role_counts.get("words_and_music", 0)
@@ -1034,6 +1054,7 @@ def generate_files():
     as_nli = arch_src_counts.get("nli", 0)
     as_acum = arch_src_counts.get("acum", 0)
     as_shir = arch_src_counts.get("shironet", 0)
+    as_zem = arch_src_counts.get("zemereshet", 0)
 
     t1 = tier_counts.get("1_album_naomi", 0)
     t2 = tier_counts.get("2_album_original", 0)
@@ -1621,6 +1642,33 @@ def generate_files():
       border-color: rgba(16, 185, 129, 0.28);
     }}
     .arch-pill.shironet:hover {{ background: #34d399; color: #0f172a; }}
+    .arch-pill.zemereshet {{
+      background: rgba(168, 85, 247, 0.13);
+      color: #d8b4fe;
+      border-color: rgba(168, 85, 247, 0.30);
+    }}
+    .arch-pill.zemereshet:hover {{ background: #c084fc; color: #0f172a; }}
+    .arch-pill.audio-listen {{
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.24), rgba(20, 184, 166, 0.20));
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.55);
+      padding: 4px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      box-shadow: 0 1px 6px rgba(16, 185, 129, 0.16);
+    }}
+    .arch-pill.audio-listen:hover {{
+      background: #10b981;
+      color: #022c22;
+      border-color: #34d399;
+    }}
+    .audio-avail-badge {{
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.32);
+      font-size: 10.5px;
+      padding: 1px 7px;
+    }}
     .count-chip {{
       color: var(--muted);
       font-size: 12.5px;
@@ -1801,6 +1849,9 @@ def generate_files():
             <input type="text" id="archSearchInput" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע..." oninput="onSearchInput('arch')" />
             <button id="archSearchClearBtn" class="search-clear" type="button" onclick="clearSearch('arch')" title="נקה חיפוש (Esc)">✕</button>
           </div>
+          <button id="archAudioOnlyBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleArchAudioOnly()" aria-pressed="false" title="סנן לשירים שקיימת עבורם הקלטת שמע פתוחה להאזנה חופשית באתר הספרייה הלאומית או בזמרשת">
+            🎧 קיימת הקלטה להאזנה ({as_audio})
+          </button>
           <select id="archRoleFilter" onchange="renderArchiveTable()">
             <option value="ALL">כל התפקידים ({unmatched_songs_count})</option>
             <option value="words_and_music">מילים ולחן ({ar_wm})</option>
@@ -1814,6 +1865,7 @@ def generate_files():
             <option value="nli">הספרייה הלאומית ({as_nli})</option>
             <option value="acum">אקו"ם ({as_acum})</option>
             <option value="shironet">שירונט ({as_shir})</option>
+            <option value="zemereshet">זמרשת ({as_zem})</option>
           </select>
         </div>
         <div class="table-wrap" style="max-height: 720px;">
@@ -1862,6 +1914,7 @@ def generate_files():
     let pendingVideoLoad = null;
     let shuffleEnabled = false;
     let onePerSongOnly = false;
+    let archAudioOnly = false;
     let currentTab = "yt";
 
     function syncPlayButtonUI() {{
@@ -2080,6 +2133,19 @@ def generate_files():
       renderTable();
     }}
 
+    function syncArchAudioOnlyUI() {{
+      const btn = document.getElementById("archAudioOnlyBtn");
+      if (!btn) return;
+      btn.classList.toggle("btn-active", archAudioOnly);
+      btn.setAttribute("aria-pressed", archAudioOnly ? "true" : "false");
+    }}
+
+    function toggleArchAudioOnly() {{
+      archAudioOnly = !archAudioOnly;
+      syncArchAudioOnlyUI();
+      renderArchiveTable();
+    }}
+
     function toggleAdvancedFilters() {{
       const drw = document.getElementById("advancedDrawer");
       const btn = document.getElementById("advFilterBtn");
@@ -2171,6 +2237,7 @@ def generate_files():
         setOrDel("tab", currentTab, "yt");
         setOrDel("shuffle", shuffleEnabled ? "1" : "", "");
         setOrDel("oneper", onePerSongOnly ? "1" : "", "");
+        setOrDel("archaudio", archAudioOnly ? "1" : "", "");
 
         window.history.replaceState({{}}, "", url.toString());
         if (window.localStorage) {{
@@ -2182,7 +2249,8 @@ def generate_files():
             decade: df,
             tab: currentTab,
             shuffle: shuffleEnabled,
-            oneper: onePerSongOnly
+            oneper: onePerSongOnly,
+            archaudio: archAudioOnly
           }}));
         }}
       }} catch (e) {{}}
@@ -2208,10 +2276,20 @@ def generate_files():
         let cls = "arch-pill";
         const src = String(l.source || "");
         let label = l.label || "";
-        if (src.startsWith("nli")) {{
+        if (src === "nli_audio") {{
+          cls += " audio-listen";
+          label = label || "🎧 האזנה להקלטה בספרייה הלאומית";
+        }} else if (src === "zemereshet_audio") {{
+          cls += " audio-listen";
+          label = label || "🎧 האזנה להקלטה בזמרשת";
+        }} else if (src.startsWith("nli")) {{
           cls += " nli";
           label = "📖 סיפור השיר בספרייה הלאומית";
-        }} else if (src === "shironet") cls += " shironet";
+        }} else if (src === "shironet") {{
+          cls += " shironet";
+        }} else if (src === "zemereshet") {{
+          cls += " zemereshet";
+        }}
         return `<a class="${{cls}}" href="${{esc(l.url)}}" target="_blank" rel="noopener noreferrer" ${{onclickAttr}}>${{esc(label)}} ↗</a>`;
       }}).join("") + `</div>`;
     }}
@@ -2457,15 +2535,21 @@ def generate_files():
       if (!skipSync) syncUrlAndStorageState();
     }}
 
-    function renderArchiveTable() {{
+    function renderArchiveTable(skipSync = false) {{
       const q = document.getElementById("archSearchInput").value.trim().toLowerCase();
       const rf = document.getElementById("archRoleFilter").value;
       const sf = document.getElementById("archSourceFilter").value;
 
       const filteredArch = ARCHIVE_SONGS.filter(s => {{
+        if (archAudioOnly && !s.has_audio) return false;
         if (rf !== "ALL" && s.role_cat !== rf) return false;
         if (sf !== "ALL") {{
-          const hasSource = (s.links || []).some(l => l.source === sf);
+          const hasSource = (s.links || []).some(l => {{
+            const src = String(l.source || "");
+            if (sf === "nli") return src.startsWith("nli");
+            if (sf === "zemereshet") return src.startsWith("zemereshet");
+            return src === sf;
+          }});
           if (!hasSource) return false;
         }}
         if (!q) return true;
@@ -2479,7 +2563,9 @@ def generate_files():
         );
       }});
 
-      document.getElementById("archCountChip").textContent = `${{filteredArch.length}} מתוך ${{ARCHIVE_SONGS.length}} שירי ארכיון`;
+      document.getElementById("archCountChip").textContent = archAudioOnly
+        ? `${{filteredArch.length}} שירים עם הקלטה להאזנה (מתוך ${{ARCHIVE_SONGS.length}} שירי ארכיון)`
+        : `${{filteredArch.length}} מתוך ${{ARCHIVE_SONGS.length}} שירי ארכיון`;
 
       const tbody = document.getElementById("archiveBody");
       tbody.innerHTML = filteredArch.map((s, idx) => `
@@ -2489,6 +2575,7 @@ def generate_files():
             <div class="song-main-title">
               <span>${{esc(s.title)}}</span>
               ${{s.year && s.year !== "ללא שנה" ? `<span class="song-year">(${{esc(s.year)}})</span>` : ""}}
+              ${{s.has_audio ? `<span class="badge audio-avail-badge">🎧 הקלטה להאזנה</span>` : ""}}
             </div>
             ${{s.alt_titles && s.alt_titles.length ? `<div class="perf-album">שמות נוספים: ${{esc(s.alt_titles.join(", "))}}</div>` : ""}}
           </td>
@@ -2502,6 +2589,8 @@ def generate_files():
           <td>${{renderArchivePills(s.links, false)}}</td>
         </tr>
       `).join("");
+
+      if (!skipSync) syncUrlAndStorageState();
     }}
 
     document.addEventListener("keydown", function(ev) {{
@@ -2555,6 +2644,7 @@ def generate_files():
       const tabParam = params.get("tab") || saved.tab;
       const shufParam = params.get("shuffle");
       const onePerParam = params.get("oneper");
+      const archAudioParam = params.get("archaudio");
 
       if (qParam !== null) {{
         document.getElementById("searchInput").value = qParam;
@@ -2579,10 +2669,14 @@ def generate_files():
         onePerSongOnly = true;
         syncOnePerSongUI();
       }}
+      if (archAudioParam === "1" || (archAudioParam === null && saved.archaudio)) {{
+        archAudioOnly = true;
+        syncArchAudioOnlyUI();
+      }}
       if (tabParam === "arch") switchTab("arch", true);
 
       renderTable(true);
-      renderArchiveTable();
+      renderArchiveTable(true);
 
       if (SONGS.length > 0) {{
         let initSongNum = parseInt(params.get("song") || saved.song || "1", 10);
