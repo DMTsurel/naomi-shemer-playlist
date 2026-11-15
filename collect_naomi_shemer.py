@@ -344,9 +344,12 @@ SYNONYM_MAP = {
     "שקספיר איננו": "שייקספיר איננו",
     "יום הולדת שמח": "יום הולדת מוזר",
     "יום הלדת מוזר": "יום הולדת מוזר",
+    "רות ושות": "רות ושות'",
 }
 
 EXCLUDED_NORMALIZED_SONGS = {
+    # שיר של אהוד מנור ונורית הירש שהשתרבב בשירונט תחת "ביצוע" ללא רשומת אקו"ם/ספרייה לאומית
+    "בשנה הבאה",
     # כתבת חדשות על תביעה משפטית (2023), לא שיר של נעמי שמר
     "נונו הכלבלב",
     # שירים מודרניים שדגמו/ציטטו משפט של נעמי שמר (היפ-הופ/פופ/מאשאפ)
@@ -777,6 +780,8 @@ def scrape_shironet() -> Dict[str, Any]:
                 flags=re.DOTALL,
             )
             for href, wrkid, raw_title in matches:
+                if wrkid == "764":
+                    continue
                 title = html.unescape(re.sub(r"\s+", " ", raw_title)).strip()
                 entry = work_entries.setdefault(wrkid, {
                     "wrkid": wrkid,
@@ -2435,6 +2440,8 @@ def build_unified_catalog(
 
     # 2. מיזוג שירונט
     for ss in shironet_data["songs"]:
+        if ss.get("wrkids") == ["764"]:
+            continue
         entry = get_or_create_song(ss["title"])
         if not entry:
             continue
@@ -2744,6 +2751,8 @@ def build_unified_catalog(
         "והוא יושיענו": ["והוא יושיעיני", "האזינה אלוהים תפילתי"],
         "גדי מן ההגדה": ["הגדי מן ההגדה"],
         "יום הולדת מוזר": ["יום הולדת שמח", "יום הלדת מוזר"],
+        "רות ושות'": ["'רות ושות"],
+        "פת במלח": ["פת ומלח", "האורח"],
     }
     EXTRA_YT_IDS = {
         "יום הולדת מוזר": ["V_AZsXtgxvY"],

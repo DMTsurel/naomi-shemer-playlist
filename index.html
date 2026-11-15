@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>שירי נעמי שמר – האוסף המקיף (660 ביצועים ביוטיוב + 81 שירי ארכיון)</title>
+  <title>שירי נעמי שמר – האוסף המקיף (660 ביצועים ביוטיוב + 80 שירי ארכיון)</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1120' stroke='%23f59e0b' stroke-width='3'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' fill='%23fbbf24'%3E%E2%99%AB%3C/text%3E%3C/svg%3E" />
-  <meta name="description" content="האוסף הכרונולוגי המקיף של שירי נעמי שמר (450 שירים מאוחדים מ-9 מאגרים): 660 ביצועים מקוריים ביוטיוב ו-81 שירי ארכיון נדירים עם קישורים לספרייה הלאומית, שירונט, זמרשת ואקו&quot;ם." />
-  <meta property="og:title" content="שירי נעמי שמר – האוסף המקיף (660 ביצועים + 81 שירי ארכיון)" />
-  <meta property="og:description" content="נגן אינטראקטיבי וקטלוג כרונולוגי מלא של כל 450 שירי נעמי שמר: אלבומים מקוריים, ביצועי נעמי שמר, תרגומים וארכיון הספרייה הלאומית." />
+  <meta name="description" content="האוסף הכרונולוגי המקיף של שירי נעמי שמר (449 שירים מאוחדים מ-9 מאגרים): 660 ביצועים מקוריים ביוטיוב ו-80 שירי ארכיון נדירים עם קישורים לספרייה הלאומית, שירונט, זמרשת ואקו&quot;ם." />
+  <meta property="og:title" content="שירי נעמי שמר – האוסף המקיף (660 ביצועים + 80 שירי ארכיון)" />
+  <meta property="og:description" content="נגן אינטראקטיבי וקטלוג כרונולוגי מלא של כל 449 שירי נעמי שמר: אלבומים מקוריים, ביצועי נעמי שמר, תרגומים וארכיון הספרייה הלאומית." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dmtsurel.github.io/naomi-shemer-playlist/" />
   <meta property="og:image" content="https://i.ytimg.com/vi/IUxt7faTExY/hqdefault.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="שירי נעמי שמר – האוסף המקיף (660 ביצועים + 81 שירי ארכיון)" />
+  <meta name="twitter:title" content="שירי נעמי שמר – האוסף המקיף (660 ביצועים + 80 שירי ארכיון)" />
   <meta name="twitter:image" content="https://i.ytimg.com/vi/IUxt7faTExY/hqdefault.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -239,7 +239,7 @@
     .np-header { margin-top: 12px; }
     .np-title-row {
       display: flex;
-      align-items: baseline;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 8px;
       margin-bottom: 4px;
@@ -479,6 +479,47 @@
       font-size: 12.5px;
       font-variant-numeric: tabular-nums;
     }
+    .dur-fav-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+    .fav-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      line-height: 1;
+      padding: 3px 5px;
+      border-radius: 6px;
+      color: var(--muted);
+      opacity: 0.55;
+      transition: all 0.14s ease;
+      flex-shrink: 0;
+    }
+    tr.song-row:hover .fav-btn, .fav-btn.is-fav {
+      opacity: 1;
+    }
+    .fav-btn:hover {
+      transform: scale(1.18);
+      color: var(--rose);
+      background: rgba(251, 113, 133, 0.12);
+    }
+    .fav-btn.is-fav {
+      color: var(--rose);
+    }
+    .tab-offscreen {
+      position: fixed !important;
+      left: -9999px !important;
+      top: 0 !important;
+      width: 380px !important;
+      height: 220px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      overflow: hidden !important;
+      z-index: -1 !important;
+    }
 
     /* Subtle Badges */
     .badge {
@@ -711,7 +752,7 @@
       <div>
         <h1 class="brand-title">
           שירי נעמי שמר
-          <span class="brand-count">660 ביצועים · 450 שירים בקטלוג</span>
+          <span class="brand-count">660 ביצועים · 449 שירים בקטלוג</span>
         </h1>
         <p class="subtitle">
           האוסף המקיף מאוחד מ-9 מאגרים (אקו"ם, הספרייה הלאומית, שירונט, זמרשת ועוד) — מסודר מהקלאסיקות הגדולות אל הפנינים הנדירות.
@@ -728,7 +769,7 @@
     <!-- סרגל עליון למעבר מהיר לארכיון ומונה -->
     <div id="topStatusRow" class="nav-bar" style="margin-bottom: 10px;">
       <button id="topArchToggleBtn" class="btn btn-outline btn-sm arch-toggle-btn" onclick="switchTab('arch')">
-        🏛️ הצג גם 81 שירים נדירים מהארכיון שאינם ביוטיוב
+        🏛️ הצג גם 80 שירים נדירים מהארכיון שאינם ביוטיוב
       </button>
       <button id="backToPlayerBtn" class="btn btn-outline btn-sm" style="display:none;" onclick="switchTab('yt')">← חזרה לנגן הפלייליסט (660 ביצועים)</button>
       <span id="ytCountChip" class="count-chip"></span>
@@ -747,6 +788,7 @@
           <div class="np-header">
             <div class="np-title-row">
               <div id="nowPlayingTitle">בחר שיר מהרשימה</div>
+              <button id="npFavBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleCurrentFavorite()" title="הוסף / הסר מהמועדפים (F)" style="flex-shrink:0;">♡</button>
             </div>
             <div id="nowPlayingMeta"></div>
             <div id="nowPlayingRole" class="np-badges"></div>
@@ -773,7 +815,7 @@
               </div>
               <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
                 <button class="btn btn-outline btn-sm" onclick="scrollToActiveRow()">🎯 גלול לשיר המתנגן בטבלה</button>
-                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>/</kbd> חיפוש</span>
+                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>F</kbd> מועדף · <kbd>/</kbd> חיפוש</span>
               </div>
             </div>
           </details>
@@ -799,15 +841,18 @@
             </select>
             <select id="decadeFilter" onchange="renderTable()">
               <option value="ALL">כל העשורים (660)</option>
-              <option value="1950s">שנות ה-50 (82)</option>
-              <option value="1960s">שנות ה-60 (185)</option>
-              <option value="1970s">שנות ה-70 (198)</option>
-              <option value="1980s">שנות ה-80 (116)</option>
-              <option value="1990s+">שנות ה-90+ (79)</option>
+              <option value="1950s">שנות ה-50 (81)</option>
+              <option value="1960s">שנות ה-60 (187)</option>
+              <option value="1970s">שנות ה-70 (194)</option>
+              <option value="1980s">שנות ה-80 (117)</option>
+              <option value="1990s+">שנות ה-90+ (81)</option>
               <option value="unknown">ללא שנה (0)</option>
             </select>
             <button id="onePerSongBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleOnePerSong()" aria-pressed="false" title="סנן לביצוע מוביל אחד לכל שיר (מדלג על גרסאות כפולות בלי למחוק אותן)">
               🎯 ביצוע אחד לכל שיר (369)
+            </button>
+            <button id="favOnlyBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleFavOnly()" aria-pressed="false" title="הצג רק ביצועים שסימנת כמועדפים">
+              ❤️ מועדפים (<span id="favCountSpan">0</span>)
             </button>
             <button id="advFilterBtn" class="btn btn-outline btn-sm" onclick="toggleAdvancedFilters()">
               ⚙️ סינון מתקדם <span id="activeFiltersBadge" style="display:none; background:var(--gold); color:#000; padding:0 6px; border-radius:999px; font-size:11px;"></span>
@@ -819,10 +864,10 @@
             <select id="tierFilter" onchange="renderTable()">
               <option value="ALL">כל סוגי הביצועים (660)</option>
               <option value="1_album_naomi">אלבום של נעמי שמר (64)</option>
-              <option value="2_album_original">אלבום מבצע מקורי (288)</option>
-              <option value="3_naomi_performance">ביצוע נעמי שמר (81)</option>
-              <option value="4_original_performance">ביצוע מקורי (213)</option>
-              <option value="5_cover">ביצוע נוסף / קאבר (14)</option>
+              <option value="2_album_original">אלבום מבצע מקורי (251)</option>
+              <option value="3_naomi_performance">ביצוע נעמי שמר (82)</option>
+              <option value="4_original_performance">ביצוע מקורי (206)</option>
+              <option value="5_cover">ביצוע נוסף / קאבר (57)</option>
             </select>
             <select id="roleFilter" onchange="renderTable()">
               <option value="ALL">כל תפקידי היצירה (660)</option>
@@ -842,7 +887,7 @@
                   <th style="width:44px; text-align:center;">#</th>
                   <th>שיר</th>
                   <th>מבצע ואלבום</th>
-                  <th style="width:68px; text-align:left;">אורך</th>
+                  <th style="width:84px; text-align:left;">אורך</th>
                 </tr>
               </thead>
               <tbody id="songsBody"></tbody>
@@ -857,7 +902,7 @@
       <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
-            <h3 style="margin:0 0 4px; font-size:18px; color:#fff;">🏛️ ארכיון משלים: 81 שירים נדירים שאינם ביוטיוב</h3>
+            <h3 style="margin:0 0 4px; font-size:18px; color:#fff;">🏛️ ארכיון משלים: 80 שירים נדירים שאינם ביוטיוב</h3>
             <p style="margin:0; color:var(--muted); font-size:13.5px;">
               שירים שאותרו בספרייה הלאומית, אקו"ם, שירונט וזמרשת (הקלטות רדיו, שירי הצגות מוקדמים או כתבי יד) עם קישורים ישירים למילים ולהאזנה בארכיון.
             </p>
@@ -873,18 +918,18 @@
             🎧 קיימת הקלטה להאזנה (8)
           </button>
           <select id="archRoleFilter" onchange="renderArchiveTable()">
-            <option value="ALL">כל התפקידים (81)</option>
+            <option value="ALL">כל התפקידים (80)</option>
             <option value="words_and_music">מילים ולחן (20)</option>
             <option value="music_only">לחן בלבד (23)</option>
             <option value="words_only">מילים בלבד (20)</option>
             <option value="translation">תרגום (12)</option>
-            <option value="performance_only">ביצוע בלבד (6)</option>
+            <option value="performance_only">ביצוע בלבד (5)</option>
           </select>
           <select id="archSourceFilter" onchange="renderArchiveTable()">
-            <option value="ALL">כל המאגרים (81)</option>
+            <option value="ALL">כל המאגרים (80)</option>
             <option value="nli">הספרייה הלאומית (52)</option>
             <option value="acum">אקו"ם (34)</option>
-            <option value="shironet">שירונט (6)</option>
+            <option value="shironet">שירונט (5)</option>
             <option value="zemereshet">זמרשת (2)</option>
           </select>
         </div>
@@ -909,7 +954,7 @@
     <footer style="margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 13px;">
       <span>קטלוג שירי נעמי שמר · 660 ביצועים ביוטיוב</span>
       <button id="footerArchToggleBtn" class="btn btn-outline btn-sm arch-toggle-btn" onclick="switchTab(currentTab === 'yt' ? 'arch' : 'yt')">
-        🏛️ הצג גם 81 שירים נדירים מהארכיון שאינם ביוטיוב
+        🏛️ הצג גם 80 שירים נדירים מהארכיון שאינם ביוטיוב
       </button>
     </footer>
   </div>
@@ -944,7 +989,7 @@
     const SONGS = [
   {
     "n": 1,
-    "chrono_n": 221,
+    "chrono_n": 220,
     "canon_score": 1246.0,
     "acum_v": 552,
     "layer": 1,
@@ -1033,7 +1078,7 @@
   },
   {
     "n": 2,
-    "chrono_n": 216,
+    "chrono_n": 215,
     "canon_score": 1246.0,
     "acum_v": 552,
     "layer": 1,
@@ -1129,17 +1174,17 @@
   },
   {
     "n": 3,
-    "chrono_n": 450,
+    "chrono_n": 339,
     "canon_score": 880.0,
     "acum_v": 289,
     "layer": 1,
     "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-    "title": "לו יהי [ביצוע מקורי] (1979)",
+    "title": "לו יהי [ביצוע מקורי] (1973)",
     "raw_title": "לו יהי",
     "alt_titles": [],
     "ver_idx": 1,
     "ver_total": 5,
-    "year": "1979",
+    "year": "1973",
     "decade": "1970s",
     "vid": "KaovY--ET14",
     "vtitle": "הגשש החיוור - לו יהי (הקלטת האלבום)",
@@ -1309,7 +1354,7 @@
   },
   {
     "n": 5,
-    "chrono_n": 472,
+    "chrono_n": 469,
     "canon_score": 854.0,
     "acum_v": 262,
     "layer": 1,
@@ -1395,7 +1440,7 @@
   },
   {
     "n": 6,
-    "chrono_n": 482,
+    "chrono_n": 479,
     "canon_score": 854.0,
     "acum_v": 262,
     "layer": 1,
@@ -1481,12 +1526,12 @@
   },
   {
     "n": 7,
-    "chrono_n": 110,
+    "chrono_n": 203,
     "canon_score": 763.0,
     "acum_v": 210,
     "layer": 1,
     "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-    "title": "חורשת האקליפטוס [ביצוע מקורי] (1962)",
+    "title": "חורשת האקליפטוס [ביצוע מקורי] (1967)",
     "raw_title": "חורשת האקליפטוס",
     "alt_titles": [
       "חורשת האיקליפטוס",
@@ -1495,7 +1540,7 @@
     ],
     "ver_idx": 1,
     "ver_total": 4,
-    "year": "1962",
+    "year": "1967",
     "decade": "1960s",
     "vid": "TFIrOcriazY",
     "vtitle": "להקת הנחל   חורשת האקליפטוס",
@@ -1503,7 +1548,7 @@
     "dur": "3:41",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "צילה דגן, אופירה גלוסקא ולהקת הנחל",
+    "perf": "צילה דגן, אופירה גלוסקא ולהקת הנח\"ל",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -1568,7 +1613,7 @@
   },
   {
     "n": 8,
-    "chrono_n": 572,
+    "chrono_n": 570,
     "canon_score": 763.0,
     "acum_v": 210,
     "layer": 1,
@@ -1662,7 +1707,7 @@
   },
   {
     "n": 9,
-    "chrono_n": 396,
+    "chrono_n": 397,
     "canon_score": 709.0,
     "acum_v": 200,
     "layer": 1,
@@ -1742,7 +1787,7 @@
   },
   {
     "n": 10,
-    "chrono_n": 486,
+    "chrono_n": 483,
     "canon_score": 709.0,
     "acum_v": 200,
     "layer": 1,
@@ -1822,7 +1867,7 @@
   },
   {
     "n": 11,
-    "chrono_n": 624,
+    "chrono_n": 622,
     "canon_score": 655.0,
     "acum_v": 194,
     "layer": 1,
@@ -1983,7 +2028,7 @@
   },
   {
     "n": 13,
-    "chrono_n": 116,
+    "chrono_n": 114,
     "canon_score": 607.0,
     "acum_v": 162,
     "layer": 1,
@@ -2052,7 +2097,7 @@
   },
   {
     "n": 14,
-    "chrono_n": 208,
+    "chrono_n": 207,
     "canon_score": 607.0,
     "acum_v": 162,
     "layer": 1,
@@ -2128,7 +2173,7 @@
   },
   {
     "n": 15,
-    "chrono_n": 566,
+    "chrono_n": 564,
     "canon_score": 596.0,
     "acum_v": 175,
     "layer": 1,
@@ -2207,7 +2252,7 @@
   },
   {
     "n": 16,
-    "chrono_n": 285,
+    "chrono_n": 286,
     "canon_score": 585.0,
     "acum_v": 284,
     "layer": 1,
@@ -2229,7 +2274,7 @@
     "dur": "3:00",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד דרום",
+    "perf": "להקת פיקוד הדרום",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -2287,7 +2332,7 @@
   },
   {
     "n": 17,
-    "chrono_n": 282,
+    "chrono_n": 283,
     "canon_score": 585.0,
     "acum_v": 284,
     "layer": 1,
@@ -2367,7 +2412,7 @@
   },
   {
     "n": 18,
-    "chrono_n": 268,
+    "chrono_n": 269,
     "canon_score": 561.0,
     "acum_v": 117,
     "layer": 1,
@@ -2461,7 +2506,7 @@
   },
   {
     "n": 19,
-    "chrono_n": 484,
+    "chrono_n": 481,
     "canon_score": 561.0,
     "acum_v": 117,
     "layer": 1,
@@ -2555,7 +2600,7 @@
   },
   {
     "n": 20,
-    "chrono_n": 83,
+    "chrono_n": 82,
     "canon_score": 544.0,
     "acum_v": 108,
     "layer": 1,
@@ -2640,7 +2685,7 @@
   },
   {
     "n": 21,
-    "chrono_n": 225,
+    "chrono_n": 224,
     "canon_score": 543.0,
     "acum_v": 136,
     "layer": 1,
@@ -2714,7 +2759,7 @@
   },
   {
     "n": 22,
-    "chrono_n": 499,
+    "chrono_n": 497,
     "canon_score": 543.0,
     "acum_v": 136,
     "layer": 1,
@@ -2788,7 +2833,7 @@
   },
   {
     "n": 23,
-    "chrono_n": 371,
+    "chrono_n": 372,
     "canon_score": 534.0,
     "acum_v": 95,
     "layer": 1,
@@ -2885,7 +2930,7 @@
   },
   {
     "n": 24,
-    "chrono_n": 616,
+    "chrono_n": 614,
     "canon_score": 532.0,
     "acum_v": 124,
     "layer": 1,
@@ -2965,7 +3010,7 @@
   },
   {
     "n": 25,
-    "chrono_n": 619,
+    "chrono_n": 617,
     "canon_score": 532.0,
     "acum_v": 124,
     "layer": 1,
@@ -3221,7 +3266,7 @@
   },
   {
     "n": 28,
-    "chrono_n": 278,
+    "chrono_n": 279,
     "canon_score": 515.0,
     "acum_v": 111,
     "layer": 1,
@@ -3317,7 +3362,7 @@
   },
   {
     "n": 29,
-    "chrono_n": 375,
+    "chrono_n": 376,
     "canon_score": 515.0,
     "acum_v": 111,
     "layer": 1,
@@ -3413,7 +3458,7 @@
   },
   {
     "n": 30,
-    "chrono_n": 452,
+    "chrono_n": 451,
     "canon_score": 497.0,
     "acum_v": 82,
     "layer": 1,
@@ -3489,7 +3534,7 @@
   },
   {
     "n": 31,
-    "chrono_n": 490,
+    "chrono_n": 487,
     "canon_score": 497.0,
     "acum_v": 82,
     "layer": 1,
@@ -3644,7 +3689,7 @@
   },
   {
     "n": 33,
-    "chrono_n": 505,
+    "chrono_n": 503,
     "canon_score": 492.0,
     "acum_v": 92,
     "layer": 1,
@@ -3723,12 +3768,12 @@
   },
   {
     "n": 34,
-    "chrono_n": 196,
+    "chrono_n": 258,
     "canon_score": 487.0,
     "acum_v": 83,
     "layer": 1,
     "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-    "title": "אנחנו שנינו מאותו הכפר [ביצוע מקורי] (1966)",
+    "title": "אנחנו שנינו מאותו הכפר [ביצוע מקורי] (1969)",
     "raw_title": "אנחנו שנינו מאותו הכפר",
     "alt_titles": [
       "אנחנו מאותו הכפר",
@@ -3737,7 +3782,7 @@
     ],
     "ver_idx": 1,
     "ver_total": 6,
-    "year": "1966",
+    "year": "1969",
     "decade": "1960s",
     "vid": "2iljNf6XqsA",
     "vtitle": "להקת פיקוד מרכז אנחנו מאותו הכפר",
@@ -3745,7 +3790,7 @@
     "dur": "3:31",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד מרכז",
+    "perf": "להקת פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -3817,7 +3862,7 @@
   },
   {
     "n": 35,
-    "chrono_n": 255,
+    "chrono_n": 254,
     "canon_score": 487.0,
     "acum_v": 83,
     "layer": 1,
@@ -4225,7 +4270,7 @@
   },
   {
     "n": 40,
-    "chrono_n": 481,
+    "chrono_n": 478,
     "canon_score": 482.0,
     "acum_v": 101,
     "layer": 1,
@@ -4305,7 +4350,7 @@
   },
   {
     "n": 41,
-    "chrono_n": 138,
+    "chrono_n": 136,
     "canon_score": 455.0,
     "acum_v": 132,
     "layer": 1,
@@ -4474,7 +4519,7 @@
   },
   {
     "n": 43,
-    "chrono_n": 376,
+    "chrono_n": 377,
     "canon_score": 447.0,
     "acum_v": 79,
     "layer": 1,
@@ -4662,8 +4707,8 @@
     "vtitle": "חוה אלברשטיין - אהבה בת עשרים",
     "ch": "Chava Alberstein - חוה אלברשטיין",
     "dur": "3:57",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "חוה אלברשטיין",
     "alb": "הלילה הוא שירים (1977)",
     "alb_group": "סינגל / ביצוע בודד",
@@ -4808,7 +4853,7 @@
   },
   {
     "n": 47,
-    "chrono_n": 595,
+    "chrono_n": 593,
     "canon_score": 433.0,
     "acum_v": 57,
     "layer": 1,
@@ -4901,7 +4946,7 @@
   },
   {
     "n": 48,
-    "chrono_n": 262,
+    "chrono_n": 263,
     "canon_score": 430.0,
     "acum_v": 67,
     "layer": 1,
@@ -4924,7 +4969,7 @@
     "dur": "5:11",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת הנחל",
+    "perf": "להקת הנח\"ל",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -4975,7 +5020,7 @@
   },
   {
     "n": 49,
-    "chrono_n": 267,
+    "chrono_n": 268,
     "canon_score": 430.0,
     "acum_v": 67,
     "layer": 1,
@@ -5049,7 +5094,7 @@
   },
   {
     "n": 50,
-    "chrono_n": 220,
+    "chrono_n": 219,
     "canon_score": 414.0,
     "acum_v": 119,
     "layer": 1,
@@ -5070,7 +5115,7 @@
     "dur": "3:02",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "שולה חן ולהקת הנחל",
+    "perf": "שולה חן ולהקת הנח\"ל",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -5142,7 +5187,7 @@
   },
   {
     "n": 51,
-    "chrono_n": 272,
+    "chrono_n": 273,
     "canon_score": 414.0,
     "acum_v": 119,
     "layer": 1,
@@ -5235,7 +5280,7 @@
   },
   {
     "n": 52,
-    "chrono_n": 143,
+    "chrono_n": 141,
     "canon_score": 411.0,
     "acum_v": 93,
     "layer": 1,
@@ -5330,7 +5375,7 @@
   },
   {
     "n": 53,
-    "chrono_n": 155,
+    "chrono_n": 153,
     "canon_score": 411.0,
     "acum_v": 93,
     "layer": 1,
@@ -5425,7 +5470,7 @@
   },
   {
     "n": 54,
-    "chrono_n": 303,
+    "chrono_n": 304,
     "canon_score": 411.0,
     "acum_v": 73,
     "layer": 1,
@@ -5504,7 +5549,7 @@
   },
   {
     "n": 55,
-    "chrono_n": 468,
+    "chrono_n": 465,
     "canon_score": 404.0,
     "acum_v": 73,
     "layer": 1,
@@ -5587,7 +5632,7 @@
   },
   {
     "n": 56,
-    "chrono_n": 483,
+    "chrono_n": 480,
     "canon_score": 404.0,
     "acum_v": 73,
     "layer": 1,
@@ -5670,7 +5715,7 @@
   },
   {
     "n": 57,
-    "chrono_n": 204,
+    "chrono_n": 201,
     "canon_score": 398.0,
     "acum_v": 65,
     "layer": 1,
@@ -5840,7 +5885,7 @@
   },
   {
     "n": 59,
-    "chrono_n": 100,
+    "chrono_n": 99,
     "canon_score": 390.0,
     "acum_v": 97,
     "layer": 1,
@@ -5914,7 +5959,7 @@
   },
   {
     "n": 60,
-    "chrono_n": 88,
+    "chrono_n": 87,
     "canon_score": 390.0,
     "acum_v": 97,
     "layer": 1,
@@ -5988,7 +6033,7 @@
   },
   {
     "n": 61,
-    "chrono_n": 309,
+    "chrono_n": 310,
     "canon_score": 382.0,
     "acum_v": 50,
     "layer": 1,
@@ -6071,7 +6116,7 @@
   },
   {
     "n": 62,
-    "chrono_n": 378,
+    "chrono_n": 379,
     "canon_score": 382.0,
     "acum_v": 50,
     "layer": 1,
@@ -6154,7 +6199,7 @@
   },
   {
     "n": 63,
-    "chrono_n": 497,
+    "chrono_n": 495,
     "canon_score": 377.0,
     "acum_v": 80,
     "layer": 1,
@@ -6223,7 +6268,7 @@
   },
   {
     "n": 64,
-    "chrono_n": 553,
+    "chrono_n": 551,
     "canon_score": 377.0,
     "acum_v": 80,
     "layer": 1,
@@ -6239,8 +6284,8 @@
     "vtitle": "Hagevatron | אל בורות המים - הגבעטרון - אחר קציר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "2:49",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
     "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
@@ -6292,7 +6337,7 @@
   },
   {
     "n": 65,
-    "chrono_n": 359,
+    "chrono_n": 360,
     "canon_score": 354.0,
     "acum_v": 41,
     "layer": 1,
@@ -6373,7 +6418,7 @@
   },
   {
     "n": 66,
-    "chrono_n": 367,
+    "chrono_n": 368,
     "canon_score": 354.0,
     "acum_v": 41,
     "layer": 1,
@@ -6454,7 +6499,7 @@
   },
   {
     "n": 67,
-    "chrono_n": 529,
+    "chrono_n": 528,
     "canon_score": 353.0,
     "acum_v": 127,
     "layer": 1,
@@ -6530,7 +6575,7 @@
   },
   {
     "n": 68,
-    "chrono_n": 530,
+    "chrono_n": 529,
     "canon_score": 353.0,
     "acum_v": 127,
     "layer": 1,
@@ -6606,7 +6651,7 @@
   },
   {
     "n": 69,
-    "chrono_n": 630,
+    "chrono_n": 629,
     "canon_score": 352.0,
     "acum_v": 39,
     "layer": 1,
@@ -6678,7 +6723,7 @@
   },
   {
     "n": 70,
-    "chrono_n": 156,
+    "chrono_n": 154,
     "canon_score": 352.0,
     "acum_v": 87,
     "layer": 1,
@@ -6701,7 +6746,7 @@
     "dur": "2:20",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד מרכז",
+    "perf": "להקת פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -6752,7 +6797,7 @@
   },
   {
     "n": 71,
-    "chrono_n": 246,
+    "chrono_n": 245,
     "canon_score": 352.0,
     "acum_v": 87,
     "layer": 1,
@@ -6826,7 +6871,7 @@
   },
   {
     "n": 72,
-    "chrono_n": 124,
+    "chrono_n": 122,
     "canon_score": 340.0,
     "acum_v": 86,
     "layer": 1,
@@ -6898,7 +6943,7 @@
   },
   {
     "n": 73,
-    "chrono_n": 511,
+    "chrono_n": 508,
     "canon_score": 330.0,
     "acum_v": 58,
     "layer": 1,
@@ -6974,12 +7019,12 @@
   },
   {
     "n": 74,
-    "chrono_n": 324,
+    "chrono_n": 257,
     "canon_score": 323.0,
     "acum_v": 65,
     "layer": 1,
     "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-    "title": "שירו של אבא [ביצוע מקורי] (1972)",
+    "title": "שירו של אבא [ביצוע מקורי] (1968)",
     "raw_title": "שירו של אבא",
     "alt_titles": [
       "שירו של אבא יבנה המקדש",
@@ -6988,8 +7033,8 @@
     ],
     "ver_idx": 1,
     "ver_total": 5,
-    "year": "1972",
-    "decade": "1970s",
+    "year": "1968",
+    "decade": "1960s",
     "vid": "eSmhtnivpvY",
     "vtitle": "שירו של אבא נחמה הנדל",
     "ch": "רחל פרומן קומלוש",
@@ -7068,7 +7113,7 @@
   },
   {
     "n": 75,
-    "chrono_n": 244,
+    "chrono_n": 243,
     "canon_score": 323.0,
     "acum_v": 65,
     "layer": 1,
@@ -7162,7 +7207,7 @@
   },
   {
     "n": 76,
-    "chrono_n": 224,
+    "chrono_n": 223,
     "canon_score": 321.0,
     "acum_v": 1,
     "layer": 1,
@@ -7304,7 +7349,7 @@
   },
   {
     "n": 78,
-    "chrono_n": 457,
+    "chrono_n": 456,
     "canon_score": 312.0,
     "acum_v": 25,
     "layer": 1,
@@ -7379,7 +7424,7 @@
   },
   {
     "n": 79,
-    "chrono_n": 520,
+    "chrono_n": 517,
     "canon_score": 311.0,
     "acum_v": 66,
     "layer": 1,
@@ -7457,7 +7502,7 @@
   },
   {
     "n": 80,
-    "chrono_n": 521,
+    "chrono_n": 518,
     "canon_score": 311.0,
     "acum_v": 66,
     "layer": 1,
@@ -7535,7 +7580,7 @@
   },
   {
     "n": 81,
-    "chrono_n": 296,
+    "chrono_n": 297,
     "canon_score": 290.0,
     "acum_v": 66,
     "layer": 1,
@@ -7600,7 +7645,7 @@
   },
   {
     "n": 82,
-    "chrono_n": 518,
+    "chrono_n": 515,
     "canon_score": 287.0,
     "acum_v": 59,
     "layer": 1,
@@ -7608,7 +7653,8 @@
     "title": "האורח (1984)",
     "raw_title": "האורח",
     "alt_titles": [
-      "אורח"
+      "אורח",
+      "פת במלח"
     ],
     "ver_idx": 1,
     "ver_total": 1,
@@ -7664,7 +7710,7 @@
   },
   {
     "n": 83,
-    "chrono_n": 512,
+    "chrono_n": 509,
     "canon_score": 282.0,
     "acum_v": 66,
     "layer": 1,
@@ -7806,7 +7852,7 @@
   },
   {
     "n": 85,
-    "chrono_n": 638,
+    "chrono_n": 636,
     "canon_score": 276.0,
     "acum_v": 149,
     "layer": 1,
@@ -7885,7 +7931,7 @@
   },
   {
     "n": 86,
-    "chrono_n": 355,
+    "chrono_n": 356,
     "canon_score": 269.0,
     "acum_v": 61,
     "layer": 1,
@@ -7954,7 +8000,7 @@
   },
   {
     "n": 87,
-    "chrono_n": 469,
+    "chrono_n": 466,
     "canon_score": 266.0,
     "acum_v": 50,
     "layer": 1,
@@ -8023,7 +8069,7 @@
   },
   {
     "n": 88,
-    "chrono_n": 248,
+    "chrono_n": 247,
     "canon_score": 242.0,
     "acum_v": 45,
     "layer": 1,
@@ -8095,7 +8141,7 @@
   },
   {
     "n": 89,
-    "chrono_n": 279,
+    "chrono_n": 280,
     "canon_score": 242.0,
     "acum_v": 45,
     "layer": 1,
@@ -8167,7 +8213,7 @@
   },
   {
     "n": 90,
-    "chrono_n": 181,
+    "chrono_n": 179,
     "canon_score": 240.0,
     "acum_v": 41,
     "layer": 1,
@@ -8189,8 +8235,8 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "האחיות שמר",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#1)",
-    "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
+    "alb": "רביעיית האחיות שמר (#1)",
+    "alb_group": "רביעיית האחיות שמר",
     "alb_trk": 1,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -8246,7 +8292,7 @@
   },
   {
     "n": 91,
-    "chrono_n": 206,
+    "chrono_n": 205,
     "canon_score": 240.0,
     "acum_v": 41,
     "layer": 1,
@@ -8493,7 +8539,7 @@
   },
   {
     "n": 94,
-    "chrono_n": 133,
+    "chrono_n": 131,
     "canon_score": 233.0,
     "acum_v": 27,
     "layer": 1,
@@ -8520,7 +8566,7 @@
     "dur": "2:31",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת פיקוד צפון",
+    "perf": "להקת פיקוד הצפון",
     "alb": "בגלל מסמר (להקת פיקוד צפון) (#1)",
     "alb_group": "בגלל מסמר (להקת פיקוד צפון)",
     "alb_trk": 1,
@@ -8585,7 +8631,7 @@
   },
   {
     "n": 95,
-    "chrono_n": 217,
+    "chrono_n": 216,
     "canon_score": 233.0,
     "acum_v": 27,
     "layer": 1,
@@ -8677,7 +8723,7 @@
   },
   {
     "n": 96,
-    "chrono_n": 108,
+    "chrono_n": 107,
     "canon_score": 231.0,
     "acum_v": 30,
     "layer": 1,
@@ -8746,7 +8792,7 @@
   },
   {
     "n": 97,
-    "chrono_n": 215,
+    "chrono_n": 214,
     "canon_score": 231.0,
     "acum_v": 30,
     "layer": 1,
@@ -8822,7 +8868,7 @@
   },
   {
     "n": 98,
-    "chrono_n": 519,
+    "chrono_n": 516,
     "canon_score": 230.0,
     "acum_v": 25,
     "layer": 1,
@@ -8893,7 +8939,7 @@
   },
   {
     "n": 99,
-    "chrono_n": 551,
+    "chrono_n": 549,
     "canon_score": 230.0,
     "acum_v": 25,
     "layer": 1,
@@ -8964,7 +9010,7 @@
   },
   {
     "n": 100,
-    "chrono_n": 222,
+    "chrono_n": 221,
     "canon_score": 229.0,
     "acum_v": 52,
     "layer": 1,
@@ -9040,7 +9086,7 @@
   },
   {
     "n": 101,
-    "chrono_n": 210,
+    "chrono_n": 209,
     "canon_score": 229.0,
     "acum_v": 52,
     "layer": 1,
@@ -9209,7 +9255,7 @@
   },
   {
     "n": 103,
-    "chrono_n": 501,
+    "chrono_n": 499,
     "canon_score": 226.0,
     "acum_v": 80,
     "layer": 1,
@@ -9295,7 +9341,7 @@
   },
   {
     "n": 104,
-    "chrono_n": 252,
+    "chrono_n": 251,
     "canon_score": 223.0,
     "acum_v": 27,
     "layer": 1,
@@ -9371,7 +9417,7 @@
   },
   {
     "n": 105,
-    "chrono_n": 405,
+    "chrono_n": 406,
     "canon_score": 223.0,
     "acum_v": 27,
     "layer": 1,
@@ -9387,8 +9433,8 @@
     "vtitle": "מיכאל - אילנית",
     "ch": "אילנית - הערוץ הרשמי - Ilanit Official",
     "dur": "1:53",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "אילנית",
     "alb": "אילנית (1976)",
     "alb_group": "סינגל / ביצוע בודד",
@@ -9447,7 +9493,7 @@
   },
   {
     "n": 106,
-    "chrono_n": 524,
+    "chrono_n": 523,
     "canon_score": 220.0,
     "acum_v": 34,
     "layer": 1,
@@ -9516,7 +9562,7 @@
   },
   {
     "n": 107,
-    "chrono_n": 358,
+    "chrono_n": 359,
     "canon_score": 217.0,
     "acum_v": 17,
     "layer": 1,
@@ -9592,7 +9638,7 @@
   },
   {
     "n": 108,
-    "chrono_n": 365,
+    "chrono_n": 366,
     "canon_score": 217.0,
     "acum_v": 17,
     "layer": 1,
@@ -9668,7 +9714,7 @@
   },
   {
     "n": 109,
-    "chrono_n": 593,
+    "chrono_n": 591,
     "canon_score": 217.0,
     "acum_v": 29,
     "layer": 1,
@@ -9752,8 +9798,8 @@
     "vtitle": "חליל מקנה סוף",
     "ch": "Netanela - Topic",
     "dur": "2:02",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "נתנאלה",
     "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#5)",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
@@ -9906,7 +9952,7 @@
   },
   {
     "n": 112,
-    "chrono_n": 226,
+    "chrono_n": 225,
     "canon_score": 213.0,
     "acum_v": 94,
     "layer": 1,
@@ -9977,7 +10023,7 @@
   },
   {
     "n": 113,
-    "chrono_n": 467,
+    "chrono_n": 464,
     "canon_score": 212.0,
     "acum_v": 23,
     "layer": 1,
@@ -10049,7 +10095,7 @@
   },
   {
     "n": 114,
-    "chrono_n": 506,
+    "chrono_n": 504,
     "canon_score": 212.0,
     "acum_v": 23,
     "layer": 1,
@@ -10121,7 +10167,7 @@
   },
   {
     "n": 115,
-    "chrono_n": 314,
+    "chrono_n": 315,
     "canon_score": 211.0,
     "acum_v": 23,
     "layer": 1,
@@ -10197,7 +10243,7 @@
   },
   {
     "n": 116,
-    "chrono_n": 315,
+    "chrono_n": 316,
     "canon_score": 211.0,
     "acum_v": 23,
     "layer": 1,
@@ -10273,7 +10319,7 @@
   },
   {
     "n": 117,
-    "chrono_n": 89,
+    "chrono_n": 88,
     "canon_score": 210.0,
     "acum_v": 41,
     "layer": 1,
@@ -10297,9 +10343,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "שירי נעמי שמר (להקת הצעירים) (#1)",
-    "alb_group": "שירי נעמי שמר (להקת הצעירים)",
-    "alb_trk": 1,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -10385,9 +10431,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "חבורת \"שירו שיר\"",
-    "alb": "שירי נעמי שמר (להקת הצעירים) (#1)",
-    "alb_group": "שירי נעמי שמר (להקת הצעירים)",
-    "alb_trk": 1,
+    "alb": "תחרות שירו שיר (1959–1960)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -10449,7 +10495,7 @@
   },
   {
     "n": 119,
-    "chrono_n": 287,
+    "chrono_n": 288,
     "canon_score": 209.0,
     "acum_v": 90,
     "layer": 1,
@@ -10536,7 +10582,7 @@
   },
   {
     "n": 120,
-    "chrono_n": 563,
+    "chrono_n": 561,
     "canon_score": 209.0,
     "acum_v": 90,
     "layer": 1,
@@ -10556,11 +10602,11 @@
     "vtitle": "Hagevatron | בשדות בית לחם - הגבעטרון - אחר קציר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "2:41",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר - הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -10696,7 +10742,7 @@
   },
   {
     "n": 122,
-    "chrono_n": 339,
+    "chrono_n": 340,
     "canon_score": 205.0,
     "acum_v": 2,
     "layer": 1,
@@ -10781,9 +10827,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "אריק איינשטיין",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#2)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -10866,9 +10912,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "לוליק",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#2)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -11009,7 +11055,7 @@
   },
   {
     "n": 126,
-    "chrono_n": 200,
+    "chrono_n": 197,
     "canon_score": 200.0,
     "acum_v": 2,
     "layer": 1,
@@ -11088,7 +11134,7 @@
   },
   {
     "n": 127,
-    "chrono_n": 201,
+    "chrono_n": 198,
     "canon_score": 200.0,
     "acum_v": 2,
     "layer": 1,
@@ -11194,9 +11240,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "בצל ירוק",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#4)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
-    "alb_trk": 4,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -11265,12 +11311,12 @@
   },
   {
     "n": 129,
-    "chrono_n": 72,
+    "chrono_n": 202,
     "canon_score": 198.0,
     "acum_v": 83,
     "layer": 1,
     "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-    "title": "זמר נודד [ביצוע נעמי שמר] (1959)",
+    "title": "זמר נודד [ביצוע נעמי שמר] (1967)",
     "raw_title": "זמר נודד",
     "alt_titles": [
       "שיר הנודד",
@@ -11283,8 +11329,8 @@
     ],
     "ver_idx": 2,
     "ver_total": 5,
-    "year": "1959",
-    "decade": "1950s",
+    "year": "1967",
+    "decade": "1960s",
     "vid": "bzl8G_GQJKE",
     "vtitle": "נעמי שמר - משירי זמר נודד",
     "ch": "Guy Alon",
@@ -11292,8 +11338,8 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#4)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
+    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#4)",
+    "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
     "alb_trk": 4,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -11513,7 +11559,7 @@
   },
   {
     "n": 132,
-    "chrono_n": 351,
+    "chrono_n": 352,
     "canon_score": 196.0,
     "acum_v": 35,
     "layer": 1,
@@ -11585,7 +11631,7 @@
   },
   {
     "n": 133,
-    "chrono_n": 370,
+    "chrono_n": 371,
     "canon_score": 196.0,
     "acum_v": 35,
     "layer": 1,
@@ -11657,7 +11703,7 @@
   },
   {
     "n": 134,
-    "chrono_n": 87,
+    "chrono_n": 86,
     "canon_score": 194.0,
     "acum_v": 66,
     "layer": 1,
@@ -11735,7 +11781,7 @@
   },
   {
     "n": 135,
-    "chrono_n": 232,
+    "chrono_n": 231,
     "canon_score": 194.0,
     "acum_v": 66,
     "layer": 1,
@@ -11756,8 +11802,8 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "שולי נתן",
-    "alb": "עשרת הצדיקים (להקת השעות הקטנות) (#3)",
-    "alb_group": "עשרת הצדיקים (להקת השעות הקטנות)",
+    "alb": "שולי נתן שרה נעמי שמר (#3)",
+    "alb_group": "שולי נתן שרה נעמי שמר",
     "alb_trk": 3,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -11813,7 +11859,7 @@
   },
   {
     "n": 136,
-    "chrono_n": 545,
+    "chrono_n": 543,
     "canon_score": 192.0,
     "acum_v": 6,
     "layer": 1,
@@ -11882,7 +11928,7 @@
   },
   {
     "n": 137,
-    "chrono_n": 294,
+    "chrono_n": 295,
     "canon_score": 192.0,
     "acum_v": 16,
     "layer": 1,
@@ -11900,7 +11946,7 @@
     "dur": "3:27",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד צפון",
+    "perf": "להקת פיקוד הצפון",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -11944,7 +11990,7 @@
   },
   {
     "n": 138,
-    "chrono_n": 123,
+    "chrono_n": 121,
     "canon_score": 190.0,
     "acum_v": 21,
     "layer": 1,
@@ -12020,7 +12066,7 @@
   },
   {
     "n": 139,
-    "chrono_n": 131,
+    "chrono_n": 129,
     "canon_score": 190.0,
     "acum_v": 21,
     "layer": 1,
@@ -12096,7 +12142,7 @@
   },
   {
     "n": 140,
-    "chrono_n": 489,
+    "chrono_n": 486,
     "canon_score": 190.0,
     "acum_v": 21,
     "layer": 1,
@@ -12153,7 +12199,7 @@
   },
   {
     "n": 141,
-    "chrono_n": 474,
+    "chrono_n": 471,
     "canon_score": 188.0,
     "acum_v": 22,
     "layer": 1,
@@ -12229,7 +12275,7 @@
   },
   {
     "n": 142,
-    "chrono_n": 112,
+    "chrono_n": 110,
     "canon_score": 186.0,
     "acum_v": 18,
     "layer": 1,
@@ -12250,7 +12296,7 @@
     "dur": "3:25",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת פיקוד מרכז",
+    "perf": "להקת פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -12308,7 +12354,7 @@
   },
   {
     "n": 143,
-    "chrono_n": 218,
+    "chrono_n": 217,
     "canon_score": 186.0,
     "acum_v": 18,
     "layer": 1,
@@ -12387,7 +12433,7 @@
   },
   {
     "n": 144,
-    "chrono_n": 601,
+    "chrono_n": 599,
     "canon_score": 184.0,
     "acum_v": 12,
     "layer": 1,
@@ -12539,7 +12585,7 @@
   },
   {
     "n": 146,
-    "chrono_n": 502,
+    "chrono_n": 500,
     "canon_score": 182.0,
     "acum_v": 72,
     "layer": 1,
@@ -12701,7 +12747,7 @@
   },
   {
     "n": 148,
-    "chrono_n": 106,
+    "chrono_n": 105,
     "canon_score": 179.0,
     "acum_v": 75,
     "layer": 1,
@@ -12780,7 +12826,7 @@
   },
   {
     "n": 149,
-    "chrono_n": 77,
+    "chrono_n": 76,
     "canon_score": 179.0,
     "acum_v": 11,
     "layer": 1,
@@ -12859,7 +12905,7 @@
   },
   {
     "n": 150,
-    "chrono_n": 230,
+    "chrono_n": 229,
     "canon_score": 179.0,
     "acum_v": 11,
     "layer": 1,
@@ -12952,7 +12998,7 @@
   },
   {
     "n": 151,
-    "chrono_n": 364,
+    "chrono_n": 365,
     "canon_score": 176.0,
     "acum_v": 16,
     "layer": 1,
@@ -13016,7 +13062,7 @@
   },
   {
     "n": 152,
-    "chrono_n": 205,
+    "chrono_n": 204,
     "canon_score": 174.0,
     "acum_v": 39,
     "layer": 1,
@@ -13085,7 +13131,7 @@
   },
   {
     "n": 153,
-    "chrono_n": 451,
+    "chrono_n": 450,
     "canon_score": 174.0,
     "acum_v": 22,
     "layer": 1,
@@ -13140,7 +13186,7 @@
   },
   {
     "n": 154,
-    "chrono_n": 81,
+    "chrono_n": 80,
     "canon_score": 170.0,
     "acum_v": 14,
     "layer": 1,
@@ -13220,7 +13266,7 @@
   },
   {
     "n": 155,
-    "chrono_n": 275,
+    "chrono_n": 276,
     "canon_score": 170.0,
     "acum_v": 14,
     "layer": 1,
@@ -13300,7 +13346,7 @@
   },
   {
     "n": 156,
-    "chrono_n": 183,
+    "chrono_n": 181,
     "canon_score": 166.0,
     "acum_v": 41,
     "layer": 1,
@@ -13322,8 +13368,8 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "האחיות שמר",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#7)",
-    "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
+    "alb": "רביעיית האחיות שמר (#7)",
+    "alb_group": "רביעיית האחיות שמר",
     "alb_trk": 7,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -13379,7 +13425,7 @@
   },
   {
     "n": 157,
-    "chrono_n": 212,
+    "chrono_n": 211,
     "canon_score": 166.0,
     "acum_v": 41,
     "layer": 1,
@@ -13465,7 +13511,7 @@
   },
   {
     "n": 158,
-    "chrono_n": 97,
+    "chrono_n": 96,
     "canon_score": 163.0,
     "acum_v": 35,
     "layer": 1,
@@ -13485,10 +13531,10 @@
     "dur": "3:28",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת פיקוד צפון",
-    "alb": "שירי נעמי שמר (להקת הצעירים) (#2)",
-    "alb_group": "שירי נעמי שמר (להקת הצעירים)",
-    "alb_trk": 2,
+    "perf": "להקת פיקוד הצפון",
+    "alb": "אסיף",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -13550,7 +13596,7 @@
   },
   {
     "n": 159,
-    "chrono_n": 101,
+    "chrono_n": 100,
     "canon_score": 163.0,
     "acum_v": 35,
     "layer": 1,
@@ -13635,7 +13681,7 @@
   },
   {
     "n": 160,
-    "chrono_n": 401,
+    "chrono_n": 402,
     "canon_score": 163.0,
     "acum_v": 32,
     "layer": 1,
@@ -13714,7 +13760,7 @@
   },
   {
     "n": 161,
-    "chrono_n": 498,
+    "chrono_n": 496,
     "canon_score": 163.0,
     "acum_v": 32,
     "layer": 1,
@@ -13949,7 +13995,7 @@
   },
   {
     "n": 164,
-    "chrono_n": 149,
+    "chrono_n": 147,
     "canon_score": 162.0,
     "acum_v": 43,
     "layer": 1,
@@ -14032,7 +14078,7 @@
   },
   {
     "n": 165,
-    "chrono_n": 150,
+    "chrono_n": 148,
     "canon_score": 162.0,
     "acum_v": 43,
     "layer": 1,
@@ -14115,7 +14161,7 @@
   },
   {
     "n": 166,
-    "chrono_n": 125,
+    "chrono_n": 123,
     "canon_score": 161.0,
     "acum_v": 48,
     "layer": 1,
@@ -14201,7 +14247,7 @@
   },
   {
     "n": 167,
-    "chrono_n": 214,
+    "chrono_n": 213,
     "canon_score": 161.0,
     "acum_v": 48,
     "layer": 1,
@@ -14349,7 +14395,7 @@
   },
   {
     "n": 169,
-    "chrono_n": 456,
+    "chrono_n": 455,
     "canon_score": 159.0,
     "acum_v": 12,
     "layer": 1,
@@ -14404,7 +14450,7 @@
   },
   {
     "n": 170,
-    "chrono_n": 134,
+    "chrono_n": 132,
     "canon_score": 150.0,
     "acum_v": 11,
     "layer": 1,
@@ -14487,7 +14533,7 @@
   },
   {
     "n": 171,
-    "chrono_n": 369,
+    "chrono_n": 370,
     "canon_score": 150.0,
     "acum_v": 11,
     "layer": 1,
@@ -14931,7 +14977,7 @@
   },
   {
     "n": 177,
-    "chrono_n": 362,
+    "chrono_n": 363,
     "canon_score": 130.0,
     "acum_v": 3,
     "layer": 1,
@@ -15011,7 +15057,7 @@
   },
   {
     "n": 178,
-    "chrono_n": 479,
+    "chrono_n": 476,
     "canon_score": 130.0,
     "acum_v": 3,
     "layer": 1,
@@ -15091,7 +15137,7 @@
   },
   {
     "n": 179,
-    "chrono_n": 312,
+    "chrono_n": 313,
     "canon_score": 119.0,
     "acum_v": 5,
     "layer": 1,
@@ -15153,7 +15199,7 @@
   },
   {
     "n": 180,
-    "chrono_n": 313,
+    "chrono_n": 314,
     "canon_score": 119.0,
     "acum_v": 5,
     "layer": 1,
@@ -15288,7 +15334,7 @@
   },
   {
     "n": 182,
-    "chrono_n": 568,
+    "chrono_n": 566,
     "canon_score": 98.0,
     "acum_v": 2,
     "layer": 1,
@@ -15337,7 +15383,7 @@
   },
   {
     "n": 183,
-    "chrono_n": 188,
+    "chrono_n": 186,
     "canon_score": 136.0,
     "acum_v": 41,
     "layer": 2,
@@ -15358,8 +15404,8 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "האחיות שמר",
-    "alb": "שולי נתן שרה נעמי שמר (#2)",
-    "alb_group": "שולי נתן שרה נעמי שמר",
+    "alb": "רביעיית האחיות שמר (#2)",
+    "alb_group": "רביעיית האחיות שמר",
     "alb_trk": 2,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
@@ -15408,7 +15454,7 @@
   },
   {
     "n": 184,
-    "chrono_n": 235,
+    "chrono_n": 234,
     "canon_score": 136.0,
     "acum_v": 41,
     "layer": 2,
@@ -15479,7 +15525,7 @@
   },
   {
     "n": 185,
-    "chrono_n": 560,
+    "chrono_n": 558,
     "canon_score": 136.0,
     "acum_v": 41,
     "layer": 2,
@@ -15497,11 +15543,11 @@
     "vtitle": "זמר (לך ועליך) - הגבעטרון - עוד ממשיך הזמר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "2:43",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "שולי נתן שרה נעמי שמר (#2)",
-    "alb_group": "שולי נתן שרה נעמי שמר",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#2)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 2,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
@@ -15550,7 +15596,7 @@
   },
   {
     "n": 186,
-    "chrono_n": 189,
+    "chrono_n": 187,
     "canon_score": 133.0,
     "acum_v": 42,
     "layer": 2,
@@ -15571,8 +15617,8 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "האחיות שמר",
-    "alb": "שולי נתן שרה נעמי שמר (#6)",
-    "alb_group": "שולי נתן שרה נעמי שמר",
+    "alb": "רביעיית האחיות שמר (#6)",
+    "alb_group": "רביעיית האחיות שמר",
     "alb_trk": 6,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
@@ -15642,7 +15688,7 @@
   },
   {
     "n": 187,
-    "chrono_n": 239,
+    "chrono_n": 238,
     "canon_score": 133.0,
     "acum_v": 42,
     "layer": 2,
@@ -15734,7 +15780,7 @@
   },
   {
     "n": 188,
-    "chrono_n": 301,
+    "chrono_n": 302,
     "canon_score": 133.0,
     "acum_v": 42,
     "layer": 2,
@@ -15755,9 +15801,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "אופירה גלוסקא",
-    "alb": "שולי נתן שרה נעמי שמר (#6)",
-    "alb_group": "שולי נתן שרה נעמי שמר",
-    "alb_trk": 6,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
     "co_creators": "מילים: רחל המשוררת",
@@ -15826,7 +15872,7 @@
   },
   {
     "n": 189,
-    "chrono_n": 302,
+    "chrono_n": 303,
     "canon_score": 133.0,
     "acum_v": 42,
     "layer": 2,
@@ -15847,9 +15893,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "השירושלמים",
-    "alb": "שולי נתן שרה נעמי שמר (#6)",
-    "alb_group": "שולי נתן שרה נעמי שמר",
-    "alb_trk": 6,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
     "co_creators": "מילים: רחל המשוררת",
@@ -15918,7 +15964,7 @@
   },
   {
     "n": 190,
-    "chrono_n": 240,
+    "chrono_n": 239,
     "canon_score": 133.0,
     "acum_v": 42,
     "layer": 2,
@@ -15939,9 +15985,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "אורה זיטנר",
-    "alb": "שולי נתן שרה נעמי שמר (#6)",
-    "alb_group": "שולי נתן שרה נעמי שמר",
-    "alb_trk": 6,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
     "co_creators": "מילים: רחל המשוררת",
@@ -16010,7 +16056,7 @@
   },
   {
     "n": 191,
-    "chrono_n": 197,
+    "chrono_n": 194,
     "canon_score": 133.0,
     "acum_v": 23,
     "layer": 2,
@@ -16031,7 +16077,7 @@
     "dur": "2:31",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "זוהר רבקה ולהקת חיל הים",
+    "perf": "רבקה זוהר ולהקת חיל הים",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -16089,7 +16135,7 @@
   },
   {
     "n": 192,
-    "chrono_n": 209,
+    "chrono_n": 208,
     "canon_score": 133.0,
     "acum_v": 23,
     "layer": 2,
@@ -16175,7 +16221,7 @@
   },
   {
     "n": 193,
-    "chrono_n": 182,
+    "chrono_n": 180,
     "canon_score": 133.0,
     "acum_v": 23,
     "layer": 2,
@@ -16197,8 +16243,8 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "האחיות שמר",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#4)",
-    "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
+    "alb": "רביעיית האחיות שמר (#4)",
+    "alb_group": "רביעיית האחיות שמר",
     "alb_trk": 4,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -16254,7 +16300,7 @@
   },
   {
     "n": 194,
-    "chrono_n": 548,
+    "chrono_n": 546,
     "canon_score": 131.0,
     "acum_v": 30,
     "layer": 2,
@@ -16325,7 +16371,7 @@
   },
   {
     "n": 195,
-    "chrono_n": 544,
+    "chrono_n": 542,
     "canon_score": 131.0,
     "acum_v": 30,
     "layer": 2,
@@ -16418,9 +16464,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "אילי גורליצקי ולהקת פיקוד המרכז",
-    "alb": "שירי נעמי שמר (להקת הצעירים) (#4)",
-    "alb_group": "שירי נעמי שמר (להקת הצעירים)",
-    "alb_trk": 4,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -16475,7 +16521,7 @@
   },
   {
     "n": 197,
-    "chrono_n": 99,
+    "chrono_n": 98,
     "canon_score": 128.0,
     "acum_v": 24,
     "layer": 2,
@@ -16554,7 +16600,7 @@
   },
   {
     "n": 198,
-    "chrono_n": 323,
+    "chrono_n": 324,
     "canon_score": 127.0,
     "acum_v": 26,
     "layer": 2,
@@ -16623,7 +16669,7 @@
   },
   {
     "n": 199,
-    "chrono_n": 464,
+    "chrono_n": 461,
     "canon_score": 121.0,
     "acum_v": 11,
     "layer": 2,
@@ -16699,7 +16745,7 @@
   },
   {
     "n": 200,
-    "chrono_n": 487,
+    "chrono_n": 484,
     "canon_score": 121.0,
     "acum_v": 11,
     "layer": 2,
@@ -16775,7 +16821,7 @@
   },
   {
     "n": 201,
-    "chrono_n": 491,
+    "chrono_n": 488,
     "canon_score": 121.0,
     "acum_v": 11,
     "layer": 2,
@@ -16851,7 +16897,7 @@
   },
   {
     "n": 202,
-    "chrono_n": 349,
+    "chrono_n": 350,
     "canon_score": 121.0,
     "acum_v": 33,
     "layer": 2,
@@ -16922,7 +16968,7 @@
   },
   {
     "n": 203,
-    "chrono_n": 228,
+    "chrono_n": 227,
     "canon_score": 121.0,
     "acum_v": 33,
     "layer": 2,
@@ -17066,7 +17112,7 @@
   },
   {
     "n": 205,
-    "chrono_n": 168,
+    "chrono_n": 166,
     "canon_score": 120.0,
     "acum_v": 32,
     "layer": 2,
@@ -17139,7 +17185,7 @@
   },
   {
     "n": 206,
-    "chrono_n": 379,
+    "chrono_n": 380,
     "canon_score": 119.0,
     "acum_v": 22,
     "layer": 2,
@@ -17160,7 +17206,7 @@
     "dur": "2:14",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת פיקוד מרכז",
+    "perf": "להקת פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -17211,7 +17257,7 @@
   },
   {
     "n": 207,
-    "chrono_n": 357,
+    "chrono_n": 358,
     "canon_score": 119.0,
     "acum_v": 22,
     "layer": 2,
@@ -17283,7 +17329,7 @@
   },
   {
     "n": 208,
-    "chrono_n": 475,
+    "chrono_n": 472,
     "canon_score": 116.0,
     "acum_v": 25,
     "layer": 2,
@@ -17361,7 +17407,7 @@
   },
   {
     "n": 209,
-    "chrono_n": 476,
+    "chrono_n": 473,
     "canon_score": 116.0,
     "acum_v": 25,
     "layer": 2,
@@ -17439,7 +17485,7 @@
   },
   {
     "n": 210,
-    "chrono_n": 74,
+    "chrono_n": 73,
     "canon_score": 109.0,
     "acum_v": 24,
     "layer": 2,
@@ -17458,9 +17504,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "אריק איינשטיין",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#5)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
-    "alb_trk": 5,
+    "alb": "נעמי שמר - אסיף",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -17515,7 +17561,7 @@
   },
   {
     "n": 211,
-    "chrono_n": 82,
+    "chrono_n": 81,
     "canon_score": 109.0,
     "acum_v": 24,
     "layer": 2,
@@ -17591,7 +17637,7 @@
   },
   {
     "n": 212,
-    "chrono_n": 258,
+    "chrono_n": 259,
     "canon_score": 108.0,
     "acum_v": 14,
     "layer": 2,
@@ -17613,9 +17659,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "יהורם גאון",
-    "alb": "שולי נתן שרה נעמי שמר (#4)",
-    "alb_group": "שולי נתן שרה נעמי שמר",
-    "alb_trk": 4,
+    "alb": "איפה את אהובה (1969)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -17670,7 +17716,7 @@
   },
   {
     "n": 213,
-    "chrono_n": 237,
+    "chrono_n": 236,
     "canon_score": 108.0,
     "acum_v": 14,
     "layer": 2,
@@ -17749,7 +17795,7 @@
   },
   {
     "n": 214,
-    "chrono_n": 561,
+    "chrono_n": 559,
     "canon_score": 108.0,
     "acum_v": 14,
     "layer": 2,
@@ -17768,11 +17814,11 @@
     "vtitle": "Hagevatron | קרן יער - הגבעטרון - אחר קציר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "2:44",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "שולי נתן שרה נעמי שמר (#4)",
-    "alb_group": "שולי נתן שרה נעמי שמר",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#4)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 4,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -17828,7 +17874,7 @@
   },
   {
     "n": 215,
-    "chrono_n": 592,
+    "chrono_n": 590,
     "canon_score": 107.0,
     "acum_v": 13,
     "layer": 2,
@@ -17975,7 +18021,7 @@
   },
   {
     "n": 217,
-    "chrono_n": 78,
+    "chrono_n": 77,
     "canon_score": 107.0,
     "acum_v": 23,
     "layer": 2,
@@ -18123,7 +18169,7 @@
   },
   {
     "n": 219,
-    "chrono_n": 306,
+    "chrono_n": 307,
     "canon_score": 106.0,
     "acum_v": 11,
     "layer": 2,
@@ -18192,7 +18238,7 @@
   },
   {
     "n": 220,
-    "chrono_n": 322,
+    "chrono_n": 323,
     "canon_score": 105.0,
     "acum_v": 17,
     "layer": 2,
@@ -18221,7 +18267,7 @@
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "מה אמרו הציפורים הנודדות",
     "links": [
       {
         "source": "nli",
@@ -18265,7 +18311,7 @@
   },
   {
     "n": 221,
-    "chrono_n": 113,
+    "chrono_n": 111,
     "canon_score": 105.0,
     "acum_v": 17,
     "layer": 2,
@@ -18294,7 +18340,7 @@
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "מה אמרו הציפורים הנודדות",
     "links": [
       {
         "source": "nli",
@@ -18338,7 +18384,7 @@
   },
   {
     "n": 222,
-    "chrono_n": 642,
+    "chrono_n": 640,
     "canon_score": 103.0,
     "acum_v": 19,
     "layer": 2,
@@ -18476,7 +18522,7 @@
   },
   {
     "n": 224,
-    "chrono_n": 308,
+    "chrono_n": 309,
     "canon_score": 102.0,
     "acum_v": 17,
     "layer": 2,
@@ -18547,7 +18593,7 @@
   },
   {
     "n": 225,
-    "chrono_n": 211,
+    "chrono_n": 210,
     "canon_score": 102.0,
     "acum_v": 17,
     "layer": 2,
@@ -18625,7 +18671,7 @@
   },
   {
     "n": 226,
-    "chrono_n": 141,
+    "chrono_n": 139,
     "canon_score": 101.0,
     "acum_v": 1,
     "layer": 2,
@@ -18696,7 +18742,7 @@
   },
   {
     "n": 227,
-    "chrono_n": 622,
+    "chrono_n": 620,
     "canon_score": 101.0,
     "acum_v": 1,
     "layer": 2,
@@ -18714,8 +18760,8 @@
     "vtitle": "איילת אהבים - יהורם גאון והדודאים (1993) | עיבוד וניהול מוזיקלי: קובי אשרת",
     "ch": "קובי אשרת - הערוץ הרשמי",
     "dur": "3:18",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "יהורם גאון והדודאים",
     "alb": "יהורם גאון והדודאים (1993)",
     "alb_group": "סינגל / ביצוע בודד",
@@ -18845,7 +18891,7 @@
   },
   {
     "n": 229,
-    "chrono_n": 233,
+    "chrono_n": 232,
     "canon_score": 100.0,
     "acum_v": 12,
     "layer": 2,
@@ -18977,7 +19023,7 @@
   },
   {
     "n": 231,
-    "chrono_n": 585,
+    "chrono_n": 583,
     "canon_score": 98.0,
     "acum_v": 46,
     "layer": 2,
@@ -19193,7 +19239,7 @@
   },
   {
     "n": 234,
-    "chrono_n": 157,
+    "chrono_n": 155,
     "canon_score": 98.0,
     "acum_v": 14,
     "layer": 2,
@@ -19283,7 +19329,7 @@
   },
   {
     "n": 235,
-    "chrono_n": 541,
+    "chrono_n": 539,
     "canon_score": 97.0,
     "acum_v": 12,
     "layer": 2,
@@ -19416,7 +19462,7 @@
   },
   {
     "n": 237,
-    "chrono_n": 259,
+    "chrono_n": 260,
     "canon_score": 95.0,
     "acum_v": 12,
     "layer": 2,
@@ -19435,9 +19481,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "חבורת שירו שיר",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#1)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
-    "alb_trk": 1,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -19485,7 +19531,7 @@
   },
   {
     "n": 238,
-    "chrono_n": 98,
+    "chrono_n": 97,
     "canon_score": 94.0,
     "acum_v": 6,
     "layer": 2,
@@ -19506,9 +19552,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "נחמה הנדל",
-    "alb": "שירי נעמי שמר (להקת הצעירים) (#3)",
-    "alb_group": "שירי נעמי שמר (להקת הצעירים)",
-    "alb_trk": 3,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -19556,7 +19602,7 @@
   },
   {
     "n": 239,
-    "chrono_n": 122,
+    "chrono_n": 120,
     "canon_score": 92.0,
     "acum_v": 13,
     "layer": 2,
@@ -19627,7 +19673,7 @@
   },
   {
     "n": 240,
-    "chrono_n": 604,
+    "chrono_n": 602,
     "canon_score": 92.0,
     "acum_v": 11,
     "layer": 2,
@@ -19696,7 +19742,7 @@
   },
   {
     "n": 241,
-    "chrono_n": 569,
+    "chrono_n": 567,
     "canon_score": 92.0,
     "acum_v": 13,
     "layer": 2,
@@ -19765,7 +19811,7 @@
   },
   {
     "n": 242,
-    "chrono_n": 635,
+    "chrono_n": 633,
     "canon_score": 91.0,
     "acum_v": 16,
     "layer": 2,
@@ -19834,7 +19880,7 @@
   },
   {
     "n": 243,
-    "chrono_n": 636,
+    "chrono_n": 634,
     "canon_score": 91.0,
     "acum_v": 16,
     "layer": 2,
@@ -19903,7 +19949,7 @@
   },
   {
     "n": 244,
-    "chrono_n": 637,
+    "chrono_n": 635,
     "canon_score": 91.0,
     "acum_v": 16,
     "layer": 2,
@@ -19972,7 +20018,7 @@
   },
   {
     "n": 245,
-    "chrono_n": 137,
+    "chrono_n": 135,
     "canon_score": 90.0,
     "acum_v": 12,
     "layer": 2,
@@ -19994,7 +20040,7 @@
     "dur": "2:49",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת פיקוד צפון",
+    "perf": "להקת פיקוד הצפון",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -20045,7 +20091,7 @@
   },
   {
     "n": 246,
-    "chrono_n": 132,
+    "chrono_n": 130,
     "canon_score": 90.0,
     "acum_v": 12,
     "layer": 2,
@@ -20118,7 +20164,7 @@
   },
   {
     "n": 247,
-    "chrono_n": 381,
+    "chrono_n": 382,
     "canon_score": 90.0,
     "acum_v": 8,
     "layer": 2,
@@ -20190,7 +20236,7 @@
   },
   {
     "n": 248,
-    "chrono_n": 366,
+    "chrono_n": 367,
     "canon_score": 90.0,
     "acum_v": 8,
     "layer": 2,
@@ -20262,7 +20308,7 @@
   },
   {
     "n": 249,
-    "chrono_n": 522,
+    "chrono_n": 519,
     "canon_score": 87.0,
     "acum_v": 3,
     "layer": 2,
@@ -20338,7 +20384,7 @@
   },
   {
     "n": 250,
-    "chrono_n": 525,
+    "chrono_n": 524,
     "canon_score": 85.0,
     "acum_v": 11,
     "layer": 2,
@@ -20356,7 +20402,7 @@
     "dur": "3:45",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת הנחל",
+    "perf": "להקת הנח\"ל",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -20407,7 +20453,7 @@
   },
   {
     "n": 251,
-    "chrono_n": 527,
+    "chrono_n": 526,
     "canon_score": 85.0,
     "acum_v": 4,
     "layer": 2,
@@ -20457,7 +20503,7 @@
   },
   {
     "n": 252,
-    "chrono_n": 264,
+    "chrono_n": 265,
     "canon_score": 83.0,
     "acum_v": 1,
     "layer": 2,
@@ -20590,7 +20636,7 @@
   },
   {
     "n": 254,
-    "chrono_n": 576,
+    "chrono_n": 574,
     "canon_score": 79.0,
     "acum_v": 1,
     "layer": 2,
@@ -20647,7 +20693,7 @@
   },
   {
     "n": 255,
-    "chrono_n": 320,
+    "chrono_n": 321,
     "canon_score": 77.0,
     "acum_v": 12,
     "layer": 2,
@@ -20866,7 +20912,7 @@
   },
   {
     "n": 258,
-    "chrono_n": 589,
+    "chrono_n": 587,
     "canon_score": 73.0,
     "acum_v": 14,
     "layer": 2,
@@ -20889,8 +20935,8 @@
     "vtitle": "והוא יושיענו - מילים: תהילים נ\"ה | לחן ושירה: נעמי שמר",
     "ch": "ללי שמר",
     "dur": "3:34",
-    "tier": "4_original_performance",
-    "tier_label": "4. ביצוע מקורי",
+    "tier": "3_naomi_performance",
+    "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -20951,7 +20997,7 @@
   },
   {
     "n": 259,
-    "chrono_n": 590,
+    "chrono_n": 588,
     "canon_score": 73.0,
     "acum_v": 14,
     "layer": 2,
@@ -21036,7 +21082,7 @@
   },
   {
     "n": 260,
-    "chrono_n": 591,
+    "chrono_n": 589,
     "canon_score": 73.0,
     "acum_v": 14,
     "layer": 2,
@@ -21190,7 +21236,7 @@
   },
   {
     "n": 262,
-    "chrono_n": 540,
+    "chrono_n": 538,
     "canon_score": 72.0,
     "acum_v": 6,
     "layer": 2,
@@ -21245,7 +21291,7 @@
   },
   {
     "n": 263,
-    "chrono_n": 575,
+    "chrono_n": 573,
     "canon_score": 72.0,
     "acum_v": 6,
     "layer": 2,
@@ -21264,9 +21310,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "הפרברים",
-    "alb": "חפצים אישיים (משה בקר) (#4)",
-    "alb_group": "חפצים אישיים (משה בקר)",
-    "alb_trk": 4,
+    "alb": "מוזיקה (1989)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -21300,7 +21346,7 @@
   },
   {
     "n": 264,
-    "chrono_n": 547,
+    "chrono_n": 545,
     "canon_score": 72.0,
     "acum_v": 6,
     "layer": 2,
@@ -21369,7 +21415,7 @@
   },
   {
     "n": 265,
-    "chrono_n": 641,
+    "chrono_n": 639,
     "canon_score": 71.0,
     "acum_v": 14,
     "layer": 2,
@@ -21441,7 +21487,7 @@
   },
   {
     "n": 266,
-    "chrono_n": 587,
+    "chrono_n": 585,
     "canon_score": 71.0,
     "acum_v": 14,
     "layer": 2,
@@ -21513,7 +21559,7 @@
   },
   {
     "n": 267,
-    "chrono_n": 644,
+    "chrono_n": 642,
     "canon_score": 71.0,
     "acum_v": 8,
     "layer": 2,
@@ -21584,7 +21630,7 @@
   },
   {
     "n": 268,
-    "chrono_n": 470,
+    "chrono_n": 467,
     "canon_score": 69.0,
     "acum_v": 6,
     "layer": 2,
@@ -21653,7 +21699,7 @@
   },
   {
     "n": 269,
-    "chrono_n": 471,
+    "chrono_n": 468,
     "canon_score": 69.0,
     "acum_v": 6,
     "layer": 2,
@@ -21777,7 +21823,7 @@
   },
   {
     "n": 271,
-    "chrono_n": 236,
+    "chrono_n": 235,
     "canon_score": 68.0,
     "acum_v": 15,
     "layer": 2,
@@ -21832,7 +21878,7 @@
   },
   {
     "n": 272,
-    "chrono_n": 169,
+    "chrono_n": 167,
     "canon_score": 67.0,
     "acum_v": 16,
     "layer": 2,
@@ -21897,7 +21943,7 @@
   },
   {
     "n": 273,
-    "chrono_n": 536,
+    "chrono_n": 534,
     "canon_score": 67.0,
     "acum_v": 4,
     "layer": 2,
@@ -21952,7 +21998,7 @@
   },
   {
     "n": 274,
-    "chrono_n": 580,
+    "chrono_n": 578,
     "canon_score": 66.0,
     "acum_v": 3,
     "layer": 2,
@@ -22002,7 +22048,7 @@
   },
   {
     "n": 275,
-    "chrono_n": 298,
+    "chrono_n": 299,
     "canon_score": 64.0,
     "acum_v": 6,
     "layer": 2,
@@ -22071,7 +22117,7 @@
   },
   {
     "n": 276,
-    "chrono_n": 207,
+    "chrono_n": 206,
     "canon_score": 64.0,
     "acum_v": 6,
     "layer": 2,
@@ -22140,7 +22186,7 @@
   },
   {
     "n": 277,
-    "chrono_n": 231,
+    "chrono_n": 230,
     "canon_score": 64.0,
     "acum_v": 6,
     "layer": 2,
@@ -22159,8 +22205,8 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "שולי נתן",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#2)",
-    "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
+    "alb": "שולי נתן שרה נעמי שמר (#2)",
+    "alb_group": "שולי נתן שרה נעמי שמר",
     "alb_trk": 2,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -22209,7 +22255,7 @@
   },
   {
     "n": 278,
-    "chrono_n": 273,
+    "chrono_n": 274,
     "canon_score": 64.0,
     "acum_v": 4,
     "layer": 2,
@@ -22267,7 +22313,7 @@
   },
   {
     "n": 279,
-    "chrono_n": 643,
+    "chrono_n": 641,
     "canon_score": 63.0,
     "acum_v": 7,
     "layer": 2,
@@ -22557,7 +22603,7 @@
   },
   {
     "n": 283,
-    "chrono_n": 84,
+    "chrono_n": 83,
     "canon_score": 62.0,
     "acum_v": 4,
     "layer": 2,
@@ -22580,9 +22626,9 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "על הדבש ועל העוקץ (נעמי שמר) (#10)",
-    "alb_group": "על הדבש ועל העוקץ (נעמי שמר)",
-    "alb_trk": 10,
+    "alb": "נעמי שמר שרה את יצירותיה (1960)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -22637,7 +22683,7 @@
   },
   {
     "n": 284,
-    "chrono_n": 494,
+    "chrono_n": 491,
     "canon_score": 61.0,
     "acum_v": 12,
     "layer": 2,
@@ -22715,7 +22761,7 @@
   },
   {
     "n": 285,
-    "chrono_n": 495,
+    "chrono_n": 492,
     "canon_score": 61.0,
     "acum_v": 12,
     "layer": 2,
@@ -22793,7 +22839,7 @@
   },
   {
     "n": 286,
-    "chrono_n": 510,
+    "chrono_n": 507,
     "canon_score": 60.0,
     "acum_v": 5,
     "layer": 2,
@@ -22812,8 +22858,8 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "על הדבש ועל העוקץ (נעמי שמר) (#8)",
-    "alb_group": "על הדבש ועל העוקץ (נעמי שמר)",
+    "alb": "אל בורות המים (נעמי שמר) (#8)",
+    "alb_group": "אל בורות המים (נעמי שמר)",
     "alb_trk": 8,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: נתן אלתרמן",
@@ -22862,7 +22908,7 @@
   },
   {
     "n": 287,
-    "chrono_n": 360,
+    "chrono_n": 361,
     "canon_score": 59.0,
     "acum_v": 8,
     "layer": 2,
@@ -22931,7 +22977,7 @@
   },
   {
     "n": 288,
-    "chrono_n": 368,
+    "chrono_n": 369,
     "canon_score": 59.0,
     "acum_v": 8,
     "layer": 2,
@@ -23000,7 +23046,7 @@
   },
   {
     "n": 289,
-    "chrono_n": 514,
+    "chrono_n": 511,
     "canon_score": 57.0,
     "acum_v": 4,
     "layer": 2,
@@ -23055,7 +23101,7 @@
   },
   {
     "n": 290,
-    "chrono_n": 146,
+    "chrono_n": 144,
     "canon_score": 56.0,
     "acum_v": 7,
     "layer": 2,
@@ -23124,7 +23170,7 @@
   },
   {
     "n": 291,
-    "chrono_n": 213,
+    "chrono_n": 212,
     "canon_score": 56.0,
     "acum_v": 7,
     "layer": 2,
@@ -23193,7 +23239,7 @@
   },
   {
     "n": 292,
-    "chrono_n": 586,
+    "chrono_n": 584,
     "canon_score": 56.0,
     "acum_v": 6,
     "layer": 2,
@@ -23212,8 +23258,8 @@
     "vtitle": "רבקה מיכאלי - שיר ערש למקרים מיוחדים",
     "ch": "Eyatn",
     "dur": "2:09",
-    "tier": "4_original_performance",
-    "tier_label": "4. ביצוע מקורי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "רבקה מיכאלי",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -23258,7 +23304,7 @@
   },
   {
     "n": 293,
-    "chrono_n": 317,
+    "chrono_n": 318,
     "canon_score": 56.0,
     "acum_v": 6,
     "layer": 2,
@@ -23330,7 +23376,7 @@
   },
   {
     "n": 294,
-    "chrono_n": 537,
+    "chrono_n": 535,
     "canon_score": 55.0,
     "acum_v": 5,
     "layer": 2,
@@ -23401,7 +23447,7 @@
   },
   {
     "n": 295,
-    "chrono_n": 276,
+    "chrono_n": 277,
     "canon_score": 55.0,
     "acum_v": 5,
     "layer": 2,
@@ -23468,7 +23514,7 @@
   },
   {
     "n": 296,
-    "chrono_n": 277,
+    "chrono_n": 278,
     "canon_score": 55.0,
     "acum_v": 5,
     "layer": 2,
@@ -23602,7 +23648,7 @@
   },
   {
     "n": 298,
-    "chrono_n": 615,
+    "chrono_n": 613,
     "canon_score": 55.0,
     "acum_v": 4,
     "layer": 2,
@@ -23659,7 +23705,7 @@
   },
   {
     "n": 299,
-    "chrono_n": 620,
+    "chrono_n": 618,
     "canon_score": 55.0,
     "acum_v": 4,
     "layer": 2,
@@ -23716,7 +23762,7 @@
   },
   {
     "n": 300,
-    "chrono_n": 152,
+    "chrono_n": 150,
     "canon_score": 53.0,
     "acum_v": 7,
     "layer": 2,
@@ -23803,7 +23849,7 @@
   },
   {
     "n": 301,
-    "chrono_n": 160,
+    "chrono_n": 158,
     "canon_score": 53.0,
     "acum_v": 7,
     "layer": 2,
@@ -23890,7 +23936,7 @@
   },
   {
     "n": 302,
-    "chrono_n": 139,
+    "chrono_n": 137,
     "canon_score": 53.0,
     "acum_v": 7,
     "layer": 2,
@@ -23977,7 +24023,7 @@
   },
   {
     "n": 303,
-    "chrono_n": 254,
+    "chrono_n": 253,
     "canon_score": 53.0,
     "acum_v": 7,
     "layer": 2,
@@ -24064,7 +24110,7 @@
   },
   {
     "n": 304,
-    "chrono_n": 507,
+    "chrono_n": 505,
     "canon_score": 53.0,
     "acum_v": 8,
     "layer": 2,
@@ -24114,7 +24160,7 @@
   },
   {
     "n": 305,
-    "chrono_n": 274,
+    "chrono_n": 275,
     "canon_score": 52.0,
     "acum_v": 3,
     "layer": 2,
@@ -24183,7 +24229,7 @@
   },
   {
     "n": 306,
-    "chrono_n": 546,
+    "chrono_n": 544,
     "canon_score": 52.0,
     "acum_v": 2,
     "layer": 2,
@@ -24318,7 +24364,7 @@
   },
   {
     "n": 308,
-    "chrono_n": 582,
+    "chrono_n": 580,
     "canon_score": 51.0,
     "acum_v": 12,
     "layer": 2,
@@ -24340,7 +24386,7 @@
     "dur": "3:45",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת הנחל",
+    "perf": "להקת הנח\"ל",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -24391,7 +24437,7 @@
   },
   {
     "n": 309,
-    "chrono_n": 341,
+    "chrono_n": 342,
     "canon_score": 51.0,
     "acum_v": 1,
     "layer": 2,
@@ -24463,7 +24509,7 @@
   },
   {
     "n": 310,
-    "chrono_n": 242,
+    "chrono_n": 241,
     "canon_score": 51.0,
     "acum_v": 7,
     "layer": 2,
@@ -24541,7 +24587,7 @@
   },
   {
     "n": 311,
-    "chrono_n": 243,
+    "chrono_n": 242,
     "canon_score": 51.0,
     "acum_v": 7,
     "layer": 2,
@@ -24619,7 +24665,7 @@
   },
   {
     "n": 312,
-    "chrono_n": 562,
+    "chrono_n": 560,
     "canon_score": 51.0,
     "acum_v": 7,
     "layer": 2,
@@ -24637,11 +24683,11 @@
     "vtitle": "Hagevatron | מתי - הגבעטרון - אחר קציר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "3:06",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר - הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 999,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
@@ -24697,7 +24743,7 @@
   },
   {
     "n": 313,
-    "chrono_n": 577,
+    "chrono_n": 575,
     "canon_score": 50.0,
     "acum_v": 1,
     "layer": 2,
@@ -24768,7 +24814,7 @@
   },
   {
     "n": 314,
-    "chrono_n": 286,
+    "chrono_n": 287,
     "canon_score": 50.0,
     "acum_v": 3,
     "layer": 2,
@@ -24823,7 +24869,7 @@
   },
   {
     "n": 315,
-    "chrono_n": 299,
+    "chrono_n": 300,
     "canon_score": 50.0,
     "acum_v": 1,
     "layer": 2,
@@ -24892,7 +24938,7 @@
   },
   {
     "n": 316,
-    "chrono_n": 485,
+    "chrono_n": 482,
     "canon_score": 50.0,
     "acum_v": 1,
     "layer": 2,
@@ -24961,7 +25007,7 @@
   },
   {
     "n": 317,
-    "chrono_n": 340,
+    "chrono_n": 341,
     "canon_score": 50.0,
     "acum_v": 1,
     "layer": 2,
@@ -25058,7 +25104,7 @@
     "dur": "1:54",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "רוחמה רז וצוות הווי פיקוד מרכז",
+    "perf": "רוחמה רז וצוות הווי פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -25109,7 +25155,7 @@
   },
   {
     "n": 319,
-    "chrono_n": 556,
+    "chrono_n": 554,
     "canon_score": 47.0,
     "acum_v": 3,
     "layer": 2,
@@ -25178,7 +25224,7 @@
   },
   {
     "n": 320,
-    "chrono_n": 345,
+    "chrono_n": 346,
     "canon_score": 47.0,
     "acum_v": 1,
     "layer": 2,
@@ -25249,7 +25295,7 @@
   },
   {
     "n": 321,
-    "chrono_n": 346,
+    "chrono_n": 347,
     "canon_score": 47.0,
     "acum_v": 1,
     "layer": 2,
@@ -25390,7 +25436,7 @@
   },
   {
     "n": 323,
-    "chrono_n": 348,
+    "chrono_n": 349,
     "canon_score": 47.0,
     "acum_v": 6,
     "layer": 2,
@@ -25409,12 +25455,12 @@
     "vtitle": "שיר עד - שבת (שמש שקעה) - מילים ולחן: נעמי שמר | שירה: נתנאלה, 1974",
     "ch": "שיר עד - Shir Ad",
     "dur": "2:00",
-    "tier": "4_original_performance",
-    "tier_label": "4. ביצוע מקורי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "נתנאלה",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#6)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
-    "alb_trk": 6,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -25462,7 +25508,7 @@
   },
   {
     "n": 324,
-    "chrono_n": 390,
+    "chrono_n": 391,
     "canon_score": 47.0,
     "acum_v": 3,
     "layer": 2,
@@ -25580,7 +25626,7 @@
   },
   {
     "n": 326,
-    "chrono_n": 459,
+    "chrono_n": 458,
     "canon_score": 46.0,
     "acum_v": 9,
     "layer": 2,
@@ -25649,7 +25695,7 @@
   },
   {
     "n": 327,
-    "chrono_n": 504,
+    "chrono_n": 502,
     "canon_score": 46.0,
     "acum_v": 1,
     "layer": 2,
@@ -25709,7 +25755,7 @@
   },
   {
     "n": 328,
-    "chrono_n": 477,
+    "chrono_n": 474,
     "canon_score": 45.0,
     "acum_v": 4,
     "layer": 2,
@@ -25771,7 +25817,7 @@
   },
   {
     "n": 329,
-    "chrono_n": 473,
+    "chrono_n": 470,
     "canon_score": 45.0,
     "acum_v": 4,
     "layer": 2,
@@ -25833,7 +25879,7 @@
   },
   {
     "n": 330,
-    "chrono_n": 633,
+    "chrono_n": 631,
     "canon_score": 45.0,
     "acum_v": 11,
     "layer": 2,
@@ -25913,7 +25959,7 @@
   },
   {
     "n": 331,
-    "chrono_n": 639,
+    "chrono_n": 637,
     "canon_score": 45.0,
     "acum_v": 11,
     "layer": 2,
@@ -26017,9 +26063,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "ריקה זראי",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#4)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
-    "alb_trk": 4,
+    "alb": "שירים מכנרת",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -26113,7 +26159,7 @@
   },
   {
     "n": 334,
-    "chrono_n": 109,
+    "chrono_n": 108,
     "canon_score": 44.0,
     "acum_v": 2,
     "layer": 2,
@@ -26179,7 +26225,7 @@
   },
   {
     "n": 335,
-    "chrono_n": 508,
+    "chrono_n": 506,
     "canon_score": 44.0,
     "acum_v": 2,
     "layer": 2,
@@ -26245,7 +26291,7 @@
   },
   {
     "n": 336,
-    "chrono_n": 581,
+    "chrono_n": 579,
     "canon_score": 44.0,
     "acum_v": 1,
     "layer": 2,
@@ -26307,7 +26353,7 @@
   },
   {
     "n": 337,
-    "chrono_n": 186,
+    "chrono_n": 184,
     "canon_score": 43.0,
     "acum_v": 18,
     "layer": 2,
@@ -26354,7 +26400,7 @@
   },
   {
     "n": 338,
-    "chrono_n": 180,
+    "chrono_n": 178,
     "canon_score": 43.0,
     "acum_v": 1,
     "layer": 2,
@@ -26404,7 +26450,7 @@
   },
   {
     "n": 339,
-    "chrono_n": 304,
+    "chrono_n": 305,
     "canon_score": 42.0,
     "acum_v": 9,
     "layer": 2,
@@ -26473,7 +26519,7 @@
   },
   {
     "n": 340,
-    "chrono_n": 538,
+    "chrono_n": 536,
     "canon_score": 42.0,
     "acum_v": 4,
     "layer": 2,
@@ -26530,7 +26576,7 @@
   },
   {
     "n": 341,
-    "chrono_n": 539,
+    "chrono_n": 537,
     "canon_score": 42.0,
     "acum_v": 4,
     "layer": 2,
@@ -26587,7 +26633,7 @@
   },
   {
     "n": 342,
-    "chrono_n": 178,
+    "chrono_n": 176,
     "canon_score": 40.0,
     "acum_v": 1,
     "layer": 2,
@@ -26634,7 +26680,7 @@
   },
   {
     "n": 343,
-    "chrono_n": 174,
+    "chrono_n": 172,
     "canon_score": 40.0,
     "acum_v": 1,
     "layer": 2,
@@ -26681,7 +26727,7 @@
   },
   {
     "n": 344,
-    "chrono_n": 280,
+    "chrono_n": 281,
     "canon_score": 40.0,
     "acum_v": 1,
     "layer": 2,
@@ -26736,7 +26782,7 @@
   },
   {
     "n": 345,
-    "chrono_n": 153,
+    "chrono_n": 151,
     "canon_score": 39.0,
     "acum_v": 7,
     "layer": 2,
@@ -26814,7 +26860,7 @@
   },
   {
     "n": 346,
-    "chrono_n": 154,
+    "chrono_n": 152,
     "canon_score": 39.0,
     "acum_v": 7,
     "layer": 2,
@@ -26892,7 +26938,7 @@
   },
   {
     "n": 347,
-    "chrono_n": 247,
+    "chrono_n": 246,
     "canon_score": 39.0,
     "acum_v": 7,
     "layer": 2,
@@ -26970,7 +27016,7 @@
   },
   {
     "n": 348,
-    "chrono_n": 347,
+    "chrono_n": 348,
     "canon_score": 38.0,
     "acum_v": 1,
     "layer": 2,
@@ -27034,7 +27080,7 @@
   },
   {
     "n": 349,
-    "chrono_n": 170,
+    "chrono_n": 168,
     "canon_score": 37.0,
     "acum_v": 1,
     "layer": 2,
@@ -27081,7 +27127,7 @@
   },
   {
     "n": 350,
-    "chrono_n": 171,
+    "chrono_n": 169,
     "canon_score": 37.0,
     "acum_v": 1,
     "layer": 2,
@@ -27131,7 +27177,7 @@
   },
   {
     "n": 351,
-    "chrono_n": 176,
+    "chrono_n": 174,
     "canon_score": 37.0,
     "acum_v": 1,
     "layer": 2,
@@ -27180,7 +27226,7 @@
   },
   {
     "n": 352,
-    "chrono_n": 172,
+    "chrono_n": 170,
     "canon_score": 37.0,
     "acum_v": 1,
     "layer": 2,
@@ -27229,7 +27275,7 @@
   },
   {
     "n": 353,
-    "chrono_n": 173,
+    "chrono_n": 171,
     "canon_score": 37.0,
     "acum_v": 1,
     "layer": 2,
@@ -27280,7 +27326,7 @@
   },
   {
     "n": 354,
-    "chrono_n": 179,
+    "chrono_n": 177,
     "canon_score": 37.0,
     "acum_v": 1,
     "layer": 2,
@@ -27330,7 +27376,7 @@
   },
   {
     "n": 355,
-    "chrono_n": 175,
+    "chrono_n": 173,
     "canon_score": 37.0,
     "acum_v": 1,
     "layer": 2,
@@ -27377,7 +27423,7 @@
   },
   {
     "n": 356,
-    "chrono_n": 114,
+    "chrono_n": 112,
     "canon_score": 105.0,
     "acum_v": 17,
     "layer": 2,
@@ -27406,7 +27452,7 @@
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "מה אמרו הציפורים הנודדות",
     "links": [
       {
         "source": "nli",
@@ -27450,7 +27496,7 @@
   },
   {
     "n": 357,
-    "chrono_n": 646,
+    "chrono_n": 644,
     "canon_score": 71.0,
     "acum_v": 8,
     "layer": 2,
@@ -27521,7 +27567,7 @@
   },
   {
     "n": 358,
-    "chrono_n": 488,
+    "chrono_n": 485,
     "canon_score": 62.0,
     "acum_v": 4,
     "layer": 2,
@@ -27601,7 +27647,7 @@
   },
   {
     "n": 359,
-    "chrono_n": 203,
+    "chrono_n": 200,
     "canon_score": 53.0,
     "acum_v": 7,
     "layer": 2,
@@ -27688,7 +27734,7 @@
   },
   {
     "n": 360,
-    "chrono_n": 559,
+    "chrono_n": 557,
     "canon_score": 1246.0,
     "acum_v": 552,
     "layer": 1,
@@ -27710,11 +27756,11 @@
     "vtitle": "הגבעטרון - ירושלים של זהב",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "4:08",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#11)",
-    "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#11)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 11,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -27976,9 +28022,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "דני גרנות",
-    "alb": "הגשש החיוור בשירי נעמי שמר (#10)",
-    "alb_group": "הגשש החיוור בשירי נעמי שמר",
-    "alb_trk": 10,
+    "alb": "דני גרנות (1973)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -28047,7 +28093,7 @@
   },
   {
     "n": 364,
-    "chrono_n": 552,
+    "chrono_n": 550,
     "canon_score": 854.0,
     "acum_v": 262,
     "layer": 1,
@@ -28066,8 +28112,8 @@
     "vtitle": "הגבעטרון - על כל אלה",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "4:34",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
     "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
@@ -28133,7 +28179,7 @@
   },
   {
     "n": 365,
-    "chrono_n": 111,
+    "chrono_n": 109,
     "canon_score": 763.0,
     "acum_v": 210,
     "layer": 1,
@@ -28220,7 +28266,7 @@
   },
   {
     "n": 366,
-    "chrono_n": 202,
+    "chrono_n": 199,
     "canon_score": 763.0,
     "acum_v": 210,
     "layer": 1,
@@ -28307,7 +28353,7 @@
   },
   {
     "n": 367,
-    "chrono_n": 649,
+    "chrono_n": 647,
     "canon_score": 709.0,
     "acum_v": 200,
     "layer": 1,
@@ -28571,7 +28617,7 @@
   },
   {
     "n": 370,
-    "chrono_n": 465,
+    "chrono_n": 462,
     "canon_score": 639.0,
     "acum_v": 157,
     "layer": 1,
@@ -28656,7 +28702,7 @@
   },
   {
     "n": 371,
-    "chrono_n": 558,
+    "chrono_n": 556,
     "canon_score": 596.0,
     "acum_v": 175,
     "layer": 1,
@@ -28735,7 +28781,7 @@
   },
   {
     "n": 372,
-    "chrono_n": 388,
+    "chrono_n": 389,
     "canon_score": 561.0,
     "acum_v": 117,
     "layer": 1,
@@ -28755,8 +28801,8 @@
     "vtitle": "אריק איינשטיין פגישה לאין קץ Arik Einstein",
     "ch": "אריק איינשטיין I פונוקול",
     "dur": "4:18",
-    "tier": "4_original_performance",
-    "tier_label": "4. ביצוע מקורי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "אריק איינשטיין",
     "alb": "ארץ ישראל הישנה והטובה חלק ב' (1976)",
     "alb_group": "ארץ ישראל הישנה והטובה חלק ב' (1976)",
@@ -28829,7 +28875,7 @@
   },
   {
     "n": 373,
-    "chrono_n": 372,
+    "chrono_n": 373,
     "canon_score": 561.0,
     "acum_v": 117,
     "layer": 1,
@@ -28849,8 +28895,8 @@
     "vtitle": "חוה אלברשטיין - פגישה לאין קץ (1975)",
     "ch": "Chava Alberstein - חוה אלברשטיין",
     "dur": "3:44",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "חוה אלברשטיין",
     "alb": "כמו צמח בר (חוה אלברשטיין, 1975)",
     "alb_group": "כמו צמח בר (חוה אלברשטיין, 1975)",
@@ -28923,7 +28969,7 @@
   },
   {
     "n": 374,
-    "chrono_n": 297,
+    "chrono_n": 298,
     "canon_score": 544.0,
     "acum_v": 108,
     "layer": 1,
@@ -29008,7 +29054,7 @@
   },
   {
     "n": 375,
-    "chrono_n": 377,
+    "chrono_n": 378,
     "canon_score": 544.0,
     "acum_v": 108,
     "layer": 1,
@@ -29093,7 +29139,7 @@
   },
   {
     "n": 376,
-    "chrono_n": 554,
+    "chrono_n": 552,
     "canon_score": 543.0,
     "acum_v": 136,
     "layer": 1,
@@ -29114,8 +29160,8 @@
     "vtitle": "Hagevatron | לילה בחוף אכזיב - הגבעטרון - אחר קציר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "3:16",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
     "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
@@ -29167,7 +29213,7 @@
   },
   {
     "n": 377,
-    "chrono_n": 363,
+    "chrono_n": 364,
     "canon_score": 534.0,
     "acum_v": 95,
     "layer": 1,
@@ -29264,7 +29310,7 @@
   },
   {
     "n": 378,
-    "chrono_n": 612,
+    "chrono_n": 610,
     "canon_score": 534.0,
     "acum_v": 95,
     "layer": 1,
@@ -29287,8 +29333,8 @@
     "vtitle": "אצלנו בפסנתר -4- אלף בית (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:42",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
     "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
@@ -29361,7 +29407,7 @@
   },
   {
     "n": 379,
-    "chrono_n": 374,
+    "chrono_n": 375,
     "canon_score": 534.0,
     "acum_v": 95,
     "layer": 1,
@@ -29458,7 +29504,7 @@
   },
   {
     "n": 380,
-    "chrono_n": 617,
+    "chrono_n": 615,
     "canon_score": 532.0,
     "acum_v": 124,
     "layer": 1,
@@ -29626,7 +29672,7 @@
   },
   {
     "n": 382,
-    "chrono_n": 564,
+    "chrono_n": 562,
     "canon_score": 530.0,
     "acum_v": 103,
     "layer": 1,
@@ -29647,11 +29693,11 @@
     "vtitle": "הגבעטרון - החגיגה נגמרת",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "3:18",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר - הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -29714,7 +29760,7 @@
   },
   {
     "n": 383,
-    "chrono_n": 269,
+    "chrono_n": 270,
     "canon_score": 515.0,
     "acum_v": 111,
     "layer": 1,
@@ -29810,7 +29856,7 @@
   },
   {
     "n": 384,
-    "chrono_n": 599,
+    "chrono_n": 597,
     "canon_score": 515.0,
     "acum_v": 111,
     "layer": 1,
@@ -29899,7 +29945,7 @@
   },
   {
     "n": 385,
-    "chrono_n": 391,
+    "chrono_n": 392,
     "canon_score": 492.0,
     "acum_v": 92,
     "layer": 1,
@@ -29978,7 +30024,7 @@
   },
   {
     "n": 386,
-    "chrono_n": 652,
+    "chrono_n": 650,
     "canon_score": 492.0,
     "acum_v": 92,
     "layer": 1,
@@ -30057,7 +30103,7 @@
   },
   {
     "n": 387,
-    "chrono_n": 266,
+    "chrono_n": 267,
     "canon_score": 487.0,
     "acum_v": 83,
     "layer": 1,
@@ -30151,7 +30197,7 @@
   },
   {
     "n": 388,
-    "chrono_n": 573,
+    "chrono_n": 571,
     "canon_score": 487.0,
     "acum_v": 83,
     "layer": 1,
@@ -30171,11 +30217,11 @@
     "vtitle": "Hagevatron | שנינו מאותו הכפר - הגבעטרון - אחר קציר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "4:02",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר - הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -30245,7 +30291,7 @@
   },
   {
     "n": 389,
-    "chrono_n": 256,
+    "chrono_n": 255,
     "canon_score": 487.0,
     "acum_v": 83,
     "layer": 1,
@@ -30433,7 +30479,7 @@
   },
   {
     "n": 391,
-    "chrono_n": 565,
+    "chrono_n": 563,
     "canon_score": 485.0,
     "acum_v": 82,
     "layer": 1,
@@ -30451,11 +30497,11 @@
     "vtitle": "HaGevatron | הוי ארצי מולדתי - הגבעטרון - גוונים",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "2:49",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר - הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 999,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: שאול טשרניחובסקי",
@@ -30497,7 +30543,7 @@
   },
   {
     "n": 392,
-    "chrono_n": 613,
+    "chrono_n": 611,
     "canon_score": 482.0,
     "acum_v": 101,
     "layer": 1,
@@ -30517,8 +30563,8 @@
     "vtitle": "אצלנו בפסנתר -9- אצלנו בחצר (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:41",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
     "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
@@ -30577,7 +30623,7 @@
   },
   {
     "n": 393,
-    "chrono_n": 260,
+    "chrono_n": 261,
     "canon_score": 455.0,
     "acum_v": 132,
     "layer": 1,
@@ -30653,7 +30699,7 @@
   },
   {
     "n": 394,
-    "chrono_n": 382,
+    "chrono_n": 383,
     "canon_score": 447.0,
     "acum_v": 79,
     "layer": 1,
@@ -30765,8 +30811,8 @@
     "vtitle": "נועה",
     "ch": "Arik Lavie - Topic",
     "dur": "3:03",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "אריק לביא",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -30839,7 +30885,7 @@
   },
   {
     "n": 396,
-    "chrono_n": 574,
+    "chrono_n": 572,
     "canon_score": 433.0,
     "acum_v": 57,
     "layer": 1,
@@ -30858,11 +30904,11 @@
     "vtitle": "Hagevatron | נועה - הגבעטרון - אחר קציר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "3:19",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר - הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -30932,7 +30978,7 @@
   },
   {
     "n": 397,
-    "chrono_n": 257,
+    "chrono_n": 256,
     "canon_score": 433.0,
     "acum_v": 57,
     "layer": 1,
@@ -31025,7 +31071,7 @@
   },
   {
     "n": 398,
-    "chrono_n": 596,
+    "chrono_n": 594,
     "canon_score": 433.0,
     "acum_v": 57,
     "layer": 1,
@@ -31211,7 +31257,7 @@
   },
   {
     "n": 400,
-    "chrono_n": 654,
+    "chrono_n": 653,
     "canon_score": 433.0,
     "acum_v": 57,
     "layer": 1,
@@ -31304,7 +31350,7 @@
   },
   {
     "n": 401,
-    "chrono_n": 198,
+    "chrono_n": 195,
     "canon_score": 414.0,
     "acum_v": 119,
     "layer": 1,
@@ -31397,7 +31443,7 @@
   },
   {
     "n": 402,
-    "chrono_n": 261,
+    "chrono_n": 262,
     "canon_score": 414.0,
     "acum_v": 119,
     "layer": 1,
@@ -31476,7 +31522,7 @@
   },
   {
     "n": 403,
-    "chrono_n": 651,
+    "chrono_n": 649,
     "canon_score": 411.0,
     "acum_v": 73,
     "layer": 1,
@@ -31495,8 +31541,8 @@
     "vtitle": "ירדנה ארזי לשיר זה כמו להיות ירדן Yardena Arazi",
     "ch": "ירדנה ארזי הערוץ הרשמי",
     "dur": "3:28",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "ירדנה ארזי",
     "alb": "שהשמש תעבור עלי",
     "alb_group": "סינגל / ביצוע בודד",
@@ -31555,7 +31601,7 @@
   },
   {
     "n": 404,
-    "chrono_n": 455,
+    "chrono_n": 454,
     "canon_score": 404.0,
     "acum_v": 73,
     "layer": 1,
@@ -31723,7 +31769,7 @@
   },
   {
     "n": 406,
-    "chrono_n": 645,
+    "chrono_n": 643,
     "canon_score": 398.0,
     "acum_v": 65,
     "layer": 1,
@@ -31891,7 +31937,7 @@
   },
   {
     "n": 408,
-    "chrono_n": 611,
+    "chrono_n": 609,
     "canon_score": 382.0,
     "acum_v": 50,
     "layer": 1,
@@ -31914,8 +31960,8 @@
     "vtitle": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:12",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
     "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
@@ -31974,7 +32020,7 @@
   },
   {
     "n": 409,
-    "chrono_n": 610,
+    "chrono_n": 608,
     "canon_score": 354.0,
     "acum_v": 41,
     "layer": 1,
@@ -31995,8 +32041,8 @@
     "vtitle": "אצלנו בפסנתר -10- החופש הגדול (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:38",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
     "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
@@ -32055,7 +32101,7 @@
   },
   {
     "n": 410,
-    "chrono_n": 523,
+    "chrono_n": 520,
     "canon_score": 352.0,
     "acum_v": 87,
     "layer": 1,
@@ -32277,7 +32323,7 @@
   },
   {
     "n": 413,
-    "chrono_n": 245,
+    "chrono_n": 244,
     "canon_score": 323.0,
     "acum_v": 65,
     "layer": 1,
@@ -32364,7 +32410,7 @@
   },
   {
     "n": 414,
-    "chrono_n": 311,
+    "chrono_n": 312,
     "canon_score": 323.0,
     "acum_v": 65,
     "layer": 1,
@@ -32458,7 +32504,7 @@
   },
   {
     "n": 415,
-    "chrono_n": 270,
+    "chrono_n": 271,
     "canon_score": 323.0,
     "acum_v": 65,
     "layer": 1,
@@ -32545,7 +32591,7 @@
   },
   {
     "n": 416,
-    "chrono_n": 621,
+    "chrono_n": 619,
     "canon_score": 312.0,
     "acum_v": 25,
     "layer": 1,
@@ -32567,11 +32613,11 @@
     "vtitle": "אצלנו בפסנתר -5- שלום כיתה א' (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:05",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
-    "alb": "אצלנו בפסנתר (1993)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -32691,18 +32737,18 @@
   },
   {
     "n": 418,
-    "chrono_n": 407,
+    "chrono_n": 530,
     "canon_score": 282.0,
     "acum_v": 66,
     "layer": 1,
     "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-    "title": "אסיף [ביצוע: יהודית רביץ] (1976)",
+    "title": "אסיף [ביצוע: יהודית רביץ] (1986)",
     "raw_title": "אסיף",
     "alt_titles": [],
     "ver_idx": 3,
     "ver_total": 3,
-    "year": "1976",
-    "decade": "1970s",
+    "year": "1986",
+    "decade": "1980s",
     "vid": "xkGxvP-tw1w",
     "vtitle": "יהודית רביץ - אסיף | קליפ",
     "ch": "מוזיקה ישראלית",
@@ -32762,7 +32808,7 @@
   },
   {
     "n": 419,
-    "chrono_n": 76,
+    "chrono_n": 75,
     "canon_score": 233.0,
     "acum_v": 27,
     "layer": 1,
@@ -32953,7 +32999,7 @@
   },
   {
     "n": 421,
-    "chrono_n": 223,
+    "chrono_n": 222,
     "canon_score": 229.0,
     "acum_v": 52,
     "layer": 1,
@@ -33115,7 +33161,7 @@
   },
   {
     "n": 423,
-    "chrono_n": 555,
+    "chrono_n": 553,
     "canon_score": 226.0,
     "acum_v": 80,
     "layer": 1,
@@ -33134,8 +33180,8 @@
     "vtitle": "Hagevatron | כיבוי אורות - הגבעטרון - אחר קציר",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "3:22",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
     "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
@@ -33201,7 +33247,7 @@
   },
   {
     "n": 424,
-    "chrono_n": 623,
+    "chrono_n": 621,
     "canon_score": 223.0,
     "acum_v": 27,
     "layer": 1,
@@ -33217,11 +33263,11 @@
     "vtitle": "אצלנו בפסנתר -8- מיכאל (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:17",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר (מיקי קם)",
-    "alb": "אצלנו בפסנתר (1993)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_trk": 999,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: מרים ילן-שטקליס",
@@ -33277,7 +33323,7 @@
   },
   {
     "n": 425,
-    "chrono_n": 609,
+    "chrono_n": 607,
     "canon_score": 217.0,
     "acum_v": 17,
     "layer": 1,
@@ -33293,8 +33339,8 @@
     "vtitle": "אצלנו בפסנתר -2- נגיד (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:19",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
     "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
@@ -33353,7 +33399,7 @@
   },
   {
     "n": 426,
-    "chrono_n": 229,
+    "chrono_n": 228,
     "canon_score": 213.0,
     "acum_v": 24,
     "layer": 1,
@@ -33440,7 +33486,7 @@
   },
   {
     "n": 427,
-    "chrono_n": 453,
+    "chrono_n": 452,
     "canon_score": 212.0,
     "acum_v": 23,
     "layer": 1,
@@ -33512,7 +33558,7 @@
   },
   {
     "n": 428,
-    "chrono_n": 96,
+    "chrono_n": 95,
     "canon_score": 210.0,
     "acum_v": 41,
     "layer": 1,
@@ -33536,9 +33582,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "מקהלת הילדים ע\"ש צדיקוב",
-    "alb": "שירי נעמי שמר (להקת הצעירים) (#1)",
-    "alb_group": "שירי נעמי שמר (להקת הצעירים)",
-    "alb_trk": 1,
+    "alb": "מקהלת צדיקוב",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -33600,7 +33646,7 @@
   },
   {
     "n": 429,
-    "chrono_n": 190,
+    "chrono_n": 188,
     "canon_score": 210.0,
     "acum_v": 41,
     "layer": 1,
@@ -33624,9 +33670,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "יפה ירקוני",
-    "alb": "שירי נעמי שמר (להקת הצעירים) (#1)",
-    "alb_group": "שירי נעמי שמר (להקת הצעירים)",
-    "alb_trk": 1,
+    "alb": "יפה ירקוני (1966)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -33688,7 +33734,7 @@
   },
   {
     "n": 430,
-    "chrono_n": 631,
+    "chrono_n": 630,
     "canon_score": 209.0,
     "acum_v": 90,
     "layer": 1,
@@ -33708,8 +33754,8 @@
     "vtitle": "הפרברים - בשדות בית לחם / נעמי שמר (1997)",
     "ch": "Shir ivri",
     "dur": "2:18",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הפרברים",
     "alb": "הפרברים (1997)",
     "alb_group": "סינגל / ביצוע בודד",
@@ -33860,7 +33906,7 @@
   },
   {
     "n": 432,
-    "chrono_n": 458,
+    "chrono_n": 457,
     "canon_score": 203.0,
     "acum_v": 28,
     "layer": 1,
@@ -33939,7 +33985,7 @@
   },
   {
     "n": 433,
-    "chrono_n": 79,
+    "chrono_n": 78,
     "canon_score": 198.0,
     "acum_v": 83,
     "layer": 1,
@@ -34037,7 +34083,7 @@
   },
   {
     "n": 434,
-    "chrono_n": 90,
+    "chrono_n": 89,
     "canon_score": 198.0,
     "acum_v": 83,
     "layer": 1,
@@ -34064,9 +34110,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "אריק איינשטיין ותיאטרון הסמבטיון",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#4)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
-    "alb_trk": 4,
+    "alb": "תיאטרון הסמבטיון (1960)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -34135,7 +34181,7 @@
   },
   {
     "n": 435,
-    "chrono_n": 73,
+    "chrono_n": 72,
     "canon_score": 198.0,
     "acum_v": 83,
     "layer": 1,
@@ -34162,9 +34208,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "מקהלת הילדים ע\"ש צדיקוב",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#4)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
-    "alb_trk": 4,
+    "alb": "מקהלת צדיקוב",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -34308,7 +34354,7 @@
   },
   {
     "n": 437,
-    "chrono_n": 618,
+    "chrono_n": 616,
     "canon_score": 192.0,
     "acum_v": 6,
     "layer": 1,
@@ -34324,11 +34370,11 @@
     "vtitle": "אצלנו בפסנתר -6- גיא (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:32",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר (משה בקר)",
-    "alb": "חפצים אישיים (משה בקר) (#9)",
-    "alb_group": "חפצים אישיים (משה בקר)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#9)",
+    "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_trk": 9,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -34377,7 +34423,7 @@
   },
   {
     "n": 438,
-    "chrono_n": 614,
+    "chrono_n": 612,
     "canon_score": 190.0,
     "acum_v": 21,
     "layer": 1,
@@ -34395,8 +34441,8 @@
     "vtitle": "אצלנו בפסנתר -1- הפסנתר (1993)",
     "ch": "ילדות ישראלית",
     "dur": "2:08",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר (מיקי קם ונעמי שמר)",
     "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
@@ -34434,7 +34480,7 @@
   },
   {
     "n": 439,
-    "chrono_n": 650,
+    "chrono_n": 648,
     "canon_score": 188.0,
     "acum_v": 22,
     "layer": 1,
@@ -34510,7 +34556,7 @@
   },
   {
     "n": 440,
-    "chrono_n": 606,
+    "chrono_n": 604,
     "canon_score": 184.0,
     "acum_v": 12,
     "layer": 1,
@@ -34579,7 +34625,7 @@
   },
   {
     "n": 441,
-    "chrono_n": 607,
+    "chrono_n": 605,
     "canon_score": 184.0,
     "acum_v": 12,
     "layer": 1,
@@ -34648,7 +34694,7 @@
   },
   {
     "n": 442,
-    "chrono_n": 653,
+    "chrono_n": 652,
     "canon_score": 182.0,
     "acum_v": 72,
     "layer": 1,
@@ -34664,8 +34710,8 @@
     "vtitle": "Gute Gute - Kumi Tz'ei (גוטה גוטה - קומי צאי)",
     "ch": "גוטה גוטה (Gute Gute)",
     "dur": "4:01",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "גוטה גוטה",
     "alb": "גוטה גוטה",
     "alb_group": "גוטה גוטה",
@@ -34731,7 +34777,7 @@
   },
   {
     "n": 443,
-    "chrono_n": 466,
+    "chrono_n": 463,
     "canon_score": 182.0,
     "acum_v": 72,
     "layer": 1,
@@ -34747,8 +34793,8 @@
     "vtitle": "קומי צאי - אופירה גלוסקא והפרברים (1980)",
     "ch": "אופירה גלוסקא - הערוץ הרשמי",
     "dur": "0:52",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "אופירה גלוסקא והפרברים",
     "alb": "בצוותא - שירי אביב (1980)",
     "alb_group": "בצוותא - שירי אביב (1980)",
@@ -34814,7 +34860,7 @@
   },
   {
     "n": 444,
-    "chrono_n": 234,
+    "chrono_n": 233,
     "canon_score": 179.0,
     "acum_v": 11,
     "layer": 1,
@@ -34893,7 +34939,7 @@
   },
   {
     "n": 445,
-    "chrono_n": 380,
+    "chrono_n": 381,
     "canon_score": 176.0,
     "acum_v": 16,
     "layer": 1,
@@ -34957,17 +35003,17 @@
   },
   {
     "n": 446,
-    "chrono_n": 509,
+    "chrono_n": 494,
     "canon_score": 174.0,
     "acum_v": 39,
     "layer": 1,
     "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-    "title": "חבלי משיח [ביצוע נעמי שמר] (1982)",
+    "title": "חבלי משיח [ביצוע נעמי שמר] (1981)",
     "raw_title": "חבלי משיח",
     "alt_titles": [],
     "ver_idx": 2,
     "ver_total": 2,
-    "year": "1982",
+    "year": "1981",
     "decade": "1980s",
     "vid": "0u--FHf-LHU",
     "vtitle": "חבלי משיח (מתוך \"על הדבש ועל העוקץ\", 1982)",
@@ -35026,7 +35072,7 @@
   },
   {
     "n": 447,
-    "chrono_n": 640,
+    "chrono_n": 638,
     "canon_score": 163.0,
     "acum_v": 35,
     "layer": 1,
@@ -35044,8 +35090,8 @@
     "vtitle": "פגשתיך בשדה-תלתן",
     "ch": "The Roosters - Topic",
     "dur": "3:44",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "התרנגולים",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -35129,8 +35175,8 @@
     "vtitle": "בשדה תלתן",
     "ch": "Hakol Over Habibi - Topic",
     "dur": "3:39",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הכל עובר חביבי",
     "alb": "שירים שמחוץ להצגה (1977)",
     "alb_group": "סינגל / ביצוע בודד",
@@ -35196,7 +35242,7 @@
   },
   {
     "n": 449,
-    "chrono_n": 406,
+    "chrono_n": 407,
     "canon_score": 163.0,
     "acum_v": 32,
     "layer": 1,
@@ -35275,7 +35321,7 @@
   },
   {
     "n": 450,
-    "chrono_n": 387,
+    "chrono_n": 388,
     "canon_score": 162.0,
     "acum_v": 31,
     "layer": 1,
@@ -35293,8 +35339,8 @@
     "vtitle": "הלילה הולך בשדרות - אילנית",
     "ch": "אילנית - הערוץ הרשמי - Ilanit Official",
     "dur": "3:41",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "אילנית",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -35353,7 +35399,7 @@
   },
   {
     "n": 451,
-    "chrono_n": 513,
+    "chrono_n": 510,
     "canon_score": 162.0,
     "acum_v": 43,
     "layer": 1,
@@ -35369,8 +35415,8 @@
     "vtitle": "רכב אש - הגבעטרון - מקול הלב | HaGevatron",
     "ch": "הגבעטרון | האלבומים הגדולים",
     "dur": "2:11",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
     "alb": "מקול הלב",
     "alb_group": "סינגל / ביצוע בודד",
@@ -35436,7 +35482,7 @@
   },
   {
     "n": 452,
-    "chrono_n": 219,
+    "chrono_n": 218,
     "canon_score": 162.0,
     "acum_v": 43,
     "layer": 1,
@@ -35519,7 +35565,7 @@
   },
   {
     "n": 453,
-    "chrono_n": 128,
+    "chrono_n": 126,
     "canon_score": 161.0,
     "acum_v": 48,
     "layer": 1,
@@ -35605,7 +35651,7 @@
   },
   {
     "n": 454,
-    "chrono_n": 300,
+    "chrono_n": 301,
     "canon_score": 161.0,
     "acum_v": 48,
     "layer": 1,
@@ -35627,8 +35673,8 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "חבורת בימות",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#9)",
-    "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
+    "alb": "שירי נעמי שמר (חבורת בימות) (#9)",
+    "alb_group": "שירי נעמי שמר (חבורת בימות)",
     "alb_trk": 9,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -35698,7 +35744,7 @@
   },
   {
     "n": 455,
-    "chrono_n": 361,
+    "chrono_n": 362,
     "canon_score": 150.0,
     "acum_v": 11,
     "layer": 1,
@@ -35781,7 +35827,7 @@
   },
   {
     "n": 456,
-    "chrono_n": 516,
+    "chrono_n": 513,
     "canon_score": 149.0,
     "acum_v": 12,
     "layer": 1,
@@ -35948,7 +35994,7 @@
   },
   {
     "n": 458,
-    "chrono_n": 140,
+    "chrono_n": 138,
     "canon_score": 35.0,
     "acum_v": 7,
     "layer": 3,
@@ -36029,7 +36075,7 @@
   },
   {
     "n": 459,
-    "chrono_n": 161,
+    "chrono_n": 159,
     "canon_score": 35.0,
     "acum_v": 7,
     "layer": 3,
@@ -36110,7 +36156,7 @@
   },
   {
     "n": 460,
-    "chrono_n": 193,
+    "chrono_n": 191,
     "canon_score": 35.0,
     "acum_v": 7,
     "layer": 3,
@@ -36191,7 +36237,7 @@
   },
   {
     "n": 461,
-    "chrono_n": 135,
+    "chrono_n": 133,
     "canon_score": 35.0,
     "acum_v": 2,
     "layer": 3,
@@ -36269,7 +36315,7 @@
   },
   {
     "n": 462,
-    "chrono_n": 191,
+    "chrono_n": 189,
     "canon_score": 35.0,
     "acum_v": 2,
     "layer": 3,
@@ -36347,7 +36393,7 @@
   },
   {
     "n": 463,
-    "chrono_n": 319,
+    "chrono_n": 320,
     "canon_score": 35.0,
     "acum_v": 2,
     "layer": 3,
@@ -36425,7 +36471,7 @@
   },
   {
     "n": 464,
-    "chrono_n": 321,
+    "chrono_n": 322,
     "canon_score": 35.0,
     "acum_v": 2,
     "layer": 3,
@@ -36503,7 +36549,7 @@
   },
   {
     "n": 465,
-    "chrono_n": 250,
+    "chrono_n": 249,
     "canon_score": 34.0,
     "acum_v": 2,
     "layer": 3,
@@ -36565,7 +36611,7 @@
   },
   {
     "n": 466,
-    "chrono_n": 570,
+    "chrono_n": 568,
     "canon_score": 34.0,
     "acum_v": 6,
     "layer": 3,
@@ -36634,7 +36680,7 @@
   },
   {
     "n": 467,
-    "chrono_n": 571,
+    "chrono_n": 569,
     "canon_score": 34.0,
     "acum_v": 6,
     "layer": 3,
@@ -36703,7 +36749,7 @@
   },
   {
     "n": 468,
-    "chrono_n": 305,
+    "chrono_n": 306,
     "canon_score": 33.0,
     "acum_v": 4,
     "layer": 3,
@@ -36769,7 +36815,7 @@
   },
   {
     "n": 469,
-    "chrono_n": 557,
+    "chrono_n": 555,
     "canon_score": 33.0,
     "acum_v": 2,
     "layer": 3,
@@ -36818,7 +36864,7 @@
   },
   {
     "n": 470,
-    "chrono_n": 121,
+    "chrono_n": 119,
     "canon_score": 33.0,
     "acum_v": 7,
     "layer": 3,
@@ -36891,7 +36937,7 @@
   },
   {
     "n": 471,
-    "chrono_n": 127,
+    "chrono_n": 125,
     "canon_score": 33.0,
     "acum_v": 7,
     "layer": 3,
@@ -36964,7 +37010,7 @@
   },
   {
     "n": 472,
-    "chrono_n": 271,
+    "chrono_n": 272,
     "canon_score": 33.0,
     "acum_v": 7,
     "layer": 3,
@@ -37037,7 +37083,7 @@
   },
   {
     "n": 473,
-    "chrono_n": 398,
+    "chrono_n": 399,
     "canon_score": 33.0,
     "acum_v": 1,
     "layer": 3,
@@ -37094,7 +37140,7 @@
   },
   {
     "n": 474,
-    "chrono_n": 310,
+    "chrono_n": 311,
     "canon_score": 32.0,
     "acum_v": 3,
     "layer": 3,
@@ -37156,7 +37202,7 @@
   },
   {
     "n": 475,
-    "chrono_n": 344,
+    "chrono_n": 345,
     "canon_score": 32.0,
     "acum_v": 1,
     "layer": 3,
@@ -37215,7 +37261,7 @@
   },
   {
     "n": 476,
-    "chrono_n": 579,
+    "chrono_n": 577,
     "canon_score": 32.0,
     "acum_v": 5,
     "layer": 3,
@@ -37266,7 +37312,7 @@
   },
   {
     "n": 477,
-    "chrono_n": 95,
+    "chrono_n": 94,
     "canon_score": 32.0,
     "acum_v": 5,
     "layer": 3,
@@ -37320,7 +37366,7 @@
   },
   {
     "n": 478,
-    "chrono_n": 107,
+    "chrono_n": 106,
     "canon_score": 32.0,
     "acum_v": 5,
     "layer": 3,
@@ -37374,7 +37420,7 @@
   },
   {
     "n": 479,
-    "chrono_n": 318,
+    "chrono_n": 319,
     "canon_score": 31.0,
     "acum_v": 2,
     "layer": 3,
@@ -37436,7 +37482,7 @@
   },
   {
     "n": 480,
-    "chrono_n": 392,
+    "chrono_n": 393,
     "canon_score": 31.0,
     "acum_v": 2,
     "layer": 3,
@@ -37482,7 +37528,7 @@
   },
   {
     "n": 481,
-    "chrono_n": 493,
+    "chrono_n": 490,
     "canon_score": 31.0,
     "acum_v": 3,
     "layer": 3,
@@ -37529,7 +37575,7 @@
   },
   {
     "n": 482,
-    "chrono_n": 166,
+    "chrono_n": 164,
     "canon_score": 31.0,
     "acum_v": 9,
     "layer": 3,
@@ -37619,7 +37665,7 @@
     "dur": "2:28",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "צוות הווי פיקוד מרכז",
+    "perf": "צוות הווי פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -37663,7 +37709,7 @@
   },
   {
     "n": 484,
-    "chrono_n": 307,
+    "chrono_n": 308,
     "canon_score": 30.0,
     "acum_v": 5,
     "layer": 3,
@@ -37734,7 +37780,7 @@
   },
   {
     "n": 485,
-    "chrono_n": 578,
+    "chrono_n": 576,
     "canon_score": 30.0,
     "acum_v": 3,
     "layer": 3,
@@ -37795,7 +37841,7 @@
   },
   {
     "n": 486,
-    "chrono_n": 177,
+    "chrono_n": 175,
     "canon_score": 30.0,
     "acum_v": 1,
     "layer": 3,
@@ -37894,7 +37940,7 @@
   },
   {
     "n": 488,
-    "chrono_n": 342,
+    "chrono_n": 343,
     "canon_score": 29.0,
     "acum_v": 2,
     "layer": 3,
@@ -37953,7 +37999,7 @@
   },
   {
     "n": 489,
-    "chrono_n": 373,
+    "chrono_n": 374,
     "canon_score": 29.0,
     "acum_v": 1,
     "layer": 3,
@@ -38005,7 +38051,7 @@
   },
   {
     "n": 490,
-    "chrono_n": 281,
+    "chrono_n": 282,
     "canon_score": 29.0,
     "acum_v": 1,
     "layer": 3,
@@ -38052,7 +38098,7 @@
   },
   {
     "n": 491,
-    "chrono_n": 550,
+    "chrono_n": 548,
     "canon_score": 29.0,
     "acum_v": 1,
     "layer": 3,
@@ -38072,8 +38118,8 @@
     "vtitle": "שלג בצפת- נורה משולם",
     "ch": "רחל פרומן קומלוש",
     "dur": "2:37",
-    "tier": "4_original_performance",
-    "tier_label": "4. ביצוע מקורי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "נורה משולם",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -38106,7 +38152,7 @@
   },
   {
     "n": 492,
-    "chrono_n": 115,
+    "chrono_n": 113,
     "canon_score": 29.0,
     "acum_v": 1,
     "layer": 3,
@@ -38160,7 +38206,7 @@
   },
   {
     "n": 493,
-    "chrono_n": 263,
+    "chrono_n": 264,
     "canon_score": 28.0,
     "acum_v": 1,
     "layer": 3,
@@ -38204,7 +38250,7 @@
   },
   {
     "n": 494,
-    "chrono_n": 542,
+    "chrono_n": 540,
     "canon_score": 28.0,
     "acum_v": 3,
     "layer": 3,
@@ -38253,7 +38299,7 @@
   },
   {
     "n": 495,
-    "chrono_n": 389,
+    "chrono_n": 390,
     "canon_score": 28.0,
     "acum_v": 3,
     "layer": 3,
@@ -38290,7 +38336,7 @@
   },
   {
     "n": 496,
-    "chrono_n": 288,
+    "chrono_n": 289,
     "canon_score": 27.0,
     "acum_v": 6,
     "layer": 3,
@@ -38350,7 +38396,7 @@
   },
   {
     "n": 497,
-    "chrono_n": 627,
+    "chrono_n": 625,
     "canon_score": 27.0,
     "acum_v": 6,
     "layer": 3,
@@ -38419,7 +38465,7 @@
   },
   {
     "n": 498,
-    "chrono_n": 567,
+    "chrono_n": 565,
     "canon_score": 27.0,
     "acum_v": 3,
     "layer": 3,
@@ -38477,7 +38523,7 @@
   },
   {
     "n": 499,
-    "chrono_n": 384,
+    "chrono_n": 385,
     "canon_score": 27.0,
     "acum_v": 9,
     "layer": 3,
@@ -38551,7 +38597,7 @@
   },
   {
     "n": 500,
-    "chrono_n": 249,
+    "chrono_n": 248,
     "canon_score": 27.0,
     "acum_v": 6,
     "layer": 3,
@@ -38623,7 +38669,7 @@
   },
   {
     "n": 501,
-    "chrono_n": 238,
+    "chrono_n": 237,
     "canon_score": 27.0,
     "acum_v": 6,
     "layer": 3,
@@ -38695,7 +38741,7 @@
   },
   {
     "n": 502,
-    "chrono_n": 543,
+    "chrono_n": 541,
     "canon_score": 27.0,
     "acum_v": 2,
     "layer": 3,
@@ -38804,7 +38850,7 @@
   },
   {
     "n": 504,
-    "chrono_n": 91,
+    "chrono_n": 90,
     "canon_score": 27.0,
     "acum_v": 6,
     "layer": 3,
@@ -38882,8 +38928,8 @@
     "vtitle": "האחים והאחיות - רכבת הברית (1973)",
     "ch": "Release - Topic",
     "dur": "2:30",
-    "tier": "2_album_original",
-    "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "האחים והאחיות",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -38928,7 +38974,7 @@
   },
   {
     "n": 506,
-    "chrono_n": 265,
+    "chrono_n": 266,
     "canon_score": 27.0,
     "acum_v": 2,
     "layer": 3,
@@ -38992,7 +39038,7 @@
   },
   {
     "n": 507,
-    "chrono_n": 316,
+    "chrono_n": 317,
     "canon_score": 27.0,
     "acum_v": 2,
     "layer": 3,
@@ -39056,7 +39102,7 @@
   },
   {
     "n": 508,
-    "chrono_n": 104,
+    "chrono_n": 103,
     "canon_score": 26.0,
     "acum_v": 1,
     "layer": 3,
@@ -39113,7 +39159,7 @@
   },
   {
     "n": 509,
-    "chrono_n": 503,
+    "chrono_n": 501,
     "canon_score": 26.0,
     "acum_v": 1,
     "layer": 3,
@@ -39138,7 +39184,7 @@
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: נתן אלתרמן",
     "co_creators": "מילים: נתן אלתרמן",
-    "opening_line": "",
+    "opening_line": "כאשר מחשיכים שמים על חוצות של מרכז מסחרי",
     "links": [
       {
         "source": "shironet",
@@ -39163,7 +39209,7 @@
   },
   {
     "n": 510,
-    "chrono_n": 354,
+    "chrono_n": 355,
     "canon_score": 26.0,
     "acum_v": 1,
     "layer": 3,
@@ -39234,7 +39280,7 @@
   },
   {
     "n": 511,
-    "chrono_n": 151,
+    "chrono_n": 149,
     "canon_score": 26.0,
     "acum_v": 4,
     "layer": 3,
@@ -39291,7 +39337,7 @@
   },
   {
     "n": 512,
-    "chrono_n": 284,
+    "chrono_n": 285,
     "canon_score": 26.0,
     "acum_v": 4,
     "layer": 3,
@@ -39348,7 +39394,7 @@
   },
   {
     "n": 513,
-    "chrono_n": 85,
+    "chrono_n": 84,
     "canon_score": 25.0,
     "acum_v": 2,
     "layer": 3,
@@ -39407,7 +39453,7 @@
   },
   {
     "n": 514,
-    "chrono_n": 105,
+    "chrono_n": 104,
     "canon_score": 25.0,
     "acum_v": 2,
     "layer": 3,
@@ -39428,9 +39474,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "אריק איינשטיין (צמד הגפרורים)",
-    "alb": "עשרת הצדיקים (להקת השעות הקטנות) (#1)",
-    "alb_group": "עשרת הצדיקים (להקת השעות הקטנות)",
-    "alb_trk": 1,
+    "alb": "צמד הגפרורים (1962)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -39630,7 +39676,7 @@
   },
   {
     "n": 517,
-    "chrono_n": 283,
+    "chrono_n": 284,
     "canon_score": 25.0,
     "acum_v": 0,
     "layer": 3,
@@ -39794,7 +39840,7 @@
   },
   {
     "n": 519,
-    "chrono_n": 164,
+    "chrono_n": 162,
     "canon_score": 25.0,
     "acum_v": 1,
     "layer": 3,
@@ -39844,7 +39890,7 @@
   },
   {
     "n": 520,
-    "chrono_n": 535,
+    "chrono_n": 533,
     "canon_score": 25.0,
     "acum_v": 1,
     "layer": 3,
@@ -39915,7 +39961,7 @@
   },
   {
     "n": 521,
-    "chrono_n": 605,
+    "chrono_n": 603,
     "canon_score": 25.0,
     "acum_v": 3,
     "layer": 3,
@@ -40040,7 +40086,7 @@
   },
   {
     "n": 523,
-    "chrono_n": 402,
+    "chrono_n": 403,
     "canon_score": 25.0,
     "acum_v": 1,
     "layer": 3,
@@ -40081,7 +40127,7 @@
   },
   {
     "n": 524,
-    "chrono_n": 403,
+    "chrono_n": 404,
     "canon_score": 24.0,
     "acum_v": 0,
     "layer": 3,
@@ -40129,7 +40175,7 @@
   },
   {
     "n": 525,
-    "chrono_n": 404,
+    "chrono_n": 405,
     "canon_score": 24.0,
     "acum_v": 0,
     "layer": 3,
@@ -40177,7 +40223,7 @@
   },
   {
     "n": 526,
-    "chrono_n": 92,
+    "chrono_n": 91,
     "canon_score": 23.0,
     "acum_v": 2,
     "layer": 3,
@@ -40204,7 +40250,7 @@
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: נחלת הכלל)",
     "co_creators": "מקור: נחלת הכלל",
-    "opening_line": "",
+    "opening_line": "אי-הא-שה, תני ידך, את יפה ואת לבדך",
     "links": [
       {
         "source": "nli",
@@ -40247,7 +40293,7 @@
     "dur": "2:25",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת פיקוד דרום",
+    "perf": "להקת פיקוד הדרום",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -40298,7 +40344,7 @@
   },
   {
     "n": 528,
-    "chrono_n": 94,
+    "chrono_n": 93,
     "canon_score": 23.0,
     "acum_v": 1,
     "layer": 3,
@@ -40342,7 +40388,7 @@
   },
   {
     "n": 529,
-    "chrono_n": 515,
+    "chrono_n": 512,
     "canon_score": 23.0,
     "acum_v": 2,
     "layer": 3,
@@ -40410,10 +40456,10 @@
     "dur": "2:23",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד מרכז",
-    "alb": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959) (#6)",
-    "alb_group": "שמעון בר ורחל אטאס בשירי נעמי שמר (1959)",
-    "alb_trk": 6,
+    "perf": "להקת פיקוד המרכז",
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -40442,7 +40488,7 @@
   },
   {
     "n": 531,
-    "chrono_n": 75,
+    "chrono_n": 74,
     "canon_score": 23.0,
     "acum_v": 5,
     "layer": 3,
@@ -40492,7 +40538,7 @@
   },
   {
     "n": 532,
-    "chrono_n": 478,
+    "chrono_n": 475,
     "canon_score": 23.0,
     "acum_v": 2,
     "layer": 3,
@@ -40551,7 +40597,7 @@
   },
   {
     "n": 533,
-    "chrono_n": 594,
+    "chrono_n": 592,
     "canon_score": 22.0,
     "acum_v": 3,
     "layer": 3,
@@ -40598,7 +40644,7 @@
   },
   {
     "n": 534,
-    "chrono_n": 603,
+    "chrono_n": 601,
     "canon_score": 22.0,
     "acum_v": 4,
     "layer": 3,
@@ -40755,7 +40801,7 @@
   },
   {
     "n": 537,
-    "chrono_n": 500,
+    "chrono_n": 498,
     "canon_score": 22.0,
     "acum_v": 1,
     "layer": 3,
@@ -40780,7 +40826,7 @@
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "הרגע מתוק והוא לא במהרה יישכח",
     "links": [
       {
         "source": "acum",
@@ -40800,7 +40846,7 @@
   },
   {
     "n": 538,
-    "chrono_n": 343,
+    "chrono_n": 344,
     "canon_score": 22.0,
     "acum_v": 1,
     "layer": 3,
@@ -40850,7 +40896,7 @@
   },
   {
     "n": 539,
-    "chrono_n": 584,
+    "chrono_n": 582,
     "canon_score": 21.0,
     "acum_v": 3,
     "layer": 3,
@@ -40919,7 +40965,7 @@
   },
   {
     "n": 540,
-    "chrono_n": 295,
+    "chrono_n": 296,
     "canon_score": 21.0,
     "acum_v": 3,
     "layer": 3,
@@ -40976,7 +41022,7 @@
   },
   {
     "n": 541,
-    "chrono_n": 395,
+    "chrono_n": 396,
     "canon_score": 21.0,
     "acum_v": 0,
     "layer": 3,
@@ -41016,7 +41062,7 @@
   },
   {
     "n": 542,
-    "chrono_n": 393,
+    "chrono_n": 394,
     "canon_score": 21.0,
     "acum_v": 0,
     "layer": 3,
@@ -41055,7 +41101,7 @@
   },
   {
     "n": 543,
-    "chrono_n": 397,
+    "chrono_n": 398,
     "canon_score": 21.0,
     "acum_v": 0,
     "layer": 3,
@@ -41096,7 +41142,7 @@
   },
   {
     "n": 544,
-    "chrono_n": 292,
+    "chrono_n": 293,
     "canon_score": 20.0,
     "acum_v": 2,
     "layer": 3,
@@ -41123,7 +41169,7 @@
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: נחלת הכלל, עממי",
     "co_creators": "לחן: נחלת הכלל, עממי",
-    "opening_line": "",
+    "opening_line": "נתתי דובדבן לה ללא חרצן",
     "links": [
       {
         "source": "shironet",
@@ -41272,7 +41318,7 @@
   },
   {
     "n": 547,
-    "chrono_n": 353,
+    "chrono_n": 354,
     "canon_score": 20.0,
     "acum_v": 2,
     "layer": 3,
@@ -41327,7 +41373,7 @@
   },
   {
     "n": 548,
-    "chrono_n": 352,
+    "chrono_n": 353,
     "canon_score": 20.0,
     "acum_v": 2,
     "layer": 3,
@@ -41382,7 +41428,7 @@
   },
   {
     "n": 549,
-    "chrono_n": 167,
+    "chrono_n": 165,
     "canon_score": 20.0,
     "acum_v": 2,
     "layer": 3,
@@ -41437,12 +41483,12 @@
   },
   {
     "n": 550,
-    "chrono_n": 632,
+    "chrono_n": 628,
     "canon_score": 19.0,
     "acum_v": 1,
     "layer": 3,
     "layer_label": "שכבה ג': פנינים נדירות וארכיון",
-    "title": "דולי (1997)",
+    "title": "דולי (1995)",
     "raw_title": "דולי",
     "alt_titles": [
       "berceuse",
@@ -41450,7 +41496,7 @@
     ],
     "ver_idx": 1,
     "ver_total": 1,
-    "year": "1997",
+    "year": "1995",
     "decade": "1990s+",
     "vid": "WILLlFVs8K4",
     "vtitle": "נורית גלרון -  עם תזמורת ״סימפונט״ רעננה  - קלאסי - BERCEUSE",
@@ -41536,7 +41582,7 @@
   },
   {
     "n": 552,
-    "chrono_n": 199,
+    "chrono_n": 196,
     "canon_score": 19.0,
     "acum_v": 1,
     "layer": 3,
@@ -41561,7 +41607,7 @@
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: שארל אזנבור)",
     "co_creators": "מקור: שארל אזנבור",
-    "opening_line": "",
+    "opening_line": "כשאת הולכת לצידי העולם כולו מונח בכף ידי",
     "links": [
       {
         "source": "shironet",
@@ -41578,7 +41624,7 @@
   },
   {
     "n": 553,
-    "chrono_n": 628,
+    "chrono_n": 626,
     "canon_score": 19.0,
     "acum_v": 4,
     "layer": 3,
@@ -41741,7 +41787,7 @@
   },
   {
     "n": 556,
-    "chrono_n": 528,
+    "chrono_n": 527,
     "canon_score": 19.0,
     "acum_v": 4,
     "layer": 3,
@@ -41813,7 +41859,7 @@
   },
   {
     "n": 557,
-    "chrono_n": 184,
+    "chrono_n": 182,
     "canon_score": 19.0,
     "acum_v": 1,
     "layer": 3,
@@ -41917,7 +41963,7 @@
   },
   {
     "n": 559,
-    "chrono_n": 634,
+    "chrono_n": 632,
     "canon_score": 19.0,
     "acum_v": 4,
     "layer": 3,
@@ -41964,7 +42010,7 @@
   },
   {
     "n": 560,
-    "chrono_n": 290,
+    "chrono_n": 291,
     "canon_score": 18.0,
     "acum_v": 3,
     "layer": 3,
@@ -42019,7 +42065,7 @@
   },
   {
     "n": 561,
-    "chrono_n": 291,
+    "chrono_n": 292,
     "canon_score": 18.0,
     "acum_v": 3,
     "layer": 3,
@@ -42074,7 +42120,7 @@
   },
   {
     "n": 562,
-    "chrono_n": 394,
+    "chrono_n": 395,
     "canon_score": 18.0,
     "acum_v": 0,
     "layer": 3,
@@ -42113,7 +42159,7 @@
   },
   {
     "n": 563,
-    "chrono_n": 399,
+    "chrono_n": 400,
     "canon_score": 18.0,
     "acum_v": 0,
     "layer": 3,
@@ -42150,7 +42196,7 @@
   },
   {
     "n": 564,
-    "chrono_n": 350,
+    "chrono_n": 351,
     "canon_score": 17.0,
     "acum_v": 2,
     "layer": 3,
@@ -42197,7 +42243,7 @@
   },
   {
     "n": 565,
-    "chrono_n": 496,
+    "chrono_n": 493,
     "canon_score": 17.0,
     "acum_v": 3,
     "layer": 3,
@@ -42241,7 +42287,7 @@
   },
   {
     "n": 566,
-    "chrono_n": 241,
+    "chrono_n": 240,
     "canon_score": 17.0,
     "acum_v": 2,
     "layer": 3,
@@ -42310,7 +42356,7 @@
   },
   {
     "n": 567,
-    "chrono_n": 629,
+    "chrono_n": 627,
     "canon_score": 17.0,
     "acum_v": 2,
     "layer": 3,
@@ -42549,7 +42595,7 @@
   },
   {
     "n": 571,
-    "chrono_n": 356,
+    "chrono_n": 357,
     "canon_score": 16.0,
     "acum_v": 2,
     "layer": 3,
@@ -42641,7 +42687,7 @@
   },
   {
     "n": 573,
-    "chrono_n": 463,
+    "chrono_n": 460,
     "canon_score": 16.0,
     "acum_v": 1,
     "layer": 3,
@@ -42668,7 +42714,7 @@
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: ברברה (מוניק סרף))",
     "co_creators": "מקור: ברברה (מוניק סרף)",
-    "opening_line": "",
+    "opening_line": "מראשית אותה הדרך כל אשר אני זוכרת",
     "links": [
       {
         "source": "shironet",
@@ -42685,7 +42731,7 @@
   },
   {
     "n": 574,
-    "chrono_n": 86,
+    "chrono_n": 85,
     "canon_score": 16.0,
     "acum_v": 1,
     "layer": 3,
@@ -42729,7 +42775,7 @@
   },
   {
     "n": 575,
-    "chrono_n": 117,
+    "chrono_n": 115,
     "canon_score": 15.0,
     "acum_v": 1,
     "layer": 3,
@@ -42795,7 +42841,7 @@
   },
   {
     "n": 576,
-    "chrono_n": 192,
+    "chrono_n": 190,
     "canon_score": 15.0,
     "acum_v": 1,
     "layer": 3,
@@ -42854,7 +42900,7 @@
   },
   {
     "n": 577,
-    "chrono_n": 165,
+    "chrono_n": 163,
     "canon_score": 15.0,
     "acum_v": 1,
     "layer": 3,
@@ -42907,7 +42953,7 @@
   },
   {
     "n": 578,
-    "chrono_n": 462,
+    "chrono_n": 459,
     "canon_score": 14.0,
     "acum_v": 3,
     "layer": 3,
@@ -42957,7 +43003,7 @@
   },
   {
     "n": 579,
-    "chrono_n": 400,
+    "chrono_n": 401,
     "canon_score": 14.0,
     "acum_v": 0,
     "layer": 3,
@@ -42983,7 +43029,18 @@
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
     "opening_line": "",
-    "links": [],
+    "links": [
+      {
+        "source": "nli",
+        "label": "הספרייה הלאומית (מסעות בנימין השלישי)",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL997012426941705171/NLI"
+      },
+      {
+        "source": "nli",
+        "label": "ארכיון נעמי שמר בספרייה הלאומית",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990047200190205171/NLI"
+      }
+    ],
     "alts": []
   },
   {
@@ -43006,7 +43063,7 @@
     "dur": "3:16",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד צפון",
+    "perf": "להקת פיקוד הצפון",
     "alb": "בגלל מסמר (להקת פיקוד צפון) (#3)",
     "alb_group": "בגלל מסמר (להקת פיקוד צפון)",
     "alb_trk": 3,
@@ -43082,7 +43139,7 @@
   },
   {
     "n": 582,
-    "chrono_n": 158,
+    "chrono_n": 156,
     "canon_score": 13.0,
     "acum_v": 2,
     "layer": 3,
@@ -43141,7 +43198,7 @@
   },
   {
     "n": 583,
-    "chrono_n": 159,
+    "chrono_n": 157,
     "canon_score": 13.0,
     "acum_v": 2,
     "layer": 3,
@@ -43194,7 +43251,7 @@
   },
   {
     "n": 584,
-    "chrono_n": 93,
+    "chrono_n": 92,
     "canon_score": 13.0,
     "acum_v": 2,
     "layer": 3,
@@ -43219,7 +43276,7 @@
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: שמעון ישראלי",
     "co_creators": "לחן: שמעון ישראלי",
-    "opening_line": "",
+    "opening_line": "דרכים, דרכים, תילים של עפר",
     "links": [
       {
         "source": "shironet",
@@ -43236,7 +43293,7 @@
   },
   {
     "n": 585,
-    "chrono_n": 142,
+    "chrono_n": 140,
     "canon_score": 13.0,
     "acum_v": 1,
     "layer": 3,
@@ -43289,7 +43346,7 @@
   },
   {
     "n": 586,
-    "chrono_n": 194,
+    "chrono_n": 192,
     "canon_score": 13.0,
     "acum_v": 1,
     "layer": 3,
@@ -43342,7 +43399,7 @@
   },
   {
     "n": 587,
-    "chrono_n": 526,
+    "chrono_n": 525,
     "canon_score": 13.0,
     "acum_v": 2,
     "layer": 3,
@@ -43413,7 +43470,7 @@
     "dur": "1:29",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד צפון",
+    "perf": "להקת פיקוד הצפון",
     "alb": "בגלל מסמר (להקת פיקוד צפון) (#2)",
     "alb_group": "בגלל מסמר (להקת פיקוד צפון)",
     "alb_trk": 2,
@@ -43437,7 +43494,7 @@
   },
   {
     "n": 589,
-    "chrono_n": 648,
+    "chrono_n": 646,
     "canon_score": 13.0,
     "acum_v": 2,
     "layer": 3,
@@ -43462,7 +43519,7 @@
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: רמי קליינשטיין",
     "co_creators": "לחן: רמי קליינשטיין",
-    "opening_line": "",
+    "opening_line": "בגידת הגוף, נאמנות הרוח",
     "links": [
       {
         "source": "shironet",
@@ -43509,7 +43566,8 @@
     "title": "פת במלח (2017)",
     "raw_title": "פת במלח",
     "alt_titles": [
-      "פת ומלח"
+      "פת ומלח",
+      "האורח"
     ],
     "ver_idx": 1,
     "ver_total": 1,
@@ -43519,8 +43577,8 @@
     "vtitle": "פת במלח - הכל עובר חביבי 2017",
     "ch": "דודי טל",
     "dur": "3:43",
-    "tier": "4_original_performance",
-    "tier_label": "4. ביצוע מקורי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הכל עובר חביבי",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -43528,7 +43586,7 @@
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "אם בשער יש אורח שנחת מעבר ים",
     "links": [
       {
         "source": "shironet",
@@ -43560,18 +43618,18 @@
   },
   {
     "n": 591,
-    "chrono_n": 460,
+    "chrono_n": 645,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
     "layer_label": "שכבה ג': פנינים נדירות וארכיון",
-    "title": "אילן [ביצוע מקורי] (1979)",
+    "title": "אילן [ביצוע מקורי] (2004)",
     "raw_title": "אילן",
     "alt_titles": [],
     "ver_idx": 1,
     "ver_total": 2,
-    "year": "1979",
-    "decade": "1970s",
+    "year": "2004",
+    "decade": "1990s+",
     "vid": "T3qo2SYP52U",
     "vtitle": "אילן- נעמי שמר",
     "ch": "Israeli Air Force | חיל־האוויר",
@@ -43605,18 +43663,18 @@
   },
   {
     "n": 592,
-    "chrono_n": 461,
+    "chrono_n": 654,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
     "layer_label": "שכבה ג': פנינים נדירות וארכיון",
-    "title": "אילן [ביצוע: דורית ראובני (שירה וסיפור השיר)] (1979)",
+    "title": "אילן [ביצוע: דורית ראובני (שירה וסיפור השיר)] (2017)",
     "raw_title": "אילן",
     "alt_titles": [],
     "ver_idx": 2,
     "ver_total": 2,
-    "year": "1979",
-    "decade": "1970s",
+    "year": "2017",
+    "decade": "1990s+",
     "vid": "B7rC1GyPlqM",
     "vtitle": "דורית ראובני שרה את השיר \"אילן\" ומספרת על השיר האחרון של נעמי שמר",
     "ch": "מוזיאון חיל האוויר בחצרים",
@@ -43650,7 +43708,7 @@
   },
   {
     "n": 593,
-    "chrono_n": 126,
+    "chrono_n": 124,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -43692,7 +43750,7 @@
   },
   {
     "n": 594,
-    "chrono_n": 120,
+    "chrono_n": 118,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -43736,7 +43794,7 @@
   },
   {
     "n": 595,
-    "chrono_n": 383,
+    "chrono_n": 384,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -43950,7 +44008,7 @@
   },
   {
     "n": 599,
-    "chrono_n": 293,
+    "chrono_n": 294,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -43995,7 +44053,7 @@
   },
   {
     "n": 600,
-    "chrono_n": 147,
+    "chrono_n": 145,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -44015,7 +44073,7 @@
     "dur": "2:15",
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-    "perf": "להקת פיקוד מרכז",
+    "perf": "להקת פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -44143,7 +44201,7 @@
   },
   {
     "n": 603,
-    "chrono_n": 129,
+    "chrono_n": 127,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -44168,7 +44226,7 @@
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: מילטון אייג'ר)",
     "co_creators": "מקור: מילטון אייג'ר",
-    "opening_line": "",
+    "opening_line": "שוב פורח החצב וזה סימן שבא הסתיו",
     "links": [
       {
         "source": "acum",
@@ -44188,7 +44246,7 @@
   },
   {
     "n": 604,
-    "chrono_n": 130,
+    "chrono_n": 128,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -44213,7 +44271,7 @@
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: מילטון אייג'ר)",
     "co_creators": "מקור: מילטון אייג'ר",
-    "opening_line": "",
+    "opening_line": "שוב פורח החצב וזה סימן שבא הסתיו",
     "links": [
       {
         "source": "acum",
@@ -44233,7 +44291,7 @@
   },
   {
     "n": 605,
-    "chrono_n": 386,
+    "chrono_n": 387,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -44260,7 +44318,7 @@
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "בין ערד ומצדה - תודה, יש חיילת יחידה - תודה",
     "links": [
       {
         "source": "acum",
@@ -44287,7 +44345,7 @@
   },
   {
     "n": 606,
-    "chrono_n": 253,
+    "chrono_n": 252,
     "canon_score": 12.0,
     "acum_v": 1,
     "layer": 3,
@@ -44347,8 +44405,8 @@
     "vtitle": "זֶמר נוגה (התשמע קולי) - רבקה רביבו",
     "ch": "רבקה רביבו",
     "dur": "2:58",
-    "tier": "4_original_performance",
-    "tier_label": "4. ביצוע מקורי",
+    "tier": "5_cover",
+    "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "רבקה רביבו",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
@@ -44368,7 +44426,7 @@
   },
   {
     "n": 608,
-    "chrono_n": 583,
+    "chrono_n": 581,
     "canon_score": 11.0,
     "acum_v": 3,
     "layer": 3,
@@ -44393,7 +44451,7 @@
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
     "co_creators": "מילים: רחל המשוררת",
-    "opening_line": "",
+    "opening_line": "האחרת הזאת, שתשכון אחרי בפינת הסתר בלב",
     "links": [
       {
         "source": "shironet",
@@ -44476,7 +44534,7 @@
   },
   {
     "n": 610,
-    "chrono_n": 80,
+    "chrono_n": 79,
     "canon_score": 10.0,
     "acum_v": 2,
     "layer": 3,
@@ -44540,7 +44598,7 @@
   },
   {
     "n": 611,
-    "chrono_n": 163,
+    "chrono_n": 161,
     "canon_score": 10.0,
     "acum_v": 2,
     "layer": 3,
@@ -44613,7 +44671,7 @@
   },
   {
     "n": 612,
-    "chrono_n": 517,
+    "chrono_n": 514,
     "canon_score": 9.0,
     "acum_v": 1,
     "layer": 3,
@@ -44658,7 +44716,7 @@
   },
   {
     "n": 613,
-    "chrono_n": 118,
+    "chrono_n": 116,
     "canon_score": 9.0,
     "acum_v": 1,
     "layer": 3,
@@ -44710,7 +44768,7 @@
   },
   {
     "n": 614,
-    "chrono_n": 119,
+    "chrono_n": 117,
     "canon_score": 9.0,
     "acum_v": 1,
     "layer": 3,
@@ -44762,7 +44820,7 @@
   },
   {
     "n": 615,
-    "chrono_n": 289,
+    "chrono_n": 290,
     "canon_score": 9.0,
     "acum_v": 1,
     "layer": 3,
@@ -44808,7 +44866,7 @@
   },
   {
     "n": 616,
-    "chrono_n": 385,
+    "chrono_n": 386,
     "canon_score": 9.0,
     "acum_v": 2,
     "layer": 3,
@@ -44833,7 +44891,7 @@
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: חיים נחמן ביאליק",
     "co_creators": "מילים: חיים נחמן ביאליק",
-    "opening_line": "",
+    "opening_line": "אם אין לבותיכם ערלים ויש בקדקדכם מעט דעה",
     "links": [
       {
         "source": "acum",
@@ -44845,7 +44903,7 @@
   },
   {
     "n": 617,
-    "chrono_n": 185,
+    "chrono_n": 183,
     "canon_score": 9.0,
     "acum_v": 1,
     "layer": 3,
@@ -45093,7 +45151,7 @@
   },
   {
     "n": 623,
-    "chrono_n": 136,
+    "chrono_n": 134,
     "canon_score": 7.0,
     "acum_v": 0,
     "layer": 3,
@@ -45201,7 +45259,7 @@
   },
   {
     "n": 625,
-    "chrono_n": 251,
+    "chrono_n": 250,
     "canon_score": 7.0,
     "acum_v": 0,
     "layer": 3,
@@ -45288,12 +45346,12 @@
   },
   {
     "n": 627,
-    "chrono_n": 647,
+    "chrono_n": 651,
     "canon_score": 6.0,
     "acum_v": 2,
     "layer": 3,
     "layer_label": "שכבה ג': פנינים נדירות וארכיון",
-    "title": "אוניית הכאב (2004)",
+    "title": "אוניית הכאב (2014)",
     "raw_title": "אוניית הכאב",
     "alt_titles": [
       "אוניית כאב",
@@ -45301,7 +45359,7 @@
     ],
     "ver_idx": 1,
     "ver_total": 1,
-    "year": "2004",
+    "year": "2014",
     "decade": "1990s+",
     "vid": "K1DBCpPxqeM",
     "vtitle": "שלמה גרוניך מבצע לראשונה את השיר אניית כאב",
@@ -45343,7 +45401,7 @@
   },
   {
     "n": 628,
-    "chrono_n": 144,
+    "chrono_n": 142,
     "canon_score": 6.0,
     "acum_v": 2,
     "layer": 3,
@@ -45368,7 +45426,7 @@
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "התפוזים התפוזים טובים באלף אחוזים",
     "links": [
       {
         "source": "acum",
@@ -45380,7 +45438,7 @@
   },
   {
     "n": 629,
-    "chrono_n": 549,
+    "chrono_n": 547,
     "canon_score": 6.0,
     "acum_v": 2,
     "layer": 3,
@@ -45417,14 +45475,16 @@
   },
   {
     "n": 630,
-    "chrono_n": 102,
+    "chrono_n": 101,
     "canon_score": 5.0,
     "acum_v": 1,
     "layer": 3,
     "layer_label": "שכבה ג': פנינים נדירות וארכיון",
-    "title": "'רות ושות (1961)",
-    "raw_title": "'רות ושות",
-    "alt_titles": [],
+    "title": "רות ושות' (1961)",
+    "raw_title": "רות ושות'",
+    "alt_titles": [
+      "'רות ושות"
+    ],
     "ver_idx": 1,
     "ver_total": 1,
     "year": "1961",
@@ -45435,7 +45495,7 @@
     "dur": "2:32",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד מרכז",
+    "perf": "להקת פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -45454,7 +45514,7 @@
   },
   {
     "n": 631,
-    "chrono_n": 103,
+    "chrono_n": 102,
     "canon_score": 5.0,
     "acum_v": 1,
     "layer": 3,
@@ -45474,7 +45534,7 @@
     "dur": "2:50",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד מרכז",
+    "perf": "להקת פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -45493,17 +45553,17 @@
   },
   {
     "n": 632,
-    "chrono_n": 533,
+    "chrono_n": 521,
     "canon_score": 5.0,
     "acum_v": 1,
     "layer": 3,
     "layer_label": "שכבה ג': פנינים נדירות וארכיון",
-    "title": "הכתר השרביט והגלימה [ביצוע מקורי] (1986)",
+    "title": "הכתר השרביט והגלימה [ביצוע מקורי] (1984)",
     "raw_title": "הכתר השרביט והגלימה",
     "alt_titles": [],
     "ver_idx": 1,
     "ver_total": 2,
-    "year": "1986",
+    "year": "1984",
     "decade": "1980s",
     "vid": "p3PIKVi8goc",
     "vtitle": "הכתר השרביט והגלימה - משה בקר (1986)",
@@ -45518,7 +45578,7 @@
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "התזמורת בצליליה מרעימה וזהו זה",
     "links": [
       {
         "source": "acum",
@@ -45545,17 +45605,17 @@
   },
   {
     "n": 633,
-    "chrono_n": 534,
+    "chrono_n": 522,
     "canon_score": 5.0,
     "acum_v": 1,
     "layer": 3,
     "layer_label": "שכבה ג': פנינים נדירות וארכיון",
-    "title": "הכתר השרביט והגלימה [ביצוע: משה בקר (הופעה חיה, 1986)] (1986)",
+    "title": "הכתר השרביט והגלימה [ביצוע: משה בקר (הופעה חיה, 1984)] (1984)",
     "raw_title": "הכתר השרביט והגלימה",
     "alt_titles": [],
     "ver_idx": 2,
     "ver_total": 2,
-    "year": "1986",
+    "year": "1984",
     "decade": "1980s",
     "vid": "_vJ6UtXHybA",
     "vtitle": "הכתר השרביט והגלימה - משה בקר (חי מתוך \"הדרן לשמואל רודנסקי\", 1986)",
@@ -45563,14 +45623,14 @@
     "dur": "3:19",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "משה בקר (הופעה חיה, 1986)",
+    "perf": "משה בקר (הופעה חיה, 1984)",
     "alb": "הדרן לשמואל רודנסקי (1986)",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
-    "opening_line": "",
+    "opening_line": "התזמורת בצליליה מרעימה וזהו זה",
     "links": [
       {
         "source": "acum",
@@ -45597,7 +45657,7 @@
   },
   {
     "n": 634,
-    "chrono_n": 492,
+    "chrono_n": 489,
     "canon_score": 5.0,
     "acum_v": 1,
     "layer": 3,
@@ -45648,7 +45708,7 @@
   },
   {
     "n": 635,
-    "chrono_n": 145,
+    "chrono_n": 143,
     "canon_score": 5.0,
     "acum_v": 1,
     "layer": 3,
@@ -45673,7 +45733,7 @@
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: במבובסקי",
     "co_creators": "לחן: במבובסקי",
-    "opening_line": "",
+    "opening_line": "מול חלוני, מול חלוני עלם צעיר ותמהוני",
     "links": [
       {
         "source": "acum",
@@ -45685,7 +45745,7 @@
   },
   {
     "n": 636,
-    "chrono_n": 148,
+    "chrono_n": 146,
     "canon_score": 5.0,
     "acum_v": 1,
     "layer": 3,
@@ -45827,7 +45887,7 @@
     "dur": "2:20",
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
-    "perf": "להקת פיקוד מרכז",
+    "perf": "להקת פיקוד המרכז",
     "alb": "",
     "alb_group": "סינגל / ביצוע בודד",
     "alb_trk": 999,
@@ -45872,7 +45932,13 @@
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
     "opening_line": "",
-    "links": [],
+    "links": [
+      {
+        "source": "nli",
+        "label": "הספרייה הלאומית (עוד חוזר הניגון מס' 56 ג')",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL997011900164305171/NLI"
+      }
+    ],
     "alts": []
   },
   {
@@ -45956,7 +46022,7 @@
   },
   {
     "n": 643,
-    "chrono_n": 187,
+    "chrono_n": 185,
     "canon_score": 4.0,
     "acum_v": 0,
     "layer": 3,
@@ -45980,14 +46046,20 @@
     "alb_trk": 4,
     "role_cat": "translation",
     "role_label": "תרגום / נוסח עברי: נעמי שמר",
-    "co_creators": "",
+    "co_creators": "לחן מקורי: ג'ון לנון ופול מקרטני",
     "opening_line": "",
-    "links": [],
+    "links": [
+      {
+        "source": "nli",
+        "label": "הספרייה הלאומית (איפה הגברים? – האחיות שמר)",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990034260840205171/NLI"
+      }
+    ],
     "alts": []
   },
   {
     "n": 644,
-    "chrono_n": 195,
+    "chrono_n": 193,
     "canon_score": 4.0,
     "acum_v": 0,
     "layer": 3,
@@ -46016,12 +46088,18 @@
     "role_label": "מילים וביצוע: נעמי שמר",
     "co_creators": "",
     "opening_line": "",
-    "links": [],
+    "links": [
+      {
+        "source": "nli",
+        "label": "הספרייה הלאומית (עוד חוזר הניגון מס' 56 א')",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL997011900165005171/NLI"
+      }
+    ],
     "alts": []
   },
   {
     "n": 645,
-    "chrono_n": 162,
+    "chrono_n": 160,
     "canon_score": 4.0,
     "acum_v": 0,
     "layer": 3,
@@ -46058,7 +46136,7 @@
   },
   {
     "n": 646,
-    "chrono_n": 227,
+    "chrono_n": 226,
     "canon_score": 4.0,
     "acum_v": 0,
     "layer": 3,
@@ -46136,7 +46214,7 @@
     "role_cat": "performance_only",
     "role_label": "ביצוע: נעמי שמר (מילים: לוין קיפניס, אברהם אברונין · לחן: עממי, יואל ולבה)",
     "co_creators": "מילים: לוין קיפניס, אברהם אברונין · לחן: עממי, יואל ולבה",
-    "opening_line": "",
+    "opening_line": "סביבון סוב סוב סוב חנוכה הוא חג טוב",
     "links": [
       {
         "source": "acum",
@@ -46175,8 +46253,14 @@
     "role_cat": "performance_only",
     "role_label": "ביצוע: נעמי שמר (מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר)",
     "co_creators": "מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר",
-    "opening_line": "",
-    "links": [],
+    "opening_line": "פנה הגשם, חלף, הלך לו",
+    "links": [
+      {
+        "source": "nli",
+        "label": "הספרייה הלאומית (פנה הגשם – מחרוזת שירי אביב)",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990036184600205171/NLI"
+      }
+    ],
     "alts": [
       {
         "vid": "oMZHElIjza4",
@@ -46189,7 +46273,7 @@
   },
   {
     "n": 649,
-    "chrono_n": 608,
+    "chrono_n": 606,
     "canon_score": 5.0,
     "acum_v": 0,
     "layer": 3,
@@ -46241,7 +46325,7 @@
   },
   {
     "n": 650,
-    "chrono_n": 625,
+    "chrono_n": 623,
     "canon_score": 655.0,
     "acum_v": 194,
     "layer": 3,
@@ -46310,7 +46394,7 @@
   },
   {
     "n": 651,
-    "chrono_n": 626,
+    "chrono_n": 624,
     "canon_score": 655.0,
     "acum_v": 194,
     "layer": 3,
@@ -46379,7 +46463,7 @@
   },
   {
     "n": 652,
-    "chrono_n": 600,
+    "chrono_n": 598,
     "canon_score": 1246.0,
     "acum_v": 552,
     "layer": 1,
@@ -46468,7 +46552,7 @@
   },
   {
     "n": 653,
-    "chrono_n": 588,
+    "chrono_n": 586,
     "canon_score": 854.0,
     "acum_v": 262,
     "layer": 1,
@@ -46646,7 +46730,7 @@
   },
   {
     "n": 655,
-    "chrono_n": 454,
+    "chrono_n": 453,
     "canon_score": 585.0,
     "acum_v": 284,
     "layer": 1,
@@ -46726,7 +46810,7 @@
   },
   {
     "n": 656,
-    "chrono_n": 480,
+    "chrono_n": 477,
     "canon_score": 534.0,
     "acum_v": 95,
     "layer": 1,
@@ -46823,7 +46907,7 @@
   },
   {
     "n": 657,
-    "chrono_n": 597,
+    "chrono_n": 595,
     "canon_score": 515.0,
     "acum_v": 111,
     "layer": 1,
@@ -46919,7 +47003,7 @@
   },
   {
     "n": 658,
-    "chrono_n": 598,
+    "chrono_n": 596,
     "canon_score": 447.0,
     "acum_v": 79,
     "layer": 1,
@@ -47099,7 +47183,7 @@
   },
   {
     "n": 660,
-    "chrono_n": 602,
+    "chrono_n": 600,
     "canon_score": 2.0,
     "acum_v": 0,
     "layer": 3,
@@ -47126,8 +47210,14 @@
     "role_cat": "performance_only",
     "role_label": "ביצוע: נעמי שמר (מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר)",
     "co_creators": "מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר",
-    "opening_line": "",
-    "links": [],
+    "opening_line": "פנה הגשם, חלף, הלך לו",
+    "links": [
+      {
+        "source": "nli",
+        "label": "הספרייה הלאומית (פנה הגשם – מחרוזת שירי אביב)",
+        "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990036184600205171/NLI"
+      }
+    ],
     "alts": [
       {
         "vid": "ydCddPTqZmo",
@@ -48177,28 +48267,6 @@
   },
   {
     "n": 701,
-    "title": "בשנה הבאה",
-    "alt_titles": [],
-    "year": "ללא שנה",
-    "role_cat": "performance_only",
-    "role_label": "ביצוע / עיבוד: נעמי שמר",
-    "perfs": "נעמי שמר",
-    "albums": "",
-    "opening_line": "",
-    "sources": [
-      "shironet"
-    ],
-    "has_audio": false,
-    "links": [
-      {
-        "source": "shironet",
-        "label": "מילים בשירונט",
-        "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=764"
-      }
-    ]
-  },
-  {
-    "n": 702,
     "title": "דבורת הדבש",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48220,7 +48288,7 @@
     ]
   },
   {
-    "n": 703,
+    "n": 702,
     "title": "האדון אופה",
     "alt_titles": [
       "אדון אופה"
@@ -48244,7 +48312,7 @@
     ]
   },
   {
-    "n": 704,
+    "n": 703,
     "title": "הבובה הצטננה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48266,7 +48334,7 @@
     ]
   },
   {
-    "n": 705,
+    "n": 704,
     "title": "הד",
     "alt_titles": [
       "זכר אזכר מעברים נצבו הרים כנד"
@@ -48290,7 +48358,7 @@
     ]
   },
   {
-    "n": 706,
+    "n": 705,
     "title": "הולדת השיר",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48312,7 +48380,7 @@
     ]
   },
   {
-    "n": 707,
+    "n": 706,
     "title": "הלילה השנים עשר",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48334,7 +48402,7 @@
     ]
   },
   {
-    "n": 708,
+    "n": 707,
     "title": "הנחל זורם",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48356,7 +48424,7 @@
     ]
   },
   {
-    "n": 709,
+    "n": 708,
     "title": "העולם העגול",
     "alt_titles": [
       "העולם עגול",
@@ -48381,7 +48449,7 @@
     ]
   },
   {
-    "n": 710,
+    "n": 709,
     "title": "העסקן",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48403,7 +48471,7 @@
     ]
   },
   {
-    "n": 711,
+    "n": 710,
     "title": "וריאציות על קורל",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48425,7 +48493,7 @@
     ]
   },
   {
-    "n": 712,
+    "n": 711,
     "title": "זמר עם",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48447,7 +48515,7 @@
     ]
   },
   {
-    "n": 713,
+    "n": 712,
     "title": "זמרת האש",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48469,7 +48537,7 @@
     ]
   },
   {
-    "n": 714,
+    "n": 713,
     "title": "חופש",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48491,7 +48559,7 @@
     ]
   },
   {
-    "n": 715,
+    "n": 714,
     "title": "לשנה הבאה בירושלים",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48514,7 +48582,7 @@
     ]
   },
   {
-    "n": 716,
+    "n": 715,
     "title": "מטריות שרבורג",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48537,7 +48605,7 @@
     ]
   },
   {
-    "n": 717,
+    "n": 716,
     "title": "מכתב אל איש צבא המצולם מגבו",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48559,7 +48627,7 @@
     ]
   },
   {
-    "n": 718,
+    "n": 717,
     "title": "מרבה רגלים",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48575,7 +48643,7 @@
     "links": []
   },
   {
-    "n": 719,
+    "n": 718,
     "title": "משחק",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48597,7 +48665,7 @@
     ]
   },
   {
-    "n": 720,
+    "n": 719,
     "title": "סוסון קטן",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48619,7 +48687,7 @@
     ]
   },
   {
-    "n": 721,
+    "n": 720,
     "title": "סופת ליל חורף",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48641,7 +48709,7 @@
     ]
   },
   {
-    "n": 722,
+    "n": 721,
     "title": "סטניסלא",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48663,7 +48731,7 @@
     ]
   },
   {
-    "n": 723,
+    "n": 722,
     "title": "על החכה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48685,7 +48753,7 @@
     ]
   },
   {
-    "n": 724,
+    "n": 723,
     "title": "פורה ומעכה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48707,7 +48775,7 @@
     ]
   },
   {
-    "n": 725,
+    "n": 724,
     "title": "פלאי פלאים",
     "alt_titles": [
       "פלאי פלאים נבקע ענן טיפות טיפות"
@@ -48731,7 +48799,7 @@
     ]
   },
   {
-    "n": 726,
+    "n": 725,
     "title": "פרשת וינשל",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48753,7 +48821,7 @@
     ]
   },
   {
-    "n": 727,
+    "n": 726,
     "title": "ציפורים נודדות",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48775,7 +48843,7 @@
     ]
   },
   {
-    "n": 728,
+    "n": 727,
     "title": "צפון",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48797,7 +48865,7 @@
     ]
   },
   {
-    "n": 729,
+    "n": 728,
     "title": "צרות נהדרות",
     "alt_titles": [
       "אוי איך שאני בצרות"
@@ -48827,7 +48895,7 @@
     ]
   },
   {
-    "n": 730,
+    "n": 729,
     "title": "קומה אחא סבה סב",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48849,7 +48917,7 @@
     ]
   },
   {
-    "n": 731,
+    "n": 730,
     "title": "שבעים שנה לדבר",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48871,7 +48939,7 @@
     ]
   },
   {
-    "n": 732,
+    "n": 731,
     "title": "שיח נקבות",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48893,7 +48961,7 @@
     ]
   },
   {
-    "n": 733,
+    "n": 732,
     "title": "שיר אקטואלי",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48915,7 +48983,7 @@
     ]
   },
   {
-    "n": 734,
+    "n": 733,
     "title": "שיר הכלולות",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48937,7 +49005,7 @@
     ]
   },
   {
-    "n": 735,
+    "n": 734,
     "title": "שיר הרועה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -48959,7 +49027,7 @@
     ]
   },
   {
-    "n": 736,
+    "n": 735,
     "title": "שיר לא רציני יצאתי לדרכי",
     "alt_titles": [
       "שיר לא רציני",
@@ -48985,7 +49053,7 @@
     ]
   },
   {
-    "n": 737,
+    "n": 736,
     "title": "שיר לגפן",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -49007,7 +49075,7 @@
     ]
   },
   {
-    "n": 738,
+    "n": 737,
     "title": "שיר לנטשה",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -49029,7 +49097,7 @@
     ]
   },
   {
-    "n": 739,
+    "n": 738,
     "title": "שירו לי שירו לי הוי כלי זמר ולי נגון",
     "alt_titles": [
       "דער נייער שער",
@@ -49054,7 +49122,7 @@
     ]
   },
   {
-    "n": 740,
+    "n": 739,
     "title": "שלום אידה נודל",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -49082,7 +49150,7 @@
     ]
   },
   {
-    "n": 741,
+    "n": 740,
     "title": "שלוש פעמים איל",
     "alt_titles": [],
     "year": "ללא שנה",
@@ -49105,6 +49173,62 @@
   }
 ];
 
+    function normHeb(str) {
+      if (!str) return "";
+      return String(str)
+        .toLowerCase()
+        .replace(/[\u0591-\u05C7]/g, "")
+        .replace(/["'״׳”’‘“]/g, "")
+        .replace(/[־\-–—,.!:;?()\[\]\/\\]/g, " ")
+        .replace(/וו+/g, "ו")
+        .replace(/יי+/g, "י")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    SONGS.forEach(s => {
+      const joined = [
+        s.title,
+        s.raw_title,
+        (s.alt_titles || []).join(" "),
+        s.vtitle,
+        s.perf,
+        s.alb,
+        s.alb_group,
+        s.ch,
+        s.role_label,
+        s.co_creators,
+        s.opening_line,
+        String(s.n)
+      ].filter(Boolean).join(" ");
+      s._sRaw = joined.toLowerCase();
+      s._sNorm = normHeb(joined);
+    });
+
+    ARCHIVE_SONGS.forEach(s => {
+      const joined = [
+        s.title,
+        (s.alt_titles || []).join(" "),
+        s.perfs,
+        s.albums,
+        s.role_label,
+        s.opening_line,
+        s.year
+      ].filter(Boolean).join(" ");
+      s._sRaw = joined.toLowerCase();
+      s._sNorm = normHeb(joined);
+    });
+
+    let favoriteVids = new Set();
+    try {
+      if (window.localStorage) {
+        const rawFavs = JSON.parse(localStorage.getItem("naomi_playlist_favorites") || "[]");
+        if (Array.isArray(rawFavs)) {
+          rawFavs.forEach(v => { if (typeof v === "string" && v) favoriteVids.add(v); });
+        }
+      }
+    } catch (e) {}
+
     let filteredSongs = [...SONGS];
     let currentIndex = 0;
     let currentAltIdx = -1; // -1 = primary video, 0..N = index in s.alts
@@ -49115,16 +49239,19 @@
     let pendingVideoLoad = null;
     let shuffleEnabled = false;
     let onePerSongOnly = false;
+    let favOnly = false;
     let archAudioOnly = false;
     let currentTab = "yt";
     let isMainPlayerVisible = true;
+    let hasUserStartedPlayback = false;
     let shareToastTimer = null;
 
     function updateMiniPlayerVisibility() {
       const bar = document.getElementById("miniPlayerBar");
       if (!bar) return;
-      const isPlayingNow = ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function" && ytPlayer.getPlayerState() === 1;
-      const shouldShow = (currentTab === "yt" && !isMainPlayerVisible) || (currentTab === "arch" && isPlayingNow);
+      const st = (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") ? ytPlayer.getPlayerState() : -1;
+      const isActivePlayback = (st === 1 || st === 2 || st === 3 || hasUserStartedPlayback);
+      const shouldShow = (currentTab === "yt" && !isMainPlayerVisible) || (currentTab === "arch" && isActivePlayback);
       bar.classList.toggle("visible", Boolean(shouldShow));
     }
 
@@ -49213,6 +49340,7 @@
     function startPlaylistPlayback() {
       if (currentTab !== "yt") switchTab("yt");
       if (!filteredSongs.length) return;
+      hasUserStartedPlayback = true;
       if (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") {
         const st = ytPlayer.getPlayerState();
         if (st === 1) {
@@ -49278,7 +49406,9 @@
               syncPlayButtonUI();
             },
             onStateChange: function(ev) {
-              if (ev.data === 0) { // YT.PlayerState.ENDED
+              if (ev.data === 1) {
+                hasUserStartedPlayback = true;
+              } else if (ev.data === 0) { // YT.PlayerState.ENDED
                 playNext();
               }
               syncPlayButtonUI();
@@ -49358,6 +49488,7 @@
     function switchVideoSource(vid) {
       const s = filteredSongs[currentIndex];
       if (!s) return;
+      hasUserStartedPlayback = true;
       const banner = document.getElementById("failoverBanner");
       if (vid === s.vid) {
         currentAltIdx = -1;
@@ -49380,7 +49511,11 @@
     function switchTab(tab, skipSync = false) {
       currentTab = tab === "arch" ? "arch" : "yt";
       const isYt = currentTab === "yt";
-      document.getElementById("tabYtContent").style.display = isYt ? "block" : "none";
+      const ytTabEl = document.getElementById("tabYtContent");
+      if (ytTabEl) {
+        ytTabEl.style.display = "block";
+        ytTabEl.classList.toggle("tab-offscreen", !isYt);
+      }
       document.getElementById("tabArchContent").style.display = isYt ? "none" : "block";
       const topArchBtn = document.getElementById("topArchToggleBtn");
       if (topArchBtn) topArchBtn.style.display = isYt ? "inline-flex" : "none";
@@ -49399,6 +49534,63 @@
         syncUrlAndStorageState();
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
+    }
+
+    function saveFavorites() {
+      try {
+        if (window.localStorage) {
+          localStorage.setItem("naomi_playlist_favorites", JSON.stringify(Array.from(favoriteVids)));
+        }
+      } catch (e) {}
+    }
+
+    function syncFavUI() {
+      const cntEl = document.getElementById("favCountSpan");
+      if (cntEl) cntEl.textContent = String(favoriteVids.size);
+      const favFilterBtn = document.getElementById("favOnlyBtn");
+      if (favFilterBtn) {
+        favFilterBtn.classList.toggle("btn-active", favOnly);
+        favFilterBtn.setAttribute("aria-pressed", favOnly ? "true" : "false");
+      }
+      const npFav = document.getElementById("npFavBtn");
+      const curSong = filteredSongs[currentIndex] || SONGS[0];
+      if (npFav && curSong) {
+        const isFav = favoriteVids.has(curSong.vid);
+        npFav.textContent = isFav ? "❤️" : "♡";
+        npFav.classList.toggle("btn-active", isFav);
+      }
+    }
+
+    function toggleFavorite(ev, vid) {
+      if (ev && typeof ev.stopPropagation === "function") ev.stopPropagation();
+      if (!vid) return;
+      if (favoriteVids.has(vid)) favoriteVids.delete(vid);
+      else favoriteVids.add(vid);
+      saveFavorites();
+      if (favOnly) {
+        renderTable();
+      } else {
+        const isFav = favoriteVids.has(vid);
+        document.querySelectorAll(".fav-btn").forEach(btn => {
+          if (btn.getAttribute("data-vid") === vid) {
+            btn.classList.toggle("is-fav", isFav);
+            btn.textContent = isFav ? "❤️" : "♡";
+          }
+        });
+        syncFavUI();
+      }
+    }
+
+    function toggleCurrentFavorite() {
+      const curSong = filteredSongs[currentIndex] || SONGS[0];
+      if (!curSong) return;
+      toggleFavorite(null, curSong.vid);
+    }
+
+    function toggleFavOnly() {
+      favOnly = !favOnly;
+      syncFavUI();
+      renderTable();
     }
 
     function syncOnePerSongUI() {
@@ -49491,7 +49683,9 @@
       document.getElementById("tierFilter").value = "ALL";
       document.getElementById("roleFilter").value = "ALL";
       onePerSongOnly = false;
+      favOnly = false;
       syncOnePerSongUI();
+      syncFavUI();
       renderTable();
     }
 
@@ -49518,6 +49712,7 @@
         setOrDel("tab", currentTab, "yt");
         setOrDel("shuffle", shuffleEnabled ? "1" : "", "");
         setOrDel("oneper", onePerSongOnly ? "1" : "", "");
+        setOrDel("fav", favOnly ? "1" : "", "");
         setOrDel("archaudio", archAudioOnly ? "1" : "", "");
 
         window.history.replaceState({}, "", url.toString());
@@ -49531,6 +49726,7 @@
             tab: currentTab,
             shuffle: shuffleEnabled,
             oneper: onePerSongOnly,
+            fav: favOnly,
             archaudio: archAudioOnly
           }));
         }
@@ -49604,6 +49800,12 @@
     function updateNowPlayingCard(s) {
       document.getElementById("nowPlayingTitle").textContent = `${s.n}. ${s.raw_title}${s.year ? " (" + s.year + ")" : ""}`;
       document.getElementById("nowPlayingMeta").textContent = `${s.perf || s.ch}${s.alb ? " · " + s.alb : ""}`;
+      const npFav = document.getElementById("npFavBtn");
+      if (npFav) {
+        const isFav = favoriteVids.has(s.vid);
+        npFav.textContent = isFav ? "❤️" : "♡";
+        npFav.classList.toggle("btn-active", isFav);
+      }
       const verBadgeHtml = s.ver_total > 1
         ? `<span class="ver-badge" onclick="filterBySongTitle(event, ${JSON.stringify(s.raw_title).replace(/"/g, '&quot;')})" title="לחץ להצגת כל ${s.ver_total} הביצועים של שיר זה">ביצוע ${s.ver_idx}/${s.ver_total}</span>`
         : "";
@@ -49659,6 +49861,7 @@
 
     function playSongAt(idx, shouldScroll = true, skipHistory = false) {
       if (idx < 0 || idx >= filteredSongs.length) return;
+      hasUserStartedPlayback = true;
       if (!skipHistory && currentIndex !== idx && filteredSongs[currentIndex]) {
         playHistory.push( filteredSongs[currentIndex].vid );
         if (playHistory.length > 100) playHistory.shift();
@@ -49683,6 +49886,7 @@
     }
 
     function togglePlayPause() {
+      hasUserStartedPlayback = true;
       if (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") {
         const st = ytPlayer.getPlayerState();
         if (st === 1) ytPlayer.pauseVideo();
@@ -49721,28 +49925,22 @@
 
     function renderTable(skipSync = false) {
       const currentVid = filteredSongs[currentIndex] ? filteredSongs[currentIndex].vid : null;
-      const q = document.getElementById("searchInput").value.trim().toLowerCase();
+      const rawInput = document.getElementById("searchInput").value;
+      const qRaw = rawInput.trim().toLowerCase();
+      const qNorm = normHeb(rawInput);
       const sortBy = document.getElementById("sortSelect").value;
       const tf = document.getElementById("tierFilter").value;
       const rf = document.getElementById("roleFilter").value;
       const df = document.getElementById("decadeFilter").value;
 
       filteredSongs = SONGS.filter(s => {
+        if (favOnly && !favoriteVids.has(s.vid)) return false;
         if (onePerSongOnly && s.ver_idx !== 1) return false;
         if (tf !== "ALL" && s.tier !== tf) return false;
         if (rf !== "ALL" && s.role_cat !== rf) return false;
         if (df !== "ALL" && s.decade !== df) return false;
-        if (!q) return true;
-        return (
-          s.title.toLowerCase().includes(q) ||
-          (s.alt_titles && s.alt_titles.join(" ").toLowerCase().includes(q)) ||
-          s.vtitle.toLowerCase().includes(q) ||
-          s.perf.toLowerCase().includes(q) ||
-          s.alb.toLowerCase().includes(q) ||
-          s.ch.toLowerCase().includes(q) ||
-          s.role_label.toLowerCase().includes(q) ||
-          (s.opening_line && s.opening_line.toLowerCase().includes(q))
-        );
+        if (!qRaw) return true;
+        return s._sRaw.includes(qRaw) || (qNorm.length > 0 && s._sNorm.includes(qNorm));
       });
 
       filteredSongs.sort((a, b) => {
@@ -49776,9 +49974,11 @@
 
       document.getElementById("ytCountChip").textContent = filteredSongs.length === SONGS.length
         ? `${SONGS.length} ביצועים`
-        : (onePerSongOnly
-            ? `מציג ${filteredSongs.length} מתוך ${SONGS.length} ביצועים (ביצוע אחד לשיר)`
-            : `מציג ${filteredSongs.length} מתוך ${SONGS.length} ביצועים`);
+        : (favOnly
+            ? `מציג ${filteredSongs.length} מועדפים (מתוך ${SONGS.length} ביצועים)`
+            : (onePerSongOnly
+                ? `מציג ${filteredSongs.length} מתוך ${SONGS.length} ביצועים (ביצוע אחד לשיר)`
+                : `מציג ${filteredSongs.length} מתוך ${SONGS.length} ביצועים`));
 
       const activeAdvCount = [tf !== "ALL", rf !== "ALL"].filter(Boolean).length;
       const advBadge = document.getElementById("activeFiltersBadge");
@@ -49806,6 +50006,12 @@
       let lastAlbGroup = null;
       const tbody = document.getElementById("songsBody");
       const htmlRows = [];
+      if (filteredSongs.length === 0) {
+        const emptyMsg = (favOnly && favoriteVids.size === 0)
+          ? "עדיין לא סימנת ביצועים מועדפים — לחץ על ♡ ליד כל שיר בטבלה או בכרטיס הנגן כדי לשמור אותו ברשימה האישית שלך."
+          : "לא נמצאו שירים התואמים לחיפוש או לסינון שנבחר.";
+        htmlRows.push(`<tr><td colspan="4" style="text-align:center; padding:28px 16px; color:var(--muted);">${esc(emptyMsg)}</td></tr>`);
+      }
       filteredSongs.forEach((s, i) => {
         if (sortBy === "albums") {
           const grp = normalizeAlbGrp(s.alb_group);
@@ -49823,6 +50029,7 @@
         const subNumHtml = (sortBy === "albums" && s.alb_trk && s.alb_trk < 999)
           ? `<div style="font-size:10.5px; color:var(--gold-soft); opacity:0.85;">רצועה #${s.alb_trk}</div>`
           : (sortBy !== "canonical" ? `<div style="font-size:10.5px; opacity:0.65;">#${s.n}</div>` : "");
+        const isFav = favoriteVids.has(s.vid);
         htmlRows.push(`
         <tr class="song-row ${i === currentIndex ? "active" : ""} ${s.ver_total > 1 ? "multi-ver-row" : ""}" onclick="playSongAt(${i}, false)">
           <td class="row-num">
@@ -49842,17 +50049,23 @@
             ${s.alb ? `<div class="perf-album">${esc(s.alb)}</div>` : ""}
           </td>
           <td style="text-align:left;">
-            <span class="dur-text">${esc(s.dur)}</span>
+            <div class="dur-fav-wrap">
+              <span class="dur-text">${esc(s.dur)}</span>
+              <button class="fav-btn ${isFav ? "is-fav" : ""}" type="button" data-vid="${esc(s.vid)}" onclick="toggleFavorite(event, '${esc(s.vid)}')" title="הוסף / הסר מהמועדפים">${isFav ? "❤️" : "♡"}</button>
+            </div>
           </td>
         </tr>`);
       });
       tbody.innerHTML = htmlRows.join("");
+      syncFavUI();
 
       if (!skipSync) syncUrlAndStorageState();
     }
 
     function renderArchiveTable(skipSync = false) {
-      const q = document.getElementById("archSearchInput").value.trim().toLowerCase();
+      const rawInput = document.getElementById("archSearchInput").value;
+      const qRaw = rawInput.trim().toLowerCase();
+      const qNorm = normHeb(rawInput);
       const rf = document.getElementById("archRoleFilter").value;
       const sf = document.getElementById("archSourceFilter").value;
 
@@ -49868,15 +50081,8 @@
           });
           if (!hasSource) return false;
         }
-        if (!q) return true;
-        return (
-          s.title.toLowerCase().includes(q) ||
-          (s.alt_titles && s.alt_titles.join(" ").toLowerCase().includes(q)) ||
-          (s.perfs && s.perfs.toLowerCase().includes(q)) ||
-          (s.albums && s.albums.toLowerCase().includes(q)) ||
-          s.role_label.toLowerCase().includes(q) ||
-          (s.opening_line && s.opening_line.toLowerCase().includes(q))
-        );
+        if (!qRaw) return true;
+        return s._sRaw.includes(qRaw) || (qNorm.length > 0 && s._sNorm.includes(qNorm));
       });
 
       document.getElementById("archCountChip").textContent = archAudioOnly
@@ -49940,6 +50146,9 @@
       } else if (ev.key === "s" || ev.key === "S") {
         ev.preventDefault();
         toggleShuffle();
+      } else if (ev.key === "f" || ev.key === "F") {
+        ev.preventDefault();
+        toggleCurrentFavorite();
       }
     });
 
@@ -49960,6 +50169,7 @@
       const tabParam = params.get("tab") || saved.tab;
       const shufParam = params.get("shuffle");
       const onePerParam = params.get("oneper");
+      const favParam = params.get("fav");
       const archAudioParam = params.get("archaudio");
 
       if (qParam !== null) {
@@ -49985,6 +50195,10 @@
         onePerSongOnly = true;
         syncOnePerSongUI();
       }
+      if (favParam === "1" || (favParam === null && saved.fav && favoriteVids.size > 0)) {
+        favOnly = true;
+      }
+      syncFavUI();
       if (archAudioParam === "1" || (archAudioParam === null && saved.archaudio)) {
         archAudioOnly = true;
         syncArchAudioOnlyUI();

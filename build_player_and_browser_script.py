@@ -26,89 +26,444 @@ def _parse_duration_seconds(dur_str: str) -> int:
 
 
 ACUM_PERFORMER_EXACT_MAP = {
+    "(דומינו (השביעייה": "השביעייה (דומינו)",
+    "(הקול זורם (חברת החשמל": "הקול זורם (חברת החשמל)",
+    ".תזמורת סי.בי.אס": "תזמורת סי.בי.אס.",
+    "33 קפה תיאטרון-ערוץ": "קפה תיאטרון (ערוץ 33)",
     "Naomi Shemer = נעמי שמר": "נעמי שמר",
-    "נעמי שמר = Naomi Shemer": "נעמי שמר",
-    "שמר נעמי": "נעמי שמר",
-    "גאון יהורם": "יהורם גאון",
-    "גבעטרון": "הגבעטרון",
+    "אביבי שי נבון דב והויברגר רמי": "שי אביבי, דב נבון ורמי הויברגר",
+    "אבידן מאיה וגולן שירה": "מאיה אבידן ושירה גולן",
+    "אביטל אילנה": "אילנה אביטל",
+    "אבקסיס אליאל": "אליאל אבקסיס",
+    "אדרי אור": "אור אדרי",
+    "אהרון שלומית": "שלומית אהרון",
+    "אהרוני אלינור": "אלינור אהרוני",
+    "אולארצ'יק אלון": "אלון אולארצ'יק",
+    "אופיר ניצן": "ניצן אופיר",
     "אופיר רונית": "רונית אופיר",
     "אופיר שייקה": "שייקה אופיר",
-    "אופיר ניצן": "ניצן אופיר",
-    "ביאליק עידו": "עידו ביאליק",
-    "בן ישראל אפי וחן שולה": "אפי בן ישראל ושולה חן",
-    "בר אבא שלמה ומושונוב מוני": "שלמה בראבא ומוני מושונוב",
-    "בר נוף רוני": "רוני בר נוף",
-    "ברלין גבי": "גבי ברלין",
-    "ברלין גבי וטופול חיים": "גבי ברלין וחיים טופול",
-    "ברלין גבי ושרון שרהלה": "גבי ברלין ושרה'לה שרון",
-    "גלוסקא אופירה": "אופירה גלוסקא",
-    "גלוסקא אופירה וגולן דני": "אופירה גלוסקא ודני גולן",
-    "גלוסקא אופירה ורננים": "אופירה גלוסקא וחבורת רננים",
-    "גנוט יוני": "יוני גנוט",
-    "דגן צילה": "צילה דגן",
-    "דגן צילה ורננים": "צילה דגן וחבורת רננים",
-    "דגן צילה ואמדורסקי בני": "צילה דגן ובני אמדורסקי",
-    "דגן צילה גלוסקא אופירה ולהקת הנחל": "צילה דגן, אופירה גלוסקא ולהקת הנח\"ל",
-    "דגן צילה שמר נעמי ואמדורסקי בני": "צילה דגן, נעמי שמר ובני אמדורסקי",
-    "הגשש החיוור ושמר נעמי": "הגשש החיוור ונעמי שמר",
-    "הורוביץ אריאל": "אריאל הורוביץ",
-    "הורוביץ אריאל והאחיות שמר": "אריאל הורוביץ והאחיות שמר",
-    "הנדל הלנה": "נחמה (הלנה) הנדל",
-    "זיטנר אורה": "אורה זיטנר",
-    "זיטנר אורה קאופמן ניב וגוריון ישראל": "אורה זיטנר, ניב קאופמן וישראל גוריון",
-    "מיכאלי רבקה": "רבקה מיכאלי",
-    "מיכאלי רבקה וצפיר טוביה": "רבקה מיכאלי וטוביה צפיר",
-    "מיכאלי רבקה ואמדורסקי בני": "רבקה מיכאלי ובני אמדורסקי",
-    "מיכאלי רבקה ושמר נעמי": "רבקה מיכאלי ונעמי שמר",
-    "מיכאלי רבקה מושונוב מוני ובר-אבא שלמה": "רבקה מיכאלי, מוני מושונוב ושלמה בראבא",
-    "מושונוב מוני בר-אבא שלמה גוב גידי": "מוני מושונוב, שלמה בראבא וגידי גוב",
-    "ניני אחינועם ודור גיל": "אחינועם ניני וגיל דור",
-    "נשר דורון": "דורון נשר",
-    "סנדר עירית": "עירית סנדר",
-    "קליש חגית": "חגית קליש",
-    "קראוזר בועז": "בועז קראוזר",
-    "רביבו רבקה": "רבקה רביבו",
-    "רולנד רונית": "רונית רולנד",
-    "רולנד רונית ואלהרר דודו": "רונית רולנד ודודו אלהרר",
-    "רולנד רונית ולהקת אלף שיר ושיר": "רונית רולנד ולהקת אלף שיר ושיר",
-    "שי שמואל": "שמואל שי",
-    "שמר נעמי ואלהרר דודו": "נעמי שמר ודודו אלהרר",
-    "שרון שרה'לה": "שרה'לה שרון",
-    "אהרון שלומית": "שלומית אהרון",
+    "אורן דניאל": "דניאל אורן",
+    "אורנשטיין דוד": "דוד אורנשטיין",
+    "אזולאי גולן": "גולן אזולאי",
+    "אחיות שמר": "האחיות שמר",
+    "אחיות שמר והדר הדסה": "האחיות שמר והדסה הדר",
+    "אחים שלם": "האחים שלם",
+    "אטס רחל": "רחל אטאס",
+    "אטס רחל וישראלי שמעון": "רחל אטאס ושמעון ישראלי",
+    "אטס רחל ושחם אורית": "רחל אטאס ואורית שחם",
     "איינשטיין אריק": "אריק איינשטיין",
     "איינשטיין אריק ורביץ יהודית": "אריק איינשטיין ויהודית רביץ",
     "איינשטיין אריק ורובינא אילנה": "אריק איינשטיין ואילנה רובינא",
+    "אילת יוני": "יוני אילת",
+    "איסבין שרון": "שרון איסבין",
+    "אלבו ליאור": "ליאור אלבו",
+    "אלבז בני": "בני אלבז",
     "אלברשטיין חוה": "חוה אלברשטיין",
     "אלברשטיין חוה והפרברים": "חוה אלברשטיין והפרברים",
     "אלברשטיין חוה ופלטינה": "חוה אלברשטיין והפלטינה",
+    "אלדמע גיל": "גיל אלדמע",
     "אלהרר דודו": "דודו אלהרר",
     "אלהרר דודו,רולנד רונית והראל רמי": "דודו אלהרר, רונית רולנד ורמי הראל",
+    "אלוני מירי": "מירי אלוני",
+    "אלוני מירי דברה פ. חבורת בימות": "מירי אלוני, דברה פ. וחבורת בימות",
+    "אלוני מירי וחבורת בימות": "מירי אלוני וחבורת בימות",
+    "אלוני מירי וליטני דני": "מירי אלוני ודני ליטני",
+    "אלוני עמוס": "עמוס אלוני",
+    "אלירן רן": "רן אלירן",
+    "אלירן רן,חדוה ודוד": "רן אלירן, חדוה ודוד",
+    "אמדורסקי בני": "בני אמדורסקי",
+    "אנג'ל נריה וגיל אביעד": "נריה אנג'ל ואביעד גיל",
+    "אסנר נועה": "נועה אסנר",
+    "אסנר עוזי ואסנר חיים": "עוזי אסנר וחיים אסנר",
+    "אקשטיין גרי": "גרי אקשטיין",
+    "ארד חיה ולהקת חיל הים": "חיה ארד ולהקת חיל הים",
     "ארזי ירדנה": "ירדנה ארזי",
     "ארזי ירדנה וקירל נועה": "ירדנה ארזי ונועה קירל",
+    "ארזי ירדנה כהן יזהר ומשה חיים": "ירדנה ארזי, יזהר כהן וחיים משה",
+    "אריאל מתן וקפלן מיכל": "מתן אריאל ומיכל קפלן",
+    "אריאל מתן קפלן מיכל ורהב תום": "מתן אריאל, מיכל קפלן ותום רהב",
+    "ארמוני דפנה": "דפנה ארמוני",
+    "ארמוני דפנה ובן-ישראל אפי": "דפנה ארמוני ואפי בן-ישראל",
+    "ארנון ורד יעל וורד בן": "יעל ארנון ורד ובן ורד",
+    "ארצי שלמה": "שלמה ארצי",
+    "אשד אילן": "אילן אשד",
+    "אשכנזי שמעיה ולבנת שולמית": "שמעיה אשכנזי ושולמית לבנת",
+    "אשרת קובי": "קובי אשרת",
+    "בדיחי יעל": "יעל בדיחי",
+    "בונוס בן": "בן בונוס",
+    "בורשטיין אברהם": "אברהם בורשטיין",
+    "ביאליק עידו": "עידו ביאליק",
+    "בירנבאום בת אלה ובנט מיכל": "בת אלה בירנבאום ומיכל בנט",
+    "ביתן אורי": "אורי ביתן",
+    "בלומין מארינה": "מארינה בלומין",
+    "בליץ יאיר ומזור חן": "יאיר בליץ וחן מזור",
+    "בלצן אסתרית": "אסתרית בלצן",
+    "בן אברהם רות": "רות בן אברהם",
+    "בן אברהם רות וחבורת בימות": "רות בן אברהם וחבורת בימות",
+    "בן אברהם רות ומנטבר אלי": "רות בן אברהם ואלי מנטבר",
+    "בן דוד יוריק": "יוריק בן דוד",
+    "בן חור עודד": "עודד בן חור",
+    "בן חור עודד ורז רוחמה": "עודד בן חור ורוחמה רז",
+    "בן יעקב דרור": "דרור בן יעקב",
+    "בן ישראל אפי": "אפי בן ישראל",
+    "בן ישראל אפי וחן שולה": "אפי בן ישראל ושולה חן",
+    "בן עמי אילנה": "אילנה בן עמי",
     "בנאי אהוד": "אהוד בנאי",
+    "בנאי אורנה וקסמן ענת ואלימלך שרון": "אורנה בנאי, ענת וקסמן ושרון אלימלך",
     "בנאי יובל": "יובל בנאי",
     "בנאי יוסי": "יוסי בנאי",
     "בנאי יוסי ובנאי גברי": "יוסי בנאי וגברי בנאי",
     "בנאי יוסי ומיכאלי רבקה": "יוסי בנאי ורבקה מיכאלי",
     "בנאי יוסי ורביץ יהודית": "יוסי בנאי ויהודית רביץ",
     "בנאי מאיר": "מאיר בנאי",
+    "בניון עמיר": "עמיר בניון",
+    "בצל ירוק והנדל נחמה": "בצל ירוק ונחמה הנדל",
+    "בצלאל טלי": "טלי בצלאל",
+    "בקר משה": "משה בקר",
+    "בר אבא שלמה ומושונוב מוני": "שלמה בראבא ומוני מושונוב",
+    "בר אילן מישה ומנטבר אלי": "מישה בר אילן ואלי מנטבר",
+    "בר גיורא יונתן": "יונתן בר גיורא",
+    "בר נוף רוני": "רוני בר נוף",
+    "בר שמעון": "שמעון בר",
+    "בר שמעון ותזמורת": "שמעון בר ותזמורת",
+    "ברוזה דוד": "דוד ברוזה",
+    "ברונשטיין גלי": "גלי ברונשטיין",
+    "ברונשטיין מלי": "מלי ברונשטיין",
+    "ברזל עמוס": "עמוס ברזל",
+    "ברכאן מוטי": "מוטי ברכאן",
+    "ברלין גבי": "גבי ברלין",
+    "ברלין גבי וטופול חיים": "גבי ברלין וחיים טופול",
+    "ברלין גבי ושרון שרהלה": "גבי ברלין ושרה'לה שרון",
+    "ברמן בני": "בני ברמן",
+    "ברק דודו": "דודו ברק",
+    "ברק פרדי": "פרדי ברק",
     "בשן יגאל": "יגאל בשן",
+    "בשן יגאל דור אבי ופררה אהרון": "יגאל בשן, אבי דור ואהרון פררה",
+    "ג'ונסון סנדרה": "סנדרה ג'ונסון",
+    "גאון יהורם": "יהורם גאון",
+    "גבאי ירון": "ירון גבאי",
+    "גבאי רינת": "רינת גבאי",
+    "גבני יוסי": "יוסי גבני",
+    "גבעטרון": "הגבעטרון",
+    "גדיר עודד": "עודד גדיר",
+    "גואטה רביד": "רביד גואטה",
+    "גולדבלט חנן": "חנן גולדבלט",
+    "גולדבלט חנן וארמוני דפנה": "חנן גולדבלט ודפנה ארמוני",
+    "גולדבלט חנן וחן שולה": "חנן גולדבלט ושולה חן",
+    "גולן דינה": "דינה גולן",
+    "גולן דני": "דני גולן",
+    "גורביץ אמיל": "אמיל גורביץ",
+    "גורדון רבקה": "רבקה גורדון",
+    "גורדון רינה": "רינה גורדון",
+    "גורליצקי אילי": "אילי גורליצקי",
+    "גורן עדנה": "עדנה גורן",
+    "גורן עדנה והראל רמי": "עדנה גורן ורמי הראל",
+    "גיאת גלית אלימלך שרון ורביץ נתי": "גלית גיאת, שרון אלימלך ונתי רביץ",
+    "גיל גאולה": "גאולה גיל",
+    "גינת אמיר": "אמיר גינת",
+    "גל נירה": "נירה גל",
+    "גל נירה ולב עדנה": "נירה גל ועדנה לב",
+    "גל ריקי": "ריקי גל",
+    "גל ריקי ונדל לירן": "ריקי גל ולירן נדל",
+    "גלוסקא אופירה": "אופירה גלוסקא",
+    "גלוסקא אופירה וגולן דני": "אופירה גלוסקא ודני גולן",
+    "גלוסקא אופירה ורננים": "אופירה גלוסקא וחבורת רננים",
+    "גלעד איקי וגיאת גלית": "איקי גלעד וגלית גיאת",
+    "גלעדי תמר": "תמר גלעדי",
     "גלרון נורית": "נורית גלרון",
+    "גלרון נורית וסימפונט רעננה": "נורית גלרון וסימפונט רעננה",
+    "גנוט יוני": "יוני גנוט",
+    "גרוטס אתי": "אתי גרוטס",
+    "גרוניך שלמה": "שלמה גרוניך",
+    "גרייניק אבי ורודנר חמי": "אבי גרייניק וחמי רודנר",
+    "גרינברג ענת": "ענת גרינברג",
+    "גרנות דני": "דני גרנות",
+    "גרנות דני וחבורת בימות": "דני גרנות וחבורת בימות",
+    "גרנות רפי": "רפי גרנות",
+    "דבורין דנה": "דנה דבורין",
+    "דברת נתניה ותזמורת הבידור": "נתניה דברת ותזמורת הבידור",
+    "דגול שמרלינג הדס": "הדס דגול שמרלינג",
+    "דגן צילה": "צילה דגן",
+    "דגן צילה גלוסקא אופירה ולהקת הנחל": "צילה דגן, אופירה גלוסקא ולהקת הנח\"ל",
+    "דגן צילה ואמדורסקי בני": "צילה דגן ובני אמדורסקי",
+    "דגן צילה ורננים": "צילה דגן וחבורת רננים",
+    "דגן צילה שמר נעמי ואמדורסקי בני": "צילה דגן, נעמי שמר ובני אמדורסקי",
+    "דוידוב אריק": "אריק דוידוב",
+    "דורון אורן ז'נו אוסנת וילדים": "אורן דורון, אוסנת ז'נו וילדים",
+    "דותן עירית": "עירית דותן",
+    "דיכנה מוטי,אנקרי אתי ובר הראלה": "מוטי דיכנה, אתי אנקרי והראלה בר",
+    "דירון עפרה ורויאל וויבס": "עפרה דירון ורויאל וויבס",
+    "דמארי דנה": "דנה דמארי",
+    "דמארי שושנה": "שושנה דמארי",
+    "דמארי שושנה ותז' סימפונית": "שושנה דמארי ותזמורת סימפונית",
+    "דמרי אילן": "אילן דמרי",
+    "דץ משה": "משה דץ",
+    "דרור שמרית": "שמרית דרור",
+    "הבלין מוטי": "מוטי הבלין",
+    "הגשש החיוור ושמר נעמי": "הגשש החיוור ונעמי שמר",
+    "הדר קרן": "קרן הדר",
+    "הולצמן רותי": "רותי הולצמן",
+    "הורוביץ אריאל": "אריאל הורוביץ",
+    "הורוביץ אריאל והאחיות שמר": "אריאל הורוביץ והאחיות שמר",
+    "הורן חנוך": "חנוך הורן",
+    "היימן נחום": "נחום היימן",
+    "הלחמי רומי ונדלר בני": "רומי הלחמי ובני נדלר",
+    "הנדל הלנה": "נחמה (הלנה) הנדל",
+    "הראל אסנת": "אסנת הראל",
+    "הראל רמי": "רמי הראל",
+    "הרולד שולי": "שולי הרולד",
+    "ויטלר בן ציון": "בן ציון ויטלר",
+    "וייל אילן וגמליאל יסמין": "אילן וייל ויסמין גמליאל",
+    "וייס דניאל": "דניאל וייס",
+    "וירצר דניאלה": "דניאלה וירצר",
+    "וישינסקי אסנת": "אסנת וישינסקי",
+    "וישינסקי שלמה": "שלמה וישינסקי",
+    "וקסמן איגי": "איגי וקסמן",
+    "ורד רמי,בן זאב ערן ושוורץ ליטל": "רמי ורד, ערן בן זאב וליטל שוורץ",
+    "ורדי איתן": "איתן ורדי",
+    "זהבי דפנה": "דפנה זהבי",
+    "זהר עוזי": "עוזי זהר",
+    "זוהר ישראל": "ישראל זוהר",
+    "זוהר רבקה": "רבקה זוהר",
+    "זוהר רבקה ולהקת חיל הים": "רבקה זוהר ולהקת חיל הים",
+    "זיטנר אורה": "אורה זיטנר",
+    "זיטנר אורה קאופמן ניב וגוריון ישראל": "אורה זיטנר, ניב קאופמן וישראל גוריון",
+    "זילבר אריאל": "אריאל זילבר",
     "זכאי דודו": "דודו זכאי",
     "זכאי דודו וראובני דורית": "דודו זכאי ודורית ראובני",
+    "זכאי דודו ורננים": "דודו זכאי וחבורת רננים",
+    "זלצמן רויטל": "רויטל זלצמן",
+    "זמיר ורדה": "ורדה זמיר",
+    "זמיר ורדה ובר גיורא יונתן": "ורדה זמיר ויונתן בר גיורא",
     "זראי ריקה": "ריקה זראי",
+    "חבורת הזמר הדר רון והחברים ששרים": "רון הדר והחברים ששרים",
+    "חדד שרית": "שרית חדד",
+    "חוג הזמר גולדשטיין גורן אשד נוגה": "חוג הזמר, גורן גולדשטיין ונוגה אשד",
+    "חזה עפרה": "עפרה חזה",
+    "חי דוד": "דוד חי",
     "חיטמן אוהד": "אוהד חיטמן",
     "חיטמן עוזי": "עוזי חיטמן",
+    "חיטמן עוזי ומשה חיים": "עוזי חיטמן וחיים משה",
+    "חיים רחלי": "רחלי חיים",
     "חן שולה": "שולה חן",
+    "חן שולה וחנוך שלום": "שולה חן ושלום חנוך",
+    "חן שולה וייני ליאור": "שולה חן וליאור ייני",
     "חן שולה ולהקת הנחל": "שולה חן ולהקת הנח\"ל",
+    "טולדנו אבי": "אבי טולדנו",
+    "טופול חיים ועדי": "חיים ועדי טופול",
+    "טופול חיים ושירו שיר": "חיים טופול וחבורת שירו שיר",
+    "טל מיכל": "מיכל טל",
+    "טלמור סיון ואלירן רן": "סיון טלמור ורן אלירן",
+    "טרבלסי מיטל": "מיטל טרבלסי",
+    "טרבלסי מיטל וקלינג תומר": "מיטל טרבלסי ותומר קלינג",
+    "יגיל גדי": "גדי יגיל",
+    "ידידיה רוני": "רוני ידידיה",
+    "יובל חנן": "חנן יובל",
+    "ייני ליאור": "ליאור ייני",
+    "ייני ליאור ושירו שיר": "ליאור ייני וחבורת שירו שיר",
+    "ינאי מיכל": "מיכל ינאי",
+    "יצפאן אלי": "אלי יצפאן",
+    "ישראלי חרות ועמית לוטי": "חרות ישראלי ולוטי עמית",
+    "ישראלי שמעון": "שמעון ישראלי",
+    "ישראלי שמעון ותז' ק\"י": "שמעון ישראלי ותזמורת קול ישראל",
+    "כהן ורדינה": "ורדינה כהן",
+    "כהן יזהר ורביעיית ניסן": "יזהר כהן ורביעיית ניסן",
+    "כהן יזהר ורננים": "יזהר כהן וחבורת רננים",
+    "כהן מזי ואלוני מירי": "מזי כהן ומירי אלוני",
+    "כהן נתן": "נתן כהן",
+    "כהן עדי": "עדי כהן",
+    "כהן עדי ועוואד מירה": "עדי כהן ומירה עוואד",
+    "כהנא דלית": "דלית כהנא",
+    "כוכבא יהודית": "יהודית כוכבא",
+    "כספי מתי": "מתי כספי",
+    "כץ אסתי": "אסתי כץ",
+    "כרמלוס יהאל": "יהאל כרמלוס",
+    "לב עדנה": "עדנה לב",
     "לביא אריק": "אריק לביא",
+    "לביא ראובן": "ראובן לביא",
+    "לבנת שולמית": "שולמית לבנת",
+    "לברי מרק": "מרק לברי",
+    "להב משה": "משה להב",
+    "להקות צהל": "להקות צה\"ל",
+    "להקת הנחל": "להקת הנח\"ל",
+    "להקת הנחל וחוה אלברשטיין": "להקת הנח\"ל וחוה אלברשטיין",
+    "להקת הנחל ותזמורת קול ישראל": "להקת הנח\"ל ותזמורת קול ישראל",
+    "להקת פיקוד דרום": "להקת פיקוד הדרום",
+    "להקת פיקוד מרכז": "להקת פיקוד המרכז",
+    "להקת פיקוד צפון": "להקת פיקוד הצפון",
+    "לוגסי גל": "גל לוגסי",
+    "לוי לוליק וענת עצמון": "לוליק לוי וענת עצמון",
+    "לוי נעמי": "נעמי לוי",
+    "לוי שייקה והשעות הקטנות": "שייקה לוי ולהקת השעות הקטנות",
+    "לויכטר יהודה": "יהודה לויכטר",
+    "לויכטר יהודה ולנדאו ביני": "יהודה לויכטר וביני לנדאו",
+    "לופטין לאה": "לאה לופטין",
+    "לופטין לאה ולוי עופר": "לאה לופטין ועופר לוי",
+    "לטילה ג'ינו": "ג'ינו לטילה",
+    "לידר עברי": "עברי לידר",
+    "ליטני דני": "דני ליטני",
+    "ליפשיץ נחמה": "נחמה ליפשיץ",
+    "לסלאו חנה": "חנה לסלאו",
+    "לרנר יואל": "יואל לרנר",
+    "מאיירס חגית": "חגית מאיירס",
     "מאירי עוזי": "עוזי מאירי",
+    "מאירי עוזי ורננים": "עוזי מאירי וחבורת רננים",
+    "מואב אלינוער": "אלינוער מואב",
+    "מודעי דולי": "דולי מודעי",
+    "מור מירי": "מירי מור",
+    "מושונוב מוני בר-אבא שלמה גוב גידי": "מוני מושונוב, שלמה בראבא וגידי גוב",
+    "מזרחי שלמה": "שלמה מזרחי",
+    "מיכאלי רבקה": "רבקה מיכאלי",
+    "מיכאלי רבקה ואמדורסקי בני": "רבקה מיכאלי ובני אמדורסקי",
+    "מיכאלי רבקה וצפיר טוביה": "רבקה מיכאלי וטוביה צפיר",
+    "מיכאלי רבקה ושמר נעמי": "רבקה מיכאלי ונעמי שמר",
+    "מיכאלי רבקה מושונוב מוני ובר-אבא שלמה": "רבקה מיכאלי, מוני מושונוב ושלמה בראבא",
+    "מלכה שלומי": "שלומי מלכה",
+    "מלמד אורי ולאה": "אורי ולאה מלמד",
+    "מלקוס לילה": "לילה מלקוס",
+    "מלקוס לילה אופק אורטל ורועה יוני": "לילה מלקוס, אורטל אופק ויוני רועה",
+    "ממן שלמה": "שלמה ממן",
+    "מן טל בן יזרעאל ומינדי טיאר": "טל מן, בן יזרעאל ומינדי טיאר",
+    "מנדל יענקלה": "יענקלה מנדל",
+    "מסורי איתן": "איתן מסורי",
+    "מסינג דני": "דני מסינג",
+    "מסנר יובל": "יובל מסנר",
+    "משה חיים": "חיים משה",
+    "נבון רותי": "רותי נבון",
+    "נוה שלום אסף": "אסף נוה שלום",
+    "נורי אילן": "אילן נורי",
+    "נחמיאס חני וטופז דודו": "חני נחמיאס ודודו טופז",
+    "נחמיאס חני קם מיקי ושביט ציפי": "חני נחמיאס, מיקי קם וציפי שביט",
+    "ניני אחינועם ודור גיל": "אחינועם ניני וגיל דור",
+    "ניצני יאיר וזוהר זאב": "יאיר ניצני וזאב זוהר",
+    "נכבוש נח": "נח נכבוש",
+    "נמרי יוני": "יוני נמרי",
+    "נעמי שמר = Naomi Shemer": "נעמי שמר",
+    "נצר אפי": "אפי נצר",
+    "נצר אפי וגרייף גדעון": "אפי נצר וגדעון גרייף",
+    "נרגד לירון": "לירון נרגד",
+    "נשר דורון": "דורון נשר",
     "נתן שולי": "שולי נתן",
     "נתן שולי ושמר נעמי": "שולי נתן ונעמי שמר",
+    "נתנאלה וזכאי דודו": "נתנאלה ודודו זכאי",
+    "סבצ'וק בוריס": "בוריס סבצ'וק",
+    "סדן זוהר": "זוהר סדן",
+    "סוויסה מאיר ואלימלך שרון": "מאיר סוויסה ושרון אלימלך",
+    "סולקין עדי ואסתר": "עדי ואסתר סולקין",
+    "סונדק טל": "טל סונדק",
+    "סונדק טל וקליינשטיין רמי": "טל סונדק ורמי קליינשטיין",
+    "סיגלוב הדסה": "הדסה סיגלוב",
     "סיני אריק": "אריק סיני",
+    "סלבר גודי": "גודי סלבר",
+    "סלע טלי": "טלי סלע",
+    "סמל נאוה": "נאוה סמל",
+    "סנדר עירית": "עירית סנדר",
+    "ספיר נירה": "נירה ספיר",
+    "ספיר רות": "רות ספיר",
+    "עדי סיגל": "סיגל עדי",
+    "עובד לימור": "לימור עובד",
+    "עופרים אסתר וישראלי שמעון": "אסתר עופרים ושמעון ישראלי",
+    "עזיקרי עליזה": "עליזה עזיקרי",
+    "עזיקרי עליזה וחמישיית גלבוע": "עליזה עזיקרי וחמישיית גלבוע",
+    "עטרי גלי וחיטמן עוזי": "גלי עטרי ועוזי חיטמן",
+    "עינב מיכאל וקייקוב ניצן": "מיכאל עינב וניצן קייקוב",
+    "עינב מיקה וסנטש עודד": "מיקה עינב ועודד סנטש",
+    "עמיהוד דליה": "דליה עמיהוד",
+    "עמנואל יהודה": "יהודה עמנואל",
+    "עמר דפנה": "דפנה עמר",
+    "עמרני חדוה": "חדוה עמרני",
+    "עשת דוד": "דוד עשת",
+    "פולד ליאו": "ליאו פולד",
+    "פוליאקוב יעל ופלד אילן": "יעל פוליאקוב ואילן פלד",
+    "פז אסנת": "אסנת פז",
+    "פיידמן גיורא": "גיורא פיידמן",
+    "פייפר בועז": "בועז פייפר",
+    "פיקוד צפון ונעמי שמר": "להקת פיקוד הצפון ונעמי שמר",
+    "פישר דודו": "דודו פישר",
+    "פישר דודו והדודאים": "דודו פישר והדודאים",
+    "פליקס מירי": "מירי פליקס",
+    "פרוסט יוסי והצעירים": "יוסי פרוסט ולהקת הצעירים",
+    "פרידלנד דליה": "דליה פרידלנד",
+    "פרידמן דניאל": "דניאל פרידמן",
+    "פרישמן דודי וגנוט יוני": "דודי פרישמן ויוני גנוט",
+    "פרנקו מונסראט": "מונסראט פרנקו",
+    "פרץ אבי": "אבי פרץ",
+    "פרקש דורית": "דורית פרקש",
+    "פררה אברהם וחבורת אפי נצר": "אברהם פררה וחבורת אפי נצר",
+    "צדר נגה": "נגה צדר",
+    "צוות הווי נחל": "צוות הווי נח\"ל",
+    "צוות הווי פיקוד מרכז": "צוות הווי פיקוד המרכז",
+    "צילה דגן, אופירה גלוסקא ולהקת הנחל": "צילה דגן, אופירה גלוסקא ולהקת הנח\"ל",
+    "צילה דגן, אופירה גלוסקא וצוות הווי של הנחל": "צילה דגן, אופירה גלוסקא וצוות הווי של הנח\"ל",
+    "צינוביץ חיים": "חיים צינוביץ",
+    "צנעני מרגלית": "מרגלית צנעני",
     "צפיר טוביה": "טוביה צפיר",
+    "צפיר טוביה חן שולה ויובל חנן": "טוביה צפיר, שולה חן וחנן יובל",
+    "קורן חיה": "חיה קורן",
+    "קינן ארז": "ארז קינן",
+    "קינן רונה": "רונה קינן",
+    "קליין בטי": "בטי קליין",
+    "קליש חגית": "חגית קליש",
+    "קם מיקי": "מיקי קם",
+    "קם מיקי וצינוביץ חיים": "מיקי קם וחיים צינוביץ'",
+    "קניג ליא": "ליאה קניג",
+    "קפסוטו תמר מנחם מיה אלדר בני": "תמר קפסוטו, מיה מנחם ובני אלדר",
+    "קראוזר בועז": "בועז קראוזר",
+    "קרן אור ונוי עדי": "אור קרן ועדי נוי",
+    "קרן דרור וכהן איציק": "דרור קרן ואיציק כהן",
+    "ראובני דורית": "דורית ראובני",
+    "רביבו רבקה": "רבקה רביבו",
     "רביץ יהודית": "יהודית רביץ",
+    "רואימי אבי": "אבי רואימי",
+    "רובינא אילנה": "אילנה רובינא",
+    "רובינא אילנה והדודאים": "אילנה רובינא והדודאים",
+    "רובינא אילנה ורננים": "אילנה רובינא וחבורת רננים",
+    "רוזנבלט עוזי": "עוזי רוזנבלט",
+    "רוזנפלד אליעזר": "אליעזר רוזנפלד",
+    "רוחמה רז וצוות הווי פיקוד מרכז": "רוחמה רז וצוות הווי פיקוד המרכז",
+    "רולנד רונית": "רונית רולנד",
+    "רולנד רונית ואלהרר דודו": "רונית רולנד ודודו אלהרר",
+    "רולנד רונית ולהקת אלף שיר ושיר": "רונית רולנד ולהקת אלף שיר ושיר",
+    "רותם שוש": "שוש רותם",
+    "רז רבקה": "רבקה רז",
+    "רז רוחמה": "רוחמה רז",
+    "רז רוחמה  גולן דינה ורננים": "רוחמה רז, דינה גולן וחבורת רננים",
+    "רז רוחמה ובירן צליל": "רוחמה רז וצליל בירן",
+    "רז רוחמה ולסלאו חנה": "רוחמה רז וחנה לסלאו",
+    "רז רוחמה ורננים": "רוחמה רז וחבורת רננים",
+    "רז רוחמה צוות הצנחנים": "רוחמה רז וצוות הווי הצנחנים",
+    "ריבלין ספי וגולן דינה": "ספי ריבלין ודינה גולן",
+    "ריבלין ספי ומור אברהם": "ספי ריבלין ואברהם מור",
+    "רימון מאיר ותזמורת פילהרמונית": "מאיר רימון והתזמורת הפילהרמונית",
+    "רמתי לירון": "לירון רמתי",
+    "שביט סיון": "סיון שביט",
+    "שביט ציפי": "ציפי שביט",
+    "שביט ציפי ודטנר נתן": "ציפי שביט ונתן דטנר",
+    "שגרן ג'וליאן": "ג'וליאן שגרן",
+    "שדה יושי": "יושי שדה",
+    "שובל גיתית": "גיתית שובל",
+    "שובל גיתית ודרויאן רון": "גיתית שובל ורון דרויאן",
+    "שוהם יונית": "יונית שוהם",
+    "שולה חן ולהקת הנחל": "שולה חן ולהקת הנח\"ל",
+    "שושן גבי": "גבי שושן",
+    "שי שמואל": "שמואל שי",
+    "שלאנגר לאה": "לאה שלאנגר",
+    "שלושרים": "השלושרים",
+    "שמיר אסתר": "אסתר שמיר",
+    "שמיר מיכל": "מיכל שמיר",
+    "שמר נעמי": "נעמי שמר",
+    "שמר נעמי ואלהרר דודו": "נעמי שמר ודודו אלהרר",
+    "שני שושיק": "שושיק שני",
+    "שני שושיק ולביא אריק": "שושיק שני ואריק לביא",
+    "שפר אסף": "אסף שפר",
+    "שרון שרה'לה": "שרה'לה שרון",
     "שרעבי בועז": "בועז שרעבי",
+    "שרעבי יואל": "יואל שרעבי",
+    "ששון רועי": "רועי ששון",
+    "תבורי שימי": "שימי תבורי",
+    "תזמורת ולהקת חיל האויר": "תזמורת ולהקת חיל האוויר",
+    "תמיר גני": "גני תמיר",
+    "תמיר קובי": "קובי תמיר",
 }
 
 ACUM_INLINE_PAIR_SUBS = [
@@ -126,8 +481,13 @@ ACUM_INLINE_PAIR_SUBS = [
     ("ירקוני יפה", "יפה ירקוני"),
     ("לוי אושיק", "אושיק לוי"),
     ("תאומי עודד", "עודד תאומי"),
+    ("להקת הנחל", "להקת הנח\"ל"),
+    ("צוות הווי של הנחל", "צוות הווי של הנח\"ל"),
+    ("להקת פיקוד מרכז", "להקת פיקוד המרכז"),
+    ("להקת פיקוד צפון", "להקת פיקוד הצפון"),
+    ("להקת פיקוד דרום", "להקת פיקוד הדרום"),
+    ("צוות הווי פיקוד מרכז", "צוות הווי פיקוד המרכז"),
 ]
-
 
 def normalize_performer_name(name: str) -> str:
     s = str(name or "").strip()
@@ -1522,7 +1882,7 @@ def generate_files():
     .np-header {{ margin-top: 12px; }}
     .np-title-row {{
       display: flex;
-      align-items: baseline;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 8px;
       margin-bottom: 4px;
@@ -1761,6 +2121,47 @@ def generate_files():
       color: var(--muted);
       font-size: 12.5px;
       font-variant-numeric: tabular-nums;
+    }}
+    .dur-fav-wrap {{
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+    }}
+    .fav-btn {{
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      line-height: 1;
+      padding: 3px 5px;
+      border-radius: 6px;
+      color: var(--muted);
+      opacity: 0.55;
+      transition: all 0.14s ease;
+      flex-shrink: 0;
+    }}
+    tr.song-row:hover .fav-btn, .fav-btn.is-fav {{
+      opacity: 1;
+    }}
+    .fav-btn:hover {{
+      transform: scale(1.18);
+      color: var(--rose);
+      background: rgba(251, 113, 133, 0.12);
+    }}
+    .fav-btn.is-fav {{
+      color: var(--rose);
+    }}
+    .tab-offscreen {{
+      position: fixed !important;
+      left: -9999px !important;
+      top: 0 !important;
+      width: 380px !important;
+      height: 220px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      overflow: hidden !important;
+      z-index: -1 !important;
     }}
 
     /* Subtle Badges */
@@ -2030,6 +2431,7 @@ def generate_files():
           <div class="np-header">
             <div class="np-title-row">
               <div id="nowPlayingTitle">בחר שיר מהרשימה</div>
+              <button id="npFavBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleCurrentFavorite()" title="הוסף / הסר מהמועדפים (F)" style="flex-shrink:0;">♡</button>
             </div>
             <div id="nowPlayingMeta"></div>
             <div id="nowPlayingRole" class="np-badges"></div>
@@ -2056,7 +2458,7 @@ def generate_files():
               </div>
               <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
                 <button class="btn btn-outline btn-sm" onclick="scrollToActiveRow()">🎯 גלול לשיר המתנגן בטבלה</button>
-                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>/</kbd> חיפוש</span>
+                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>F</kbd> מועדף · <kbd>/</kbd> חיפוש</span>
               </div>
             </div>
           </details>
@@ -2092,6 +2494,9 @@ def generate_files():
             <button id="onePerSongBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleOnePerSong()" aria-pressed="false" title="סנן לביצוע מוביל אחד לכל שיר (מדלג על גרסאות כפולות בלי למחוק אותן)">
               🎯 ביצוע אחד לכל שיר ({unique_songs_count})
             </button>
+            <button id="favOnlyBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleFavOnly()" aria-pressed="false" title="הצג רק ביצועים שסימנת כמועדפים">
+              ❤️ מועדפים (<span id="favCountSpan">0</span>)
+            </button>
             <button id="advFilterBtn" class="btn btn-outline btn-sm" onclick="toggleAdvancedFilters()">
               ⚙️ סינון מתקדם <span id="activeFiltersBadge" style="display:none; background:var(--gold); color:#000; padding:0 6px; border-radius:999px; font-size:11px;"></span>
             </button>
@@ -2125,7 +2530,7 @@ def generate_files():
                   <th style="width:44px; text-align:center;">#</th>
                   <th>שיר</th>
                   <th>מבצע ואלבום</th>
-                  <th style="width:68px; text-align:left;">אורך</th>
+                  <th style="width:84px; text-align:left;">אורך</th>
                 </tr>
               </thead>
               <tbody id="songsBody"></tbody>
@@ -2227,6 +2632,62 @@ def generate_files():
     const SONGS = {json.dumps(songs_js, ensure_ascii=False, indent=2)};
     const ARCHIVE_SONGS = {json.dumps(archive_songs_js, ensure_ascii=False, indent=2)};
 
+    function normHeb(str) {{
+      if (!str) return "";
+      return String(str)
+        .toLowerCase()
+        .replace(/[\\u0591-\\u05C7]/g, "")
+        .replace(/["'״׳”’‘“]/g, "")
+        .replace(/[־\\-–—,.!:;?()\\[\\]\\/\\\\]/g, " ")
+        .replace(/וו+/g, "ו")
+        .replace(/יי+/g, "י")
+        .replace(/\\s+/g, " ")
+        .trim();
+    }}
+
+    SONGS.forEach(s => {{
+      const joined = [
+        s.title,
+        s.raw_title,
+        (s.alt_titles || []).join(" "),
+        s.vtitle,
+        s.perf,
+        s.alb,
+        s.alb_group,
+        s.ch,
+        s.role_label,
+        s.co_creators,
+        s.opening_line,
+        String(s.n)
+      ].filter(Boolean).join(" ");
+      s._sRaw = joined.toLowerCase();
+      s._sNorm = normHeb(joined);
+    }});
+
+    ARCHIVE_SONGS.forEach(s => {{
+      const joined = [
+        s.title,
+        (s.alt_titles || []).join(" "),
+        s.perfs,
+        s.albums,
+        s.role_label,
+        s.opening_line,
+        s.year
+      ].filter(Boolean).join(" ");
+      s._sRaw = joined.toLowerCase();
+      s._sNorm = normHeb(joined);
+    }});
+
+    let favoriteVids = new Set();
+    try {{
+      if (window.localStorage) {{
+        const rawFavs = JSON.parse(localStorage.getItem("naomi_playlist_favorites") || "[]");
+        if (Array.isArray(rawFavs)) {{
+          rawFavs.forEach(v => {{ if (typeof v === "string" && v) favoriteVids.add(v); }});
+        }}
+      }}
+    }} catch (e) {{}}
+
     let filteredSongs = [...SONGS];
     let currentIndex = 0;
     let currentAltIdx = -1; // -1 = primary video, 0..N = index in s.alts
@@ -2237,16 +2698,19 @@ def generate_files():
     let pendingVideoLoad = null;
     let shuffleEnabled = false;
     let onePerSongOnly = false;
+    let favOnly = false;
     let archAudioOnly = false;
     let currentTab = "yt";
     let isMainPlayerVisible = true;
+    let hasUserStartedPlayback = false;
     let shareToastTimer = null;
 
     function updateMiniPlayerVisibility() {{
       const bar = document.getElementById("miniPlayerBar");
       if (!bar) return;
-      const isPlayingNow = ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function" && ytPlayer.getPlayerState() === 1;
-      const shouldShow = (currentTab === "yt" && !isMainPlayerVisible) || (currentTab === "arch" && isPlayingNow);
+      const st = (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") ? ytPlayer.getPlayerState() : -1;
+      const isActivePlayback = (st === 1 || st === 2 || st === 3 || hasUserStartedPlayback);
+      const shouldShow = (currentTab === "yt" && !isMainPlayerVisible) || (currentTab === "arch" && isActivePlayback);
       bar.classList.toggle("visible", Boolean(shouldShow));
     }}
 
@@ -2335,6 +2799,7 @@ def generate_files():
     function startPlaylistPlayback() {{
       if (currentTab !== "yt") switchTab("yt");
       if (!filteredSongs.length) return;
+      hasUserStartedPlayback = true;
       if (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") {{
         const st = ytPlayer.getPlayerState();
         if (st === 1) {{
@@ -2400,7 +2865,9 @@ def generate_files():
               syncPlayButtonUI();
             }},
             onStateChange: function(ev) {{
-              if (ev.data === 0) {{ // YT.PlayerState.ENDED
+              if (ev.data === 1) {{
+                hasUserStartedPlayback = true;
+              }} else if (ev.data === 0) {{ // YT.PlayerState.ENDED
                 playNext();
               }}
               syncPlayButtonUI();
@@ -2480,6 +2947,7 @@ def generate_files():
     function switchVideoSource(vid) {{
       const s = filteredSongs[currentIndex];
       if (!s) return;
+      hasUserStartedPlayback = true;
       const banner = document.getElementById("failoverBanner");
       if (vid === s.vid) {{
         currentAltIdx = -1;
@@ -2502,7 +2970,11 @@ def generate_files():
     function switchTab(tab, skipSync = false) {{
       currentTab = tab === "arch" ? "arch" : "yt";
       const isYt = currentTab === "yt";
-      document.getElementById("tabYtContent").style.display = isYt ? "block" : "none";
+      const ytTabEl = document.getElementById("tabYtContent");
+      if (ytTabEl) {{
+        ytTabEl.style.display = "block";
+        ytTabEl.classList.toggle("tab-offscreen", !isYt);
+      }}
       document.getElementById("tabArchContent").style.display = isYt ? "none" : "block";
       const topArchBtn = document.getElementById("topArchToggleBtn");
       if (topArchBtn) topArchBtn.style.display = isYt ? "inline-flex" : "none";
@@ -2521,6 +2993,63 @@ def generate_files():
         syncUrlAndStorageState();
         window.scrollTo({{ top: 0, behavior: "smooth" }});
       }}
+    }}
+
+    function saveFavorites() {{
+      try {{
+        if (window.localStorage) {{
+          localStorage.setItem("naomi_playlist_favorites", JSON.stringify(Array.from(favoriteVids)));
+        }}
+      }} catch (e) {{}}
+    }}
+
+    function syncFavUI() {{
+      const cntEl = document.getElementById("favCountSpan");
+      if (cntEl) cntEl.textContent = String(favoriteVids.size);
+      const favFilterBtn = document.getElementById("favOnlyBtn");
+      if (favFilterBtn) {{
+        favFilterBtn.classList.toggle("btn-active", favOnly);
+        favFilterBtn.setAttribute("aria-pressed", favOnly ? "true" : "false");
+      }}
+      const npFav = document.getElementById("npFavBtn");
+      const curSong = filteredSongs[currentIndex] || SONGS[0];
+      if (npFav && curSong) {{
+        const isFav = favoriteVids.has(curSong.vid);
+        npFav.textContent = isFav ? "❤️" : "♡";
+        npFav.classList.toggle("btn-active", isFav);
+      }}
+    }}
+
+    function toggleFavorite(ev, vid) {{
+      if (ev && typeof ev.stopPropagation === "function") ev.stopPropagation();
+      if (!vid) return;
+      if (favoriteVids.has(vid)) favoriteVids.delete(vid);
+      else favoriteVids.add(vid);
+      saveFavorites();
+      if (favOnly) {{
+        renderTable();
+      }} else {{
+        const isFav = favoriteVids.has(vid);
+        document.querySelectorAll(".fav-btn").forEach(btn => {{
+          if (btn.getAttribute("data-vid") === vid) {{
+            btn.classList.toggle("is-fav", isFav);
+            btn.textContent = isFav ? "❤️" : "♡";
+          }}
+        }});
+        syncFavUI();
+      }}
+    }}
+
+    function toggleCurrentFavorite() {{
+      const curSong = filteredSongs[currentIndex] || SONGS[0];
+      if (!curSong) return;
+      toggleFavorite(null, curSong.vid);
+    }}
+
+    function toggleFavOnly() {{
+      favOnly = !favOnly;
+      syncFavUI();
+      renderTable();
     }}
 
     function syncOnePerSongUI() {{
@@ -2613,7 +3142,9 @@ def generate_files():
       document.getElementById("tierFilter").value = "ALL";
       document.getElementById("roleFilter").value = "ALL";
       onePerSongOnly = false;
+      favOnly = false;
       syncOnePerSongUI();
+      syncFavUI();
       renderTable();
     }}
 
@@ -2640,6 +3171,7 @@ def generate_files():
         setOrDel("tab", currentTab, "yt");
         setOrDel("shuffle", shuffleEnabled ? "1" : "", "");
         setOrDel("oneper", onePerSongOnly ? "1" : "", "");
+        setOrDel("fav", favOnly ? "1" : "", "");
         setOrDel("archaudio", archAudioOnly ? "1" : "", "");
 
         window.history.replaceState({{}}, "", url.toString());
@@ -2653,6 +3185,7 @@ def generate_files():
             tab: currentTab,
             shuffle: shuffleEnabled,
             oneper: onePerSongOnly,
+            fav: favOnly,
             archaudio: archAudioOnly
           }}));
         }}
@@ -2726,6 +3259,12 @@ def generate_files():
     function updateNowPlayingCard(s) {{
       document.getElementById("nowPlayingTitle").textContent = `${{s.n}}. ${{s.raw_title}}${{s.year ? " (" + s.year + ")" : ""}}`;
       document.getElementById("nowPlayingMeta").textContent = `${{s.perf || s.ch}}${{s.alb ? " · " + s.alb : ""}}`;
+      const npFav = document.getElementById("npFavBtn");
+      if (npFav) {{
+        const isFav = favoriteVids.has(s.vid);
+        npFav.textContent = isFav ? "❤️" : "♡";
+        npFav.classList.toggle("btn-active", isFav);
+      }}
       const verBadgeHtml = s.ver_total > 1
         ? `<span class="ver-badge" onclick="filterBySongTitle(event, ${{JSON.stringify(s.raw_title).replace(/"/g, '&quot;')}})" title="לחץ להצגת כל ${{s.ver_total}} הביצועים של שיר זה">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>`
         : "";
@@ -2781,6 +3320,7 @@ def generate_files():
 
     function playSongAt(idx, shouldScroll = true, skipHistory = false) {{
       if (idx < 0 || idx >= filteredSongs.length) return;
+      hasUserStartedPlayback = true;
       if (!skipHistory && currentIndex !== idx && filteredSongs[currentIndex]) {{
         playHistory.push( filteredSongs[currentIndex].vid );
         if (playHistory.length > 100) playHistory.shift();
@@ -2805,6 +3345,7 @@ def generate_files():
     }}
 
     function togglePlayPause() {{
+      hasUserStartedPlayback = true;
       if (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") {{
         const st = ytPlayer.getPlayerState();
         if (st === 1) ytPlayer.pauseVideo();
@@ -2843,28 +3384,22 @@ def generate_files():
 
     function renderTable(skipSync = false) {{
       const currentVid = filteredSongs[currentIndex] ? filteredSongs[currentIndex].vid : null;
-      const q = document.getElementById("searchInput").value.trim().toLowerCase();
+      const rawInput = document.getElementById("searchInput").value;
+      const qRaw = rawInput.trim().toLowerCase();
+      const qNorm = normHeb(rawInput);
       const sortBy = document.getElementById("sortSelect").value;
       const tf = document.getElementById("tierFilter").value;
       const rf = document.getElementById("roleFilter").value;
       const df = document.getElementById("decadeFilter").value;
 
       filteredSongs = SONGS.filter(s => {{
+        if (favOnly && !favoriteVids.has(s.vid)) return false;
         if (onePerSongOnly && s.ver_idx !== 1) return false;
         if (tf !== "ALL" && s.tier !== tf) return false;
         if (rf !== "ALL" && s.role_cat !== rf) return false;
         if (df !== "ALL" && s.decade !== df) return false;
-        if (!q) return true;
-        return (
-          s.title.toLowerCase().includes(q) ||
-          (s.alt_titles && s.alt_titles.join(" ").toLowerCase().includes(q)) ||
-          s.vtitle.toLowerCase().includes(q) ||
-          s.perf.toLowerCase().includes(q) ||
-          s.alb.toLowerCase().includes(q) ||
-          s.ch.toLowerCase().includes(q) ||
-          s.role_label.toLowerCase().includes(q) ||
-          (s.opening_line && s.opening_line.toLowerCase().includes(q))
-        );
+        if (!qRaw) return true;
+        return s._sRaw.includes(qRaw) || (qNorm.length > 0 && s._sNorm.includes(qNorm));
       }});
 
       filteredSongs.sort((a, b) => {{
@@ -2898,9 +3433,11 @@ def generate_files():
 
       document.getElementById("ytCountChip").textContent = filteredSongs.length === SONGS.length
         ? `${{SONGS.length}} ביצועים`
-        : (onePerSongOnly
-            ? `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים (ביצוע אחד לשיר)`
-            : `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים`);
+        : (favOnly
+            ? `מציג ${{filteredSongs.length}} מועדפים (מתוך ${{SONGS.length}} ביצועים)`
+            : (onePerSongOnly
+                ? `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים (ביצוע אחד לשיר)`
+                : `מציג ${{filteredSongs.length}} מתוך ${{SONGS.length}} ביצועים`));
 
       const activeAdvCount = [tf !== "ALL", rf !== "ALL"].filter(Boolean).length;
       const advBadge = document.getElementById("activeFiltersBadge");
@@ -2928,6 +3465,12 @@ def generate_files():
       let lastAlbGroup = null;
       const tbody = document.getElementById("songsBody");
       const htmlRows = [];
+      if (filteredSongs.length === 0) {{
+        const emptyMsg = (favOnly && favoriteVids.size === 0)
+          ? "עדיין לא סימנת ביצועים מועדפים — לחץ על ♡ ליד כל שיר בטבלה או בכרטיס הנגן כדי לשמור אותו ברשימה האישית שלך."
+          : "לא נמצאו שירים התואמים לחיפוש או לסינון שנבחר.";
+        htmlRows.push(`<tr><td colspan="4" style="text-align:center; padding:28px 16px; color:var(--muted);">${{esc(emptyMsg)}}</td></tr>`);
+      }}
       filteredSongs.forEach((s, i) => {{
         if (sortBy === "albums") {{
           const grp = normalizeAlbGrp(s.alb_group);
@@ -2945,6 +3488,7 @@ def generate_files():
         const subNumHtml = (sortBy === "albums" && s.alb_trk && s.alb_trk < 999)
           ? `<div style="font-size:10.5px; color:var(--gold-soft); opacity:0.85;">רצועה #${{s.alb_trk}}</div>`
           : (sortBy !== "canonical" ? `<div style="font-size:10.5px; opacity:0.65;">#${{s.n}}</div>` : "");
+        const isFav = favoriteVids.has(s.vid);
         htmlRows.push(`
         <tr class="song-row ${{i === currentIndex ? "active" : ""}} ${{s.ver_total > 1 ? "multi-ver-row" : ""}}" onclick="playSongAt(${{i}}, false)">
           <td class="row-num">
@@ -2964,17 +3508,23 @@ def generate_files():
             ${{s.alb ? `<div class="perf-album">${{esc(s.alb)}}</div>` : ""}}
           </td>
           <td style="text-align:left;">
-            <span class="dur-text">${{esc(s.dur)}}</span>
+            <div class="dur-fav-wrap">
+              <span class="dur-text">${{esc(s.dur)}}</span>
+              <button class="fav-btn ${{isFav ? "is-fav" : ""}}" type="button" data-vid="${{esc(s.vid)}}" onclick="toggleFavorite(event, '${{esc(s.vid)}}')" title="הוסף / הסר מהמועדפים">${{isFav ? "❤️" : "♡"}}</button>
+            </div>
           </td>
         </tr>`);
       }});
       tbody.innerHTML = htmlRows.join("");
+      syncFavUI();
 
       if (!skipSync) syncUrlAndStorageState();
     }}
 
     function renderArchiveTable(skipSync = false) {{
-      const q = document.getElementById("archSearchInput").value.trim().toLowerCase();
+      const rawInput = document.getElementById("archSearchInput").value;
+      const qRaw = rawInput.trim().toLowerCase();
+      const qNorm = normHeb(rawInput);
       const rf = document.getElementById("archRoleFilter").value;
       const sf = document.getElementById("archSourceFilter").value;
 
@@ -2990,15 +3540,8 @@ def generate_files():
           }});
           if (!hasSource) return false;
         }}
-        if (!q) return true;
-        return (
-          s.title.toLowerCase().includes(q) ||
-          (s.alt_titles && s.alt_titles.join(" ").toLowerCase().includes(q)) ||
-          (s.perfs && s.perfs.toLowerCase().includes(q)) ||
-          (s.albums && s.albums.toLowerCase().includes(q)) ||
-          s.role_label.toLowerCase().includes(q) ||
-          (s.opening_line && s.opening_line.toLowerCase().includes(q))
-        );
+        if (!qRaw) return true;
+        return s._sRaw.includes(qRaw) || (qNorm.length > 0 && s._sNorm.includes(qNorm));
       }});
 
       document.getElementById("archCountChip").textContent = archAudioOnly
@@ -3062,6 +3605,9 @@ def generate_files():
       }} else if (ev.key === "s" || ev.key === "S") {{
         ev.preventDefault();
         toggleShuffle();
+      }} else if (ev.key === "f" || ev.key === "F") {{
+        ev.preventDefault();
+        toggleCurrentFavorite();
       }}
     }});
 
@@ -3082,6 +3628,7 @@ def generate_files():
       const tabParam = params.get("tab") || saved.tab;
       const shufParam = params.get("shuffle");
       const onePerParam = params.get("oneper");
+      const favParam = params.get("fav");
       const archAudioParam = params.get("archaudio");
 
       if (qParam !== null) {{
@@ -3107,6 +3654,10 @@ def generate_files():
         onePerSongOnly = true;
         syncOnePerSongUI();
       }}
+      if (favParam === "1" || (favParam === null && saved.fav && favoriteVids.size > 0)) {{
+        favOnly = true;
+      }}
+      syncFavUI();
       if (archAudioParam === "1" || (archAudioParam === null && saved.archaudio)) {{
         archAudioOnly = true;
         syncArchAudioOnlyUI();
