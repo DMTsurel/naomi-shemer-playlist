@@ -171,6 +171,18 @@ def _clean_artist_name(item: dict, sel: dict) -> str:
     return perf
 
 
+def _clean_display_album(item: dict, sel: dict, include_track: bool = False) -> str:
+    ag = str(item.get("album_group") or "").strip()
+    trk = str(item.get("album_track_number") or "").strip()
+    is_single_grp = (not ag) or ag.startswith("סינגל") or ag.startswith("ביצוע ")
+    if not is_single_grp:
+        return f"{ag} (#{trk})" if (include_track and trk) else ag
+    ma = str(sel.get("matched_album") or "").strip()
+    if ma and not ma.startswith("סינגל") and not ma.startswith("ביצוע "):
+        return ma
+    return ""
+
+
 def sync_all_secondary_exports(data: dict) -> list:
     """מייצר ומסנכרן את כל קובצי הפלט המשניים (CSV, MD, M3U8, Streaming CSV, Wayback URLs)."""
     playlist = data["playlist"]
@@ -276,7 +288,7 @@ def sync_all_secondary_exports(data: dict) -> list:
             vid = sel["video_id"]
             yr = item.get("year", "")
             yr_clean = yr if (yr and str(yr) != "2099") else ""
-            alb = item.get("album_group") or sel.get("matched_album") or ""
+            alb = _clean_display_album(item, sel, include_track=False)
             artist = _clean_artist_name(item, sel)
             alts = [
                 f"https://www.youtube.com/watch?v={a['video_id']}"
@@ -386,6 +398,10 @@ def validate_and_normalize_playlist(data: dict) -> bool:
         if str(item.get("year", "")) == "2099":
             item["year"] = ""
             changed = True
+        ag_val = str(item.get("album_group", "") or "").strip()
+        if ag_val.startswith("ביצוע נעמי שמר (אחרי האלבום:") or ag_val == "סינגל / ביצוע בודד (ביצוע נעמי שמר)":
+            item["album_group"] = "סינגל / ביצוע בודד"
+            changed = True
         if "catalog_performers" in item:
             norm_cp = normalize_performers_list(item.get("catalog_performers", []))
             if norm_cp != item.get("catalog_performers", []):
@@ -441,6 +457,18 @@ def validate_and_normalize_playlist(data: dict) -> bool:
     for i, it in enumerate(ordered, 1):
         if it.get("index") != i:
             it["index"] = i
+            changed = True
+
+    def _chrono_sort_key(it: dict):
+        yr_s = str(it.get("year", "") or "").strip()
+        yr_num = int(yr_s) if (yr_s.isdigit() and int(yr_s) < 2099) else 9999
+        prev_c = it.get("chrono_index")
+        prev_c_num = int(prev_c) if isinstance(prev_c, int) else 999999
+        return (yr_num, prev_c_num, it["index"])
+
+    for c_idx, it in enumerate(sorted(matched_entries, key=_chrono_sort_key), 1):
+        if it.get("chrono_index") != c_idx:
+            it["chrono_index"] = c_idx
             changed = True
 
     # Integrity validation checks
@@ -1128,7 +1156,7 @@ def generate_files():
 
         ag = item.get("album_group", "")
         trk = item.get("album_track_number", "")
-        alb_str = f"{ag} (#{trk})" if (ag and trk) else (ag or sel.get("matched_album", ""))
+        alb_str = _clean_display_album(item, sel, include_track=True)
 
         alts_list = []
         seen_alt_vids = {sel["video_id"]}
@@ -1251,6 +1279,7 @@ def generate_files():
     l2 = layer_counts.get(2, 0)
     l3 = layer_counts.get(3, 0)
     unique_songs_count = sum(1 for item in songs_js if item.get("ver_idx") == 1)
+    first_vid = songs_js[0]["vid"] if songs_js else ""
 
     html_content = f"""<!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -1258,10 +1287,16 @@ def generate_files():
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים ביוטיוב + {unmatched_songs_count} שירי ארכיון)</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1120' stroke='%23f59e0b' stroke-width='3'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' fill='%23fbbf24'%3E%E2%99%AB%3C/text%3E%3C/svg%3E" />
   <meta name="description" content="האוסף הכרונולוגי המקיף של שירי נעמי שמר ({total_catalog_songs} שירים מאוחדים מ-9 מאגרים): {total_videos} ביצועים מקוריים ביוטיוב ו-{unmatched_songs_count} שירי ארכיון נדירים עם קישורים לספרייה הלאומית, שירונט, זמרשת ואקו&quot;ם." />
   <meta property="og:title" content="שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים + {unmatched_songs_count} שירי ארכיון)" />
   <meta property="og:description" content="נגן אינטראקטיבי וקטלוג כרונולוגי מלא של כל {total_catalog_songs} שירי נעמי שמר: אלבומים מקוריים, ביצועי נעמי שמר, תרגומים וארכיון הספרייה הלאומית." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dmtsurel.github.io/naomi-shemer-playlist/" />
+  <meta property="og:image" content="https://i.ytimg.com/vi/{first_vid}/hqdefault.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים + {unmatched_songs_count} שירי ארכיון)" />
+  <meta name="twitter:image" content="https://i.ytimg.com/vi/{first_vid}/hqdefault.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@600;700;800&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1294,7 +1329,7 @@ def generate_files():
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.5;
-      padding: 20px 24px 36px;
+      padding: 20px 24px 86px;
       min-height: 100vh;
     }}
     .container {{ max-width: 1420px; margin: 0 auto; }}
@@ -1450,8 +1485,11 @@ def generate_files():
     }}
     @media (max-width: 1080px) {{
       .player-layout {{ grid-template-columns: 1fr; }}
+      .sticky-player {{ position: static; }}
     }}
-    .sticky-player {{ position: sticky; top: 16px; }}
+    @media (min-width: 1081px) {{
+      .sticky-player {{ position: sticky; top: 16px; }}
+    }}
     .yt-frame-wrap {{
       width: 100%;
       aspect-ratio: 16/9;
@@ -1468,18 +1506,13 @@ def generate_files():
       display: block;
     }}
     @media (max-width: 768px) {{
-      .container {{ padding: 12px 10px 32px; }}
+      .container {{ padding: 12px 10px 84px; }}
       .sticky-player {{
-        position: sticky;
-        top: 6px;
-        z-index: 25;
-        padding: 10px 12px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+        padding: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
       }}
-      .yt-frame-wrap {{ max-height: 185px; }}
-      #nowPlayingTitle {{ font-size: 17px !important; }}
+      #nowPlayingTitle {{ font-size: 18px !important; }}
       #nowPlayingMeta {{ font-size: 12.5px !important; margin-bottom: 5px !important; }}
-      .quote-box {{ display: none !important; }}
       .arch-toggle-btn {{ white-space: normal; text-align: center; }}
       th, td {{ padding: 8px 7px; font-size: 12.5px; }}
       .song-main-title {{ font-size: 13.5px; }}
@@ -1516,7 +1549,7 @@ def generate_files():
     }}
     .transport-bar {{
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 6px;
       margin-top: 12px;
     }}
@@ -1855,6 +1888,103 @@ def generate_files():
       font-size: 11px;
       color: #cbd5e1;
     }}
+    .mini-player-bar {{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 95;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(245, 158, 11, 0.32);
+      box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.55);
+      padding: 8px 16px;
+      transform: translateY(115%);
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    }}
+    .mini-player-bar.visible {{
+      transform: translateY(0);
+    }}
+    .mini-player-inner {{
+      max-width: 1420px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }}
+    .mini-song-info {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1;
+      cursor: pointer;
+    }}
+    .mini-thumb {{
+      width: 48px;
+      height: 36px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 1px solid var(--border-strong);
+      background: #000;
+      flex-shrink: 0;
+    }}
+    .mini-text {{
+      min-width: 0;
+      overflow: hidden;
+    }}
+    .mini-title {{
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }}
+    .mini-perf {{
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }}
+    .mini-controls {{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }}
+    .share-toast {{
+      position: fixed;
+      bottom: 74px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: #065f46;
+      color: #ecfdf5;
+      border: 1px solid #34d399;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      z-index: 120;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }}
+    .share-toast.show {{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }}
+    @media (max-width: 560px) {{
+      .mini-player-bar {{ padding: 7px 10px; }}
+      .mini-thumb {{ width: 40px; height: 30px; }}
+      .mini-controls .btn-icon {{ padding: 6px 9px; font-size: 13px; }}
+      .mini-back-lbl {{ display: none; }}
+    }}
   </style>
 </head>
 <body>
@@ -1908,10 +2038,11 @@ def generate_files():
           </div>
 
           <div class="transport-bar">
-            <button class="btn btn-outline btn-icon" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
-            <button class="btn btn-outline btn-icon" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯</button>
-            <button class="btn btn-outline btn-icon" onclick="playNext()" title="השיר הבא (N)">⏭</button>
-            <button id="shuffleBtn" class="btn btn-outline btn-icon" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀</button>
+            <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
+            <button id="mainPlayPauseBtn" class="btn btn-outline btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯</button>
+            <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
+            <button id="shuffleBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀</button>
+            <button id="npShareBtn" class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="העתק קישור ישיר לשיר זה">🔗</button>
             <a id="openOnYt" class="btn btn-outline btn-icon" href="#" target="_blank" rel="noopener" title="פתח ביוטיוב">↗ YT</a>
           </div>
 
@@ -2066,6 +2197,26 @@ def generate_files():
     </footer>
   </div>
 
+  <div id="miniPlayerBar" class="mini-player-bar" role="region" aria-label="נגן מוקטן">
+    <div class="mini-player-inner">
+      <div class="mini-song-info" onclick="scrollToTopPlayer()" title="חזרה לנגן הווידאו בראש העמוד">
+        <img id="miniThumb" class="mini-thumb" src="" alt="" loading="lazy" />
+        <div class="mini-text">
+          <div id="miniTitle" class="mini-title">בחר שיר מהרשימה</div>
+          <div id="miniPerf" class="mini-perf"></div>
+        </div>
+      </div>
+      <div class="mini-controls">
+        <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
+        <button id="miniPlayBtn" class="btn btn-gold btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">▶</button>
+        <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
+        <button class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="העתק קישור ישיר לשיר זה">🔗</button>
+        <button class="btn btn-outline btn-sm" type="button" onclick="scrollToTopPlayer()" title="חזרה לנגן הווידאו">⬆ <span class="mini-back-lbl">לנגן</span></button>
+      </div>
+    </div>
+  </div>
+  <div id="shareToast" class="share-toast" role="status" aria-live="polite">✔ הקישור הישיר לשיר הועתק!</div>
+
   <script>
     function esc(s) {{
       if (s === null || s === undefined) return "";
@@ -2088,6 +2239,34 @@ def generate_files():
     let onePerSongOnly = false;
     let archAudioOnly = false;
     let currentTab = "yt";
+    let isMainPlayerVisible = true;
+    let shareToastTimer = null;
+
+    function updateMiniPlayerVisibility() {{
+      const bar = document.getElementById("miniPlayerBar");
+      if (!bar) return;
+      const isPlayingNow = ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function" && ytPlayer.getPlayerState() === 1;
+      const shouldShow = (currentTab === "yt" && !isMainPlayerVisible) || (currentTab === "arch" && isPlayingNow);
+      bar.classList.toggle("visible", Boolean(shouldShow));
+    }}
+
+    function scrollToTopPlayer() {{
+      if (currentTab !== "yt") switchTab("yt");
+      const el = document.querySelector(".sticky-player") || document.getElementById("ytFrameWrap");
+      if (el) el.scrollIntoView({{ behavior: "smooth", block: "start" }});
+      else window.scrollTo({{ top: 0, behavior: "smooth" }});
+    }}
+
+    function updateMiniPlayerCard(s, vidOverride) {{
+      if (!s) return;
+      const activeVid = vidOverride || s.vid;
+      const thumb = document.getElementById("miniThumb");
+      const titleEl = document.getElementById("miniTitle");
+      const perfEl = document.getElementById("miniPerf");
+      if (thumb) thumb.src = `https://i.ytimg.com/vi/${{encodeURIComponent(activeVid)}}/mqdefault.jpg`;
+      if (titleEl) titleEl.textContent = `${{s.n}}. ${{s.raw_title}}${{s.year ? " (" + s.year + ")" : ""}}`;
+      if (perfEl) perfEl.textContent = `${{s.perf || s.ch}}${{s.alb ? " · " + s.alb : ""}}`;
+    }}
 
     function updateMediaSession(s, vidOverride) {{
       if (!s || typeof navigator === "undefined" || !("mediaSession" in navigator) || typeof MediaMetadata === "undefined") return;
@@ -2125,21 +2304,32 @@ def generate_files():
 
     function syncPlayButtonUI() {{
       const btn = document.getElementById("playPlaylistBtn");
-      if (!btn) return;
+      const miniBtn = document.getElementById("miniPlayBtn");
+      const mainBtn = document.getElementById("mainPlayPauseBtn");
       if (!ytApiReady || !ytPlayer || typeof ytPlayer.getPlayerState !== "function") {{
-        btn.textContent = "▶ נגן פלייליסט";
+        if (btn) btn.textContent = "▶ נגן פלייליסט";
+        if (miniBtn) miniBtn.textContent = "▶";
+        if (mainBtn) mainBtn.textContent = "⏯";
+        updateMiniPlayerVisibility();
         return;
       }}
       const st = ytPlayer.getPlayerState();
       if (st === 1) {{
-        btn.textContent = "⏸ השהה פלייליסט";
+        if (btn) btn.textContent = "⏸ השהה פלייליסט";
+        if (miniBtn) miniBtn.textContent = "⏸";
+        if (mainBtn) mainBtn.textContent = "⏸";
         if ("mediaSession" in navigator) navigator.mediaSession.playbackState = "playing";
       }} else if (st === 2) {{
-        btn.textContent = "▶ המשך פלייליסט";
+        if (btn) btn.textContent = "▶ המשך פלייליסט";
+        if (miniBtn) miniBtn.textContent = "▶";
+        if (mainBtn) mainBtn.textContent = "▶";
         if ("mediaSession" in navigator) navigator.mediaSession.playbackState = "paused";
       }} else {{
-        btn.textContent = "▶ נגן פלייליסט";
+        if (btn) btn.textContent = "▶ נגן פלייליסט";
+        if (miniBtn) miniBtn.textContent = "▶";
+        if (mainBtn) mainBtn.textContent = "⏯";
       }}
+      updateMiniPlayerVisibility();
     }}
 
     function startPlaylistPlayback() {{
@@ -2248,6 +2438,8 @@ def generate_files():
         const sel = document.getElementById("backupSelect");
         if (sel) sel.value = alt.vid;
         loadVideoByIdOrSrc(alt.vid, true);
+        updateMiniPlayerCard(s, alt.vid);
+        updateMediaSession(s, alt.vid);
         document.getElementById("openOnYt").href = `https://www.youtube.com/watch?v=${{encodeURIComponent(alt.vid)}}`;
       }} else {{
         if (banner) {{
@@ -2302,6 +2494,8 @@ def generate_files():
         }}
       }}
       loadVideoByIdOrSrc(vid, true);
+      updateMiniPlayerCard(s, vid);
+      updateMediaSession(s, vid);
       document.getElementById("openOnYt").href = `https://www.youtube.com/watch?v=${{encodeURIComponent(vid)}}`;
     }}
 
@@ -2322,6 +2516,7 @@ def generate_files():
           ? `🏛️ הצג גם ${{ARCHIVE_SONGS.length}} שירים נדירים מהארכיון שאינם ביוטיוב`
           : `🎵 חזרה לנגן הפלייליסט הראשי (${{SONGS.length}} ביצועים)`;
       }}
+      updateMiniPlayerVisibility();
       if (!skipSync) {{
         syncUrlAndStorageState();
         window.scrollTo({{ top: 0, behavior: "smooth" }});
@@ -2469,11 +2664,37 @@ def generate_files():
       const shareStr = window.location.href;
       const showOk = () => {{
         const st = document.getElementById("shareStatus");
-        st.style.display = "inline";
-        setTimeout(() => st.style.display = "none", 3500);
+        if (st) {{
+          st.style.display = "inline";
+          setTimeout(() => {{ st.style.display = "none"; }}, 3500);
+        }}
+        const toast = document.getElementById("shareToast");
+        if (toast) {{
+          const s = filteredSongs[currentIndex] || SONGS[0];
+          toast.textContent = s ? `✔ הועתק קישור ישיר ל"${{s.raw_title}}"!` : "✔ הקישור הישיר לשיר הועתק!";
+          toast.classList.add("show");
+          if (shareToastTimer) clearTimeout(shareToastTimer);
+          shareToastTimer = setTimeout(() => toast.classList.remove("show"), 3000);
+        }}
+      }};
+      const fallbackCopy = () => {{
+        try {{
+          const ta = document.createElement("textarea");
+          ta.value = shareStr;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          showOk();
+        }} catch (e) {{}}
       }};
       if (navigator.clipboard && navigator.clipboard.writeText) {{
-        navigator.clipboard.writeText(shareStr).then(showOk);
+        navigator.clipboard.writeText(shareStr).then(showOk).catch(fallbackCopy);
+      }} else {{
+        fallbackCopy();
       }}
     }}
 
@@ -2547,6 +2768,7 @@ def generate_files():
           bBox.style.display = "none";
         }}
       }}
+      updateMiniPlayerCard(s, s.vid);
       updateMediaSession(s, s.vid);
     }}
 
@@ -2588,6 +2810,8 @@ def generate_files():
         if (st === 1) ytPlayer.pauseVideo();
         else ytPlayer.playVideo();
         if (typeof syncPlayButtonUI === "function") syncPlayButtonUI();
+      }} else {{
+        startPlaylistPlayback();
       }}
     }}
 
@@ -2689,10 +2913,14 @@ def generate_files():
         }}
       }}
 
+      const normalizeAlbGrp = (ag) => (!ag || ag.startsWith("סינגל") || ag.startsWith("ביצוע "))
+        ? "סינגלים וביצועים בודדים"
+        : ag;
+
       const albumCounts = {{}};
       if (sortBy === "albums") {{
         filteredSongs.forEach(s => {{
-          const g = s.alb_group || "ללא שיוך לאלבום";
+          const g = normalizeAlbGrp(s.alb_group);
           albumCounts[g] = (albumCounts[g] || 0) + 1;
         }});
       }}
@@ -2702,7 +2930,7 @@ def generate_files():
       const htmlRows = [];
       filteredSongs.forEach((s, i) => {{
         if (sortBy === "albums") {{
-          const grp = s.alb_group || "ללא שיוך לאלבום";
+          const grp = normalizeAlbGrp(s.alb_group);
           if (grp !== lastAlbGroup) {{
             lastAlbGroup = grp;
             htmlRows.push(`
@@ -2714,7 +2942,7 @@ def generate_files():
         }}
         const roleSub = s.role_cat !== "words_and_music" ? `<span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>` : "";
         const titleAttrEsc = JSON.stringify(s.raw_title).replace(/"/g, "&quot;");
-        const subNumHtml = sortBy === "albums" && s.alb_trk
+        const subNumHtml = (sortBy === "albums" && s.alb_trk && s.alb_trk < 999)
           ? `<div style="font-size:10.5px; color:var(--gold-soft); opacity:0.85;">רצועה #${{s.alb_trk}}</div>`
           : (sortBy !== "canonical" ? `<div style="font-size:10.5px; opacity:0.65;">#${{s.n}}</div>` : "");
         htmlRows.push(`
@@ -2889,6 +3117,16 @@ def generate_files():
       renderArchiveTable(true);
 
       initMediaSessionHandlers();
+      const ytWrapEl = document.getElementById("ytFrameWrap");
+      if (ytWrapEl && "IntersectionObserver" in window) {{
+        const obs = new IntersectionObserver((entries) => {{
+          if (entries && entries.length > 0) {{
+            isMainPlayerVisible = entries[0].isIntersecting;
+            updateMiniPlayerVisibility();
+          }}
+        }}, {{ threshold: 0.08 }});
+        obs.observe(ytWrapEl);
+      }}
       if (SONGS.length > 0) {{
         let initSongNum = parseInt(params.get("song") || saved.song || "1", 10);
         let initIdx = filteredSongs.findIndex(x => x.n === initSongNum);
