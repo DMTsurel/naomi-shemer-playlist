@@ -316,7 +316,13 @@ def validate_and_normalize_playlist(data: dict) -> bool:
     stats = data.setdefault("stats", {})
     matched_songs_cnt = len(by_title)
     total_songs_cnt = len({it["title"] for it in ordered})
-    if stats.get("matched_videos") != len(matched_entries) or stats.get("matched_songs") != matched_songs_cnt:
+    if (
+        stats.get("matched_videos") != len(matched_entries)
+        or stats.get("matched_songs") != matched_songs_cnt
+        or stats.get("unmatched_songs") != len(unmatched_entries)
+        or stats.get("total_songs") != total_songs_cnt
+        or stats.get("total_playlist_entries") != len(ordered)
+    ):
         changed = True
     stats["total_songs"] = total_songs_cnt
     stats["total_catalog_songs"] = total_songs_cnt
@@ -984,6 +990,7 @@ def generate_files():
             "layer_label": lyr_label,
             "title": display_title,
             "raw_title": item["title"],
+            "alt_titles": item.get("alt_titles", []),
             "ver_idx": item.get("ver_idx", 1),
             "ver_total": item.get("ver_total", 1),
             "year": yr_display,
@@ -2424,6 +2431,7 @@ def generate_files():
         if (!q) return true;
         return (
           s.title.toLowerCase().includes(q) ||
+          (s.alt_titles && s.alt_titles.join(" ").toLowerCase().includes(q)) ||
           s.vtitle.toLowerCase().includes(q) ||
           s.perf.toLowerCase().includes(q) ||
           s.alb.toLowerCase().includes(q) ||

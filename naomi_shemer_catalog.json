@@ -14532,13 +14532,15 @@
       "title": "יום הולדת מוזר",
       "alt_titles": [
         "יום הלדת מוזר",
-        "אי יום הולדת מוזר כל שנה זה אותו הדבר"
+        "אי יום הולדת מוזר כל שנה זה אותו הדבר",
+        "יום הולדת שמח"
       ],
-      "english_title": "",
+      "english_title": "YOM HULEDET SAMEAH",
       "original_title": "",
       "year": "1981",
       "sources": [
-        "nli"
+        "nli",
+        "acum"
       ],
       "roles": [
         "composer",
@@ -14551,62 +14553,32 @@
         "נעמי שמר"
       ],
       "translators": [],
-      "arrangers": [],
+      "arrangers": [
+        "אילן מוכיח"
+      ],
       "performers": [
         "אריק לביא",
-        "חבורת הזמר מושב חרות"
+        "חבורת הזמר מושב חרות",
+        "לביא אריק"
       ],
       "albums": [
         "הקלדה משמיעה"
       ],
-      "acum_work_ids": [],
-      "acum_versions_count": 0,
-      "shironet_wrkids": [],
-      "shironet_urls": [],
-      "nli_mms_ids": [
-        "990037044970205171"
-      ],
-      "opening_line": "אי יום הלדת מוזר כל שנה זה אותו הדבר",
-      "notes": [],
-      "youtube_ids": [],
-      "wiki_details": []
-    },
-    {
-      "normalized_key": "יום הולדת שמח",
-      "title": "יום הולדת שמח",
-      "alt_titles": [],
-      "english_title": "YOM HULEDET SAMEAH",
-      "original_title": "",
-      "year": "",
-      "sources": [
-        "acum"
-      ],
-      "roles": [
-        "author",
-        "composer"
-      ],
-      "authors": [
-        "נעמי שמר"
-      ],
-      "composers": [
-        "נעמי שמר"
-      ],
-      "translators": [],
-      "arrangers": [],
-      "performers": [
-        "לביא אריק"
-      ],
-      "albums": [],
       "acum_work_ids": [
         "1219551"
       ],
       "acum_versions_count": 1,
       "shironet_wrkids": [],
       "shironet_urls": [],
-      "nli_mms_ids": [],
-      "opening_line": "",
+      "nli_mms_ids": [
+        "990037044970205171",
+        "990032559080205171"
+      ],
+      "opening_line": "אי יום הלדת מוזר כל שנה זה אותו הדבר",
       "notes": [],
-      "youtube_ids": [],
+      "youtube_ids": [
+        "V_AZsXtgxvY"
+      ],
       "wiki_details": []
     },
     {
@@ -33848,10 +33820,10 @@
     "המכתב של רבקה לנעמי- אריאל הורביץ, 2013(המכתב עצמו 1964)"
   ],
   "stats": {
-    "total_unique_songs": 453,
-    "songs_with_performers": 388,
-    "songs_with_albums": 374,
-    "songs_with_youtube_ids": 72,
+    "total_unique_songs": 452,
+    "songs_with_performers": 389,
+    "songs_with_albums": 369,
+    "songs_with_youtube_ids": 73,
     "songs_with_opening_line": 368,
     "songs_in_acum": 377,
     "songs_in_nli": 390,
@@ -33862,8 +33834,8 @@
     "songs_in_musicbrainz": 184,
     "songs_in_pizmonet": 35,
     "songs_in_zemereshet": 3,
-    "songs_in_at_least_two_sources": 354,
-    "songs_in_at_least_three_sources": 309,
+    "songs_in_at_least_two_sources": 351,
+    "songs_in_at_least_three_sources": 305,
     "total_collections": 256,
     "wiki_albums": 34,
     "wiki_compilations": 23,
