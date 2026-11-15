@@ -25,12 +25,144 @@ def _parse_duration_seconds(dur_str: str) -> int:
     return -1
 
 
+ACUM_PERFORMER_EXACT_MAP = {
+    "Naomi Shemer = נעמי שמר": "נעמי שמר",
+    "נעמי שמר = Naomi Shemer": "נעמי שמר",
+    "שמר נעמי": "נעמי שמר",
+    "גאון יהורם": "יהורם גאון",
+    "גבעטרון": "הגבעטרון",
+    "אופיר רונית": "רונית אופיר",
+    "אופיר שייקה": "שייקה אופיר",
+    "אופיר ניצן": "ניצן אופיר",
+    "ביאליק עידו": "עידו ביאליק",
+    "בן ישראל אפי וחן שולה": "אפי בן ישראל ושולה חן",
+    "בר אבא שלמה ומושונוב מוני": "שלמה בראבא ומוני מושונוב",
+    "בר נוף רוני": "רוני בר נוף",
+    "ברלין גבי": "גבי ברלין",
+    "ברלין גבי וטופול חיים": "גבי ברלין וחיים טופול",
+    "ברלין גבי ושרון שרהלה": "גבי ברלין ושרה'לה שרון",
+    "גלוסקא אופירה": "אופירה גלוסקא",
+    "גלוסקא אופירה וגולן דני": "אופירה גלוסקא ודני גולן",
+    "גלוסקא אופירה ורננים": "אופירה גלוסקא וחבורת רננים",
+    "גנוט יוני": "יוני גנוט",
+    "דגן צילה": "צילה דגן",
+    "דגן צילה ורננים": "צילה דגן וחבורת רננים",
+    "דגן צילה ואמדורסקי בני": "צילה דגן ובני אמדורסקי",
+    "דגן צילה גלוסקא אופירה ולהקת הנחל": "צילה דגן, אופירה גלוסקא ולהקת הנח\"ל",
+    "דגן צילה שמר נעמי ואמדורסקי בני": "צילה דגן, נעמי שמר ובני אמדורסקי",
+    "הגשש החיוור ושמר נעמי": "הגשש החיוור ונעמי שמר",
+    "הורוביץ אריאל": "אריאל הורוביץ",
+    "הורוביץ אריאל והאחיות שמר": "אריאל הורוביץ והאחיות שמר",
+    "הנדל הלנה": "נחמה (הלנה) הנדל",
+    "זיטנר אורה": "אורה זיטנר",
+    "זיטנר אורה קאופמן ניב וגוריון ישראל": "אורה זיטנר, ניב קאופמן וישראל גוריון",
+    "מיכאלי רבקה": "רבקה מיכאלי",
+    "מיכאלי רבקה וצפיר טוביה": "רבקה מיכאלי וטוביה צפיר",
+    "מיכאלי רבקה ואמדורסקי בני": "רבקה מיכאלי ובני אמדורסקי",
+    "מיכאלי רבקה ושמר נעמי": "רבקה מיכאלי ונעמי שמר",
+    "מיכאלי רבקה מושונוב מוני ובר-אבא שלמה": "רבקה מיכאלי, מוני מושונוב ושלמה בראבא",
+    "מושונוב מוני בר-אבא שלמה גוב גידי": "מוני מושונוב, שלמה בראבא וגידי גוב",
+    "ניני אחינועם ודור גיל": "אחינועם ניני וגיל דור",
+    "נשר דורון": "דורון נשר",
+    "סנדר עירית": "עירית סנדר",
+    "קליש חגית": "חגית קליש",
+    "קראוזר בועז": "בועז קראוזר",
+    "רביבו רבקה": "רבקה רביבו",
+    "רולנד רונית": "רונית רולנד",
+    "רולנד רונית ואלהרר דודו": "רונית רולנד ודודו אלהרר",
+    "רולנד רונית ולהקת אלף שיר ושיר": "רונית רולנד ולהקת אלף שיר ושיר",
+    "שי שמואל": "שמואל שי",
+    "שמר נעמי ואלהרר דודו": "נעמי שמר ודודו אלהרר",
+    "שרון שרה'לה": "שרה'לה שרון",
+    "אהרון שלומית": "שלומית אהרון",
+    "איינשטיין אריק": "אריק איינשטיין",
+    "איינשטיין אריק ורביץ יהודית": "אריק איינשטיין ויהודית רביץ",
+    "איינשטיין אריק ורובינא אילנה": "אריק איינשטיין ואילנה רובינא",
+    "אלברשטיין חוה": "חוה אלברשטיין",
+    "אלברשטיין חוה והפרברים": "חוה אלברשטיין והפרברים",
+    "אלברשטיין חוה ופלטינה": "חוה אלברשטיין והפלטינה",
+    "אלהרר דודו": "דודו אלהרר",
+    "אלהרר דודו,רולנד רונית והראל רמי": "דודו אלהרר, רונית רולנד ורמי הראל",
+    "ארזי ירדנה": "ירדנה ארזי",
+    "ארזי ירדנה וקירל נועה": "ירדנה ארזי ונועה קירל",
+    "בנאי אהוד": "אהוד בנאי",
+    "בנאי יובל": "יובל בנאי",
+    "בנאי יוסי": "יוסי בנאי",
+    "בנאי יוסי ובנאי גברי": "יוסי בנאי וגברי בנאי",
+    "בנאי יוסי ומיכאלי רבקה": "יוסי בנאי ורבקה מיכאלי",
+    "בנאי יוסי ורביץ יהודית": "יוסי בנאי ויהודית רביץ",
+    "בנאי מאיר": "מאיר בנאי",
+    "בשן יגאל": "יגאל בשן",
+    "גלרון נורית": "נורית גלרון",
+    "זכאי דודו": "דודו זכאי",
+    "זכאי דודו וראובני דורית": "דודו זכאי ודורית ראובני",
+    "זראי ריקה": "ריקה זראי",
+    "חיטמן אוהד": "אוהד חיטמן",
+    "חיטמן עוזי": "עוזי חיטמן",
+    "חן שולה": "שולה חן",
+    "חן שולה ולהקת הנחל": "שולה חן ולהקת הנח\"ל",
+    "לביא אריק": "אריק לביא",
+    "מאירי עוזי": "עוזי מאירי",
+    "נתן שולי": "שולי נתן",
+    "נתן שולי ושמר נעמי": "שולי נתן ונעמי שמר",
+    "סיני אריק": "אריק סיני",
+    "צפיר טוביה": "טוביה צפיר",
+    "רביץ יהודית": "יהודית רביץ",
+    "שרעבי בועז": "בועז שרעבי",
+}
+
+ACUM_INLINE_PAIR_SUBS = [
+    ("שמר נעמי", "נעמי שמר"),
+    ("גאון יהורם", "יהורם גאון"),
+    ("אלברשטיין חוה", "חוה אלברשטיין"),
+    ("איינשטיין אריק", "אריק איינשטיין"),
+    ("בנאי יוסי", "יוסי בנאי"),
+    ("מיכאלי רבקה", "רבקה מיכאלי"),
+    ("אלהרר דודו", "דודו אלהרר"),
+    ("רולנד רונית", "רונית רולנד"),
+    ("הורוביץ אריאל", "אריאל הורוביץ"),
+    ("גלוסקא אופירה", "אופירה גלוסקא"),
+    ("דגן צילה", "צילה דגן"),
+    ("ירקוני יפה", "יפה ירקוני"),
+    ("לוי אושיק", "אושיק לוי"),
+    ("תאומי עודד", "עודד תאומי"),
+]
+
+
+def normalize_performer_name(name: str) -> str:
+    s = str(name or "").strip()
+    if not s:
+        return ""
+    if s in ACUM_PERFORMER_EXACT_MAP:
+        return ACUM_PERFORMER_EXACT_MAP[s]
+    if " = " in s:
+        heb_parts = [p.strip() for p in s.split(" = ") if re.search(r"[\u0590-\u05FF]", p)]
+        if heb_parts:
+            s = heb_parts[0]
+    for src_pair, dst_pair in ACUM_INLINE_PAIR_SUBS:
+        if src_pair in s:
+            s = s.replace(src_pair, dst_pair)
+    return ACUM_PERFORMER_EXACT_MAP.get(s, s)
+
+
+def normalize_performers_list(perfs: list) -> list:
+    out = []
+    seen = set()
+    for p in perfs or []:
+        np = normalize_performer_name(p)
+        if np and np not in seen:
+            seen.add(np)
+            out.append(np)
+    return out
+
+
 def _clean_artist_name(item: dict, sel: dict) -> str:
     perf = sel.get("matched_performer") or item.get("matched_performer") or ""
     if not perf:
-        cat_perfs = item.get("catalog_performers") or item.get("performers") or []
+        cat_perfs = normalize_performers_list(item.get("catalog_performers") or item.get("performers") or [])
         if cat_perfs:
             perf = cat_perfs[0]
+    perf = normalize_performer_name(perf)
     if not perf:
         ch = sel.get("channel", "")
         perf = re.sub(r"\s*-\s*Topic$", "", ch).strip()
@@ -77,13 +209,15 @@ def sync_all_secondary_exports(data: dict) -> list:
                     "",
                 ),
             )
+            yr_raw = item.get("year", "")
+            yr_csv = yr_raw if (yr_raw and str(yr_raw) != "2099") else ""
             w.writerow({
                 "index": item.get("index", ""),
                 "chrono_index": item.get("chrono_index", ""),
                 "canonical_layer": item.get("canonical_layer", ""),
                 "canonical_score": item.get("canonical_score", ""),
                 "title": item.get("title", ""),
-                "year": item.get("year", ""),
+                "year": yr_csv,
                 "role_category": item.get("role_category", ""),
                 "role_label_heb": item.get("role_label_heb", ""),
                 "co_creators_heb": item.get("co_creators_heb", ""),
@@ -228,8 +362,11 @@ def validate_and_normalize_playlist(data: dict) -> bool:
     playlist = data.get("playlist", [])
     tier_norm = {
         "1_naomi_album": ("1_album_naomi", "1. אלבום של נעמי שמר"),
-        "5_cover_version": ("5_cover", "5. קאבר / ביצוע נוסף"),
+        "5_cover_version": ("5_cover", "5. ביצוע מחודש / קאבר"),
         "6_no_youtube": ("6_not_found", "6. לא נמצא סרטון תואם"),
+    }
+    canonical_tier_labels = {
+        "5_cover": "5. ביצוע מחודש / קאבר",
     }
     valid_matched_tiers = {
         "1_album_naomi",
@@ -246,15 +383,29 @@ def validate_and_normalize_playlist(data: dict) -> bool:
     by_title = {}
 
     for item in playlist:
+        if str(item.get("year", "")) == "2099":
+            item["year"] = ""
+            changed = True
+        if "catalog_performers" in item:
+            norm_cp = normalize_performers_list(item.get("catalog_performers", []))
+            if norm_cp != item.get("catalog_performers", []):
+                item["catalog_performers"] = norm_cp
+                changed = True
         t = item.get("tier", "")
         if t in tier_norm:
             item["tier"], item["tier_label"] = tier_norm[t]
+            changed = True
+        if item.get("tier") in canonical_tier_labels and item.get("tier_label") != canonical_tier_labels[item["tier"]]:
+            item["tier_label"] = canonical_tier_labels[item["tier"]]
             changed = True
         sel = item.get("selected_video")
         if sel and sel.get("video_id"):
             st = sel.get("tier", "")
             if st in tier_norm:
                 sel["tier"], sel["tier_label"] = tier_norm[st]
+                changed = True
+            if sel.get("tier") in canonical_tier_labels and sel.get("tier_label") != canonical_tier_labels[sel["tier"]]:
+                sel["tier_label"] = canonical_tier_labels[sel["tier"]]
                 changed = True
             matched_entries.append(item)
             by_title.setdefault(item["title"], []).append(item)
@@ -316,12 +467,24 @@ def validate_and_normalize_playlist(data: dict) -> bool:
     stats = data.setdefault("stats", {})
     matched_songs_cnt = len(by_title)
     total_songs_cnt = len({it["title"] for it in ordered})
+    by_tier_map = {}
+    tier_breakdown_map = {}
+    for it in ordered:
+        tl = it.get("tier_label", "")
+        tk = it.get("tier", "")
+        if tl:
+            by_tier_map[tl] = by_tier_map.get(tl, 0) + 1
+        if tk:
+            tier_breakdown_map[tk] = tier_breakdown_map.get(tk, 0) + 1
+
     if (
         stats.get("matched_videos") != len(matched_entries)
         or stats.get("matched_songs") != matched_songs_cnt
         or stats.get("unmatched_songs") != len(unmatched_entries)
         or stats.get("total_songs") != total_songs_cnt
         or stats.get("total_playlist_entries") != len(ordered)
+        or stats.get("by_tier") != by_tier_map
+        or stats.get("tier_breakdown") != tier_breakdown_map
     ):
         changed = True
     stats["total_songs"] = total_songs_cnt
@@ -332,6 +495,8 @@ def validate_and_normalize_playlist(data: dict) -> bool:
     stats["total_videos"] = len(matched_entries)
     stats["matched_videos"] = len(matched_entries)
     stats["total_playlist_entries"] = len(ordered)
+    stats["by_tier"] = by_tier_map
+    stats["tier_breakdown"] = tier_breakdown_map
     return changed
 
 
@@ -1924,6 +2089,40 @@ def generate_files():
     let archAudioOnly = false;
     let currentTab = "yt";
 
+    function updateMediaSession(s, vidOverride) {{
+      if (!s || typeof navigator === "undefined" || !("mediaSession" in navigator) || typeof MediaMetadata === "undefined") return;
+      try {{
+        const activeVid = vidOverride || s.vid;
+        const artistParts = [s.perf || s.ch || "נעמי שמר"];
+        if (s.year) artistParts.push(`(${{s.year}})`);
+        const albTitle = (s.alb && !s.alb.startsWith("סינגל")) ? s.alb : "משירי נעמי שמר";
+        navigator.mediaSession.metadata = new MediaMetadata({{
+          title: s.raw_title || s.title,
+          artist: artistParts.join(" "),
+          album: albTitle,
+          artwork: [
+            {{ src: `https://i.ytimg.com/vi/${{encodeURIComponent(activeVid)}}/mqdefault.jpg`, sizes: "320x180", type: "image/jpeg" }},
+            {{ src: `https://i.ytimg.com/vi/${{encodeURIComponent(activeVid)}}/hqdefault.jpg`, sizes: "480x360", type: "image/jpeg" }}
+          ]
+        }});
+      }} catch (e) {{}}
+    }}
+
+    function initMediaSessionHandlers() {{
+      if (typeof navigator === "undefined" || !("mediaSession" in navigator)) return;
+      const handlers = [
+        ["play", () => {{ if (ytApiReady && ytPlayer && typeof ytPlayer.playVideo === "function") ytPlayer.playVideo(); else startPlaylistPlayback(); }}],
+        ["pause", () => {{ if (ytApiReady && ytPlayer && typeof ytPlayer.pauseVideo === "function") ytPlayer.pauseVideo(); }}],
+        ["previoustrack", () => playPrev()],
+        ["nexttrack", () => playNext()]
+      ];
+      handlers.forEach(([action, fn]) => {{
+        try {{
+          navigator.mediaSession.setActionHandler(action, fn);
+        }} catch (e) {{}}
+      }});
+    }}
+
     function syncPlayButtonUI() {{
       const btn = document.getElementById("playPlaylistBtn");
       if (!btn) return;
@@ -1934,8 +2133,10 @@ def generate_files():
       const st = ytPlayer.getPlayerState();
       if (st === 1) {{
         btn.textContent = "⏸ השהה פלייליסט";
+        if ("mediaSession" in navigator) navigator.mediaSession.playbackState = "playing";
       }} else if (st === 2) {{
         btn.textContent = "▶ המשך פלייליסט";
+        if ("mediaSession" in navigator) navigator.mediaSession.playbackState = "paused";
       }} else {{
         btn.textContent = "▶ נגן פלייליסט";
       }}
@@ -2346,6 +2547,7 @@ def generate_files():
           bBox.style.display = "none";
         }}
       }}
+      updateMediaSession(s, s.vid);
     }}
 
     function scrollToActiveRow(smooth = true) {{
@@ -2686,6 +2888,7 @@ def generate_files():
       renderTable(true);
       renderArchiveTable(true);
 
+      initMediaSessionHandlers();
       if (SONGS.length > 0) {{
         let initSongNum = parseInt(params.get("song") || saved.song || "1", 10);
         let initIdx = filteredSongs.findIndex(x => x.n === initSongNum);
