@@ -266,9 +266,18 @@
     }
     .transport-bar {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(7, 1fr);
       gap: 6px;
       margin-top: 12px;
+    }
+    .clickable-meta {
+      cursor: pointer;
+      transition: color 0.14s ease;
+    }
+    .clickable-meta:hover {
+      color: var(--gold-soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
     .np-details {
       margin-top: 10px;
@@ -801,6 +810,7 @@
             <button id="mainPlayPauseBtn" class="btn btn-outline btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯</button>
             <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
             <button id="shuffleBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀</button>
+            <button id="repeatBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleRepeatOne()" aria-pressed="false" title="ניגון חוזר לשיר הנוכחי (R)">🔂</button>
             <button id="npShareBtn" class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="העתק קישור ישיר לשיר זה">🔗</button>
             <a id="openOnYt" class="btn btn-outline btn-icon" href="#" target="_blank" rel="noopener" title="פתח ביוטיוב">↗ YT</a>
           </div>
@@ -815,7 +825,7 @@
               </div>
               <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
                 <button class="btn btn-outline btn-sm" onclick="scrollToActiveRow()">🎯 גלול לשיר המתנגן בטבלה</button>
-                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>F</kbd> מועדף · <kbd>/</kbd> חיפוש</span>
+                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>R</kbd> חוזר · <kbd>F</kbd> מועדף · <kbd>/</kbd> חיפוש</span>
               </div>
             </div>
           </details>
@@ -972,6 +982,7 @@
         <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
         <button id="miniPlayBtn" class="btn btn-gold btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">▶</button>
         <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
+        <button id="miniFavBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleCurrentFavorite()" title="הוסף / הסר מהמועדפים (F)">♡</button>
         <button class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="העתק קישור ישיר לשיר זה">🔗</button>
         <button class="btn btn-outline btn-sm" type="button" onclick="scrollToTopPlayer()" title="חזרה לנגן הווידאו">⬆ <span class="mini-back-lbl">לנגן</span></button>
       </div>
@@ -2930,12 +2941,12 @@
   },
   {
     "n": 24,
-    "chrono_n": 614,
+    "chrono_n": 607,
     "canon_score": 532.0,
     "acum_v": 124,
     "layer": 1,
     "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-    "title": "הכל פתוח [ביצוע מקורי] (1993)",
+    "title": "הכל פתוח [ביצוע מקורי] (1992)",
     "raw_title": "הכל פתוח",
     "alt_titles": [
       "הכול פתוח",
@@ -2944,7 +2955,7 @@
     ],
     "ver_idx": 1,
     "ver_total": 3,
-    "year": "1993",
+    "year": "1992",
     "decade": "1990s+",
     "vid": "ryXmue6dutA",
     "vtitle": "עופר לוי ולאה לופטין - הכל פתוח",
@@ -2953,9 +2964,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "עופר לוי ולאה לופטין",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#2)",
-    "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -3977,9 +3988,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "דודו זכאי ודורית ראובני",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#2)",
-    "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -6287,9 +6298,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#10)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 10,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -6361,9 +6372,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "דורית ראובני",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#4)",
+    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 4,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -8235,9 +8246,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "האחיות שמר",
-    "alb": "רביעיית האחיות שמר (#1)",
+    "alb": "רביעיית האחיות שמר",
     "alb_group": "רביעיית האחיות שמר",
-    "alb_trk": 1,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -8398,8 +8409,8 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "יפה ירקוני",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#3)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
+    "alb": "שירים מכנרת (יפה ירקוני) (#3)",
+    "alb_group": "שירים מכנרת (יפה ירקוני)",
     "alb_trk": 3,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -8482,9 +8493,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#3)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
-    "alb_trk": 3,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -9581,9 +9592,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "דורית ראובני",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#2)",
+    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 2,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -9801,9 +9812,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "נתנאלה",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#5)",
-    "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 5,
+    "alb": "הטיול הקטן",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -10262,9 +10273,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "דני גרנות וחבורת בימות (גרסה 2, 1972)",
-    "alb": "שירי נעמי שמר (חבורת בימות) (#10)",
+    "alb": "שירי נעמי שמר (חבורת בימות)",
     "alb_group": "שירי נעמי שמר (חבורת בימות)",
-    "alb_trk": 10,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -10605,9 +10616,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#5)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 5,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -10692,9 +10703,9 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#4)",
+    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 4,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -11338,9 +11349,9 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#4)",
+    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
     "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
-    "alb_trk": 4,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -11434,8 +11445,8 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "יפה ירקוני",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#5)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
+    "alb": "שירים מכנרת (יפה ירקוני) (#5)",
+    "alb_group": "שירים מכנרת (יפה ירקוני)",
     "alb_trk": 5,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -11802,9 +11813,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "שולי נתן",
-    "alb": "שולי נתן שרה נעמי שמר (#3)",
+    "alb": "שולי נתן שרה נעמי שמר",
     "alb_group": "שולי נתן שרה נעמי שמר",
-    "alb_trk": 3,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -12769,9 +12780,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "שמעון ישראלי",
-    "alb": "צמד הדודאים ב' (#1)",
-    "alb_group": "צמד הדודאים ב'",
-    "alb_trk": 1,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: שמעון ישראלי",
     "co_creators": "לחן: שמעון ישראלי",
@@ -13081,9 +13092,9 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר (אלבום 1967)",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#8)",
+    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
     "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
-    "alb_trk": 8,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -14639,9 +14650,9 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#3)",
+    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 3,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -14725,9 +14736,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "דודו זכאי",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#7)",
+    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 7,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -14869,8 +14880,8 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "יפה ירקוני",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#2)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
+    "alb": "שירים מכנרת (יפה ירקוני) (#2)",
+    "alb_group": "שירים מכנרת (יפה ירקוני)",
     "alb_trk": 2,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -14934,9 +14945,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#2)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -15000,9 +15011,9 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#6)",
+    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 6,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -15080,9 +15091,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "נתנאלה",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#6)",
-    "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 6,
+    "alb": "על הדבש ועל העוקץ (1981)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -15218,9 +15229,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "מירי אלוני",
-    "alb": "שירי נעמי שמר (חבורת בימות) (#9)",
-    "alb_group": "שירי נעמי שמר (חבורת בימות)",
-    "alb_trk": 9,
+    "alb": "שרים בצוותא",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -15404,9 +15415,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "האחיות שמר",
-    "alb": "רביעיית האחיות שמר (#2)",
+    "alb": "רביעיית האחיות שמר",
     "alb_group": "רביעיית האחיות שמר",
-    "alb_trk": 2,
+    "alb_trk": 999,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
     "co_creators": "מילים: רחל המשוררת",
@@ -15546,9 +15557,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#2)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#14)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 2,
+    "alb_trk": 14,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
     "co_creators": "מילים: רחל המשוררת",
@@ -16243,9 +16254,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "האחיות שמר",
-    "alb": "רביעיית האחיות שמר (#4)",
+    "alb": "רביעיית האחיות שמר",
     "alb_group": "רביעיית האחיות שמר",
-    "alb_trk": 4,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -17428,9 +17439,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "אלף נשיקות (יהורם גאון) (#2)",
-    "alb_group": "אלף נשיקות (יהורם גאון)",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -17817,9 +17828,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#4)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#3)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 4,
+    "alb_trk": 3,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -18543,9 +18554,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "דני גרנות וחבורת בימות",
-    "alb": "שירי נעמי שמר (חבורת בימות) (#6)",
+    "alb": "שירי נעמי שמר (חבורת בימות)",
     "alb_group": "שירי נעמי שמר (חבורת בימות)",
-    "alb_trk": 6,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -18912,9 +18923,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר והדודאים",
-    "alb": "צמד הדודאים ב' (#2)",
-    "alb_group": "צמד הדודאים ב'",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -20787,9 +20798,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "ריקה זראי",
-    "alb": "חמש חמש (המחזמר) (#4)",
-    "alb_group": "חמש חמש (המחזמר)",
-    "alb_trk": 4,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: יוחנן זראי",
     "co_creators": "לחן: יוחנן זראי",
@@ -22205,9 +22216,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "שולי נתן",
-    "alb": "שולי נתן שרה נעמי שמר (#2)",
+    "alb": "שולי נתן שרה נעמי שמר",
     "alb_group": "שולי נתן שרה נעמי שמר",
-    "alb_trk": 2,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -22858,8 +22869,8 @@
     "tier": "1_album_naomi",
     "tier_label": "1. אלבום של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "אל בורות המים (נעמי שמר) (#8)",
-    "alb_group": "אל בורות המים (נעמי שמר)",
+    "alb": "על הדבש ועל העוקץ (נעמי שמר) (#8)",
+    "alb_group": "על הדבש ועל העוקץ (נעמי שמר)",
     "alb_trk": 8,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: נתן אלתרמן",
@@ -22927,9 +22938,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "דורית ראובני",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#5)",
+    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 5,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -23648,7 +23659,7 @@
   },
   {
     "n": 298,
-    "chrono_n": 613,
+    "chrono_n": 614,
     "canon_score": 55.0,
     "acum_v": 4,
     "layer": 2,
@@ -23669,9 +23680,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "משתתפי אצלנו בפסנתר",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#1)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#3)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 1,
+    "alb_trk": 3,
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: עדי רנרט",
     "co_creators": "לחן: עדי רנרט",
@@ -24686,9 +24697,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#9)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 9,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
     "co_creators": "מילים: רחל המשוררת",
@@ -25386,8 +25397,8 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "יפה ירקוני",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#6)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
+    "alb": "שירים מכנרת (יפה ירקוני) (#6)",
+    "alb_group": "שירים מכנרת (יפה ירקוני)",
     "alb_trk": 6,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -25836,9 +25847,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#8)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 8,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -26123,9 +26134,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#4)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
-    "alb_trk": 4,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -26597,9 +26608,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "חפצים אישיים (משה בקר) (#3)",
-    "alb_group": "חפצים אישיים (משה בקר)",
-    "alb_trk": 3,
+    "alb": "חפצים אישיים",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -27759,9 +27770,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#11)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#15)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 11,
+    "alb_trk": 15,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -28115,9 +28126,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#12)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 12,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -29163,9 +29174,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#6)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 6,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -29310,7 +29321,7 @@
   },
   {
     "n": 378,
-    "chrono_n": 610,
+    "chrono_n": 611,
     "canon_score": 534.0,
     "acum_v": 95,
     "layer": 1,
@@ -29336,9 +29347,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#6)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 999,
+    "alb_trk": 6,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר (לחן נוסף: נחלת הכלל)",
     "co_creators": "לחן נוסף: נחלת הכלל",
@@ -29527,9 +29538,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "משתתפי אצלנו בפסנתר",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#2)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 999,
+    "alb_trk": 2,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -29696,9 +29707,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#16)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 16,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -29785,9 +29796,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "כיצד שוברים חמסין (נעמי שמר) (#9)",
-    "alb_group": "כיצד שוברים חמסין (נעמי שמר)",
-    "alb_trk": 9,
+    "alb": "במזל כוכב (1970)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -30220,9 +30231,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#4)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 4,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -30500,9 +30511,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#11)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 11,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: שאול טשרניחובסקי",
     "co_creators": "מילים: שאול טשרניחובסקי",
@@ -30543,7 +30554,7 @@
   },
   {
     "n": 392,
-    "chrono_n": 611,
+    "chrono_n": 612,
     "canon_score": 482.0,
     "acum_v": 101,
     "layer": 1,
@@ -30907,9 +30918,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#7)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 7,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -31937,7 +31948,7 @@
   },
   {
     "n": 408,
-    "chrono_n": 609,
+    "chrono_n": 610,
     "canon_score": 382.0,
     "acum_v": 50,
     "layer": 1,
@@ -31963,9 +31974,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#7)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 999,
+    "alb_trk": 7,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -32020,7 +32031,7 @@
   },
   {
     "n": 409,
-    "chrono_n": 608,
+    "chrono_n": 609,
     "canon_score": 354.0,
     "acum_v": 41,
     "layer": 1,
@@ -32044,9 +32055,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#8)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 999,
+    "alb_trk": 8,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -32616,9 +32627,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#1)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 999,
+    "alb_trk": 1,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -33183,9 +33194,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#2)",
     "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 999,
+    "alb_trk": 2,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -33266,9 +33277,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר (מיקי קם)",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#11)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 999,
+    "alb_trk": 11,
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: מרים ילן-שטקליס",
     "co_creators": "מילים: מרים ילן-שטקליס",
@@ -33323,7 +33334,7 @@
   },
   {
     "n": 425,
-    "chrono_n": 607,
+    "chrono_n": 608,
     "canon_score": 217.0,
     "acum_v": 17,
     "layer": 1,
@@ -33342,9 +33353,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#10)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 999,
+    "alb_trk": 10,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -34373,9 +34384,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר (משה בקר)",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#9)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#12)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 9,
+    "alb_trk": 12,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -34423,7 +34434,7 @@
   },
   {
     "n": 438,
-    "chrono_n": 612,
+    "chrono_n": 613,
     "canon_score": 190.0,
     "acum_v": 21,
     "layer": 1,
@@ -34444,9 +34455,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "משתתפי אצלנו בפסנתר (מיקי קם ונעמי שמר)",
-    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+    "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#9)",
     "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-    "alb_trk": 999,
+    "alb_trk": 9,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -35418,9 +35429,9 @@
     "tier": "5_cover",
     "tier_label": "5. ביצוע מחודש / קאבר",
     "perf": "הגבעטרון",
-    "alb": "מקול הלב",
-    "alb_group": "סינגל / ביצוע בודד",
-    "alb_trk": 999,
+    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#13)",
+    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
+    "alb_trk": 13,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -35673,9 +35684,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "חבורת בימות",
-    "alb": "שירי נעמי שמר (חבורת בימות) (#9)",
+    "alb": "שירי נעמי שמר (חבורת בימות)",
     "alb_group": "שירי נעמי שמר (חבורת בימות)",
-    "alb_trk": 9,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -35763,9 +35774,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "דורית ראובני",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#6)",
+    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים",
     "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 6,
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -35850,9 +35861,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#3)",
-    "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 3,
+    "alb": "הופעה חיה בפסטיבל שירי ילדים מס' 15 (1984)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -35937,9 +35948,9 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "יפה ירקוני",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#6)",
-    "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 6,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -36836,9 +36847,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "הגבעטרון",
-    "alb": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988) (#2)",
-    "alb_group": "אחר קציר – הגבעטרון בשירי נעמי שמר (1988)",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -39535,8 +39546,8 @@
     "tier": "2_album_original",
     "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
     "perf": "יפה ירקוני",
-    "alb": "שירים מכנרת (יפה ירקוני ונעמי שמר) (#1)",
-    "alb_group": "שירים מכנרת (יפה ירקוני ונעמי שמר)",
+    "alb": "שירים מכנרת (יפה ירקוני) (#1)",
+    "alb_group": "שירים מכנרת (יפה ירקוני)",
     "alb_trk": 1,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -40153,8 +40164,8 @@
     "alb_group": "פסטיבל הזמר המזרחי למנצח שיר מזמור (1976)",
     "alb_trk": 999,
     "role_cat": "music_only",
-    "role_label": "לחן: נעמי שמר",
-    "co_creators": "",
+    "role_label": "לחן: נעמי שמר · מילים: תהילים ס\"ה",
+    "co_creators": "מילים: תהילים ס\"ה",
     "opening_line": "פקדת פקדת פקדת ארץ",
     "links": [
       {
@@ -40201,8 +40212,8 @@
     "alb_group": "פסטיבל הזמר המזרחי למנצח שיר מזמור (1976)",
     "alb_trk": 999,
     "role_cat": "music_only",
-    "role_label": "לחן: נעמי שמר",
-    "co_creators": "",
+    "role_label": "לחן: נעמי שמר · מילים: תהילים ס\"ה",
+    "co_creators": "מילים: תהילים ס\"ה",
     "opening_line": "פקדת פקדת פקדת ארץ",
     "links": [
       {
@@ -43108,9 +43119,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "להקת פיקוד המרכז",
-    "alb": "חמש חמש (המחזמר) (#2)",
-    "alb_group": "חמש חמש (המחזמר)",
-    "alb_trk": 2,
+    "alb": "",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: יוחנן זראי",
     "co_creators": "לחן: יוחנן זראי",
@@ -44118,9 +44129,9 @@
     "tier": "4_original_performance",
     "tier_label": "4. ביצוע מקורי",
     "perf": "שמעון ישראלי ורחל אטאס",
-    "alb": "חמש חמש (המחזמר) (#3)",
-    "alb_group": "חמש חמש (המחזמר)",
-    "alb_trk": 3,
+    "alb": "חמש חמש (1958)",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -44789,9 +44800,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר",
-    "alb": "שמש במדבר (להקת הנח\"ל) (#3)",
-    "alb_group": "שמש במדבר (להקת הנח\"ל)",
-    "alb_trk": 3,
+    "alb": "שנים עשר ירחים",
+    "alb_group": "סינגל / ביצוע בודד",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -46488,9 +46499,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר (תוכנית ליום ירושלים, 1992)",
-    "alb": "נעמי שמר שרה נעמי שמר (ירושלים של זהב) (#11)",
-    "alb_group": "נעמי שמר שרה נעמי שמר (ירושלים של זהב)",
-    "alb_trk": 11,
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -46574,9 +46585,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר ואמני ישראל (מופע הצדעה מלא, 1991)",
-    "alb": "על הדבש ועל העוקץ (נעמי שמר) (#1)",
-    "alb_group": "על הדבש ועל העוקץ (נעמי שמר)",
-    "alb_trk": 1,
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -46659,8 +46670,8 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר, יהורם גאון, אריק לביא, נורית גלרון, שלומית אהרון, אסתר ואפרים שמיר",
-    "alb": "שירים בצוותא עם נעמי שמר (1977)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
     "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -46753,8 +46764,8 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר, עוזי חיטמן, אריק סיני, אסתר שמיר ואפי בן ישראל",
-    "alb": "ימי כסלו עם נעמי שמר (1979)",
-    "alb_group": "ימי כסלו עם נעמי שמר (1979)",
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
     "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
@@ -46836,9 +46847,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר ומועדון החתול שמיל (נתן דטנר)",
-    "alb": "כיצד שוברים חמסין (נעמי שמר) (#12)",
-    "alb_group": "כיצד שוברים חמסין (נעמי שמר)",
-    "alb_trk": 12,
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר (לחן נוסף: נחלת הכלל)",
     "co_creators": "לחן נוסף: נחלת הכלל",
@@ -46932,9 +46943,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר, מיקי קם וילדי בי\"ס לאמנויות (1992)",
-    "alb": "כיצד שוברים חמסין (נעמי שמר) (#9)",
-    "alb_group": "כיצד שוברים חמסין (נעמי שמר)",
-    "alb_trk": 9,
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -47025,9 +47036,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר, יהורם גאון וילדי בי\"ס לאמנויות (1992)",
-    "alb": "כיצד שוברים חמסין (נעמי שמר) (#11)",
-    "alb_group": "כיצד שוברים חמסין (נעמי שמר)",
-    "alb_trk": 11,
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -47119,9 +47130,9 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר ונתן דטנר (החתול שמיל)",
-    "alb": "הטיול הקטן – כל שירי נעמי שמר לילדים (#3)",
-    "alb_group": "הטיול הקטן – כל שירי נעמי שמר לילדים",
-    "alb_trk": 3,
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_trk": 999,
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
     "co_creators": "",
@@ -47204,8 +47215,8 @@
     "tier": "3_naomi_performance",
     "tier_label": "3. ביצוע של נעמי שמר",
     "perf": "נעמי שמר (תוכנית לפסח, 1992)",
-    "alb": "לספר ביציאת מצרים עם נעמי שמר (1992)",
-    "alb_group": "סינגל / ביצוע בודד",
+    "alb": "תוכניות טלוויזיה ומופעים מלאים",
+    "alb_group": "תוכניות טלוויזיה ומופעים מלאים",
     "alb_trk": 999,
     "role_cat": "performance_only",
     "role_label": "ביצוע: נעמי שמר (מילים: מתתיהו שלם, עמנואל זמיר · לחן: מתתיהו שלם, עמנואל זמיר)",
@@ -47237,6 +47248,7 @@
     "year": "1947",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "כחול ים המים ימך אילת כפליים",
@@ -47259,6 +47271,7 @@
     "year": "1953",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "בנות איילת-השחר, אלי סט, הילה שי, נעמי שמר",
     "albums": "",
     "opening_line": "אנחנו נוער האיחוד כולם ביחד וגם לחוד",
@@ -47295,6 +47308,7 @@
     "year": "1954",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: קורט וייל)",
+    "co_creators": "מקור: קורט וייל",
     "perfs": "",
     "albums": "שירונט",
     "opening_line": "כלב מים לו שיניים",
@@ -47322,6 +47336,7 @@
     "year": "1955",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: ברוניסלב קפר)",
+    "co_creators": "מקור: ברוניסלב קפר",
     "perfs": "שמשון בר-נוי, תזמורת מוריס",
     "albums": "ספר פה [048",
     "opening_line": "שוב נצעד יד ביד לא תלך דודי",
@@ -47349,6 +47364,7 @@
     "year": "1956",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: יוחנן זראי",
+    "co_creators": "לחן: יוחנן זראי",
     "perfs": "תיאטרון האוהל",
     "albums": "",
     "opening_line": "",
@@ -47378,6 +47394,7 @@
     "year": "1956",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: יוחנן זראי",
+    "co_creators": "לחן: יוחנן זראי",
     "perfs": "להקת פיקוד המרכז",
     "albums": "ח\"ח 2",
     "opening_line": "עת דודים וחן באה סוף סוף",
@@ -47407,6 +47424,7 @@
     "year": "1957",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "שממה וחוחים ושמיים שממה ומישור",
@@ -47431,6 +47449,7 @@
     "year": "1958",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "דא\"ה",
     "opening_line": "וכששרו איזה פלא על המון בימות בידור",
@@ -47456,6 +47475,7 @@
     "year": "1962",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "קבוצת כנרת",
     "albums": "נעמי שמר - הכל פתוח",
     "opening_line": "בכפרנו על חוף ירדן כל דבר את פריו",
@@ -47486,6 +47506,7 @@
     "year": "1962",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "שמר - הפ (א), 54",
     "opening_line": "כבר שש כבר בקר כבר אור אפור",
@@ -47512,6 +47533,7 @@
     "year": "1963",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר (עם איון אנדריביץ' קרילוב)",
+    "co_creators": "עם איון אנדריביץ' קרילוב",
     "perfs": "",
     "albums": "MUS 0250 A 094",
     "opening_line": "כבר מזמן חלפו ימי הזהר של המוסיקה הקאמרית",
@@ -47536,6 +47558,7 @@
     "year": "1967",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "מקהלת הילדים שליד עיריית רמת גן, תזמורת רשות השידור",
     "albums": "",
     "opening_line": "מן השחר עד הליל",
@@ -47563,6 +47586,7 @@
     "year": "1967",
     "role_cat": "translation",
     "role_label": "תרגום / נוסח עברי: נעמי שמר",
+    "co_creators": "",
     "perfs": "שרה ידגר",
     "albums": "",
     "opening_line": "",
@@ -47590,6 +47614,7 @@
     "year": "1970",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: מרדכי גבירטיג)",
+    "co_creators": "מקור: מרדכי גבירטיג",
     "perfs": "אופירה גלוסקא וחבורת רננים",
     "albums": "",
     "opening_line": "",
@@ -47615,6 +47640,7 @@
     "year": "1971",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: קדיה מולודובסקי",
+    "co_creators": "מילים: קדיה מולודובסקי",
     "perfs": "",
     "albums": "הבלוג של מרית בן ישראל",
     "opening_line": "בורשה בפרבר נדח בצה חצר ובית",
@@ -47638,6 +47664,7 @@
     "year": "1971",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "הגשש החיוור, הגשש החיוור ונעמי שמר, עידו ביאליק",
     "albums": "הגשש החיוור-נעמי שמר, קסיוס קלי נגד חלפון א, שירים ישראלים ב",
     "opening_line": "נעים מאוד שמי שם ושמי הוא חם",
@@ -47681,6 +47708,7 @@
     "year": "1972",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: אליקום צונזר)",
+    "co_creators": "מקור: אליקום צונזר",
     "perfs": "אדם",
     "albums": "הד 7, 199",
     "opening_line": "ניר מה לבן הוא ודיו מה שחורה בתוך לבבי את כמו תבערה",
@@ -47711,6 +47739,7 @@
     "year": "1972",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
+    "co_creators": "מילים: רחל המשוררת",
     "perfs": "נחמה (הלנה) הנדל, אחינועם ניני וגיל דור",
     "albums": "פרויקט בן-יהודה",
     "opening_line": "משחירה אדמה נחרשת",
@@ -47747,6 +47776,7 @@
     "year": "1975",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: נתן אלתרמן",
+    "co_creators": "מילים: נתן אלתרמן",
     "perfs": "",
     "albums": "הד 7, 129",
     "opening_line": "וביום הראשון בבקר כשהשמש תצחק טובה",
@@ -47772,6 +47802,7 @@
     "year": "1977",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: שאול טשרניחובסקי",
+    "co_creators": "מילים: שאול טשרניחובסקי",
     "perfs": "אילנית, תזמורת רשות השידור, אורה זיטנר",
     "albums": "הוי ארצי מולדתי, סימני דרך, סימני דרך = Road Signs",
     "opening_line": "יום זה - יום ילד בו שיר הקיצותי - על הקיר",
@@ -47812,6 +47843,7 @@
     "year": "1978",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
+    "co_creators": "מילים: רחל המשוררת",
     "perfs": "",
     "albums": "1978-06-10: שירים מאת רחל",
     "opening_line": "",
@@ -47837,6 +47869,7 @@
     "year": "1979",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: מרסל פרוסט)",
+    "co_creators": "מקור: מרסל פרוסט",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -47859,6 +47892,7 @@
     "year": "1985",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "שירו להשם שיר חדש",
@@ -47881,6 +47915,7 @@
     "year": "1995",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: ו. ה אודן)",
+    "co_creators": "מקור: ו. ה אודן",
     "perfs": "",
     "albums": "",
     "opening_line": "עצר את על השעונים ואת הטלפון נתק",
@@ -47903,6 +47938,7 @@
     "year": "2000",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "רונית רולנד ולהקת אלף שיר ושיר, נעמי שמר ודודו אלהרר, בועז קראוזר, נעמי שמר",
     "albums": "נעמי שמר ירושלים של זהב, האוסף השלם: 100 שירים נבחרים, נעמי שמר - סימני דרך",
     "opening_line": "פלוגת יסמין עוטפת חקי",
@@ -47938,6 +47974,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: דלית אורמיאן",
+    "co_creators": "מילים: דלית אורמיאן",
     "perfs": "אפי בן ישראל ושולה חן",
     "albums": "",
     "opening_line": "",
@@ -47962,6 +47999,7 @@
     "year": "ללא שנה",
     "role_cat": "translation",
     "role_label": "תרגום / נוסח עברי: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -47986,6 +48024,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48008,6 +48047,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: שולמית הראבן",
+    "co_creators": "מילים: שולמית הראבן",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48030,6 +48070,7 @@
     "year": "ללא שנה",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: יוסף קוסמה)",
+    "co_creators": "מקור: יוסף קוסמה",
     "perfs": "",
     "albums": "",
     "opening_line": "אחרי השיעורים רכבת ארכה",
@@ -48052,6 +48093,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48074,6 +48116,7 @@
     "year": "ללא שנה",
     "role_cat": "performance_only",
     "role_label": "ביצוע: נעמי שמר (מילים: תרצה אתר)",
+    "co_creators": "מילים: תרצה אתר",
     "perfs": "נעמי שמר",
     "albums": "",
     "opening_line": "",
@@ -48096,6 +48139,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48118,6 +48162,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48140,6 +48185,7 @@
     "year": "ללא שנה",
     "role_cat": "performance_only",
     "role_label": "ביצוע: נעמי שמר (מילים: יורם טהרלב · לחן: משה וילנסקי)",
+    "co_creators": "מילים: יורם טהרלב · לחן: משה וילנסקי",
     "perfs": "נעמי שמר, גבי ברלין, אילן ואילנית, חגית קליש, החרצופים",
     "albums": "1 רוקדים בגיל, 2 אין כבר דרך חזרה, 2 ילאדינו",
     "opening_line": "",
@@ -48162,6 +48208,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "MUS 0250 A 093",
     "opening_line": "בירח שבט שמזלו הוא דלי",
@@ -48184,6 +48231,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: מסורתי",
+    "co_creators": "מילים: מסורתי",
     "perfs": "",
     "albums": "2 שירת נעמי דיסק",
     "opening_line": "",
@@ -48206,6 +48254,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "חבורת שחפים",
     "albums": "",
     "opening_line": "",
@@ -48228,6 +48277,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48250,6 +48300,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "ד\"ר מרדכי נאור",
     "opening_line": "שירה של חג עודה פועמת",
@@ -48272,6 +48323,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "הארץ",
     "opening_line": "דבורת הדבש היא גם מלכה וגם פועלת",
@@ -48296,6 +48348,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "אריאל הורוביץ",
     "albums": "",
     "opening_line": "",
@@ -48318,6 +48371,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: נחלת הכלל",
+    "co_creators": "לחן: נחלת הכלל",
     "perfs": "שירולי",
     "albums": "1 שירולי, 3 שירולי",
     "opening_line": "",
@@ -48342,6 +48396,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: רחל המשוררת",
+    "co_creators": "מילים: רחל המשוררת",
     "perfs": "",
     "albums": "פרויקט בן-יהודה",
     "opening_line": "זכור אזכור מעברים נצבו הרים כנד על ראש",
@@ -48364,6 +48419,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48386,6 +48442,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "החמאם",
     "albums": "",
     "opening_line": "",
@@ -48408,6 +48465,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48433,6 +48491,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "העולם עגול עגול ושירים בו יש כמו חול",
@@ -48455,6 +48514,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "MUS 0250 A 094",
     "opening_line": "הוא אמר לי בואי נערוך חוג בית יחד",
@@ -48477,6 +48537,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר (לחן נוסף: דניאל שליט)",
+    "co_creators": "לחן נוסף: דניאל שליט",
     "perfs": "רביעיית מיתרים",
     "albums": "",
     "opening_line": "",
@@ -48499,6 +48560,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48521,6 +48583,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: אריאל הורוביץ",
+    "co_creators": "לחן: אריאל הורוביץ",
     "perfs": "רבקה מיכאלי",
     "albums": "",
     "opening_line": "",
@@ -48543,6 +48606,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "רבקה מיכאלי וטוביה צפיר",
     "albums": "",
     "opening_line": "",
@@ -48565,6 +48629,7 @@
     "year": "ללא שנה",
     "role_cat": "performance_only",
     "role_label": "ביצוע: נעמי שמר (מילים: נחלת הכלל · לחן: דפנה אילת)",
+    "co_creators": "מילים: נחלת הכלל · לחן: דפנה אילת",
     "perfs": "נעמי שמר, צילה דגן וחבורת רננים, צילה דגן, יוני גנוט, מקהלת הרבנות הצבאית",
     "albums": "2 פסח, ירושלים לנצח, פסח",
     "opening_line": "",
@@ -48588,6 +48653,7 @@
     "year": "ללא שנה",
     "role_cat": "translation",
     "role_label": "תרגום: נעמי שמר (מקור: מישל לגראן)",
+    "co_creators": "מקור: מישל לגראן",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48611,6 +48677,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "שלום גב אמרתי אל לבי",
@@ -48633,6 +48700,7 @@
     "year": "ללא שנה",
     "role_cat": "performance_only",
     "role_label": "ביצוע / עיבוד: נעמי שמר",
+    "co_creators": "",
     "perfs": "נעמי שמר",
     "albums": "",
     "opening_line": "",
@@ -48649,6 +48717,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "עיבוד מוזיקלי: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48671,6 +48740,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "ידע ידעתי סוסון קטן",
@@ -48693,6 +48763,7 @@
     "year": "ללא שנה",
     "role_cat": "performance_only",
     "role_label": "ביצוע: נעמי שמר (מילים: נתן אלתרמן)",
+    "co_creators": "מילים: נתן אלתרמן",
     "perfs": "נעמי שמר",
     "albums": "",
     "opening_line": "",
@@ -48715,6 +48786,7 @@
     "year": "ללא שנה",
     "role_cat": "translation",
     "role_label": "תרגום / נוסח עברי: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "אין מקום לשחוק ואין מקום גם לבני",
@@ -48737,6 +48809,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: עמוס אטינגר",
+    "co_creators": "מילים: עמוס אטינגר",
     "perfs": "",
     "albums": "הד 3, 3",
     "opening_line": "ענן שחור שט בשמים",
@@ -48759,6 +48832,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "תאנה חנטה פגיה והפתי משתגע",
@@ -48783,6 +48857,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: מרים שניד-אופזיהר",
+    "co_creators": "מילים: מרים שניד-אופזיהר",
     "perfs": "",
     "albums": "מוז - הריאלי 14",
     "opening_line": "פלאי פלאים נבקע ענן טפות טפות",
@@ -48805,6 +48880,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48827,6 +48903,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "רוני בר נוף",
     "albums": "",
     "opening_line": "",
@@ -48849,6 +48926,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48873,6 +48951,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: יאיר רוזנבלום",
+    "co_creators": "לחן: יאיר רוזנבלום",
     "perfs": "שלמה בראבא ומוני מושונוב",
     "albums": "",
     "opening_line": "",
@@ -48901,6 +48980,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "עיבוד: נעמי שמר · לחן: שלום פוסטולסקי",
+    "co_creators": "לחן: שלום פוסטולסקי",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48923,6 +49003,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -48945,6 +49026,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "שלי איננו מציאה גדולה אולי להיפך",
@@ -48967,6 +49049,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: ירון לונדון",
+    "co_creators": "מילים: ירון לונדון",
     "perfs": "דורון נשר",
     "albums": "",
     "opening_line": "",
@@ -48989,6 +49072,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "קול דודים וקול כלות קול כנור ומקהלות",
@@ -49011,6 +49095,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר · מילים: קדיה מולודובסקי",
+    "co_creators": "מילים: קדיה מולודובסקי",
     "perfs": "",
     "albums": "שירה עובדת",
     "opening_line": "היה היה רועה ואפילו עז לא היתה לו",
@@ -49037,6 +49122,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "לחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -49059,6 +49145,7 @@
     "year": "ללא שנה",
     "role_cat": "words_and_music",
     "role_label": "מילים ולחן: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -49081,6 +49168,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "",
     "opening_line": "דו דה זאת נטשה חמודה רה רה ילדתי התעוררה",
@@ -49106,6 +49194,7 @@
     "year": "ללא שנה",
     "role_cat": "translation",
     "role_label": "תרגום / נוסח עברי: נעמי שמר",
+    "co_creators": "",
     "perfs": "",
     "albums": "הד 7, 195",
     "opening_line": "שירו-לי שירו-לי הוי כלי-זמר ולי ניגון השמיעו",
@@ -49128,6 +49217,7 @@
     "year": "ללא שנה",
     "role_cat": "words_only",
     "role_label": "מילים: נעמי שמר · לחן: אריאל הורוביץ",
+    "co_creators": "לחן: אריאל הורוביץ",
     "perfs": "אריאל הורוביץ",
     "albums": "נעמי שמר - ספר גימל",
     "opening_line": "נולדנו באותה שנה ולאותו העם",
@@ -49156,6 +49246,7 @@
     "year": "ללא שנה",
     "role_cat": "music_only",
     "role_label": "עיבוד: נעמי שמר · לחן: נחום נרדי",
+    "co_creators": "לחן: נחום נרדי",
     "perfs": "",
     "albums": "",
     "opening_line": "",
@@ -49212,6 +49303,7 @@
         s.perfs,
         s.albums,
         s.role_label,
+        s.co_creators,
         s.opening_line,
         s.year
       ].filter(Boolean).join(" ");
@@ -49230,7 +49322,8 @@
     } catch (e) {}
 
     let filteredSongs = [...SONGS];
-    let currentIndex = 0;
+    let playingSong = SONGS[0] || null;
+    let currentIndex = 0; // Index of playingSong inside filteredSongs (-1 when hidden by active filters)
     let currentAltIdx = -1; // -1 = primary video, 0..N = index in s.alts
     let playHistory = [];
     let ytPlayer = null;
@@ -49238,6 +49331,7 @@
     let ytApiFailed = false;
     let pendingVideoLoad = null;
     let shuffleEnabled = false;
+    let repeatOneEnabled = false;
     let onePerSongOnly = false;
     let favOnly = false;
     let archAudioOnly = false;
@@ -49245,6 +49339,10 @@
     let isMainPlayerVisible = true;
     let hasUserStartedPlayback = false;
     let shareToastTimer = null;
+
+    function getActiveSong() {
+      return playingSong || filteredSongs[0] || SONGS[0] || null;
+    }
 
     function updateMiniPlayerVisibility() {
       const bar = document.getElementById("miniPlayerBar");
@@ -49380,7 +49478,8 @@
 
     window.onYouTubeIframeAPIReady = function() {
       try {
-        const initReq = pendingVideoLoad || { vid: (filteredSongs[currentIndex] || SONGS[0]).vid, autoplay: false };
+        const activeInit = getActiveSong();
+        const initReq = pendingVideoLoad || { vid: activeInit ? activeInit.vid : "", autoplay: false };
         pendingVideoLoad = null;
         ytPlayer = new YT.Player("ytFrame", {
           width: "100%",
@@ -49409,7 +49508,12 @@
               if (ev.data === 1) {
                 hasUserStartedPlayback = true;
               } else if (ev.data === 0) { // YT.PlayerState.ENDED
-                playNext();
+                if (repeatOneEnabled && ytPlayer && typeof ytPlayer.seekTo === "function") {
+                  ytPlayer.seekTo(0, true);
+                  ytPlayer.playVideo();
+                } else {
+                  playNext();
+                }
               }
               syncPlayButtonUI();
             },
@@ -49429,7 +49533,7 @@
     };
 
     function handleVideoPlaybackError(errCode) {
-      const s = filteredSongs[currentIndex];
+      const s = getActiveSong();
       if (!s) return;
       const alts = s.alts || [];
       const nextAltIdx = currentAltIdx + 1;
@@ -49486,7 +49590,7 @@
     }
 
     function switchVideoSource(vid) {
-      const s = filteredSongs[currentIndex];
+      const s = getActiveSong();
       if (!s) return;
       hasUserStartedPlayback = true;
       const banner = document.getElementById("failoverBanner");
@@ -49552,12 +49656,19 @@
         favFilterBtn.classList.toggle("btn-active", favOnly);
         favFilterBtn.setAttribute("aria-pressed", favOnly ? "true" : "false");
       }
+      const curSong = getActiveSong();
       const npFav = document.getElementById("npFavBtn");
-      const curSong = filteredSongs[currentIndex] || SONGS[0];
-      if (npFav && curSong) {
+      const miniFav = document.getElementById("miniFavBtn");
+      if (curSong) {
         const isFav = favoriteVids.has(curSong.vid);
-        npFav.textContent = isFav ? "❤️" : "♡";
-        npFav.classList.toggle("btn-active", isFav);
+        if (npFav) {
+          npFav.textContent = isFav ? "❤️" : "♡";
+          npFav.classList.toggle("btn-active", isFav);
+        }
+        if (miniFav) {
+          miniFav.textContent = isFav ? "❤️" : "♡";
+          miniFav.classList.toggle("btn-active", isFav);
+        }
       }
     }
 
@@ -49582,7 +49693,7 @@
     }
 
     function toggleCurrentFavorite() {
-      const curSong = filteredSongs[currentIndex] || SONGS[0];
+      const curSong = getActiveSong();
       if (!curSong) return;
       toggleFavorite(null, curSong.vid);
     }
@@ -49692,7 +49803,7 @@
     function syncUrlAndStorageState() {
       try {
         const url = new URL(window.location.href);
-        const s = filteredSongs[currentIndex] || SONGS[0];
+        const s = getActiveSong();
         if (s) url.searchParams.set("song", s.n);
         const q = document.getElementById("searchInput").value.trim();
         const sortBy = document.getElementById("sortSelect").value;
@@ -49711,6 +49822,7 @@
         setOrDel("decade", df, "ALL");
         setOrDel("tab", currentTab, "yt");
         setOrDel("shuffle", shuffleEnabled ? "1" : "", "");
+        setOrDel("repeat", repeatOneEnabled ? "1" : "", "");
         setOrDel("oneper", onePerSongOnly ? "1" : "", "");
         setOrDel("fav", favOnly ? "1" : "", "");
         setOrDel("archaudio", archAudioOnly ? "1" : "", "");
@@ -49725,6 +49837,7 @@
             decade: df,
             tab: currentTab,
             shuffle: shuffleEnabled,
+            repeat: repeatOneEnabled,
             oneper: onePerSongOnly,
             fav: favOnly,
             archaudio: archAudioOnly
@@ -49744,7 +49857,7 @@
         }
         const toast = document.getElementById("shareToast");
         if (toast) {
-          const s = filteredSongs[currentIndex] || SONGS[0];
+          const s = getActiveSong();
           toast.textContent = s ? `✔ הועתק קישור ישיר ל"${s.raw_title}"!` : "✔ הקישור הישיר לשיר הועתק!";
           toast.classList.add("show");
           if (shareToastTimer) clearTimeout(shareToastTimer);
@@ -49799,12 +49912,27 @@
 
     function updateNowPlayingCard(s) {
       document.getElementById("nowPlayingTitle").textContent = `${s.n}. ${s.raw_title}${s.year ? " (" + s.year + ")" : ""}`;
-      document.getElementById("nowPlayingMeta").textContent = `${s.perf || s.ch}${s.alb ? " · " + s.alb : ""}`;
+      const perfText = s.perf || s.ch || "";
+      const perfEscAttr = JSON.stringify(perfText).replace(/"/g, "&quot;");
+      const cleanAlb = (s.alb || "").replace(/\s*\(#\d+\)\s*$/, "").trim();
+      const albEscAttr = JSON.stringify(cleanAlb).replace(/"/g, "&quot;");
+      const perfSpan = perfText
+        ? `<span class="clickable-meta" onclick="filterBySongTitle(event, ${perfEscAttr})" title="לחץ לסינון כל השירים של מבצע זה">${esc(perfText)}</span>`
+        : "";
+      const albSpan = s.alb
+        ? ` · <span class="clickable-meta" onclick="filterBySongTitle(event, ${albEscAttr})" title="לחץ לסינון כל שירי האלבום">${esc(s.alb)}</span>`
+        : "";
+      document.getElementById("nowPlayingMeta").innerHTML = `${perfSpan}${albSpan}`;
+      const isFav = favoriteVids.has(s.vid);
       const npFav = document.getElementById("npFavBtn");
       if (npFav) {
-        const isFav = favoriteVids.has(s.vid);
         npFav.textContent = isFav ? "❤️" : "♡";
         npFav.classList.toggle("btn-active", isFav);
+      }
+      const miniFav = document.getElementById("miniFavBtn");
+      if (miniFav) {
+        miniFav.textContent = isFav ? "❤️" : "♡";
+        miniFav.classList.toggle("btn-active", isFav);
       }
       const verBadgeHtml = s.ver_total > 1
         ? `<span class="ver-badge" onclick="filterBySongTitle(event, ${JSON.stringify(s.raw_title).replace(/"/g, '&quot;')})" title="לחץ להצגת כל ${s.ver_total} הביצועים של שיר זה">ביצוע ${s.ver_idx}/${s.ver_total}</span>`
@@ -49853,7 +49981,11 @@
     }
 
     function scrollToActiveRow(smooth = true) {
-      const activeRow = document.querySelector("tr.song-row.active");
+      let activeRow = document.querySelector("tr.song-row.active");
+      if (!activeRow && playingSong && currentIndex < 0) {
+        resetAllFilters();
+        activeRow = document.querySelector("tr.song-row.active");
+      }
       if (activeRow) {
         activeRow.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "nearest" });
       }
@@ -49862,15 +49994,16 @@
     function playSongAt(idx, shouldScroll = true, skipHistory = false) {
       if (idx < 0 || idx >= filteredSongs.length) return;
       hasUserStartedPlayback = true;
-      if (!skipHistory && currentIndex !== idx && filteredSongs[currentIndex]) {
-        playHistory.push( filteredSongs[currentIndex].vid );
+      const nextSong = filteredSongs[idx];
+      if (!skipHistory && playingSong && playingSong.vid !== nextSong.vid) {
+        playHistory.push(playingSong.vid);
         if (playHistory.length > 100) playHistory.shift();
       }
+      playingSong = nextSong;
       currentIndex = idx;
       currentAltIdx = -1;
-      const s = filteredSongs[idx];
-      updateNowPlayingCard(s);
-      loadVideoByIdOrSrc(s.vid, true);
+      updateNowPlayingCard(nextSong);
+      loadVideoByIdOrSrc(nextSong.vid, true);
       document.querySelectorAll("tr.song-row").forEach((tr, i) => {
         tr.classList.toggle("active", i === idx);
       });
@@ -49882,6 +50015,16 @@
       shuffleEnabled = !shuffleEnabled;
       const btn = document.getElementById("shuffleBtn");
       if (btn) btn.classList.toggle("btn-active", shuffleEnabled);
+      syncUrlAndStorageState();
+    }
+
+    function toggleRepeatOne() {
+      repeatOneEnabled = !repeatOneEnabled;
+      const btn = document.getElementById("repeatBtn");
+      if (btn) {
+        btn.classList.toggle("btn-active", repeatOneEnabled);
+        btn.setAttribute("aria-pressed", repeatOneEnabled ? "true" : "false");
+      }
       syncUrlAndStorageState();
     }
 
@@ -49901,10 +50044,14 @@
       if (!filteredSongs.length) return;
       if (shuffleEnabled && filteredSongs.length > 1) {
         let randIdx = currentIndex;
-        while (randIdx === currentIndex) {
+        while (randIdx === currentIndex || randIdx < 0) {
           randIdx = Math.floor(Math.random() * filteredSongs.length);
         }
         playSongAt(randIdx);
+        return;
+      }
+      if (currentIndex < 0) {
+        playSongAt(0);
         return;
       }
       playSongAt((currentIndex + 1) % filteredSongs.length);
@@ -49920,11 +50067,15 @@
           return;
         }
       }
+      if (currentIndex < 0) {
+        playSongAt(filteredSongs.length - 1, true, true);
+        return;
+      }
       playSongAt((currentIndex - 1 + filteredSongs.length) % filteredSongs.length, true, true);
     }
 
     function renderTable(skipSync = false) {
-      const currentVid = filteredSongs[currentIndex] ? filteredSongs[currentIndex].vid : null;
+      const activeVid = playingSong ? playingSong.vid : null;
       const rawInput = document.getElementById("searchInput").value;
       const qRaw = rawInput.trim().toLowerCase();
       const qNorm = normHeb(rawInput);
@@ -49943,6 +50094,13 @@
         return s._sRaw.includes(qRaw) || (qNorm.length > 0 && s._sNorm.includes(qNorm));
       });
 
+      const TV_GRP_NAME = "תוכניות טלוויזיה ומופעים מלאים";
+      const albCatRank = (ag) => {
+        if (!ag || ag.startsWith("סינגל") || ag.startsWith("ביצוע ")) return 2;
+        if (ag === TV_GRP_NAME) return 1;
+        return 0;
+      };
+
       filteredSongs.sort((a, b) => {
         if (sortBy === "canonical") return a.n - b.n;
         if (sortBy === "chrono_asc") return (a.chrono_n || a.n) - (b.chrono_n || b.n);
@@ -49951,26 +50109,24 @@
         if (sortBy === "title_asc") return a.raw_title.localeCompare(b.raw_title, "he") || (a.n - b.n);
         if (sortBy === "perf_asc") return (a.perf || a.ch).localeCompare(b.perf || b.ch, "he") || (a.n - b.n);
         if (sortBy === "albums") {
-          const aIsAlbum = a.alb_group && !a.alb_group.startsWith("סינגל") && !a.alb_group.startsWith("ביצוע ");
-          const bIsAlbum = b.alb_group && !b.alb_group.startsWith("סינגל") && !b.alb_group.startsWith("ביצוע ");
-          if (aIsAlbum !== bIsAlbum) return aIsAlbum ? -1 : 1;
-          const aNaomi = a.tier === "1_album_naomi" ? 0 : 1;
-          const bNaomi = b.tier === "1_album_naomi" ? 0 : 1;
-          if (aNaomi !== bNaomi) return aNaomi - bNaomi;
-          const grpCmp = (a.alb_group || "").localeCompare(b.alb_group || "", "he");
-          if (grpCmp !== 0) return grpCmp;
-          const trkCmp = (a.alb_trk || 999) - (b.alb_trk || 999);
-          if (trkCmp !== 0) return trkCmp;
+          const aCat = albCatRank(a.alb_group);
+          const bCat = albCatRank(b.alb_group);
+          if (aCat !== bCat) return aCat - bCat;
+          if (aCat === 0) {
+            const aNaomi = a.tier === "1_album_naomi" ? 0 : 1;
+            const bNaomi = b.tier === "1_album_naomi" ? 0 : 1;
+            if (aNaomi !== bNaomi) return aNaomi - bNaomi;
+            const grpCmp = (a.alb_group || "").localeCompare(b.alb_group || "", "he");
+            if (grpCmp !== 0) return grpCmp;
+            const trkCmp = (a.alb_trk || 999) - (b.alb_trk || 999);
+            if (trkCmp !== 0) return trkCmp;
+          }
           return (a.chrono_n || a.n) - (b.chrono_n || b.n);
         }
         return a.n - b.n;
       });
 
-      if (currentVid) {
-        const foundIdx = filteredSongs.findIndex(x => x.vid === currentVid);
-        if (foundIdx >= 0) currentIndex = foundIdx;
-        else if (filteredSongs.length > 0) currentIndex = 0;
-      }
+      currentIndex = activeVid ? filteredSongs.findIndex(x => x.vid === activeVid) : -1;
 
       document.getElementById("ytCountChip").textContent = filteredSongs.length === SONGS.length
         ? `${SONGS.length} ביצועים`
@@ -50017,15 +50173,20 @@
           const grp = normalizeAlbGrp(s.alb_group);
           if (grp !== lastAlbGroup) {
             lastAlbGroup = grp;
+            const grpIcon = grp === TV_GRP_NAME ? "📺" : (grp === "סינגלים וביצועים בודדים" ? "🎵" : "💿");
             htmlRows.push(`
               <tr class="album-group-header">
-                <td colspan="4">💿 ${esc(grp)} <span class="album-group-count">(${albumCounts[grp]} רצועות)</span></td>
+                <td colspan="4">${grpIcon} ${esc(grp)} <span class="album-group-count">(${albumCounts[grp]} רצועות)</span></td>
               </tr>
             `);
           }
         }
         const roleSub = s.role_cat !== "words_and_music" ? `<span class="badge r-${esc(s.role_cat)}">${esc(s.role_label)}</span>` : "";
         const titleAttrEsc = JSON.stringify(s.raw_title).replace(/"/g, "&quot;");
+        const perfDisp = s.perf || s.ch || "";
+        const perfAttrEsc = JSON.stringify(perfDisp).replace(/"/g, "&quot;");
+        const cleanAlbFilter = (s.alb || "").replace(/\s*\(#\d+\)\s*$/, "").trim();
+        const albAttrEsc = JSON.stringify(cleanAlbFilter).replace(/"/g, "&quot;");
         const subNumHtml = (sortBy === "albums" && s.alb_trk && s.alb_trk < 999)
           ? `<div style="font-size:10.5px; color:var(--gold-soft); opacity:0.85;">רצועה #${s.alb_trk}</div>`
           : (sortBy !== "canonical" ? `<div style="font-size:10.5px; opacity:0.65;">#${s.n}</div>` : "");
@@ -50045,8 +50206,8 @@
             </div>
           </td>
           <td>
-            <div class="perf-primary">${esc(s.perf || s.ch)}</div>
-            ${s.alb ? `<div class="perf-album">${esc(s.alb)}</div>` : ""}
+            <div class="perf-primary"><span class="clickable-meta" onclick="filterBySongTitle(event, ${perfAttrEsc})" title="לחץ לסינון כל השירים של מבצע זה">${esc(perfDisp)}</span></div>
+            ${s.alb ? `<div class="perf-album"><span class="clickable-meta" onclick="filterBySongTitle(event, ${albAttrEsc})" title="לחץ לסינון כל שירי האלבום">${esc(s.alb)}</span></div>` : ""}
           </td>
           <td style="text-align:left;">
             <div class="dur-fav-wrap">
@@ -50090,7 +50251,15 @@
         : `${filteredArch.length} מתוך ${ARCHIVE_SONGS.length} שירי ארכיון`;
 
       const tbody = document.getElementById("archiveBody");
-      tbody.innerHTML = filteredArch.map((s, idx) => `
+      tbody.innerHTML = filteredArch.map((s, idx) => {
+        let compactRole = s.role_label || "";
+        if (s.co_creators) {
+          compactRole = compactRole
+            .replace(` (${s.co_creators})`, "")
+            .replace(` · ${s.co_creators}`, "")
+            .trim();
+        }
+        return `
         <tr>
           <td class="row-num">${idx + 1}</td>
           <td>
@@ -50103,14 +50272,16 @@
           </td>
           <td>
             <div class="perf-primary">${s.perfs ? esc(s.perfs) : "<span style='color:var(--muted);'>לא מתועד מבצע</span>"}</div>
-            <div style="margin-top:3px;"><span class="badge r-${esc(s.role_cat)}">${esc(s.role_label)}</span></div>
+            <div style="margin-top:3px;"><span class="badge r-${esc(s.role_cat)}">${esc(compactRole)}</span></div>
+            ${s.co_creators ? `<div class="perf-album" style="margin-top:3px;">שותפים ליצירה: ${esc(s.co_creators)}</div>` : ""}
           </td>
           <td>
             ${s.opening_line ? `<div class="opening-line" style="-webkit-line-clamp:2;">"${esc(s.opening_line)}"</div>` : "<span style='color:var(--muted);'>—</span>"}
           </td>
           <td>${renderArchivePills(s.links, false)}</td>
         </tr>
-      `).join("");
+      `;
+      }).join("");
 
       if (!skipSync) syncUrlAndStorageState();
     }
@@ -50146,6 +50317,9 @@
       } else if (ev.key === "s" || ev.key === "S") {
         ev.preventDefault();
         toggleShuffle();
+      } else if (ev.key === "r" || ev.key === "R") {
+        ev.preventDefault();
+        toggleRepeatOne();
       } else if (ev.key === "f" || ev.key === "F") {
         ev.preventDefault();
         toggleCurrentFavorite();
@@ -50168,9 +50342,15 @@
       const decadeParam = params.get("decade") || saved.decade;
       const tabParam = params.get("tab") || saved.tab;
       const shufParam = params.get("shuffle");
+      const repParam = params.get("repeat");
       const onePerParam = params.get("oneper");
       const favParam = params.get("fav");
       const archAudioParam = params.get("archaudio");
+
+      if (SONGS.length > 0) {
+        const reqSongNum = parseInt(params.get("song") || saved.song || "1", 10);
+        playingSong = SONGS.find(x => x.n === reqSongNum) || SONGS[0];
+      }
 
       if (qParam !== null) {
         document.getElementById("searchInput").value = qParam;
@@ -50190,6 +50370,14 @@
         shuffleEnabled = true;
         const btn = document.getElementById("shuffleBtn");
         if (btn) btn.classList.add("btn-active");
+      }
+      if (repParam === "1" || (repParam === null && saved.repeat)) {
+        repeatOneEnabled = true;
+        const btn = document.getElementById("repeatBtn");
+        if (btn) {
+          btn.classList.add("btn-active");
+          btn.setAttribute("aria-pressed", "true");
+        }
       }
       if (onePerParam === "1" || (onePerParam === null && saved.oneper)) {
         onePerSongOnly = true;
@@ -50220,19 +50408,16 @@
         obs.observe(ytWrapEl);
       }
       if (SONGS.length > 0) {
-        let initSongNum = parseInt(params.get("song") || saved.song || "1", 10);
-        let initIdx = filteredSongs.findIndex(x => x.n === initSongNum);
-        if (initIdx < 0) initIdx = 0;
-        currentIndex = initIdx;
+        if (!playingSong) playingSong = filteredSongs[0] || SONGS[0];
+        currentIndex = filteredSongs.findIndex(x => x.vid === playingSong.vid);
         currentAltIdx = -1;
-        const s = filteredSongs[initIdx] || SONGS[0];
-        updateNowPlayingCard(s);
-        pendingVideoLoad = { vid: s.vid, autoplay: false };
+        updateNowPlayingCard(playingSong);
+        pendingVideoLoad = { vid: playingSong.vid, autoplay: false };
         loadYouTubeIframeAPI();
         document.querySelectorAll("tr.song-row").forEach((tr, i) => {
-          tr.classList.toggle("active", i === initIdx);
+          tr.classList.toggle("active", i === currentIndex);
         });
-        if (initIdx > 0) setTimeout(() => scrollToActiveRow(false), 150);
+        if (currentIndex > 0) setTimeout(() => scrollToActiveRow(false), 150);
       }
     })();
   </script>

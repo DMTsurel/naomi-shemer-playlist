@@ -1597,6 +1597,7 @@ def generate_files():
             "year": yr_display,
             "role_cat": rcat,
             "role_label": item.get("role_label_heb", "מילים ולחן: נעמי שמר"),
+            "co_creators": item.get("co_creators_heb", ""),
             "perfs": ", ".join(item.get("catalog_performers", [])[:5]),
             "albums": ", ".join(item.get("catalog_albums", [])[:3]),
             "opening_line": item.get("opening_line", ""),
@@ -1909,9 +1910,18 @@ def generate_files():
     }}
     .transport-bar {{
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(7, 1fr);
       gap: 6px;
       margin-top: 12px;
+    }}
+    .clickable-meta {{
+      cursor: pointer;
+      transition: color 0.14s ease;
+    }}
+    .clickable-meta:hover {{
+      color: var(--gold-soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }}
     .np-details {{
       margin-top: 10px;
@@ -2444,6 +2454,7 @@ def generate_files():
             <button id="mainPlayPauseBtn" class="btn btn-outline btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯</button>
             <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
             <button id="shuffleBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀</button>
+            <button id="repeatBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleRepeatOne()" aria-pressed="false" title="ניגון חוזר לשיר הנוכחי (R)">🔂</button>
             <button id="npShareBtn" class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="העתק קישור ישיר לשיר זה">🔗</button>
             <a id="openOnYt" class="btn btn-outline btn-icon" href="#" target="_blank" rel="noopener" title="פתח ביוטיוב">↗ YT</a>
           </div>
@@ -2458,7 +2469,7 @@ def generate_files():
               </div>
               <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
                 <button class="btn btn-outline btn-sm" onclick="scrollToActiveRow()">🎯 גלול לשיר המתנגן בטבלה</button>
-                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>F</kbd> מועדף · <kbd>/</kbd> חיפוש</span>
+                <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>R</kbd> חוזר · <kbd>F</kbd> מועדף · <kbd>/</kbd> חיפוש</span>
               </div>
             </div>
           </details>
@@ -2615,6 +2626,7 @@ def generate_files():
         <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
         <button id="miniPlayBtn" class="btn btn-gold btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">▶</button>
         <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
+        <button id="miniFavBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleCurrentFavorite()" title="הוסף / הסר מהמועדפים (F)">♡</button>
         <button class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="העתק קישור ישיר לשיר זה">🔗</button>
         <button class="btn btn-outline btn-sm" type="button" onclick="scrollToTopPlayer()" title="חזרה לנגן הווידאו">⬆ <span class="mini-back-lbl">לנגן</span></button>
       </div>
@@ -2671,6 +2683,7 @@ def generate_files():
         s.perfs,
         s.albums,
         s.role_label,
+        s.co_creators,
         s.opening_line,
         s.year
       ].filter(Boolean).join(" ");
@@ -2689,7 +2702,8 @@ def generate_files():
     }} catch (e) {{}}
 
     let filteredSongs = [...SONGS];
-    let currentIndex = 0;
+    let playingSong = SONGS[0] || null;
+    let currentIndex = 0; // Index of playingSong inside filteredSongs (-1 when hidden by active filters)
     let currentAltIdx = -1; // -1 = primary video, 0..N = index in s.alts
     let playHistory = [];
     let ytPlayer = null;
@@ -2697,6 +2711,7 @@ def generate_files():
     let ytApiFailed = false;
     let pendingVideoLoad = null;
     let shuffleEnabled = false;
+    let repeatOneEnabled = false;
     let onePerSongOnly = false;
     let favOnly = false;
     let archAudioOnly = false;
@@ -2704,6 +2719,10 @@ def generate_files():
     let isMainPlayerVisible = true;
     let hasUserStartedPlayback = false;
     let shareToastTimer = null;
+
+    function getActiveSong() {{
+      return playingSong || filteredSongs[0] || SONGS[0] || null;
+    }}
 
     function updateMiniPlayerVisibility() {{
       const bar = document.getElementById("miniPlayerBar");
@@ -2839,7 +2858,8 @@ def generate_files():
 
     window.onYouTubeIframeAPIReady = function() {{
       try {{
-        const initReq = pendingVideoLoad || {{ vid: (filteredSongs[currentIndex] || SONGS[0]).vid, autoplay: false }};
+        const activeInit = getActiveSong();
+        const initReq = pendingVideoLoad || {{ vid: activeInit ? activeInit.vid : "", autoplay: false }};
         pendingVideoLoad = null;
         ytPlayer = new YT.Player("ytFrame", {{
           width: "100%",
@@ -2868,7 +2888,12 @@ def generate_files():
               if (ev.data === 1) {{
                 hasUserStartedPlayback = true;
               }} else if (ev.data === 0) {{ // YT.PlayerState.ENDED
-                playNext();
+                if (repeatOneEnabled && ytPlayer && typeof ytPlayer.seekTo === "function") {{
+                  ytPlayer.seekTo(0, true);
+                  ytPlayer.playVideo();
+                }} else {{
+                  playNext();
+                }}
               }}
               syncPlayButtonUI();
             }},
@@ -2888,7 +2913,7 @@ def generate_files():
     }};
 
     function handleVideoPlaybackError(errCode) {{
-      const s = filteredSongs[currentIndex];
+      const s = getActiveSong();
       if (!s) return;
       const alts = s.alts || [];
       const nextAltIdx = currentAltIdx + 1;
@@ -2945,7 +2970,7 @@ def generate_files():
     }}
 
     function switchVideoSource(vid) {{
-      const s = filteredSongs[currentIndex];
+      const s = getActiveSong();
       if (!s) return;
       hasUserStartedPlayback = true;
       const banner = document.getElementById("failoverBanner");
@@ -3011,12 +3036,19 @@ def generate_files():
         favFilterBtn.classList.toggle("btn-active", favOnly);
         favFilterBtn.setAttribute("aria-pressed", favOnly ? "true" : "false");
       }}
+      const curSong = getActiveSong();
       const npFav = document.getElementById("npFavBtn");
-      const curSong = filteredSongs[currentIndex] || SONGS[0];
-      if (npFav && curSong) {{
+      const miniFav = document.getElementById("miniFavBtn");
+      if (curSong) {{
         const isFav = favoriteVids.has(curSong.vid);
-        npFav.textContent = isFav ? "❤️" : "♡";
-        npFav.classList.toggle("btn-active", isFav);
+        if (npFav) {{
+          npFav.textContent = isFav ? "❤️" : "♡";
+          npFav.classList.toggle("btn-active", isFav);
+        }}
+        if (miniFav) {{
+          miniFav.textContent = isFav ? "❤️" : "♡";
+          miniFav.classList.toggle("btn-active", isFav);
+        }}
       }}
     }}
 
@@ -3041,7 +3073,7 @@ def generate_files():
     }}
 
     function toggleCurrentFavorite() {{
-      const curSong = filteredSongs[currentIndex] || SONGS[0];
+      const curSong = getActiveSong();
       if (!curSong) return;
       toggleFavorite(null, curSong.vid);
     }}
@@ -3151,7 +3183,7 @@ def generate_files():
     function syncUrlAndStorageState() {{
       try {{
         const url = new URL(window.location.href);
-        const s = filteredSongs[currentIndex] || SONGS[0];
+        const s = getActiveSong();
         if (s) url.searchParams.set("song", s.n);
         const q = document.getElementById("searchInput").value.trim();
         const sortBy = document.getElementById("sortSelect").value;
@@ -3170,6 +3202,7 @@ def generate_files():
         setOrDel("decade", df, "ALL");
         setOrDel("tab", currentTab, "yt");
         setOrDel("shuffle", shuffleEnabled ? "1" : "", "");
+        setOrDel("repeat", repeatOneEnabled ? "1" : "", "");
         setOrDel("oneper", onePerSongOnly ? "1" : "", "");
         setOrDel("fav", favOnly ? "1" : "", "");
         setOrDel("archaudio", archAudioOnly ? "1" : "", "");
@@ -3184,6 +3217,7 @@ def generate_files():
             decade: df,
             tab: currentTab,
             shuffle: shuffleEnabled,
+            repeat: repeatOneEnabled,
             oneper: onePerSongOnly,
             fav: favOnly,
             archaudio: archAudioOnly
@@ -3203,7 +3237,7 @@ def generate_files():
         }}
         const toast = document.getElementById("shareToast");
         if (toast) {{
-          const s = filteredSongs[currentIndex] || SONGS[0];
+          const s = getActiveSong();
           toast.textContent = s ? `✔ הועתק קישור ישיר ל"${{s.raw_title}}"!` : "✔ הקישור הישיר לשיר הועתק!";
           toast.classList.add("show");
           if (shareToastTimer) clearTimeout(shareToastTimer);
@@ -3258,17 +3292,32 @@ def generate_files():
 
     function updateNowPlayingCard(s) {{
       document.getElementById("nowPlayingTitle").textContent = `${{s.n}}. ${{s.raw_title}}${{s.year ? " (" + s.year + ")" : ""}}`;
-      document.getElementById("nowPlayingMeta").textContent = `${{s.perf || s.ch}}${{s.alb ? " · " + s.alb : ""}}`;
+      const perfText = s.perf || s.ch || "";
+      const perfEscAttr = JSON.stringify(perfText).replace(/"/g, "&quot;");
+      const cleanAlb = (s.alb || "").replace(/\\s*\\(#\\d+\\)\\s*$/, "").trim();
+      const albEscAttr = JSON.stringify(cleanAlb).replace(/"/g, "&quot;");
+      const perfSpan = perfText
+        ? `<span class="clickable-meta" onclick="filterBySongTitle(event, ${{perfEscAttr}})" title="לחץ לסינון כל השירים של מבצע זה">${{esc(perfText)}}</span>`
+        : "";
+      const albSpan = s.alb
+        ? ` · <span class="clickable-meta" onclick="filterBySongTitle(event, ${{albEscAttr}})" title="לחץ לסינון כל שירי האלבום">${{esc(s.alb)}}</span>`
+        : "";
+      document.getElementById("nowPlayingMeta").innerHTML = `${{perfSpan}}${{albSpan}}`;
+      const isFav = favoriteVids.has(s.vid);
       const npFav = document.getElementById("npFavBtn");
       if (npFav) {{
-        const isFav = favoriteVids.has(s.vid);
         npFav.textContent = isFav ? "❤️" : "♡";
         npFav.classList.toggle("btn-active", isFav);
+      }}
+      const miniFav = document.getElementById("miniFavBtn");
+      if (miniFav) {{
+        miniFav.textContent = isFav ? "❤️" : "♡";
+        miniFav.classList.toggle("btn-active", isFav);
       }}
       const verBadgeHtml = s.ver_total > 1
         ? `<span class="ver-badge" onclick="filterBySongTitle(event, ${{JSON.stringify(s.raw_title).replace(/"/g, '&quot;')}})" title="לחץ להצגת כל ${{s.ver_total}} הביצועים של שיר זה">ביצוע ${{s.ver_idx}}/${{s.ver_total}}</span>`
         : "";
-      const tierShort = s.tier_label.replace(/^[0-9]\.\s*/, "");
+      const tierShort = s.tier_label.replace(/^[0-9]\\.\\s*/, "");
       document.getElementById("nowPlayingRole").innerHTML = `<span class="badge t-${{esc(s.tier)}}">${{esc(tierShort)}}</span><span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>${{verBadgeHtml}}`;
       const qBox = document.getElementById("nowPlayingQuote");
       const parts = [];
@@ -3312,7 +3361,11 @@ def generate_files():
     }}
 
     function scrollToActiveRow(smooth = true) {{
-      const activeRow = document.querySelector("tr.song-row.active");
+      let activeRow = document.querySelector("tr.song-row.active");
+      if (!activeRow && playingSong && currentIndex < 0) {{
+        resetAllFilters();
+        activeRow = document.querySelector("tr.song-row.active");
+      }}
       if (activeRow) {{
         activeRow.scrollIntoView({{ behavior: smooth ? "smooth" : "auto", block: "nearest" }});
       }}
@@ -3321,15 +3374,16 @@ def generate_files():
     function playSongAt(idx, shouldScroll = true, skipHistory = false) {{
       if (idx < 0 || idx >= filteredSongs.length) return;
       hasUserStartedPlayback = true;
-      if (!skipHistory && currentIndex !== idx && filteredSongs[currentIndex]) {{
-        playHistory.push( filteredSongs[currentIndex].vid );
+      const nextSong = filteredSongs[idx];
+      if (!skipHistory && playingSong && playingSong.vid !== nextSong.vid) {{
+        playHistory.push(playingSong.vid);
         if (playHistory.length > 100) playHistory.shift();
       }}
+      playingSong = nextSong;
       currentIndex = idx;
       currentAltIdx = -1;
-      const s = filteredSongs[idx];
-      updateNowPlayingCard(s);
-      loadVideoByIdOrSrc(s.vid, true);
+      updateNowPlayingCard(nextSong);
+      loadVideoByIdOrSrc(nextSong.vid, true);
       document.querySelectorAll("tr.song-row").forEach((tr, i) => {{
         tr.classList.toggle("active", i === idx);
       }});
@@ -3341,6 +3395,16 @@ def generate_files():
       shuffleEnabled = !shuffleEnabled;
       const btn = document.getElementById("shuffleBtn");
       if (btn) btn.classList.toggle("btn-active", shuffleEnabled);
+      syncUrlAndStorageState();
+    }}
+
+    function toggleRepeatOne() {{
+      repeatOneEnabled = !repeatOneEnabled;
+      const btn = document.getElementById("repeatBtn");
+      if (btn) {{
+        btn.classList.toggle("btn-active", repeatOneEnabled);
+        btn.setAttribute("aria-pressed", repeatOneEnabled ? "true" : "false");
+      }}
       syncUrlAndStorageState();
     }}
 
@@ -3360,10 +3424,14 @@ def generate_files():
       if (!filteredSongs.length) return;
       if (shuffleEnabled && filteredSongs.length > 1) {{
         let randIdx = currentIndex;
-        while (randIdx === currentIndex) {{
+        while (randIdx === currentIndex || randIdx < 0) {{
           randIdx = Math.floor(Math.random() * filteredSongs.length);
         }}
         playSongAt(randIdx);
+        return;
+      }}
+      if (currentIndex < 0) {{
+        playSongAt(0);
         return;
       }}
       playSongAt((currentIndex + 1) % filteredSongs.length);
@@ -3379,11 +3447,15 @@ def generate_files():
           return;
         }}
       }}
+      if (currentIndex < 0) {{
+        playSongAt(filteredSongs.length - 1, true, true);
+        return;
+      }}
       playSongAt((currentIndex - 1 + filteredSongs.length) % filteredSongs.length, true, true);
     }}
 
     function renderTable(skipSync = false) {{
-      const currentVid = filteredSongs[currentIndex] ? filteredSongs[currentIndex].vid : null;
+      const activeVid = playingSong ? playingSong.vid : null;
       const rawInput = document.getElementById("searchInput").value;
       const qRaw = rawInput.trim().toLowerCase();
       const qNorm = normHeb(rawInput);
@@ -3402,6 +3474,13 @@ def generate_files():
         return s._sRaw.includes(qRaw) || (qNorm.length > 0 && s._sNorm.includes(qNorm));
       }});
 
+      const TV_GRP_NAME = "תוכניות טלוויזיה ומופעים מלאים";
+      const albCatRank = (ag) => {{
+        if (!ag || ag.startsWith("סינגל") || ag.startsWith("ביצוע ")) return 2;
+        if (ag === TV_GRP_NAME) return 1;
+        return 0;
+      }};
+
       filteredSongs.sort((a, b) => {{
         if (sortBy === "canonical") return a.n - b.n;
         if (sortBy === "chrono_asc") return (a.chrono_n || a.n) - (b.chrono_n || b.n);
@@ -3410,26 +3489,24 @@ def generate_files():
         if (sortBy === "title_asc") return a.raw_title.localeCompare(b.raw_title, "he") || (a.n - b.n);
         if (sortBy === "perf_asc") return (a.perf || a.ch).localeCompare(b.perf || b.ch, "he") || (a.n - b.n);
         if (sortBy === "albums") {{
-          const aIsAlbum = a.alb_group && !a.alb_group.startsWith("סינגל") && !a.alb_group.startsWith("ביצוע ");
-          const bIsAlbum = b.alb_group && !b.alb_group.startsWith("סינגל") && !b.alb_group.startsWith("ביצוע ");
-          if (aIsAlbum !== bIsAlbum) return aIsAlbum ? -1 : 1;
-          const aNaomi = a.tier === "1_album_naomi" ? 0 : 1;
-          const bNaomi = b.tier === "1_album_naomi" ? 0 : 1;
-          if (aNaomi !== bNaomi) return aNaomi - bNaomi;
-          const grpCmp = (a.alb_group || "").localeCompare(b.alb_group || "", "he");
-          if (grpCmp !== 0) return grpCmp;
-          const trkCmp = (a.alb_trk || 999) - (b.alb_trk || 999);
-          if (trkCmp !== 0) return trkCmp;
+          const aCat = albCatRank(a.alb_group);
+          const bCat = albCatRank(b.alb_group);
+          if (aCat !== bCat) return aCat - bCat;
+          if (aCat === 0) {{
+            const aNaomi = a.tier === "1_album_naomi" ? 0 : 1;
+            const bNaomi = b.tier === "1_album_naomi" ? 0 : 1;
+            if (aNaomi !== bNaomi) return aNaomi - bNaomi;
+            const grpCmp = (a.alb_group || "").localeCompare(b.alb_group || "", "he");
+            if (grpCmp !== 0) return grpCmp;
+            const trkCmp = (a.alb_trk || 999) - (b.alb_trk || 999);
+            if (trkCmp !== 0) return trkCmp;
+          }}
           return (a.chrono_n || a.n) - (b.chrono_n || b.n);
         }}
         return a.n - b.n;
       }});
 
-      if (currentVid) {{
-        const foundIdx = filteredSongs.findIndex(x => x.vid === currentVid);
-        if (foundIdx >= 0) currentIndex = foundIdx;
-        else if (filteredSongs.length > 0) currentIndex = 0;
-      }}
+      currentIndex = activeVid ? filteredSongs.findIndex(x => x.vid === activeVid) : -1;
 
       document.getElementById("ytCountChip").textContent = filteredSongs.length === SONGS.length
         ? `${{SONGS.length}} ביצועים`
@@ -3476,15 +3553,20 @@ def generate_files():
           const grp = normalizeAlbGrp(s.alb_group);
           if (grp !== lastAlbGroup) {{
             lastAlbGroup = grp;
+            const grpIcon = grp === TV_GRP_NAME ? "📺" : (grp === "סינגלים וביצועים בודדים" ? "🎵" : "💿");
             htmlRows.push(`
               <tr class="album-group-header">
-                <td colspan="4">💿 ${{esc(grp)}} <span class="album-group-count">(${{albumCounts[grp]}} רצועות)</span></td>
+                <td colspan="4">${{grpIcon}} ${{esc(grp)}} <span class="album-group-count">(${{albumCounts[grp]}} רצועות)</span></td>
               </tr>
             `);
           }}
         }}
         const roleSub = s.role_cat !== "words_and_music" ? `<span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span>` : "";
         const titleAttrEsc = JSON.stringify(s.raw_title).replace(/"/g, "&quot;");
+        const perfDisp = s.perf || s.ch || "";
+        const perfAttrEsc = JSON.stringify(perfDisp).replace(/"/g, "&quot;");
+        const cleanAlbFilter = (s.alb || "").replace(/\\s*\\(#\\d+\\)\\s*$/, "").trim();
+        const albAttrEsc = JSON.stringify(cleanAlbFilter).replace(/"/g, "&quot;");
         const subNumHtml = (sortBy === "albums" && s.alb_trk && s.alb_trk < 999)
           ? `<div style="font-size:10.5px; color:var(--gold-soft); opacity:0.85;">רצועה #${{s.alb_trk}}</div>`
           : (sortBy !== "canonical" ? `<div style="font-size:10.5px; opacity:0.65;">#${{s.n}}</div>` : "");
@@ -3504,8 +3586,8 @@ def generate_files():
             </div>
           </td>
           <td>
-            <div class="perf-primary">${{esc(s.perf || s.ch)}}</div>
-            ${{s.alb ? `<div class="perf-album">${{esc(s.alb)}}</div>` : ""}}
+            <div class="perf-primary"><span class="clickable-meta" onclick="filterBySongTitle(event, ${{perfAttrEsc}})" title="לחץ לסינון כל השירים של מבצע זה">${{esc(perfDisp)}}</span></div>
+            ${{s.alb ? `<div class="perf-album"><span class="clickable-meta" onclick="filterBySongTitle(event, ${{albAttrEsc}})" title="לחץ לסינון כל שירי האלבום">${{esc(s.alb)}}</span></div>` : ""}}
           </td>
           <td style="text-align:left;">
             <div class="dur-fav-wrap">
@@ -3549,7 +3631,15 @@ def generate_files():
         : `${{filteredArch.length}} מתוך ${{ARCHIVE_SONGS.length}} שירי ארכיון`;
 
       const tbody = document.getElementById("archiveBody");
-      tbody.innerHTML = filteredArch.map((s, idx) => `
+      tbody.innerHTML = filteredArch.map((s, idx) => {{
+        let compactRole = s.role_label || "";
+        if (s.co_creators) {{
+          compactRole = compactRole
+            .replace(` (${{s.co_creators}})`, "")
+            .replace(` · ${{s.co_creators}}`, "")
+            .trim();
+        }}
+        return `
         <tr>
           <td class="row-num">${{idx + 1}}</td>
           <td>
@@ -3562,14 +3652,16 @@ def generate_files():
           </td>
           <td>
             <div class="perf-primary">${{s.perfs ? esc(s.perfs) : "<span style='color:var(--muted);'>לא מתועד מבצע</span>"}}</div>
-            <div style="margin-top:3px;"><span class="badge r-${{esc(s.role_cat)}}">${{esc(s.role_label)}}</span></div>
+            <div style="margin-top:3px;"><span class="badge r-${{esc(s.role_cat)}}">${{esc(compactRole)}}</span></div>
+            ${{s.co_creators ? `<div class="perf-album" style="margin-top:3px;">שותפים ליצירה: ${{esc(s.co_creators)}}</div>` : ""}}
           </td>
           <td>
             ${{s.opening_line ? `<div class="opening-line" style="-webkit-line-clamp:2;">"${{esc(s.opening_line)}}"</div>` : "<span style='color:var(--muted);'>—</span>"}}
           </td>
           <td>${{renderArchivePills(s.links, false)}}</td>
         </tr>
-      `).join("");
+      `;
+      }}).join("");
 
       if (!skipSync) syncUrlAndStorageState();
     }}
@@ -3605,6 +3697,9 @@ def generate_files():
       }} else if (ev.key === "s" || ev.key === "S") {{
         ev.preventDefault();
         toggleShuffle();
+      }} else if (ev.key === "r" || ev.key === "R") {{
+        ev.preventDefault();
+        toggleRepeatOne();
       }} else if (ev.key === "f" || ev.key === "F") {{
         ev.preventDefault();
         toggleCurrentFavorite();
@@ -3627,9 +3722,15 @@ def generate_files():
       const decadeParam = params.get("decade") || saved.decade;
       const tabParam = params.get("tab") || saved.tab;
       const shufParam = params.get("shuffle");
+      const repParam = params.get("repeat");
       const onePerParam = params.get("oneper");
       const favParam = params.get("fav");
       const archAudioParam = params.get("archaudio");
+
+      if (SONGS.length > 0) {{
+        const reqSongNum = parseInt(params.get("song") || saved.song || "1", 10);
+        playingSong = SONGS.find(x => x.n === reqSongNum) || SONGS[0];
+      }}
 
       if (qParam !== null) {{
         document.getElementById("searchInput").value = qParam;
@@ -3649,6 +3750,14 @@ def generate_files():
         shuffleEnabled = true;
         const btn = document.getElementById("shuffleBtn");
         if (btn) btn.classList.add("btn-active");
+      }}
+      if (repParam === "1" || (repParam === null && saved.repeat)) {{
+        repeatOneEnabled = true;
+        const btn = document.getElementById("repeatBtn");
+        if (btn) {{
+          btn.classList.add("btn-active");
+          btn.setAttribute("aria-pressed", "true");
+        }}
       }}
       if (onePerParam === "1" || (onePerParam === null && saved.oneper)) {{
         onePerSongOnly = true;
@@ -3679,19 +3788,16 @@ def generate_files():
         obs.observe(ytWrapEl);
       }}
       if (SONGS.length > 0) {{
-        let initSongNum = parseInt(params.get("song") || saved.song || "1", 10);
-        let initIdx = filteredSongs.findIndex(x => x.n === initSongNum);
-        if (initIdx < 0) initIdx = 0;
-        currentIndex = initIdx;
+        if (!playingSong) playingSong = filteredSongs[0] || SONGS[0];
+        currentIndex = filteredSongs.findIndex(x => x.vid === playingSong.vid);
         currentAltIdx = -1;
-        const s = filteredSongs[initIdx] || SONGS[0];
-        updateNowPlayingCard(s);
-        pendingVideoLoad = {{ vid: s.vid, autoplay: false }};
+        updateNowPlayingCard(playingSong);
+        pendingVideoLoad = {{ vid: playingSong.vid, autoplay: false }};
         loadYouTubeIframeAPI();
         document.querySelectorAll("tr.song-row").forEach((tr, i) => {{
-          tr.classList.toggle("active", i === initIdx);
+          tr.classList.toggle("active", i === currentIndex);
         }});
-        if (initIdx > 0) setTimeout(() => scrollToActiveRow(false), 150);
+        if (currentIndex > 0) setTimeout(() => scrollToActiveRow(false), 150);
       }}
     }})();
   </script>
