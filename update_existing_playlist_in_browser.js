@@ -103,16 +103,55 @@
     return null;
   }
 
+  function nodeBelongsToPlaylist(node, depth = 0) {
+    if (!node || typeof node !== "object" || depth > 14) return false;
+    if (node.playlistId === PLAYLIST_ID) return true;
+    if (Array.isArray(node)) return node.some(el => nodeBelongsToPlaylist(el, depth + 1));
+    for (const k of Object.keys(node)) {
+      if (nodeBelongsToPlaylist(node[k], depth + 1)) return true;
+    }
+    return false;
+  }
+
+  function findContinuationTokens(node, tokensOut, seenTokens, depth = 0) {
+    if (!node || typeof node !== "object" || depth > 16) return;
+    if (node.continuationCommand && typeof node.continuationCommand.token === "string") {
+      const tok = node.continuationCommand.token;
+      if (tok && tok.startsWith("4qmF") && !seenTokens.has(tok)) {
+        seenTokens.add(tok);
+        tokensOut.push(tok);
+      }
+    }
+    if (node.nextContinuationData && typeof node.nextContinuationData.continuation === "string") {
+      const tok = node.nextContinuationData.continuation;
+      if (tok && !seenTokens.has(tok)) {
+        seenTokens.add(tok);
+        tokensOut.push(tok);
+      }
+    }
+    if (Array.isArray(node)) {
+      for (const el of node) findContinuationTokens(el, tokensOut, seenTokens, depth + 1);
+      return;
+    }
+    for (const k of Object.keys(node)) {
+      findContinuationTokens(node[k], tokensOut, seenTokens, depth + 1);
+    }
+  }
+
   function extractVideosAndContinuation(obj, itemsOut, tokensOut, seenTokens) {
     if (!obj || typeof obj !== "object") return;
     if (Array.isArray(obj)) {
       for (const el of obj) extractVideosAndContinuation(el, itemsOut, tokensOut, seenTokens);
       return;
     }
+    // דילוג על מדפי המלצות ("Recommended videos") שיוטיוב מציג לבעל הפלייליסט ואינם שייכים לפלייליסט!
+    if (obj.reelShelfRenderer || obj.shelfRenderer || obj.horizontalCardListRenderer) {
+      return;
+    }
     if (obj.playlistVideoRenderer) {
       const r = obj.playlistVideoRenderer;
       const svid = r.setVideoId || findSetVideoId(r) || null;
-      if (r.videoId || svid) {
+      if ((r.videoId || svid) && (svid || nodeBelongsToPlaylist(r))) {
         itemsOut.push({
           videoId: r.videoId || null,
           setVideoId: svid
@@ -124,7 +163,8 @@
       const lv = obj.lockupViewModel;
       const vid = lv.contentId || findWatchVideoId(lv);
       const svid = findSetVideoId(lv);
-      if ((vid && (lv.contentType === "LOCKUP_CONTENT_TYPE_VIDEO" || !lv.contentType)) || svid) {
+      const isVidType = lv.contentType === "LOCKUP_CONTENT_TYPE_VIDEO" || !lv.contentType;
+      if (((vid && isVidType) || svid) && (svid || nodeBelongsToPlaylist(lv))) {
         itemsOut.push({
           videoId: vid || null,
           setVideoId: svid
@@ -132,36 +172,25 @@
       }
       return;
     }
-    if (obj.continuationItemRenderer) {
-      const tok = obj.continuationItemRenderer?.continuationEndpoint?.continuationCommand?.token;
-      if (tok && !seenTokens.has(tok)) {
-        seenTokens.add(tok);
-        tokensOut.push(tok);
-      }
+    if (obj.continuationItemRenderer || obj.continuationItemViewModel) {
+      findContinuationTokens(obj, tokensOut, seenTokens);
       return;
     }
-    if (obj.continuationItemViewModel) {
-      const civ = obj.continuationItemViewModel;
-      const tok =
-        civ?.continuationCommand?.innertubeCommand?.continuationCommand?.token ||
-        civ?.continuationEndpoint?.continuationCommand?.token;
-      if (tok && !seenTokens.has(tok)) {
-        seenTokens.add(tok);
-        tokensOut.push(tok);
-      }
-      return;
-    }
-    if (obj.continuationCommand && typeof obj.continuationCommand.token === "string" && obj.continuationCommand.token.startsWith("4qmF")) {
-      const tok = obj.continuationCommand.token;
-      if (!seenTokens.has(tok)) {
-        seenTokens.add(tok);
-        tokensOut.push(tok);
-      }
-      return;
+    if (obj.continuations && Array.isArray(obj.continuations)) {
+      findContinuationTokens(obj.continuations, tokensOut, seenTokens);
     }
     for (const k of Object.keys(obj)) {
       extractVideosAndContinuation(obj[k], itemsOut, tokensOut, seenTokens);
     }
+  }
+
+  function getFirstSectionRoot(browseData) {
+    const secContents = browseData?.contents?.twoColumnBrowseResultsRenderer?.tabs?.[0]?.tabRenderer?.content?.sectionListRenderer?.contents;
+    if (Array.isArray(secContents) && secContents.length > 0) {
+      // תמיד קוראים אך ורק את contents[0] (רשימת הפלייליסט עצמה), ולא את contents[1] (סרטונים מומלצים להוספה)!
+      return secContents[0];
+    }
+    return browseData;
   }
 
   // includeUnavailable=true שולח params: "wgYCCAA=" ("Show unavailable videos") כך שגם סרטונים מוסתרים מזוהים ונמחקים!
@@ -172,7 +201,7 @@
     const reqBody = { browseId: "VL" + PLAYLIST_ID };
     if (includeUnavailable) reqBody.params = "wgYCCAA=";
     const firstPage = await ytPost("/youtubei/v1/browse", reqBody);
-    extractVideosAndContinuation(firstPage, items, tokens, seenTokens);
+    extractVideosAndContinuation(getFirstSectionRoot(firstPage), items, tokens, seenTokens);
     while (tokens.length > 0) {
       const tok = tokens.shift();
       const nextPage = await ytPost("/youtubei/v1/browse", { continuation: tok });
@@ -195,6 +224,29 @@
     return actions;
   }
 
+  async function safeDeleteBatch(batch) {
+    if (!batch || batch.length === 0) return;
+    try {
+      await ytPost("/youtubei/v1/browse/edit_playlist", {
+        playlistId: PLAYLIST_ID,
+        actions: batch
+      });
+    } catch (err) {
+      console.warn(`⚠️ מחיקת אצווה נתקלה בשגיאה (${err.message.slice(0, 80)}), מנסה פריט-פריט...`);
+      for (const act of batch) {
+        try {
+          await ytPost("/youtubei/v1/browse/edit_playlist", {
+            playlistId: PLAYLIST_ID,
+            actions: [act]
+          });
+        } catch (innerErr) {
+          console.warn("  ⏭️ דילוג על פריט שאינו בפלייליסט:", act, innerErr.message.slice(0, 60));
+        }
+        await new Promise(r => setTimeout(r, 120));
+      }
+    }
+  }
+
   // עדכון שם הפלייליסט ל-"שירי נעמי שמר"
   try {
     await ytPost("/youtubei/v1/browse/edit_playlist", {
@@ -214,7 +266,7 @@
   if (currentItems.length === 0 && window.ytInitialData) {
     const pageItems = [];
     const dummyTokens = [];
-    extractVideosAndContinuation(window.ytInitialData, pageItems, dummyTokens, new Set());
+    extractVideosAndContinuation(getFirstSectionRoot(window.ytInitialData), pageItems, dummyTokens, new Set());
     if (pageItems.length > 0) {
       console.error(`❌ עצירת חירום: בדף מופיעים ${pageItems.length} סרטונים אך קריאת ה-API החזירה 0. לא מוסיף כדי למנוע כפילויות!`);
       return;
@@ -276,10 +328,7 @@
       const delActions = buildRemoveActions(toDeleteItems);
       for (let i = 0; i < delActions.length; i += BATCH_SIZE) {
         const batch = delActions.slice(i, i + BATCH_SIZE);
-        await ytPost("/youtubei/v1/browse/edit_playlist", {
-          playlistId: PLAYLIST_ID,
-          actions: batch
-        });
+        await safeDeleteBatch(batch);
         await new Promise(r => setTimeout(r, 400));
       }
     }
@@ -330,10 +379,7 @@
       for (let i = 0; i < delActions.length; i += BATCH_SIZE) {
         const batch = delActions.slice(i, i + BATCH_SIZE);
         console.log(`🗑️ מנקה סדר ישן (סבב ${pass}: ${i + 1} עד ${Math.min(i + BATCH_SIZE, delActions.length)} מתוך ${delActions.length})...`);
-        await ytPost("/youtubei/v1/browse/edit_playlist", {
-          playlistId: PLAYLIST_ID,
-          actions: batch
-        });
+        await safeDeleteBatch(batch);
         await new Promise(r => setTimeout(r, 450));
       }
       await new Promise(r => setTimeout(r, 1200));
@@ -437,10 +483,7 @@
     console.log(`🧹 מסיר ${extraActions.length} סרטונים עודפים/כפולים...`);
     for (let i = 0; i < extraActions.length; i += BATCH_SIZE) {
       const batch = extraActions.slice(i, i + BATCH_SIZE);
-      await ytPost("/youtubei/v1/browse/edit_playlist", {
-        playlistId: PLAYLIST_ID,
-        actions: batch
-      });
+      await safeDeleteBatch(batch);
       await new Promise(r => setTimeout(r, 450));
     }
   }
