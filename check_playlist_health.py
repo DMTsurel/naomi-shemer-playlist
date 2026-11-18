@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-בדיקת תקינות וניטור שוטף של סרטוני היוטיוב בפלייליסט שירי נעמי שמר:
-1. בודק את כל 660 הסרטונים הראשיים (ואופציונלית גם את סרטוני הגיבוי) מול /youtubei/v1/player
-   (ולא רק oEmbed, שמחזיר 200 גם לסרטונים שנחסמו/הוסרו!).
+בדיקת תקינות, החלפה אוטומטית מגיבויים וניטור שוטף של סרטוני היוטיוב בפלייליסט שירי נעמי שמר:
+1. בודק את כל 660 הסרטונים הראשיים מול /youtubei/v1/player (ולא רק oEmbed).
 2. מזהה סרטונים שהפכו ללא-זמינים (UNAVAILABLE), דורשים התחברות (SIGN_IN_REQUIRED),
-   או מוגבלים אזורית לישראל בלבד (GEO_RESTRICTED), ומציע אוטומטית סרטון חלופי חי מתוך המאגר.
-3. משווה מול הפלייליסט החי ביוטיוב (PLFHErlX6i22g) עם ובלי params="wgYCCAA=" כדי לאתר סרטונים מוסתרים.
+   או מוגבלים אזורית לישראל בלבד (GEO_RESTRICTED), ובודק אוטומטית סרטוני גיבוי תקינים.
+3. עם הדגל --auto-fix: מחליף אוטומטית כל סרטון שהוסר בסרטון הגיבוי התקין הראשון שלו,
+   מסיר את המזהה המת מקובצי ה-JSON ומריץ מחדש את build_player_and_browser_script.py.
+4. משווה מול הפלייליסט החי ביוטיוב (PLFHErlX6i22g) עם ובלי params="wgYCCAA=" כדי לאתר סרטונים מוסתרים.
 """
 
 import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -35,6 +37,18 @@ def _fetch_yt_config() -> tuple:
     return api_key, cver
 
 
+def _format_mmss(sec_val) -> str:
+    try:
+        s = int(sec_val)
+        if s <= 0:
+            return ""
+        if s >= 3600:
+            return f"{s // 3600}:{(s % 3600) // 60:02d}:{s % 60:02d}"
+        return f"{s // 60}:{s % 60:02d}"
+    except Exception:
+        return ""
+
+
 def _check_video_player(vid: str, api_key: str, cver: str) -> dict:
     body = {
         "videoId": vid,
@@ -42,7 +56,7 @@ def _check_video_player(vid: str, api_key: str, cver: str) -> dict:
             "client": {
                 "clientName": "WEB",
                 "clientVersion": cver,
-                "hl": "en",
+                "hl": "he",
                 "gl": "IL",
             }
         },
@@ -61,9 +75,10 @@ def _check_video_player(vid: str, api_key: str, cver: str) -> dict:
         countries = mf.get("availableCountries")
         title = (mf.get("title") or {}).get("simpleText") or ""
         channel = mf.get("ownerChannelName") or ""
+        duration = _format_mmss(mf.get("lengthSeconds"))
 
         if countries is None or len(countries) == 0:
-            if status == "LOGIN_REQUIRED" or "sign in" in reason.lower():
+            if status == "LOGIN_REQUIRED" or "sign in" in reason.lower() or "להיכנס" in reason:
                 health = "SIGN_IN_REQUIRED"
             else:
                 health = "UNAVAILABLE"
@@ -82,6 +97,7 @@ def _check_video_player(vid: str, api_key: str, cver: str) -> dict:
             "countries_count": len(countries) if countries else 0,
             "title": title,
             "channel": channel,
+            "duration": duration,
         }
     except Exception as e:
         return {
@@ -92,6 +108,7 @@ def _check_video_player(vid: str, api_key: str, cver: str) -> dict:
             "countries_count": 0,
             "title": "",
             "channel": "",
+            "duration": "",
         }
 
 
@@ -149,9 +166,15 @@ def main():
     parser = argparse.ArgumentParser(description="Check YouTube health of Naomi Shemer playlist videos.")
     parser.add_argument("--json-report", help="Optional path to write JSON health report.")
     parser.add_argument("--skip-live-playlist", action="store_true", help="Skip live PLFHErlX6i22g comparison.")
+    parser.add_argument(
+        "--auto-fix",
+        action="store_true",
+        help="Automatically replace unavailable videos with their best healthy backup and rebuild exports.",
+    )
     args = parser.parse_args()
 
     playlist_path = os.path.join(BASE_DIR, "naomi_shemer_youtube_playlist.json")
+    catalog_path = os.path.join(BASE_DIR, "naomi_shemer_catalog.json")
     with open(playlist_path, encoding="utf-8") as f:
         data = json.load(f)
 
@@ -172,34 +195,91 @@ def main():
     unavailable = []
     signin_gated = []
     geo_restricted = []
+    auto_fixed = []
+    dead_vids_to_purge = set()
 
     for it in matched:
-        vid = it["selected_video"]["video_id"]
+        sel = it["selected_video"]
+        vid = sel["video_id"]
         r = results_by_vid[vid]
         entry_summary = {
             "index": it["index"],
             "title": it["title"],
-            "performer": it["selected_video"].get("matched_performer", ""),
+            "performer": sel.get("matched_performer", ""),
             "video_id": vid,
             "health": r["health"],
             "reason": r["reason"],
             "recommended_backups": [],
         }
-        if r["health"] in ("UNAVAILABLE", "BLOCKED_IN_IL", "FETCH_ERROR"):
-            for alt in it.get("alternative_videos", [])[:5]:
+        if r["health"] in ("UNAVAILABLE", "BLOCKED_IN_IL"):
+            for alt in it.get("alternative_videos", [])[:6]:
                 chk = _check_video_player(alt["video_id"], api_key, cver)
                 if chk["health"] in ("OK_WORLDWIDE", "GEO_RESTRICTED_IL_ONLY"):
                     entry_summary["recommended_backups"].append({
                         "video_id": alt["video_id"],
                         "title": chk["title"] or alt.get("video_title", ""),
                         "channel": chk["channel"] or alt.get("channel", ""),
+                        "duration": chk["duration"] or alt.get("duration", ""),
                         "health": chk["health"],
                     })
-            unavailable.append(entry_summary)
+            if args.auto_fix and entry_summary["recommended_backups"]:
+                # Prefer OK_WORLDWIDE if available
+                worldwide_b = [b for b in entry_summary["recommended_backups"] if b["health"] == "OK_WORLDWIDE"]
+                chosen = worldwide_b[0] if worldwide_b else entry_summary["recommended_backups"][0]
+                dead_vids_to_purge.add(vid)
+                sel["video_id"] = chosen["video_id"]
+                sel["url"] = f"https://www.youtube.com/watch?v={chosen['video_id']}"
+                sel["video_title"] = chosen["title"]
+                sel["channel"] = chosen["channel"]
+                if chosen.get("duration"):
+                    sel["duration"] = chosen["duration"]
+                it["alternative_videos"] = [
+                    a for a in it.get("alternative_videos", [])
+                    if a.get("video_id") and a.get("video_id") != chosen["video_id"] and a.get("video_id") != vid
+                ]
+                auto_fixed.append({
+                    "index": it["index"],
+                    "title": it["title"],
+                    "performer": sel.get("matched_performer", ""),
+                    "old_video_id": vid,
+                    "new_video_id": chosen["video_id"],
+                    "new_title": chosen["title"],
+                    "new_channel": chosen["channel"],
+                })
+            else:
+                unavailable.append(entry_summary)
         elif r["health"] == "SIGN_IN_REQUIRED":
             signin_gated.append(entry_summary)
         elif r["health"] == "GEO_RESTRICTED_IL_ONLY":
             geo_restricted.append(entry_summary)
+
+    if auto_fixed:
+        for it in data["playlist"]:
+            if "alternative_videos" in it:
+                it["alternative_videos"] = [
+                    a for a in it["alternative_videos"]
+                    if a.get("video_id") not in dead_vids_to_purge
+                ]
+        with open(playlist_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+        if os.path.exists(catalog_path):
+            with open(catalog_path, encoding="utf-8") as f:
+                cat_data = json.load(f)
+            rep_map = {fx["old_video_id"]: fx["new_video_id"] for fx in auto_fixed}
+            for s in cat_data.get("songs", []):
+                if "youtube_ids" in s:
+                    updated_ids = [rep_map.get(v, v) for v in s["youtube_ids"] if v not in dead_vids_to_purge or v in rep_map]
+                    seen = set()
+                    s["youtube_ids"] = [v for v in updated_ids if not (v in seen or seen.add(v))]
+            with open(catalog_path, "w", encoding="utf-8") as f:
+                json.dump(cat_data, f, ensure_ascii=False, indent=2)
+
+        build_script = os.path.join(BASE_DIR, "build_player_and_browser_script.py")
+        subprocess.run([sys.executable, build_script], check=True)
+        print(f"🛠️ הוחלפו אוטומטית {len(auto_fixed)} סרטונים לא-זמינים ועודכנו כל קובצי הפרויקט!")
+        for fx in auto_fixed:
+            print(f"  ✔ #{fx['index']} {fx['title']} ({fx['performer']}): {fx['old_video_id']} -> {fx['new_video_id']} ({fx['new_title']})")
 
     live_summary = {}
     if not args.skip_live_playlist:
@@ -223,7 +303,7 @@ def main():
     print(f"  🟢 תקינים בכל העולם: {ok_worldwide}")
     print(f"  🇮🇱 זמינים בישראל בלבד (כאן | מוזיקה / ארכיון): {len(geo_restricted)}")
     print(f"  🔐 דורשים התחברות ליוטיוב: {len(signin_gated)}")
-    print(f"  🔴 לא זמינים / הוסרו (UNAVAILABLE): {len(unavailable)}")
+    print(f"  🔴 לא זמינים שנותרו ללא גיבוי אוטומטי: {len(unavailable)}")
 
     if live_summary:
         print(
@@ -232,18 +312,14 @@ def main():
             f"(מוסתרים כרגע: {len(live_summary['hidden_items'])})"
         )
 
-    if unavailable:
-        print("\n⚠️ סרטונים לא זמינים הדורשים החלפה:")
-        for u in unavailable:
-            b_str = ", ".join(f"{b['video_id']} ({b['title']})" for b in u["recommended_backups"][:2]) or "אין גיבוי אוטומטי"
-            print(f"  - #{u['index']} {u['title']} ({u['performer']}) [{u['video_id']}] -> גיבויים זמינים: {b_str}")
-
     report = {
         "total_checked": len(matched),
         "ok_worldwide_count": ok_worldwide,
         "geo_restricted_il_only_count": len(geo_restricted),
         "sign_in_required_count": len(signin_gated),
-        "unavailable_count": len(unavailable),
+        "auto_fixed_count": len(auto_fixed),
+        "auto_fixed": auto_fixed,
+        "unavailable_unfixed_count": len(unavailable),
         "unavailable": unavailable,
         "sign_in_required": signin_gated,
         "geo_restricted_il_only": geo_restricted,
