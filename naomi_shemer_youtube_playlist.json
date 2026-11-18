@@ -5827,15 +5827,6 @@
           "duration": "2:52",
           "views": "",
           "source": "direct_alternative"
-        },
-        {
-          "video_id": "-hts04B4Wkk",
-          "url": "https://www.youtube.com/watch?v=-hts04B4Wkk",
-          "video_title": "הגשש החיוור - יש לי יום יום חג",
-          "channel": "Bletter",
-          "duration": "3:31",
-          "views": "",
-          "source": "same_song_performance"
         }
       ],
       "chrono_index": 417,
@@ -5854,7 +5845,7 @@
         "יום יום חג"
       ],
       "opening_line": "כשתאלם תרועת הפסטיבלים ילבלבו שירי אהבתי",
-      "year": "1979",
+      "year": "1977",
       "album_group": "הגשש החיוור בשירי נעמי שמר",
       "album_track_number": 9,
       "roles": [
@@ -5929,11 +5920,11 @@
       "tier": "4_original_performance",
       "tier_label": "4. ביצוע מקורי",
       "selected_video": {
-        "video_id": "-hts04B4Wkk",
-        "url": "https://www.youtube.com/watch?v=-hts04B4Wkk",
-        "video_title": "הגשש החיוור - יש לי יום יום חג",
-        "channel": "Bletter",
-        "duration": "3:31",
+        "video_id": "NxoJzDVw4cc",
+        "url": "https://www.youtube.com/watch?v=NxoJzDVw4cc",
+        "video_title": "הגשש החיוור - יש לי חג (1977)",
+        "channel": "הגשש החיוור",
+        "duration": "3:05",
         "description": "מזהה יוטיוב מתוך המאגרים (אקו\"ם / סטריאו ומונו / פזמונט)",
         "tier": "4_original_performance",
         "tier_label": "4. ביצוע מקורי",
@@ -5948,15 +5939,6 @@
           "video_title": "הגשש החיוור - יש לי חג",
           "channel": "סימה",
           "duration": "3:46",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "NxoJzDVw4cc",
-          "url": "https://www.youtube.com/watch?v=NxoJzDVw4cc",
-          "video_title": "הגשש החיוור - יש לי חג (1977)",
-          "channel": "הגשש החיוור",
-          "duration": "3:05",
           "views": "",
           "source": "direct_alternative"
         },
@@ -5997,7 +5979,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 449,
+      "chrono_index": 440,
       "canonical_score": 487.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -6283,7 +6265,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 445,
+      "chrono_index": 446,
       "canonical_score": 482.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -10695,11 +10677,11 @@
       "tier": "2_album_original",
       "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
       "selected_video": {
-        "video_id": "oCezgzbCZBk",
-        "url": "https://www.youtube.com/watch?v=oCezgzbCZBk",
-        "video_title": "הדודאים והפרברים - תלבשי לבן",
-        "channel": "כאן | מוזיקה",
-        "duration": "3:21",
+        "video_id": "dwUst6vBhs0",
+        "url": "https://www.youtube.com/watch?v=dwUst6vBhs0",
+        "video_title": "תלבשי לבן - הדודאים והפרברים (1986) | עיבוד והפקה מוסיקלית: קובי אשרת",
+        "channel": "קובי אשרת - הערוץ הרשמי",
+        "duration": "3:28",
         "description": "הדודאים והפרברים (הדודאים והפרברים (1985))",
         "tier": "2_album_original",
         "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
@@ -10709,11 +10691,11 @@
       },
       "alternative_videos": [
         {
-          "video_id": "dwUst6vBhs0",
-          "url": "https://www.youtube.com/watch?v=dwUst6vBhs0",
-          "video_title": "תלבשי לבן - הדודאים והפרברים (1986) | עיבוד והפקה מוסיקלית: קובי אשרת",
-          "channel": "קובי אשרת - הערוץ הרשמי ",
-          "duration": "3:28",
+          "video_id": "oCezgzbCZBk",
+          "url": "https://www.youtube.com/watch?v=oCezgzbCZBk",
+          "video_title": "הדודאים והפרברים - תלבשי לבן",
+          "channel": "כאן | מוזיקה",
+          "duration": "3:21",
           "views": "",
           "source": "direct_alternative"
         },
@@ -12201,7 +12183,7 @@
           "source": "direct_alternative"
         }
       ],
-      "chrono_index": 447,
+      "chrono_index": 448,
       "canonical_score": 312.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -12834,11 +12816,11 @@
       "tier": "2_album_original",
       "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
       "selected_video": {
-        "video_id": "iLhwph9IJMA",
-        "url": "https://www.youtube.com/watch?v=iLhwph9IJMA",
-        "video_title": "הכל עובר חביבי - האורח",
-        "channel": "כאן | מוזיקה",
-        "duration": "3:44",
+        "video_id": "pWGF4nqxi9c",
+        "url": "https://www.youtube.com/watch?v=pWGF4nqxi9c",
+        "video_title": "הכל עובר חביבי - האורח | קליפ",
+        "channel": "מוזיקה ישראלית",
+        "duration": "3:33",
         "description": "מתוך האלבום \"הכל לא עובר חביבי\" המציין עשור ללהקה, 1984. מילים ולחן: נעמי שמר. מתוך רצועת הקליפים של \"זהו זה\"",
         "tier": "2_album_original",
         "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
@@ -12848,11 +12830,11 @@
       },
       "alternative_videos": [
         {
-          "video_id": "pWGF4nqxi9c",
-          "url": "https://www.youtube.com/watch?v=pWGF4nqxi9c",
-          "video_title": "הכל עובר חביבי - האורח | קליפ",
-          "channel": "מוזיקה ישראלית",
-          "duration": "3:33",
+          "video_id": "iLhwph9IJMA",
+          "url": "https://www.youtube.com/watch?v=iLhwph9IJMA",
+          "video_title": "הכל עובר חביבי - האורח",
+          "channel": "כאן | מוזיקה",
+          "duration": "3:44",
           "views": "",
           "source": "direct_alternative"
         },
@@ -18761,15 +18743,6 @@
           "duration": "2:00",
           "views": "",
           "source": "direct_alternative"
-        },
-        {
-          "video_id": "p1AfgNT1WBA",
-          "url": "https://www.youtube.com/watch?v=p1AfgNT1WBA",
-          "video_title": "מור וקינמון - אחותי רוחמה",
-          "channel": "nussyou",
-          "duration": "2:19",
-          "views": "",
-          "source": "direct_alternative"
         }
       ],
       "chrono_index": 415,
@@ -22152,11 +22125,11 @@
       "tier": "1_album_naomi",
       "tier_label": "1. אלבום של נעמי שמר",
       "selected_video": {
-        "video_id": "vczM9eWy1yw",
-        "url": "https://www.youtube.com/watch?v=vczM9eWy1yw",
-        "video_title": "נעמי שמר - שיר ערש לצבעים",
-        "channel": "כאן | מוזיקה",
-        "duration": "1:57",
+        "video_id": "FQson2Wm0iw",
+        "url": "https://www.youtube.com/watch?v=FQson2Wm0iw",
+        "video_title": "שיר ערש לצבעים",
+        "channel": "Naomi Shemer - Topic",
+        "duration": "0:59",
         "description": "מזהה יוטיוב מתוך מאגרי נעמי שמר (אקו\"ם / סטריאו ומונו / פזמונט)",
         "tier": "1_album_naomi",
         "tier_label": "1. אלבום של נעמי שמר",
@@ -22166,19 +22139,19 @@
       },
       "alternative_videos": [
         {
-          "video_id": "3KL06zK4_gM",
-          "url": "https://www.youtube.com/watch?v=3KL06zK4_gM",
+          "video_id": "vczM9eWy1yw",
+          "url": "https://www.youtube.com/watch?v=vczM9eWy1yw",
           "video_title": "נעמי שמר - שיר ערש לצבעים",
-          "channel": "Israeli Classics קלאסיקה ישראלית",
-          "duration": "0:59",
+          "channel": "כאן | מוזיקה",
+          "duration": "1:57",
           "views": "",
           "source": "direct_alternative"
         },
         {
-          "video_id": "FQson2Wm0iw",
-          "url": "https://www.youtube.com/watch?v=FQson2Wm0iw",
-          "video_title": "שיר ערש לצבעים",
-          "channel": "Naomi Shemer - Topic",
+          "video_id": "3KL06zK4_gM",
+          "url": "https://www.youtube.com/watch?v=3KL06zK4_gM",
+          "video_title": "נעמי שמר - שיר ערש לצבעים",
+          "channel": "Israeli Classics קלאסיקה ישראלית",
           "duration": "0:59",
           "views": "",
           "source": "direct_alternative"
@@ -24719,7 +24692,7 @@
           "source": "direct_alternative"
         }
       ],
-      "chrono_index": 446,
+      "chrono_index": 447,
       "canonical_score": 159.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -26196,7 +26169,7 @@
           "source": "direct_alternative"
         }
       ],
-      "chrono_index": 442,
+      "chrono_index": 443,
       "canonical_score": 99.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -43210,7 +43183,7 @@
           "source": "direct_alternative"
         }
       ],
-      "chrono_index": 448,
+      "chrono_index": 449,
       "canonical_score": 46.0,
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
@@ -48274,7 +48247,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 440,
+      "chrono_index": 441,
       "canonical_score": 639.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -52482,7 +52455,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 444,
+      "chrono_index": 445,
       "canonical_score": 433.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -58085,15 +58058,6 @@
           "video_title": "אחותי רוחמה",
           "channel": "Release - Topic",
           "duration": "2:00",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "p1AfgNT1WBA",
-          "url": "https://www.youtube.com/watch?v=p1AfgNT1WBA",
-          "video_title": "מור וקינמון - אחותי רוחמה",
-          "channel": "nussyou",
-          "duration": "2:19",
           "views": "",
           "source": "direct_alternative"
         }
@@ -70462,7 +70426,7 @@
         "score": 1840
       },
       "alternative_videos": [],
-      "chrono_index": 443,
+      "chrono_index": 444,
       "canonical_score": 19.0,
       "canonical_layer": 3,
       "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
@@ -76704,7 +76668,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 441,
+      "chrono_index": 442,
       "canonical_score": 2.0,
       "canonical_layer": 3,
       "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",

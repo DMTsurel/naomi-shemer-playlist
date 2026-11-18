@@ -1,0 +1,78 @@
+name: YouTube Playlist Health Monitor
+
+on:
+  schedule:
+    # Runs every Sunday at 07:00 UTC
+    - cron: "0 7 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-videos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run YouTube playability & hidden-video check
+        id: health
+        continue-on-error: true
+        run: |
+          python3 check_playlist_health.py --skip-live-playlist --json-report health_report.json
+
+      - name: Open or update GitHub Issue if unavailable videos are found
+        if: steps.health.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('health_report.json', 'utf8'));
+            if (!report.unavailable || report.unavailable.length === 0) return;
+
+            const lines = [
+              `בבדיקה האוטומטית השבועית התגלו **${report.unavailable.length}** סרטונים שהפכו ללא-זמינים ביוטיוב:`,
+              '',
+              '| # | שיר | מבצע | מזהה שהוסר | גיבויים תקינים מומלצים |',
+              '|---|---|---|---|---|'
+            ];
+            for (const u of report.unavailable) {
+              const alts = (u.recommended_backups || [])
+                .slice(0, 3)
+                .map(b => `[\`${b.video_id}\`](https://www.youtube.com/watch?v=${b.video_id}) (${b.title})`)
+                .join('<br/>') || 'אין גיבוי אוטומטי';
+              lines.push(`| #${u.index} | **${u.title}** | ${u.performer} | \`${u.video_id}\` | ${alts} |`);
+            }
+            lines.push('', 'להרצה מקומית של בדיקת התקינות: `python3 check_playlist_health.py`');
+            const body = lines.join('\n');
+            const title = '⚠️ התראת זמינות בפלייליסט: נמצאו סרטונים שהוסרו מיוטיוב';
+
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 30
+            });
+            const match = existing.data.find(i => i.title === title);
+            if (match) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: match.number,
+                body
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body
+              });
+            }

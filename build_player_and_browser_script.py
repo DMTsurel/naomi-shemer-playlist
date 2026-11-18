@@ -1083,9 +1083,9 @@ def generate_files():
     return resp.json();
   }}
 
-  // שליפת כל הסרטונים הקיימים כרגע בפלייליסט (תומך הן ב-lockupViewModel החדש והן ב-playlistVideoRenderer הישן)
+  // שליפת כל הסרטונים הקיימים כרגע בפלייליסט (כולל סרטונים מוסתרים/לא זמינים עם params: "wgYCCAA=")
   function findSetVideoId(node, depth = 0) {{
-    if (!node || typeof node !== "object" || depth > 12) return null;
+    if (!node || typeof node !== "object" || depth > 22) return null;
     if (typeof node.setVideoId === "string" && node.setVideoId) return node.setVideoId;
     if (Array.isArray(node)) {{
       for (const el of node) {{
@@ -1169,16 +1169,27 @@ def generate_files():
       }}
       return;
     }}
+    if (obj.continuationCommand && typeof obj.continuationCommand.token === "string" && obj.continuationCommand.token.startsWith("4qmF")) {{
+      const tok = obj.continuationCommand.token;
+      if (!seenTokens.has(tok)) {{
+        seenTokens.add(tok);
+        tokensOut.push(tok);
+      }}
+      return;
+    }}
     for (const k of Object.keys(obj)) {{
       extractVideosAndContinuation(obj[k], itemsOut, tokensOut, seenTokens);
     }}
   }}
 
-  async function fetchCurrentPlaylistItems() {{
+  // includeUnavailable=true שולח params: "wgYCCAA=" ("Show unavailable videos") כך שגם סרטונים מוסתרים מזוהים ונמחקים!
+  async function fetchCurrentPlaylistItems(includeUnavailable = true) {{
     const items = [];
     const tokens = [];
     const seenTokens = new Set();
-    const firstPage = await ytPost("/youtubei/v1/browse", {{ browseId: "VL" + PLAYLIST_ID }});
+    const reqBody = {{ browseId: "VL" + PLAYLIST_ID }};
+    if (includeUnavailable) reqBody.params = "wgYCCAA=";
+    const firstPage = await ytPost("/youtubei/v1/browse", reqBody);
     extractVideosAndContinuation(firstPage, items, tokens, seenTokens);
     while (tokens.length > 0) {{
       const tok = tokens.shift();
@@ -1371,10 +1382,24 @@ def generate_files():
   // ============================================================================
   // שלב ג': וידוא סופי של הסידור בשרתי יוטיוב ותיקון אוטומטי של כל אי-התאמה
   // ============================================================================
-  console.log("🔎 מבצע וידוא סופי של סדר השירים מול שרתי יוטיוב...");
+  console.log("🔎 מבצע וידוא סופי של סדר השירים ובדיקת סרטונים מוסתרים מול שרתי יוטיוב...");
   await new Promise(r => setTimeout(r, 1500));
-  let finalItems = await fetchCurrentPlaylistItems();
+  let finalItems = await fetchCurrentPlaylistItems(true);
   let finalIds = finalItems.map(x => x.videoId);
+  let visibleItems = await fetchCurrentPlaylistItems(false);
+  const visibleSet = new Set(visibleItems.map(x => x.videoId));
+  const hiddenNow = [];
+  finalIds.forEach((vid, idx) => {{
+    if (!visibleSet.has(vid)) {{
+      hiddenNow.push({{ position: idx + 1, videoId: vid, title: VIDEO_TITLES[vid] || vid }});
+    }}
+  }});
+  if (hiddenNow.length === 0) {{
+    console.log("🟢 בדיקת זמינות: 0 סרטונים מוסתרים/לא-זמינים בפלייליסט באזור הגלישה שלך!");
+  }} else {{
+    console.warn(`⚠️ שים לב: יוטיוב מסתיר כעת באזור הגלישה שלך ${{hiddenNow.length}} סרטונים (חסימה אזורית או הסרה):`);
+    console.table(hiddenNow);
+  }}
 
   // 1. בדיקת התאמה מלאה של הרשימה והסדר
   if (finalIds.length === TARGET_VIDEO_IDS.length && finalIds.every((v, i) => v === TARGET_VIDEO_IDS[i])) {{

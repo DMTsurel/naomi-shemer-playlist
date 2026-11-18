@@ -33,3 +33,4 @@
 * `collect_naomi_shemer.py` – סקריפט איסוף, ניקוי ואיחוד הקטלוג מ-9 המאגרים.
 * `find_youtube_videos.py` – סקריפט איתור, סיווג ודירוג של ביצועי היוטיוב.
 * `build_player_and_browser_script.py` – סקריפט בניית הנגן האינטראקטיבי, בדיקות השלמות וכל קובצי הייצוא המשניים.
+* `check_playlist_health.py` + `.github/workflows/playlist-health.yml` – כלי בדיקה וניטור שבועי אוטומטי (GitHub Actions) המזהה סרטונים שהוסרו או נחסמו ביוטיוב ומציע אוטומטית מקורות גיבוי תקינים.
