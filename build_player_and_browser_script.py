@@ -792,9 +792,34 @@ def validate_and_normalize_playlist(data: dict) -> bool:
                 changed = True
             unmatched_entries.append(item)
 
-    # Recompute dual_role and version numbering per song
+    # Recompute dual_role and version numbering per song (assigning original_performance to the true historical original)
+    def _is_non_song_clip(entry: dict) -> bool:
+        if entry.get("album_group") == "תוכניות טלוויזיה ומופעים מלאים":
+            return True
+        sv = entry.get("selected_video") or {}
+        txt = f"{sv.get('matched_performer', '')} {sv.get('video_title', '')}"
+        return any(w in txt for w in ("ראיון", "פרודיה", "סקיצה נדירה", "חזרה,"))
+
     for title, group in by_title.items():
         total_v = len(group)
+        orig_idx = 0
+        if total_v > 1:
+            explicit_orig = [idx_g for idx_g, x in enumerate(group) if x.get("is_true_original")]
+            if explicit_orig:
+                orig_idx = explicit_orig[0]
+            else:
+                candidates = [
+                    (
+                        int(str(x.get("year", "")).strip()) if str(x.get("year", "")).strip().isdigit() else 9999,
+                        0 if x.get("tier") in ("1_album_naomi", "2_album_original", "4_original_performance") else 1,
+                        idx_g,
+                    )
+                    for idx_g, x in enumerate(group)
+                    if not _is_non_song_clip(x)
+                ]
+                if candidates:
+                    orig_idx = min(candidates)[2]
+
         for idx_in_group, it in enumerate(group):
             it["ver_idx"] = idx_in_group + 1
             it["ver_total"] = total_v
@@ -803,7 +828,7 @@ def validate_and_normalize_playlist(data: dict) -> bool:
                     del it["dual_role"]
                     changed = True
             else:
-                if idx_in_group == 0:
+                if idx_in_group == orig_idx:
                     new_role = "original_performance"
                 elif it.get("tier") in ("1_album_naomi", "3_naomi_performance"):
                     new_role = "naomi_performance"
