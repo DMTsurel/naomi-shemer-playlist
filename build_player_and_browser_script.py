@@ -1819,6 +1819,7 @@ def generate_files():
       line-height: 1.5;
       padding: 20px 24px 86px;
       min-height: 100vh;
+      overflow-x: clip;
     }}
     .container {{ max-width: 1420px; margin: 0 auto; }}
 
@@ -1877,6 +1878,8 @@ def generate_files():
       border-radius: 16px;
       padding: 18px;
       box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.35);
+      min-width: 0;
+      max-width: 100%;
     }}
 
     /* Buttons */
@@ -1967,16 +1970,25 @@ def generate_files():
     /* Layout */
     .player-layout {{
       display: grid;
-      grid-template-columns: 390px 1fr;
-      gap: 20px;
+      grid-template-columns: clamp(280px, 29vw, 380px) minmax(0, 1fr);
+      gap: 18px;
       align-items: start;
     }}
-    @media (max-width: 1080px) {{
-      .player-layout {{ grid-template-columns: 1fr; }}
-      .sticky-player {{ position: static; }}
+    .player-layout > * {{ min-width: 0; }}
+    @media (max-width: 980px) {{
+      .player-layout {{ grid-template-columns: minmax(0, 1fr); }}
+      .sticky-player {{ position: static; max-height: none; overflow-y: visible; }}
     }}
-    @media (min-width: 1081px) {{
-      .sticky-player {{ position: sticky; top: 16px; }}
+    @media (min-width: 981px) {{
+      .sticky-player {{
+        position: sticky;
+        top: 12px;
+        max-height: calc(100vh - 24px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+      }}
+      .sticky-player::-webkit-scrollbar {{ width: 5px; }}
+      .sticky-player::-webkit-scrollbar-thumb {{ background: rgba(148, 163, 184, 0.25); border-radius: 999px; }}
     }}
     .yt-frame-wrap {{
       width: 100%;
@@ -1992,6 +2004,32 @@ def generate_files():
       height: 100%;
       border: none;
       display: block;
+    }}
+    @media (max-width: 1320px), (max-height: 780px) {{
+      body {{ padding: 12px 14px 82px; }}
+      .top-header {{ gap: 10px; margin-bottom: 10px; padding-bottom: 10px; }}
+      .brand-title {{ font-size: 25px; gap: 8px; }}
+      .brand-count {{ font-size: 12.5px; padding: 1px 8px; }}
+      .subtitle {{ font-size: 13px; }}
+      .btn-hero-play {{ padding: 8px 16px; font-size: 14px; }}
+      .card {{ padding: 13px; }}
+      .player-layout {{ gap: 14px; }}
+      .sticky-player {{ padding: 12px; }}
+      .np-header {{ margin-top: 8px; }}
+      #nowPlayingTitle {{ font-size: 18px; }}
+      #nowPlayingMeta {{ font-size: 12.5px; margin-bottom: 5px; }}
+      .np-badges {{ margin-bottom: 6px; gap: 5px; }}
+      .np-versions {{ margin-bottom: 6px; padding: 5px 7px; gap: 4px; }}
+      .quote-box {{ max-height: 68px; padding: 5px 9px; margin-bottom: 6px; font-size: 12px; line-height: 1.45; }}
+      .np-details {{ margin-top: 7px; padding-top: 6px; font-size: 12px; }}
+      .toolbar {{ gap: 7px; margin-bottom: 9px; }}
+      .toolbar input, .toolbar select {{ padding: 6px 9px; font-size: 12.5px; }}
+      .toolbar .btn-sm {{ padding: 5px 9px; font-size: 12px; }}
+      .block-jump-pill {{ padding: 3px 8px; font-size: 11.5px; }}
+      th, td {{ padding: 7px 8px; font-size: 12.5px; }}
+      .song-main-title {{ font-size: 13.5px; }}
+      .perf-primary {{ font-size: 12.5px; }}
+      .perf-album {{ font-size: 11.5px; }}
     }}
     @media (max-width: 768px) {{
       body {{ padding: 12px 10px 88px; }}
@@ -2090,10 +2128,17 @@ def generate_files():
     }}
     .transport-bar {{
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 6px;
-      margin-top: 12px;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 5px;
+      margin-top: 10px;
     }}
+    .transport-bar .btn-icon {{
+      padding: 7px 4px;
+      min-width: 0;
+      width: 100%;
+      font-size: 13.5px;
+    }}
+    #openOnYt {{ font-size: 12px; }}
     .clickable-meta {{
       cursor: pointer;
       transition: color 0.14s ease;
@@ -2126,11 +2171,14 @@ def generate_files():
       margin-bottom: 12px;
       flex-wrap: wrap;
       align-items: center;
+      min-width: 0;
+      max-width: 100%;
     }}
     .search-wrap {{
       position: relative;
-      flex: 1;
-      min-width: 240px;
+      flex: 1 1 190px;
+      min-width: 150px;
+      max-width: 100%;
     }}
     .search-wrap input {{
       width: 100%;
@@ -2178,6 +2226,8 @@ def generate_files():
       font-family: inherit;
       font-size: 13.5px;
       transition: border-color 0.15s;
+      max-width: 100%;
+      min-width: 0;
     }}
     input:focus, select:focus {{
       outline: none;
@@ -2246,12 +2296,22 @@ def generate_files():
 
     .block-jump-bar {{
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 6px;
       margin-bottom: 10px;
-      overflow-x: auto;
-      padding-bottom: 3px;
+      overflow-x: visible;
+      max-width: 100%;
+      min-width: 0;
+      padding-bottom: 0;
       scrollbar-width: thin;
+    }}
+    @media (max-width: 640px) {{
+      .block-jump-bar {{
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 3px;
+      }}
     }}
     .block-jump-bar::-webkit-scrollbar {{ height: 4px; }}
     .block-jump-bar::-webkit-scrollbar-thumb {{ background: rgba(148, 163, 184, 0.22); border-radius: 999px; }}
@@ -2281,8 +2341,10 @@ def generate_files():
 
     /* Clean 4-Column Song List Table */
     .table-wrap {{
-      max-height: 700px;
+      max-height: clamp(340px, calc(100vh - 220px), 740px);
       overflow-y: auto;
+      overflow-x: auto;
+      width: 100%;
       border-radius: 10px;
     }}
     .table-wrap::-webkit-scrollbar {{ width: 7px; }}
@@ -2296,6 +2358,10 @@ def generate_files():
       border-bottom: 1px solid var(--border);
       text-align: right;
       vertical-align: middle;
+    }}
+    td {{
+      overflow-wrap: break-word;
+      word-break: break-word;
     }}
     th {{
       color: var(--muted);
@@ -2349,6 +2415,8 @@ def generate_files():
       font-variant-numeric: tabular-nums;
       width: 44px;
       text-align: center;
+      white-space: nowrap;
+      word-break: normal;
     }}
     tr.song-row.active .row-num {{ color: var(--gold-soft); font-weight: 700; }}
     .playing-ind {{
@@ -2409,6 +2477,8 @@ def generate_files():
       align-items: center;
       justify-content: flex-end;
       gap: 6px;
+      white-space: nowrap;
+      word-break: normal;
     }}
     .fav-btn {{
       background: transparent;
@@ -2790,7 +2860,7 @@ def generate_files():
         </div>
 
         <!-- כרטיס רשימת השירים -->
-        <div class="card" style="padding: 16px;">
+        <div class="card">
           <!-- שורת חיפוש ומיון נקייה -->
           <div class="toolbar">
             <div class="search-wrap">
@@ -2907,7 +2977,7 @@ def generate_files():
             <option value="zemereshet">זמרשת ({as_zem})</option>
           </select>
         </div>
-        <div class="table-wrap" style="max-height: 720px;">
+        <div class="table-wrap">
           <table>
             <thead>
               <tr>
