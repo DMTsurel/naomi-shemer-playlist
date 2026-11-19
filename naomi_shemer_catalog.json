@@ -22395,16 +22395,15 @@
       ]
     },
     {
-      "normalized_key": "ספני שלמה המלך",
-      "title": "ספני שלמה המלך",
+      "normalized_key": "ספני שלמה המלך לחן ב",
+      "title": "ספני שלמה המלך (לחן ב')",
       "alt_titles": [
-        "ספני שלמה המלך (לחן א')",
-        "ספני שלמה המלך (לחן ב')",
+        "ספני שלמה המלך",
         "עציון גבר"
       ],
       "english_title": "SAPANEY SHLOMO HAMELEKH",
       "original_title": "Etzion gever",
-      "year": "1959",
+      "year": "1972",
       "sources": [
         "shironet",
         "acum",
@@ -22435,7 +22434,6 @@
         "אילנה רובינא וחבורת רננים",
         "מקהלת האיחוד",
         "האירוסים",
-        "להקת סמבטיון",
         "אפי בן ישראל",
         "שלומית אהרון",
         "דודו זכאי וחבורת רננים"
@@ -22470,14 +22468,82 @@
       "nli_mms_ids": [
         "990037128270205171"
       ],
-      "opening_line": "כן היה זה חבר עז מאין כמוהו (לחן ב')",
+      "opening_line": "כן היה זה חבר עז מאין כמוהו",
       "notes": [
-        "השיר \"ספני שלמה המלך\" נכתב על ידי נתן אלתרמן והולחן על ידי נעמי שמר. לשיר שני לחנים שונים. הראשון נכתב ובוצע בשנת 1959 בתיאטרון הסמבטיון והלחן השני נכתב ובוצע בשנת 1972 על ידי הזמרת אילנה רובינא. לחן הפזמון זהה בשני השירים."
+        "לחן ב' המוכר שהלחינה נעמי שמר בשנת 1972 לבתי שירו של נתן אלתרמן (תוך שמירה על לחן הפזמון המקורי מ-1959), בביצוע אילנה רובינא."
       ],
       "youtube_ids": [
+        "B7oZ2GPHhEU",
         "DxdjRIpZ2Ak",
         "TCj4gp8AuWg",
         "byOUPiav5Yo"
+      ],
+      "wiki_details": []
+    },
+    {
+      "normalized_key": "ספני שלמה המלך לחן א",
+      "title": "ספני שלמה המלך (לחן א')",
+      "alt_titles": [
+        "ספני שלמה המלך",
+        "עציון גבר"
+      ],
+      "english_title": "SAPANEY SHLOMO HAMELEKH",
+      "original_title": "Etzion gever",
+      "year": "1959",
+      "sources": [
+        "shironet",
+        "acum",
+        "stereo_ve_mono",
+        "pizmonet",
+        "discogs",
+        "nli"
+      ],
+      "roles": [
+        "composer"
+      ],
+      "authors": [
+        "נתן אלתרמן"
+      ],
+      "composers": [
+        "נעמי שמר"
+      ],
+      "translators": [],
+      "arrangers": [
+        "גיל אלדמע",
+        "אלברט פיאמנטה",
+        "בני נגרי",
+        "רפי פסחזון",
+        "יאיר שרגאי"
+      ],
+      "performers": [
+        "תיאטרון הסמבטיון",
+        "רחל אטאס",
+        "אריק איינשטיין",
+        "יוסי פרוסט"
+      ],
+      "albums": [
+        "תוכנית מס' 6 של תיאטרון הסמבטיון – השד יודע (1959)"
+      ],
+      "acum_work_ids": [
+        "1026778",
+        "ACUM_WRKNBR:026778"
+      ],
+      "acum_versions_count": 1,
+      "shironet_wrkids": [
+        "4447"
+      ],
+      "shironet_urls": [
+        "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=4447"
+      ],
+      "nli_mms_ids": [
+        "990037128270205171"
+      ],
+      "opening_line": "כן היה זה חבר עז מאין כמוהו",
+      "notes": [
+        "לחן א' המקורי שהלחינה נעמי שמר בשנת 1959 עבור תוכנית מס' 6 של תיאטרון הסמבטיון ('השד יודע'), בביצוע רחל אטאס, אריק איינשטיין ויוסי פרוסט."
+      ],
+      "youtube_ids": [
+        "3iQEC7mO3YY"
       ],
       "wiki_details": []
     },
@@ -33575,10 +33641,10 @@
     "המכתב של רבקה לנעמי- אריאל הורביץ, 2013(המכתב עצמו 1964)"
   ],
   "stats": {
-    "total_unique_songs": 449,
+    "total_unique_songs": 451,
     "songs_with_performers": 388,
     "songs_with_albums": 369,
-    "songs_with_youtube_ids": 75,
+    "songs_with_youtube_ids": 77,
     "songs_with_opening_line": 390,
     "songs_in_acum": 377,
     "songs_in_nli": 390,
@@ -33602,5 +33668,5 @@
     "musicbrainz_releases": 18,
     "nli_albums": 56
   },
-  "total_unique_songs": 450
+  "total_unique_songs": 451
 }
