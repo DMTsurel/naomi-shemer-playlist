@@ -14320,11 +14320,11 @@
       "tier": "2_album_original",
       "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
       "selected_video": {
-        "video_id": "zTCbwh0WyXM",
-        "url": "https://www.youtube.com/watch?v=zTCbwh0WyXM",
-        "video_title": "יפה ירקוני - שיר סתיו / נעמי שמר",
-        "channel": "Shir ivri",
-        "duration": "1:29",
+        "video_id": "06dUzmJF7H0",
+        "url": "https://www.youtube.com/watch?v=06dUzmJF7H0",
+        "video_title": "שיר סתיו",
+        "channel": "Yaffa Yarkoni - Topic",
+        "duration": "1:28",
         "description": "מילים ולחן: נעמי שמר השיר \"שיר סתיו\" נכלל במקור בקובץ \"שירים מכנרת\". זהו קובץ שיריה הראשון של נעמי שמר שנכתב בין השנים 1951-1952 עבור ...",
         "tier": "2_album_original",
         "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
@@ -14333,6 +14333,15 @@
         "score": 3808
       },
       "alternative_videos": [
+        {
+          "video_id": "pHz8535fqMo",
+          "url": "https://www.youtube.com/watch?v=pHz8535fqMo",
+          "video_title": "יפה ירקוני - שיר סתיו / נעמי שמר (1975)",
+          "channel": "Shir ivri",
+          "duration": "1:26",
+          "views": "",
+          "source": "direct_alternative"
+        },
         {
           "video_id": "gkPyKqEFNSE",
           "url": "https://www.youtube.com/watch?v=gkPyKqEFNSE",
@@ -14463,11 +14472,11 @@
       },
       "alternative_videos": [
         {
-          "video_id": "zTCbwh0WyXM",
-          "url": "https://www.youtube.com/watch?v=zTCbwh0WyXM",
-          "video_title": "יפה ירקוני - שיר סתיו / נעמי שמר",
-          "channel": "Shir ivri",
-          "duration": "1:29",
+          "video_id": "06dUzmJF7H0",
+          "url": "https://www.youtube.com/watch?v=06dUzmJF7H0",
+          "video_title": "שיר סתיו",
+          "channel": "Yaffa Yarkoni - Topic",
+          "duration": "1:28",
           "views": "",
           "source": "direct_alternative"
         },
@@ -63536,11 +63545,11 @@
       },
       "alternative_videos": [
         {
-          "video_id": "zTCbwh0WyXM",
-          "url": "https://www.youtube.com/watch?v=zTCbwh0WyXM",
-          "video_title": "יפה ירקוני - שיר סתיו / נעמי שמר",
-          "channel": "Shir ivri",
-          "duration": "1:29",
+          "video_id": "06dUzmJF7H0",
+          "url": "https://www.youtube.com/watch?v=06dUzmJF7H0",
+          "video_title": "שיר סתיו",
+          "channel": "Yaffa Yarkoni - Topic",
+          "duration": "1:28",
           "views": "",
           "source": "direct_alternative"
         },
