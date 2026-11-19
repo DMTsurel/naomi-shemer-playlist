@@ -1780,7 +1780,7 @@ def generate_files():
   <meta property="og:title" content="שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים + {unmatched_songs_count} שירי ארכיון)" />
   <meta property="og:description" content="נגן אינטראקטיבי וקטלוג כרונולוגי מלא של כל {total_catalog_songs} שירי נעמי שמר: אלבומים מקוריים, ביצועי נעמי שמר, תרגומים וארכיון הספרייה הלאומית." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dmtsurel.github.io/naomi-shemer-playlist/" />
+  <meta property="og:url" content="https://dmtsurel.github.io/playlists/naomi-shemer/" />
   <meta property="og:image" content="https://i.ytimg.com/vi/{first_vid}/hqdefault.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="שירי נעמי שמר – האוסף המקיף ({total_videos} ביצועים + {unmatched_songs_count} שירי ארכיון)" />
@@ -2785,6 +2785,7 @@ def generate_files():
     <!-- כותרת עליונה אלגנטית ומאוחדת -->
     <header class="top-header">
       <div>
+        <a href="../" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; color:var(--text-secondary); text-decoration:none; margin-bottom:4px; transition:color 0.15s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-secondary)'">← כל אוספי המלחינים</a>
         <h1 class="brand-title">
           שירי נעמי שמר
           <span class="brand-count">{total_videos} ביצועים · {total_catalog_songs} שירים בקטלוג</span>

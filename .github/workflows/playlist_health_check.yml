@@ -23,6 +23,7 @@ jobs:
           python-version: '3.11'
 
       - name: Run playlist health check & auto-heal
+        working-directory: naomi-shemer
         run: |
           python3 check_and_heal_playlist.py
           python3 export_streaming_and_wayback.py
@@ -30,7 +31,7 @@ jobs:
       - name: Check for healed or modified files
         id: git_diff
         run: |
-          if [ -n "$(git status --porcelain naomi_shemer_youtube_playlist.json index.html naomi_shemer_playlist_player.html)" ]; then
+          if [ -n "$(git status --porcelain naomi-shemer/naomi_shemer_youtube_playlist.json naomi-shemer/index.html naomi-shemer/naomi_shemer_playlist_player.html)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -41,11 +42,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add naomi_shemer_youtube_playlist.json naomi_shemer_youtube_playlist.csv naomi_shemer_youtube_playlist.md \
-                  create_playlist_in_browser.js update_existing_playlist_in_browser.js \
-                  naomi_shemer_playlist_player.html index.html \
-                  youtube_full_metadata_backup.json health_check_report.md \
-                  naomi_shemer_streaming_import.csv naomi_shemer_youtube_stream.m3u8 wayback_backup_urls.txt
+          git add naomi-shemer/naomi_shemer_youtube_playlist.json naomi-shemer/naomi_shemer_youtube_playlist.csv naomi-shemer/naomi_shemer_youtube_playlist.md \
+                  naomi-shemer/create_playlist_in_browser.js naomi-shemer/update_existing_playlist_in_browser.js \
+                  naomi-shemer/naomi_shemer_playlist_player.html naomi-shemer/index.html \
+                  naomi-shemer/youtube_full_metadata_backup.json naomi-shemer/health_check_report.md \
+                  naomi-shemer/naomi_shemer_streaming_import.csv naomi-shemer/naomi_shemer_youtube_stream.m3u8 naomi-shemer/wayback_backup_urls.txt
           git commit -m "chore(auto-heal): replace unavailable YouTube video(s) with healthy backup"
           git push
 
@@ -56,4 +57,4 @@ jobs:
         run: |
           gh issue create \
             --title "🛡️ התראת גיבוי אוטומטי: הוחלפו סרטונים שנמחקו בפלייליסט נעמי שמר" \
-            --body-file health_check_report.md
+            --body-file naomi-shemer/health_check_report.md

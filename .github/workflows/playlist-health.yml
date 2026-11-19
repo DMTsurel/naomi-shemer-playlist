@@ -25,6 +25,7 @@ jobs:
       - name: Run YouTube playability & hidden-video check
         id: health
         continue-on-error: true
+        working-directory: naomi-shemer
         run: |
           python3 check_playlist_health.py --skip-live-playlist --json-report health_report.json
 
@@ -34,7 +35,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const report = JSON.parse(fs.readFileSync('health_report.json', 'utf8'));
+            const report = JSON.parse(fs.readFileSync('naomi-shemer/health_report.json', 'utf8'));
             if (!report.unavailable || report.unavailable.length === 0) return;
 
             const lines = [

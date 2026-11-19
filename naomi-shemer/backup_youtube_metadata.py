@@ -18,7 +18,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-BASE_DIR = Path("/Users/dmtsurel/.gemini/antigravity/scratch/naomi-shemer-playlist")
+BASE_DIR = Path(__file__).resolve().parent
 JSON_PATH = BASE_DIR / "naomi_shemer_youtube_playlist.json"
 METADATA_BACKUP_PATH = BASE_DIR / "youtube_full_metadata_backup.json"
 

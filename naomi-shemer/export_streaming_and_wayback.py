@@ -24,9 +24,7 @@ import json
 import re
 from pathlib import Path
 
-BASE_DIR = Path("/Users/dmtsurel/.gemini/antigravity/scratch/naomi-shemer-playlist")
-if not BASE_DIR.exists():
-    BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent
 
 JSON_PATH = BASE_DIR / "naomi_shemer_youtube_playlist.json"
 STREAMING_CSV_PATH = BASE_DIR / "naomi_shemer_streaming_import.csv"
