@@ -6,11 +6,11 @@
     "total_playlist_videos": 664,
     "unmatched_songs": 81,
     "by_tier": {
-      "4. ביצוע מקורי": 202,
+      "4. ביצוע מקורי": 201,
       "1. אלבום של נעמי שמר": 64,
       "2. אלבום של המבצע המקורי / אוסף רשמי": 234,
       "3. ביצוע של נעמי שמר": 81,
-      "5. ביצוע מחודש / קאבר": 83,
+      "5. ביצוע מחודש / קאבר": 84,
       "6. לא נמצא סרטון תואם": 81
     },
     "total_videos": 664,
@@ -18,11 +18,11 @@
     "matched_videos": 664,
     "total_catalog_songs": 451,
     "tier_breakdown": {
-      "4_original_performance": 202,
+      "4_original_performance": 201,
       "1_album_naomi": 64,
       "2_album_original": 234,
       "3_naomi_performance": 81,
-      "5_cover": 83,
+      "5_cover": 84,
       "6_not_found": 81
     }
   },
@@ -26400,7 +26400,7 @@
       "alt_titles": [],
       "opening_line": "כשהחג היה בארץ והשמש בערה",
       "year": "1979",
-      "album_group": "הגשש החיוור בשירי נעמי שמר",
+      "album_group": "סינגל / ביצוע בודד",
       "album_track_number": 11,
       "roles": [
         "author",
@@ -26452,28 +26452,28 @@
         "שירים ישראלים ב",
         "נעמי שמר - הספר השני"
       ],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
+      "tier": "5_cover",
+      "tier_label": "5. ביצוע מחודש / קאבר",
       "selected_video": {
-        "video_id": "zFJUpGoNWPc",
-        "url": "https://www.youtube.com/watch?v=zFJUpGoNWPc",
-        "video_title": "למה צחקה מיכל/הגשש החיוור",
-        "channel": "יהונתן בוהדנה",
-        "duration": "3:31",
+        "video_id": "hdskywcJSMo",
+        "url": "https://www.youtube.com/watch?v=hdskywcJSMo",
+        "video_title": "למה צחקה מיכל",
+        "channel": "Gitit Shoval - Topic",
+        "duration": "2:50",
         "description": "",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "הגשש החיוור",
-        "matched_album": "הגשש החיוור בשירי נעמי שמר (1979)",
-        "score": 1819
+        "tier": "5_cover",
+        "tier_label": "5. ביצוע מחודש / קאבר",
+        "matched_performer": "גיתית שובל",
+        "matched_album": "",
+        "score": 950
       },
       "alternative_videos": [
         {
-          "video_id": "hdskywcJSMo",
-          "url": "https://www.youtube.com/watch?v=hdskywcJSMo",
-          "video_title": "למה צחקה מיכל",
-          "channel": "Gitit Shoval - Topic",
-          "duration": "2:50",
+          "video_id": "lSMMHqqi5CU",
+          "url": "https://www.youtube.com/watch?v=lSMMHqqi5CU",
+          "video_title": "האחים אסנר \"למה צחקה מיכל\" מתוך מופע מחווה לשירי הגששים",
+          "channel": "האחים אסנר - הערוץ הרשמי",
+          "duration": "2:30",
           "views": "",
           "source": "direct_alternative"
         }

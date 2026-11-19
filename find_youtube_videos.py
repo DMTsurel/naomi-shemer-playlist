@@ -918,6 +918,7 @@ def classify_and_score_candidate(
         "rQkXmnBSc70",  # סיירת עולם - מערכון שלם באורך 10:22 במקום השיר (3:46)
         "lVWcND5JGXw",  # סיירת עולם - מערכון באורך 11:06
         "lDNtdPiL584",  # חורשת האקליפטוס (Snakserge2) - אינה נעמי שמר (הוחלף ב-My9HiZIPsak מהופעה חיה בכנרת 1988)
+        "zFJUpGoNWPc",  # למה צחקה מיכל (יהונתן בוהדנה) - הקלטה ביתית של זמר אחר המיוחסת בטעות להגשש החיוור
     }
     if cand.get("video_id") in BAD_VIDEO_IDS:
         return None
