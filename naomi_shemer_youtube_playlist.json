@@ -6,11 +6,11 @@
     "total_playlist_videos": 660,
     "unmatched_songs": 81,
     "by_tier": {
-      "4. ביצוע מקורי": 203,
+      "4. ביצוע מקורי": 202,
       "1. אלבום של נעמי שמר": 64,
       "2. אלבום של המבצע המקורי / אוסף רשמי": 234,
       "3. ביצוע של נעמי שמר": 81,
-      "5. ביצוע מחודש / קאבר": 78,
+      "5. ביצוע מחודש / קאבר": 79,
       "6. לא נמצא סרטון תואם": 81
     },
     "total_videos": 660,
@@ -18,11 +18,11 @@
     "matched_videos": 660,
     "total_catalog_songs": 450,
     "tier_breakdown": {
-      "4_original_performance": 203,
+      "4_original_performance": 202,
       "1_album_naomi": 64,
       "2_album_original": 234,
       "3_naomi_performance": 81,
-      "5_cover": 78,
+      "5_cover": 79,
       "6_not_found": 81
     }
   },
@@ -1904,7 +1904,7 @@
           "source": "direct_alternative"
         }
       ],
-      "chrono_index": 619,
+      "chrono_index": 618,
       "canonical_score": 655.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -3808,312 +3808,6 @@
     },
     {
       "index": 24,
-      "title": "הכל פתוח",
-      "alt_titles": [
-        "הכול פתוח",
-        "כל פתוח עוד לא מאוחר",
-        "ראיתי את הכנרת סוערת בטורקיז"
-      ],
-      "opening_line": "ראיתי ת'כנרת סוערת בטורקיז",
-      "year": "1992",
-      "album_group": "סינגל / ביצוע בודד",
-      "album_track_number": "",
-      "dual_role": "original_performance",
-      "roles": [
-        "author",
-        "composer",
-        "performer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042230205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3535"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1040078",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1040078"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "wikipedia",
-        "shironet",
-        "acum",
-        "stereo_ve_mono",
-        "pizmonet",
-        "discogs",
-        "musicbrainz",
-        "nli"
-      ],
-      "catalog_performers": [
-        "נעמי שמר",
-        "נעמי שמר וחיים צינוביץ'",
-        "לאה לופטין ועופר לוי",
-        "לוי עופר",
-        "ירון גבאי",
-        "פרחי ירושלים",
-        "נתן כהן",
-        "לאה לופטין",
-        "אסנת וישינסקי",
-        "אבי וטלי",
-        "עופר לוי",
-        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
-      ],
-      "catalog_albums": [
-        "אצלנו בפסנתר, 1993",
-        "2 נעמי שמר - אסיף",
-        "לשיר נעמי שמר",
-        "נעמי שמר יש לי חג",
-        "שרים נעמי שמר",
-        "1 2014 קייטנת מוזיקה מפעלי בית",
-        "1 אני אוהבת את ישראל/ נכס צאן ברזל",
-        "1 האוסף הים תיכוני דיסק",
-        "1 קראוקה בראש צלול",
-        "1 שירת נעמי דיסק",
-        "11 שירים מודרניים - מאסטר",
-        "13 ירושלים של זהב - מאסטר",
-        "14 מאסטר",
-        "19.3.94 השתלמות",
-        "האוסף השלם, 100 שירים נבחרים (2002)",
-        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
-        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
-        "האוסף השלם: 100 שירים נבחרים",
-        "סימני דרך = Road Signs",
-        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
-        "נעמי שמר - אסיף",
-        "נעמי שמר - סימני דרך"
-      ],
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "selected_video": {
-        "video_id": "ryXmue6dutA",
-        "url": "https://www.youtube.com/watch?v=ryXmue6dutA",
-        "video_title": "עופר לוי ולאה לופטין - הכל פתוח",
-        "channel": "עופר יואל לוי הערוץ הרשמי",
-        "duration": "3:27",
-        "description": "מזהה יוטיוב מתוך המאגרים (אקו\"ם / סטריאו ומונו / פזמונט)",
-        "tier": "4_original_performance",
-        "tier_label": "4. ביצוע מקורי",
-        "matched_performer": "עופר לוי ולאה לופטין",
-        "matched_album": "",
-        "score": 1847
-      },
-      "alternative_videos": [
-        {
-          "video_id": "fiU_B2M84Ww",
-          "url": "https://www.youtube.com/watch?v=fiU_B2M84Ww",
-          "video_title": "אצלנו בפסנתר -12- הכל פתוח",
-          "channel": "Release - Topic",
-          "duration": "3:14",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "aAjhSm9aVWw",
-          "url": "https://www.youtube.com/watch?v=aAjhSm9aVWw",
-          "video_title": "עופר לוי ולאה לופטין - הכל פתוח | קליפ",
-          "channel": "ILTune",
-          "duration": "3:36",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "HsV5g6fFxo8",
-          "url": "https://www.youtube.com/watch?v=HsV5g6fFxo8",
-          "video_title": "לאה לופטין ועופר לוי - הכל פתוח (חי)",
-          "channel": "eyallz (new channel)",
-          "duration": "7:10",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "6hTkFqKThes",
-          "url": "https://www.youtube.com/watch?v=6hTkFqKThes",
-          "video_title": "הכל פתוח-נעמי שמר",
-          "channel": "alon eingev",
-          "duration": "6:26",
-          "views": "",
-          "source": "same_song_performance"
-        }
-      ],
-      "chrono_index": 604,
-      "canonical_score": 532.0,
-      "canonical_layer": 1,
-      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "acum_versions_count": 124,
-      "ver_idx": 1,
-      "ver_total": 3
-    },
-    {
-      "index": 25,
-      "title": "הכל פתוח",
-      "alt_titles": [
-        "הכול פתוח",
-        "כל פתוח עוד לא מאוחר",
-        "ראיתי את הכנרת סוערת בטורקיז"
-      ],
-      "opening_line": "ראיתי ת'כנרת סוערת בטורקיז",
-      "year": "1993",
-      "album_group": "פסטיבל עין-גב (1993)",
-      "album_track_number": "",
-      "dual_role": "naomi_performance",
-      "roles": [
-        "author",
-        "composer",
-        "performer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042230205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3535"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1040078",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1040078"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "wikipedia",
-        "shironet",
-        "acum",
-        "stereo_ve_mono",
-        "pizmonet",
-        "discogs",
-        "musicbrainz",
-        "nli"
-      ],
-      "catalog_performers": [
-        "נעמי שמר",
-        "נעמי שמר וחיים צינוביץ'",
-        "לאה לופטין ועופר לוי",
-        "לוי עופר",
-        "ירון גבאי",
-        "פרחי ירושלים",
-        "נתן כהן",
-        "לאה לופטין",
-        "אסנת וישינסקי",
-        "אבי וטלי",
-        "עופר לוי",
-        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
-      ],
-      "catalog_albums": [
-        "אצלנו בפסנתר, 1993",
-        "2 נעמי שמר - אסיף",
-        "לשיר נעמי שמר",
-        "נעמי שמר יש לי חג",
-        "שרים נעמי שמר",
-        "1 2014 קייטנת מוזיקה מפעלי בית",
-        "1 אני אוהבת את ישראל/ נכס צאן ברזל",
-        "1 האוסף הים תיכוני דיסק",
-        "1 קראוקה בראש צלול",
-        "1 שירת נעמי דיסק",
-        "11 שירים מודרניים - מאסטר",
-        "13 ירושלים של זהב - מאסטר",
-        "14 מאסטר",
-        "19.3.94 השתלמות",
-        "האוסף השלם, 100 שירים נבחרים (2002)",
-        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
-        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
-        "האוסף השלם: 100 שירים נבחרים",
-        "סימני דרך = Road Signs",
-        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
-        "נעמי שמר - אסיף",
-        "נעמי שמר - סימני דרך"
-      ],
-      "tier": "3_naomi_performance",
-      "tier_label": "3. ביצוע של נעמי שמר",
-      "selected_video": {
-        "video_id": "6hTkFqKThes",
-        "url": "https://www.youtube.com/watch?v=6hTkFqKThes",
-        "video_title": "הכל פתוח-נעמי שמר",
-        "channel": "alon eingev",
-        "duration": "6:26",
-        "description": "נעמי שמר בשרות מפלס הכנרת בקטע קישור על הספורט הלאומי והכל פתוח-השיר שנכתב ובוצע ע\"י נעמי שמר במיוחד לפסטיבל עין-גב 1993.",
-        "tier": "3_naomi_performance",
-        "tier_label": "3. ביצוע של נעמי שמר",
-        "matched_performer": "נעמי שמר וחיים צינוביץ' (פסטיבל עין-גב)",
-        "matched_album": "פסטיבל עין-גב (1993)",
-        "score": 4500
-      },
-      "alternative_videos": [
-        {
-          "video_id": "YcNPKKd43co",
-          "url": "https://www.youtube.com/watch?v=YcNPKKd43co",
-          "video_title": "נעמי שמר וחיים צינוביץ' - הכל פתוח (פסטיבל עין-גב, השיר נטו)",
-          "channel": "עמותת מבט",
-          "duration": "3:19",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "ryXmue6dutA",
-          "url": "https://www.youtube.com/watch?v=ryXmue6dutA",
-          "video_title": "עופר לוי ולאה לופטין - הכל פתוח",
-          "channel": "עופר יואל לוי הערוץ הרשמי",
-          "duration": "3:27",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "aAjhSm9aVWw",
-          "url": "https://www.youtube.com/watch?v=aAjhSm9aVWw",
-          "video_title": "עופר לוי ולאה לופטין - הכל פתוח | קליפ",
-          "channel": "ILTune",
-          "duration": "3:36",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "HsV5g6fFxo8",
-          "url": "https://www.youtube.com/watch?v=HsV5g6fFxo8",
-          "video_title": "לאה לופטין ועופר לוי - הכל פתוח (חי)",
-          "channel": "eyallz (new channel)",
-          "duration": "7:10",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "fiU_B2M84Ww",
-          "url": "https://www.youtube.com/watch?v=fiU_B2M84Ww",
-          "video_title": "אצלנו בפסנתר -12- הכל פתוח",
-          "channel": "Release - Topic",
-          "duration": "3:14",
-          "views": "",
-          "source": "same_song_performance"
-        }
-      ],
-      "chrono_index": 614,
-      "canonical_score": 532.0,
-      "canonical_layer": 1,
-      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "acum_versions_count": 124,
-      "ver_idx": 2,
-      "ver_total": 3,
-      "matched_performer": "נעמי שמר וחיים צינוביץ' (פסטיבל עין-גב)"
-    },
-    {
-      "index": 26,
       "title": "החגיגה נגמרת",
       "alt_titles": [
         "להתחיל מבראשית",
@@ -4273,7 +3967,7 @@
       "ver_total": 4
     },
     {
-      "index": 27,
+      "index": 25,
       "title": "החגיגה נגמרת",
       "alt_titles": [
         "להתחיל מבראשית",
@@ -4433,7 +4127,7 @@
       "ver_total": 4
     },
     {
-      "index": 28,
+      "index": 26,
       "title": "שלומית בונה סוכה",
       "alt_titles": [
         "שלומית בונה סוכת שלום",
@@ -4594,7 +4288,7 @@
       "ver_total": 5
     },
     {
-      "index": 29,
+      "index": 27,
       "title": "שלומית בונה סוכה",
       "alt_titles": [
         "שלומית בונה סוכת שלום",
@@ -4756,7 +4450,7 @@
       "matched_performer": "נעמי שמר"
     },
     {
-      "index": 30,
+      "index": 28,
       "title": "אנשים טובים",
       "alt_titles": [],
       "opening_line": "תפקחו את העינים תסתכלו סביב",
@@ -4904,7 +4598,7 @@
       "ver_total": 2
     },
     {
-      "index": 31,
+      "index": 29,
       "title": "פירות חמישה עשר (שלג על עירי)",
       "alt_titles": [
         "שלג על עירי",
@@ -5056,7 +4750,7 @@
       "ver_total": 4
     },
     {
-      "index": 32,
+      "index": 30,
       "title": "פירות חמישה עשר (שלג על עירי)",
       "alt_titles": [
         "שלג על עירי",
@@ -5208,7 +4902,7 @@
       "ver_total": 4
     },
     {
-      "index": 33,
+      "index": 31,
       "title": "אנחנו שנינו מאותו הכפר",
       "alt_titles": [
         "אנחנו מאותו הכפר",
@@ -5391,7 +5085,7 @@
       "is_true_original": true
     },
     {
-      "index": 34,
+      "index": 32,
       "title": "אנחנו שנינו מאותו הכפר",
       "alt_titles": [
         "אנחנו מאותו הכפר",
@@ -5573,7 +5267,7 @@
       "ver_total": 6
     },
     {
-      "index": 35,
+      "index": 33,
       "title": "יש לי חג",
       "alt_titles": [
         "יום יום חג"
@@ -5723,7 +5417,7 @@
       "ver_total": 2
     },
     {
-      "index": 36,
+      "index": 34,
       "title": "הוי, ארצי! מולדתי!",
       "alt_titles": [
         "הוי ארצי מולדתי"
@@ -5852,7 +5546,7 @@
       "ver_total": 2
     },
     {
-      "index": 37,
+      "index": 35,
       "title": "אורחים לקיץ",
       "alt_titles": [
         "אצלנו בחצר",
@@ -6008,7 +5702,7 @@
       "ver_total": 3
     },
     {
-      "index": 38,
+      "index": 36,
       "title": "אורחים לקיץ",
       "alt_titles": [
         "אצלנו בחצר",
@@ -6165,7 +5859,7 @@
       "matched_performer": "נעמי שמר"
     },
     {
-      "index": 39,
+      "index": 37,
       "title": "אהבת פועלי הבניין",
       "alt_titles": [
         "אהבת פועלי בנין",
@@ -6305,7 +5999,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 40,
+      "index": 38,
       "title": "בראש השנה",
       "alt_titles": [
         "בראש  השנה",
@@ -6461,7 +6155,7 @@
       "ver_total": 4
     },
     {
-      "index": 41,
+      "index": 39,
       "title": "בראש השנה",
       "alt_titles": [
         "בראש  השנה",
@@ -6618,7 +6312,7 @@
       "matched_performer": "נעמי שמר"
     },
     {
-      "index": 42,
+      "index": 40,
       "title": "אהבה בת עשרים",
       "alt_titles": [
         "הזקנים",
@@ -6876,7 +6570,7 @@
       "ver_total": 2
     },
     {
-      "index": 43,
+      "index": 41,
       "title": "נועה",
       "alt_titles": [
         "נעה",
@@ -7059,7 +6753,7 @@
       "ver_total": 8
     },
     {
-      "index": 44,
+      "index": 42,
       "title": "נועה",
       "alt_titles": [
         "נעה",
@@ -7242,7 +6936,7 @@
       "ver_total": 8
     },
     {
-      "index": 45,
+      "index": 43,
       "title": "בהיאחזות הנח\"ל בסיני",
       "alt_titles": [
         "בהאחזות הנחל בסיני",
@@ -7376,7 +7070,7 @@
       "ver_total": 2
     },
     {
-      "index": 46,
+      "index": 44,
       "title": "בהיאחזות הנח\"ל בסיני",
       "alt_titles": [
         "בהאחזות הנחל בסיני",
@@ -7510,7 +7204,7 @@
       "ver_total": 2
     },
     {
-      "index": 47,
+      "index": 45,
       "title": "וולס להגנת הצומח",
       "alt_titles": [
         "ואלס להגנת הצומח",
@@ -7673,7 +7367,7 @@
       "ver_total": 4
     },
     {
-      "index": 48,
+      "index": 46,
       "title": "העיר באפור",
       "alt_titles": [
         "עיר באפור",
@@ -7832,7 +7526,7 @@
       "ver_total": 2
     },
     {
-      "index": 49,
+      "index": 47,
       "title": "לשיר זה כמו להיות ירדן",
       "alt_titles": [
         "כמו להיות ירדן",
@@ -7983,7 +7677,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 50,
+      "index": 48,
       "title": "אומרים ישנה ארץ",
       "alt_titles": [],
       "opening_line": "אומרים ישנה ארץ ארץ שכורת שמש",
@@ -8133,7 +7827,7 @@
       "ver_total": 3
     },
     {
-      "index": 51,
+      "index": 49,
       "title": "אומרים ישנה ארץ",
       "alt_titles": [],
       "opening_line": "אומרים ישנה ארץ ארץ שכורת שמש",
@@ -8283,7 +7977,7 @@
       "ver_total": 3
     },
     {
-      "index": 52,
+      "index": 50,
       "title": "הטיול הקטן",
       "alt_titles": [
         "לטיול יצאנו"
@@ -8429,7 +8123,7 @@
       "ver_total": 4
     },
     {
-      "index": 53,
+      "index": 51,
       "title": "הטיול הקטן",
       "alt_titles": [
         "לטיול יצאנו"
@@ -8575,7 +8269,7 @@
       "ver_total": 4
     },
     {
-      "index": 54,
+      "index": 52,
       "title": "שיר השוק",
       "alt_titles": [
         "על הסכין",
@@ -8709,7 +8403,7 @@
       "ver_total": 2
     },
     {
-      "index": 55,
+      "index": 53,
       "title": "אל בורות המים",
       "alt_titles": [],
       "opening_line": "מאהבתי הלכתי אל בורות המים",
@@ -8840,7 +8534,7 @@
       "ver_total": 2
     },
     {
-      "index": 56,
+      "index": 54,
       "title": "החופש הגדול",
       "alt_titles": [
         "החפש הגדול",
@@ -8985,7 +8679,7 @@
       "ver_total": 3
     },
     {
-      "index": 57,
+      "index": 55,
       "title": "תלבשי לבן",
       "alt_titles": [],
       "opening_line": "בקיץ הזה תלבשי לבן תחשבי מחשבות",
@@ -9120,7 +8814,7 @@
       "ver_total": 2
     },
     {
-      "index": 58,
+      "index": 56,
       "title": "הו רב חובל",
       "alt_titles": [
         "הו רב-חובל",
@@ -9245,7 +8939,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 59,
+      "index": 57,
       "title": "כנרת",
       "alt_titles": [
         "כנרת (שם הרי גולן)",
@@ -9382,7 +9076,7 @@
       "ver_total": 3
     },
     {
-      "index": 60,
+      "index": 58,
       "title": "מטרייה בשניים",
       "alt_titles": [
         "מטריה בשניים",
@@ -9518,7 +9212,7 @@
       "ver_total": 1
     },
     {
-      "index": 61,
+      "index": 59,
       "title": "סימני דרך",
       "alt_titles": [],
       "opening_line": "מי זוכר ומי יודע את הדרך אל ביתי",
@@ -9654,7 +9348,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 62,
+      "index": 60,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -9821,7 +9515,7 @@
       "ver_total": 5
     },
     {
-      "index": 63,
+      "index": 61,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -9988,7 +9682,7 @@
       "ver_total": 5
     },
     {
-      "index": 64,
+      "index": 62,
       "title": "אילו ציפורים",
       "alt_titles": [
         "אלו ציפורים",
@@ -10180,7 +9874,7 @@
       "ver_total": 1
     },
     {
-      "index": 65,
+      "index": 63,
       "title": "שלום כיתה א'",
       "alt_titles": [
         "שלום כיתה א",
@@ -10303,7 +9997,7 @@
       "ver_total": 3
     },
     {
-      "index": 66,
+      "index": 64,
       "title": "שלום כיתה א'",
       "alt_titles": [
         "שלום כיתה א",
@@ -10426,7 +10120,7 @@
       "ver_total": 3
     },
     {
-      "index": 67,
+      "index": 65,
       "title": "לא תנצחו אותי",
       "alt_titles": [
         "פתאום זה בא ומתבהר ולעצמי אני אומר"
@@ -10557,7 +10251,7 @@
       "ver_total": 3
     },
     {
-      "index": 68,
+      "index": 66,
       "title": "לא תנצחו אותי",
       "alt_titles": [
         "פתאום זה בא ומתבהר ולעצמי אני אומר"
@@ -10688,7 +10382,7 @@
       "ver_total": 3
     },
     {
-      "index": 69,
+      "index": 67,
       "title": "שיר סיום",
       "alt_titles": [
         "DEDICATION",
@@ -10851,7 +10545,7 @@
       "ver_total": 1
     },
     {
-      "index": 70,
+      "index": 68,
       "title": "האורח",
       "alt_titles": [
         "אורח",
@@ -10968,7 +10662,7 @@
       "ver_total": 1
     },
     {
-      "index": 71,
+      "index": 69,
       "title": "אסיף",
       "alt_titles": [],
       "opening_line": "אסוף את המעשים את המלים והאותות",
@@ -11075,7 +10769,7 @@
       "matched_performer": "בנות בצל ירוק 80"
     },
     {
-      "index": 72,
+      "index": 70,
       "title": "אסיף",
       "alt_titles": [],
       "opening_line": "אסוף את המעשים את המלים והאותות",
@@ -11198,7 +10892,7 @@
       "ver_total": 4
     },
     {
-      "index": 73,
+      "index": 71,
       "title": "על הדרך עץ עומד",
       "alt_titles": [
         "OIFEN WEG SHTEIT A BOYM",
@@ -11373,7 +11067,7 @@
       "ver_total": 1
     },
     {
-      "index": 74,
+      "index": 72,
       "title": "ספירת מלאי",
       "alt_titles": [],
       "opening_line": "מדינה אחת פעמים ים ואגם אחד וקדחת גם",
@@ -11491,7 +11185,7 @@
       "ver_total": 1
     },
     {
-      "index": 75,
+      "index": 73,
       "title": "אין לי רגע דל",
       "alt_titles": [],
       "opening_line": "אתמול בשש או שבע בבקר זה התחיל",
@@ -11616,7 +11310,7 @@
       "ver_total": 1
     },
     {
-      "index": 76,
+      "index": 74,
       "title": "מה עושים העצים",
       "alt_titles": [
         "אני שואל",
@@ -11744,7 +11438,7 @@
       "ver_total": 2
     },
     {
-      "index": 77,
+      "index": 75,
       "title": "מה עושים העצים",
       "alt_titles": [
         "אני שואל",
@@ -11873,7 +11567,7 @@
       "matched_performer": "נעמי שמר"
     },
     {
-      "index": 78,
+      "index": 76,
       "title": "ארבעה אחים",
       "alt_titles": [
         "ארבעה בנים",
@@ -12014,7 +11708,7 @@
       "ver_total": 2
     },
     {
-      "index": 79,
+      "index": 77,
       "title": "ארבעה אחים",
       "alt_titles": [
         "ארבעה בנים",
@@ -12155,7 +11849,7 @@
       "ver_total": 2
     },
     {
-      "index": 80,
+      "index": 78,
       "title": "הדואר בא",
       "alt_titles": [
         "הדאר בא",
@@ -12296,7 +11990,7 @@
       "ver_total": 2
     },
     {
-      "index": 81,
+      "index": 79,
       "title": "הדואר בא",
       "alt_titles": [
         "הדאר בא",
@@ -12437,7 +12131,7 @@
       "ver_total": 2
     },
     {
-      "index": 82,
+      "index": 80,
       "title": "הכול בגלל מסמר",
       "alt_titles": [
         "Alla fiera dell'est",
@@ -12591,7 +12285,7 @@
       "ver_total": 4
     },
     {
-      "index": 83,
+      "index": 81,
       "title": "הכול בגלל מסמר",
       "alt_titles": [
         "Alla fiera dell'est",
@@ -12745,7 +12439,7 @@
       "ver_total": 4
     },
     {
-      "index": 84,
+      "index": 82,
       "title": "אחרי השקיעה בשדה",
       "alt_titles": [],
       "opening_line": "בין שדה התירס ושדה החיטה אחרי השקיעה בשדה",
@@ -12879,7 +12573,7 @@
       "ver_total": 2
     },
     {
-      "index": 85,
+      "index": 83,
       "title": "אחרי השקיעה בשדה",
       "alt_titles": [],
       "opening_line": "בין שדה התירס ושדה החיטה אחרי השקיעה בשדה",
@@ -13022,7 +12716,7 @@
       "ver_total": 2
     },
     {
-      "index": 86,
+      "index": 84,
       "title": "הלאה",
       "alt_titles": [
         "בסך הכל אנחנו די לבד נכון שלא כולנו"
@@ -13141,7 +12835,7 @@
       "ver_total": 2
     },
     {
-      "index": 87,
+      "index": 85,
       "title": "הלאה",
       "alt_titles": [
         "בסך הכל אנחנו די לבד נכון שלא כולנו"
@@ -13260,7 +12954,7 @@
       "ver_total": 2
     },
     {
-      "index": 88,
+      "index": 86,
       "title": "על כנפי הכסף",
       "alt_titles": [],
       "opening_line": "על כנפי הכסף רכובים",
@@ -13389,7 +13083,7 @@
       "ver_total": 3
     },
     {
-      "index": 89,
+      "index": 87,
       "title": "על כנפי הכסף",
       "alt_titles": [],
       "opening_line": "על כנפי הכסף רכובים",
@@ -13527,7 +13221,7 @@
       "ver_total": 3
     },
     {
-      "index": 90,
+      "index": 88,
       "title": "כיבוי אורות",
       "alt_titles": [
         "כבוי אורות",
@@ -13692,7 +13386,7 @@
       "ver_total": 4
     },
     {
-      "index": 91,
+      "index": 89,
       "title": "כיבוי אורות",
       "alt_titles": [
         "כבוי אורות",
@@ -13857,7 +13551,7 @@
       "ver_total": 4
     },
     {
-      "index": 92,
+      "index": 90,
       "title": "מיכאל",
       "alt_titles": [],
       "opening_line": "חכיתי חכיתי בכיתי בכיתי ומי לא בא מיכאל",
@@ -13987,7 +13681,7 @@
       "ver_total": 3
     },
     {
-      "index": 93,
+      "index": 91,
       "title": "התחדשות",
       "alt_titles": [],
       "opening_line": "עייפות בלתי מוסברת פיק ברכיים לא מובן",
@@ -14108,7 +13802,7 @@
       "ver_total": 1
     },
     {
-      "index": 94,
+      "index": 92,
       "title": "נגיד",
       "alt_titles": [],
       "opening_line": "נגיד שאני הולכת לטיול",
@@ -14244,7 +13938,7 @@
       "ver_total": 3
     },
     {
-      "index": 95,
+      "index": 93,
       "title": "עצוב למות באמצע תמוז",
       "alt_titles": [
         "אמצע התמוז"
@@ -14357,7 +14051,7 @@
       "ver_total": 1
     },
     {
-      "index": 96,
+      "index": 94,
       "title": "חליל מקנה-סוף",
       "alt_titles": [
         "חליל מקנה סוף",
@@ -14508,7 +14202,7 @@
       "ver_total": 3
     },
     {
-      "index": 97,
+      "index": 95,
       "title": "סרנדה לך",
       "alt_titles": [
         "סרנדה"
@@ -14638,7 +14332,7 @@
       "ver_total": 1
     },
     {
-      "index": 98,
+      "index": 96,
       "title": "בכל שנה בסתיו גיורא",
       "alt_titles": [
         "בכל שנה בסתיו, גיורא",
@@ -14768,7 +14462,7 @@
       "ver_total": 3
     },
     {
-      "index": 99,
+      "index": 97,
       "title": "בכל שנה בסתיו גיורא",
       "alt_titles": [
         "בכל שנה בסתיו, גיורא",
@@ -14896,6 +14590,303 @@
       "acum_versions_count": 23,
       "ver_idx": 2,
       "ver_total": 3
+    },
+    {
+      "index": 98,
+      "title": "הכל פתוח",
+      "alt_titles": [
+        "הכול פתוח",
+        "כל פתוח עוד לא מאוחר",
+        "ראיתי את הכנרת סוערת בטורקיז"
+      ],
+      "opening_line": "ראיתי ת'כנרת סוערת בטורקיז",
+      "year": "1994",
+      "album_group": "סינגל / ביצוע בודד",
+      "album_track_number": "",
+      "dual_role": "additional_performance",
+      "roles": [
+        "author",
+        "composer",
+        "performer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042230205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3535"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1040078",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1040078"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "wikipedia",
+        "shironet",
+        "acum",
+        "stereo_ve_mono",
+        "pizmonet",
+        "discogs",
+        "musicbrainz",
+        "nli"
+      ],
+      "catalog_performers": [
+        "נעמי שמר",
+        "נעמי שמר וחיים צינוביץ'",
+        "לאה לופטין ועופר לוי",
+        "לוי עופר",
+        "ירון גבאי",
+        "פרחי ירושלים",
+        "נתן כהן",
+        "לאה לופטין",
+        "אסנת וישינסקי",
+        "אבי וטלי",
+        "עופר לוי",
+        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
+      ],
+      "catalog_albums": [
+        "אצלנו בפסנתר, 1993",
+        "2 נעמי שמר - אסיף",
+        "לשיר נעמי שמר",
+        "נעמי שמר יש לי חג",
+        "שרים נעמי שמר",
+        "1 2014 קייטנת מוזיקה מפעלי בית",
+        "1 אני אוהבת את ישראל/ נכס צאן ברזל",
+        "1 האוסף הים תיכוני דיסק",
+        "1 קראוקה בראש צלול",
+        "1 שירת נעמי דיסק",
+        "11 שירים מודרניים - מאסטר",
+        "13 ירושלים של זהב - מאסטר",
+        "14 מאסטר",
+        "19.3.94 השתלמות",
+        "האוסף השלם, 100 שירים נבחרים (2002)",
+        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
+        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
+        "האוסף השלם: 100 שירים נבחרים",
+        "סימני דרך = Road Signs",
+        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
+        "נעמי שמר - אסיף",
+        "נעמי שמר - סימני דרך"
+      ],
+      "tier": "5_cover",
+      "tier_label": "5. ביצוע מחודש / קאבר",
+      "selected_video": {
+        "video_id": "ryXmue6dutA",
+        "url": "https://www.youtube.com/watch?v=ryXmue6dutA",
+        "video_title": "עופר לוי ולאה לופטין - הכל פתוח",
+        "channel": "עופר יואל לוי הערוץ הרשמי",
+        "duration": "3:27",
+        "description": "מזהה יוטיוב מתוך המאגרים (אקו\"ם / סטריאו ומונו / פזמונט)",
+        "tier": "5_cover",
+        "tier_label": "5. ביצוע מחודש / קאבר",
+        "matched_performer": "עופר לוי ולאה לופטין",
+        "matched_album": "",
+        "score": 1847
+      },
+      "alternative_videos": [
+        {
+          "video_id": "fiU_B2M84Ww",
+          "url": "https://www.youtube.com/watch?v=fiU_B2M84Ww",
+          "video_title": "אצלנו בפסנתר -12- הכל פתוח",
+          "channel": "Release - Topic",
+          "duration": "3:14",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "aAjhSm9aVWw",
+          "url": "https://www.youtube.com/watch?v=aAjhSm9aVWw",
+          "video_title": "עופר לוי ולאה לופטין - הכל פתוח | קליפ",
+          "channel": "ILTune",
+          "duration": "3:36",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "HsV5g6fFxo8",
+          "url": "https://www.youtube.com/watch?v=HsV5g6fFxo8",
+          "video_title": "לאה לופטין ועופר לוי - הכל פתוח (חי)",
+          "channel": "eyallz (new channel)",
+          "duration": "7:10",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "6hTkFqKThes",
+          "url": "https://www.youtube.com/watch?v=6hTkFqKThes",
+          "video_title": "הכל פתוח-נעמי שמר",
+          "channel": "alon eingev",
+          "duration": "6:26",
+          "views": "",
+          "source": "same_song_performance"
+        }
+      ],
+      "chrono_index": 621,
+      "canonical_score": 215.0,
+      "canonical_layer": 1,
+      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "acum_versions_count": 124,
+      "ver_idx": 1,
+      "ver_total": 3
+    },
+    {
+      "index": 99,
+      "title": "הכל פתוח",
+      "alt_titles": [
+        "הכול פתוח",
+        "כל פתוח עוד לא מאוחר",
+        "ראיתי את הכנרת סוערת בטורקיז"
+      ],
+      "opening_line": "ראיתי ת'כנרת סוערת בטורקיז",
+      "year": "1993",
+      "album_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+      "album_track_number": "2",
+      "dual_role": "additional_performance",
+      "roles": [
+        "author",
+        "composer",
+        "performer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042230205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3535"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1040078",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1040078"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "wikipedia",
+        "shironet",
+        "acum",
+        "stereo_ve_mono",
+        "pizmonet",
+        "discogs",
+        "musicbrainz",
+        "nli"
+      ],
+      "catalog_performers": [
+        "נעמי שמר",
+        "נעמי שמר וחיים צינוביץ'",
+        "לאה לופטין ועופר לוי",
+        "לוי עופר",
+        "ירון גבאי",
+        "פרחי ירושלים",
+        "נתן כהן",
+        "לאה לופטין",
+        "אסנת וישינסקי",
+        "אבי וטלי",
+        "עופר לוי",
+        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
+      ],
+      "catalog_albums": [
+        "אצלנו בפסנתר, 1993",
+        "2 נעמי שמר - אסיף",
+        "לשיר נעמי שמר",
+        "נעמי שמר יש לי חג",
+        "שרים נעמי שמר",
+        "1 2014 קייטנת מוזיקה מפעלי בית",
+        "1 אני אוהבת את ישראל/ נכס צאן ברזל",
+        "1 האוסף הים תיכוני דיסק",
+        "1 קראוקה בראש צלול",
+        "1 שירת נעמי דיסק",
+        "11 שירים מודרניים - מאסטר",
+        "13 ירושלים של זהב - מאסטר",
+        "14 מאסטר",
+        "19.3.94 השתלמות",
+        "האוסף השלם, 100 שירים נבחרים (2002)",
+        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
+        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
+        "האוסף השלם: 100 שירים נבחרים",
+        "סימני דרך = Road Signs",
+        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
+        "נעמי שמר - אסיף",
+        "נעמי שמר - סימני דרך"
+      ],
+      "tier": "2_album_original",
+      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+      "selected_video": {
+        "video_id": "fiU_B2M84Ww",
+        "url": "https://www.youtube.com/watch?v=fiU_B2M84Ww",
+        "video_title": "אצלנו בפסנתר -12- הכל פתוח",
+        "channel": "Release - Topic",
+        "duration": "3:14",
+        "description": "Provided to YouTube · משתתפי אצלנו בפסנתר · מתוך האלבום: אצלנו בפסנתר",
+        "tier": "2_album_original",
+        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+        "matched_performer": "נעמי שמר, חיים צינוביץ', מיקי קם, משה בקר ורינת גבאי",
+        "matched_album": "אצלנו בפסנתר",
+        "score": 4800
+      },
+      "alternative_videos": [
+        {
+          "video_id": "6hTkFqKThes",
+          "url": "https://www.youtube.com/watch?v=6hTkFqKThes",
+          "video_title": "הכל פתוח-נעמי שמר",
+          "channel": "alon eingev",
+          "duration": "6:26",
+          "views": "",
+          "source": "same_song_performance"
+        },
+        {
+          "video_id": "ryXmue6dutA",
+          "url": "https://www.youtube.com/watch?v=ryXmue6dutA",
+          "video_title": "עופר לוי ולאה לופטין - הכל פתוח",
+          "channel": "עופר יואל לוי הערוץ הרשמי",
+          "duration": "3:27",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "aAjhSm9aVWw",
+          "url": "https://www.youtube.com/watch?v=aAjhSm9aVWw",
+          "video_title": "עופר לוי ולאה לופטין - הכל פתוח | קליפ",
+          "channel": "ILTune",
+          "duration": "3:36",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "HsV5g6fFxo8",
+          "url": "https://www.youtube.com/watch?v=HsV5g6fFxo8",
+          "video_title": "לאה לופטין ועופר לוי - הכל פתוח (חי)",
+          "channel": "eyallz (new channel)",
+          "duration": "7:10",
+          "views": "",
+          "source": "direct_alternative"
+        }
+      ],
+      "chrono_index": 611,
+      "canonical_score": 215.0,
+      "canonical_layer": 1,
+      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "acum_versions_count": 124,
+      "ver_idx": 2,
+      "ver_total": 3,
+      "matched_performer": "נעמי שמר, חיים צינוביץ', מיקי קם, משה בקר ורינת גבאי"
     },
     {
       "index": 100,
@@ -31710,7 +31701,7 @@
           "source": "direct_alternative"
         }
       ],
-      "chrono_index": 611,
+      "chrono_index": 610,
       "canonical_score": 55.0,
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
@@ -31804,7 +31795,7 @@
           "source": "direct_alternative"
         }
       ],
-      "chrono_index": 615,
+      "chrono_index": 614,
       "canonical_score": 55.0,
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
@@ -52019,7 +52010,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 608,
+      "chrono_index": 607,
       "canonical_score": 534.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -52213,155 +52204,6 @@
     },
     {
       "index": 464,
-      "title": "הכל פתוח",
-      "alt_titles": [
-        "הכול פתוח",
-        "כל פתוח עוד לא מאוחר",
-        "ראיתי את הכנרת סוערת בטורקיז"
-      ],
-      "opening_line": "ראיתי ת'כנרת סוערת בטורקיז",
-      "year": "1993",
-      "album_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-      "album_track_number": "2",
-      "dual_role": "additional_performance",
-      "roles": [
-        "author",
-        "composer",
-        "performer"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042230205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3535"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1040078",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1040078"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "wikipedia",
-        "shironet",
-        "acum",
-        "stereo_ve_mono",
-        "pizmonet",
-        "discogs",
-        "musicbrainz",
-        "nli"
-      ],
-      "catalog_performers": [
-        "נעמי שמר",
-        "נעמי שמר וחיים צינוביץ'",
-        "לאה לופטין ועופר לוי",
-        "לוי עופר",
-        "ירון גבאי",
-        "פרחי ירושלים",
-        "נתן כהן",
-        "לאה לופטין",
-        "אסנת וישינסקי",
-        "אבי וטלי",
-        "עופר לוי",
-        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
-      ],
-      "catalog_albums": [
-        "אצלנו בפסנתר, 1993",
-        "2 נעמי שמר - אסיף",
-        "לשיר נעמי שמר",
-        "נעמי שמר יש לי חג",
-        "שרים נעמי שמר",
-        "1 2014 קייטנת מוזיקה מפעלי בית",
-        "1 אני אוהבת את ישראל/ נכס צאן ברזל",
-        "1 האוסף הים תיכוני דיסק",
-        "1 קראוקה בראש צלול",
-        "1 שירת נעמי דיסק",
-        "11 שירים מודרניים - מאסטר",
-        "13 ירושלים של זהב - מאסטר",
-        "14 מאסטר",
-        "19.3.94 השתלמות",
-        "האוסף השלם, 100 שירים נבחרים (2002)",
-        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
-        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
-        "האוסף השלם: 100 שירים נבחרים",
-        "סימני דרך = Road Signs",
-        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
-        "נעמי שמר - אסיף",
-        "נעמי שמר - סימני דרך"
-      ],
-      "tier": "2_album_original",
-      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-      "selected_video": {
-        "video_id": "fiU_B2M84Ww",
-        "url": "https://www.youtube.com/watch?v=fiU_B2M84Ww",
-        "video_title": "אצלנו בפסנתר -12- הכל פתוח",
-        "channel": "Release - Topic",
-        "duration": "3:14",
-        "description": "Provided to YouTube · משתתפי אצלנו בפסנתר · מתוך האלבום: אצלנו בפסנתר",
-        "tier": "2_album_original",
-        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-        "matched_performer": "נעמי שמר, חיים צינוביץ', מיקי קם, משה בקר ורינת גבאי",
-        "matched_album": "אצלנו בפסנתר",
-        "score": 4800
-      },
-      "alternative_videos": [
-        {
-          "video_id": "6hTkFqKThes",
-          "url": "https://www.youtube.com/watch?v=6hTkFqKThes",
-          "video_title": "הכל פתוח-נעמי שמר",
-          "channel": "alon eingev",
-          "duration": "6:26",
-          "views": "",
-          "source": "same_song_performance"
-        },
-        {
-          "video_id": "ryXmue6dutA",
-          "url": "https://www.youtube.com/watch?v=ryXmue6dutA",
-          "video_title": "עופר לוי ולאה לופטין - הכל פתוח",
-          "channel": "עופר יואל לוי הערוץ הרשמי",
-          "duration": "3:27",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "aAjhSm9aVWw",
-          "url": "https://www.youtube.com/watch?v=aAjhSm9aVWw",
-          "video_title": "עופר לוי ולאה לופטין - הכל פתוח | קליפ",
-          "channel": "ILTune",
-          "duration": "3:36",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "HsV5g6fFxo8",
-          "url": "https://www.youtube.com/watch?v=HsV5g6fFxo8",
-          "video_title": "לאה לופטין ועופר לוי - הכל פתוח (חי)",
-          "channel": "eyallz (new channel)",
-          "duration": "7:10",
-          "views": "",
-          "source": "direct_alternative"
-        }
-      ],
-      "chrono_index": 612,
-      "canonical_score": 532.0,
-      "canonical_layer": 1,
-      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "acum_versions_count": 124,
-      "ver_idx": 3,
-      "ver_total": 3,
-      "matched_performer": "נעמי שמר, חיים צינוביץ', מיקי קם, משה בקר ורינת גבאי"
-    },
-    {
-      "index": 465,
       "title": "החגיגה נגמרת",
       "alt_titles": [
         "להתחיל מבראשית",
@@ -52521,7 +52363,7 @@
       "ver_total": 4
     },
     {
-      "index": 466,
+      "index": 465,
       "title": "החגיגה נגמרת",
       "alt_titles": [
         "להתחיל מבראשית",
@@ -52681,7 +52523,7 @@
       "ver_total": 4
     },
     {
-      "index": 467,
+      "index": 466,
       "title": "שלומית בונה סוכה",
       "alt_titles": [
         "שלומית בונה סוכת שלום",
@@ -52842,7 +52684,7 @@
       "ver_total": 5
     },
     {
-      "index": 468,
+      "index": 467,
       "title": "שלומית בונה סוכה",
       "alt_titles": [
         "שלומית בונה סוכת שלום",
@@ -52994,7 +52836,7 @@
       "matched_performer": "משינה"
     },
     {
-      "index": 469,
+      "index": 468,
       "title": "אנשים טובים",
       "alt_titles": [],
       "opening_line": "תפקחו את העינים תסתכלו סביב",
@@ -53142,7 +52984,7 @@
       "ver_total": 2
     },
     {
-      "index": 470,
+      "index": 469,
       "title": "פירות חמישה עשר (שלג על עירי)",
       "alt_titles": [
         "שלג על עירי",
@@ -53294,7 +53136,7 @@
       "ver_total": 4
     },
     {
-      "index": 471,
+      "index": 470,
       "title": "פירות חמישה עשר (שלג על עירי)",
       "alt_titles": [
         "שלג על עירי",
@@ -53447,7 +53289,7 @@
       "matched_performer": "ירדנה ארזי"
     },
     {
-      "index": 472,
+      "index": 471,
       "title": "אנחנו שנינו מאותו הכפר",
       "alt_titles": [
         "אנחנו מאותו הכפר",
@@ -53629,7 +53471,7 @@
       "ver_total": 6
     },
     {
-      "index": 473,
+      "index": 472,
       "title": "אנחנו שנינו מאותו הכפר",
       "alt_titles": [
         "אנחנו מאותו הכפר",
@@ -53811,7 +53653,7 @@
       "ver_total": 6
     },
     {
-      "index": 474,
+      "index": 473,
       "title": "אנחנו שנינו מאותו הכפר",
       "alt_titles": [
         "אנחנו מאותו הכפר",
@@ -53993,7 +53835,7 @@
       "ver_total": 6
     },
     {
-      "index": 475,
+      "index": 474,
       "title": "אנחנו שנינו מאותו הכפר",
       "alt_titles": [
         "אנחנו מאותו הכפר",
@@ -54175,7 +54017,7 @@
       "ver_total": 6
     },
     {
-      "index": 476,
+      "index": 475,
       "title": "יש לי חג",
       "alt_titles": [
         "יום יום חג"
@@ -54307,7 +54149,7 @@
       "ver_total": 2
     },
     {
-      "index": 477,
+      "index": 476,
       "title": "הוי, ארצי! מולדתי!",
       "alt_titles": [
         "הוי ארצי מולדתי"
@@ -54436,7 +54278,7 @@
       "ver_total": 2
     },
     {
-      "index": 478,
+      "index": 477,
       "title": "אורחים לקיץ",
       "alt_titles": [
         "אצלנו בחצר",
@@ -54583,7 +54425,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 609,
+      "chrono_index": 608,
       "canonical_score": 482.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -54592,7 +54434,7 @@
       "ver_total": 3
     },
     {
-      "index": 479,
+      "index": 478,
       "title": "אהבת פועלי הבניין",
       "alt_titles": [
         "אהבת פועלי בנין",
@@ -54733,7 +54575,7 @@
       "matched_performer": "השלושרים (\"על גשר הירקון\")"
     },
     {
-      "index": 480,
+      "index": 479,
       "title": "בראש השנה",
       "alt_titles": [
         "בראש  השנה",
@@ -54889,7 +54731,7 @@
       "ver_total": 4
     },
     {
-      "index": 481,
+      "index": 480,
       "title": "אהבה בת עשרים",
       "alt_titles": [
         "הזקנים",
@@ -55147,7 +54989,7 @@
       "ver_total": 2
     },
     {
-      "index": 482,
+      "index": 481,
       "title": "נועה",
       "alt_titles": [
         "נעה",
@@ -55330,7 +55172,7 @@
       "ver_total": 8
     },
     {
-      "index": 483,
+      "index": 482,
       "title": "נועה",
       "alt_titles": [
         "נעה",
@@ -55513,7 +55355,7 @@
       "ver_total": 8
     },
     {
-      "index": 484,
+      "index": 483,
       "title": "נועה",
       "alt_titles": [
         "נעה",
@@ -55696,7 +55538,7 @@
       "ver_total": 8
     },
     {
-      "index": 485,
+      "index": 484,
       "title": "נועה",
       "alt_titles": [
         "נעה",
@@ -55879,7 +55721,7 @@
       "ver_total": 8
     },
     {
-      "index": 486,
+      "index": 485,
       "title": "נועה",
       "alt_titles": [
         "נעה",
@@ -56062,7 +55904,7 @@
       "ver_total": 8
     },
     {
-      "index": 487,
+      "index": 486,
       "title": "נועה",
       "alt_titles": [
         "נעה",
@@ -56245,7 +56087,7 @@
       "ver_total": 8
     },
     {
-      "index": 488,
+      "index": 487,
       "title": "וולס להגנת הצומח",
       "alt_titles": [
         "ואלס להגנת הצומח",
@@ -56408,7 +56250,7 @@
       "ver_total": 4
     },
     {
-      "index": 489,
+      "index": 488,
       "title": "וולס להגנת הצומח",
       "alt_titles": [
         "ואלס להגנת הצומח",
@@ -56553,7 +56395,7 @@
       "ver_total": 4
     },
     {
-      "index": 490,
+      "index": 489,
       "title": "העיר באפור",
       "alt_titles": [
         "עיר באפור",
@@ -56713,7 +56555,7 @@
       "matched_performer": "נעמי שמר והקהל (שירה בציבור בצוותא)"
     },
     {
-      "index": 491,
+      "index": 490,
       "title": "לשיר זה כמו להיות ירדן",
       "alt_titles": [
         "כמו להיות ירדן",
@@ -56865,7 +56707,7 @@
       "matched_performer": "ירדנה ארזי"
     },
     {
-      "index": 492,
+      "index": 491,
       "title": "אומרים ישנה ארץ",
       "alt_titles": [],
       "opening_line": "אומרים ישנה ארץ ארץ שכורת שמש",
@@ -57015,7 +56857,7 @@
       "ver_total": 3
     },
     {
-      "index": 493,
+      "index": 492,
       "title": "הטיול הקטן",
       "alt_titles": [
         "לטיול יצאנו"
@@ -57161,7 +57003,7 @@
       "ver_total": 4
     },
     {
-      "index": 494,
+      "index": 493,
       "title": "הטיול הקטן",
       "alt_titles": [
         "לטיול יצאנו"
@@ -57307,7 +57149,7 @@
       "ver_total": 4
     },
     {
-      "index": 495,
+      "index": 494,
       "title": "שיר השוק",
       "alt_titles": [
         "על הסכין",
@@ -57441,7 +57283,7 @@
       "ver_total": 2
     },
     {
-      "index": 496,
+      "index": 495,
       "title": "אל בורות המים",
       "alt_titles": [],
       "opening_line": "מאהבתי הלכתי אל בורות המים",
@@ -57572,7 +57414,7 @@
       "ver_total": 2
     },
     {
-      "index": 497,
+      "index": 496,
       "title": "החופש הגדול",
       "alt_titles": [
         "החפש הגדול",
@@ -57717,7 +57559,7 @@
       "ver_total": 3
     },
     {
-      "index": 498,
+      "index": 497,
       "title": "החופש הגדול",
       "alt_titles": [
         "החפש הגדול",
@@ -57852,7 +57694,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 606,
+      "chrono_index": 605,
       "canonical_score": 354.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -57862,7 +57704,7 @@
       "ver_total": 3
     },
     {
-      "index": 499,
+      "index": 498,
       "title": "תלבשי לבן",
       "alt_titles": [],
       "opening_line": "בקיץ הזה תלבשי לבן תחשבי מחשבות",
@@ -57997,7 +57839,7 @@
       "ver_total": 2
     },
     {
-      "index": 500,
+      "index": 499,
       "title": "הו רב חובל",
       "alt_titles": [
         "הו רב-חובל",
@@ -58123,7 +57965,7 @@
       "matched_performer": "שירי מימון"
     },
     {
-      "index": 501,
+      "index": 500,
       "title": "כנרת",
       "alt_titles": [
         "כנרת (שם הרי גולן)",
@@ -58260,7 +58102,7 @@
       "ver_total": 3
     },
     {
-      "index": 502,
+      "index": 501,
       "title": "כנרת",
       "alt_titles": [
         "כנרת (שם הרי גולן)",
@@ -58398,7 +58240,7 @@
       "matched_performer": "בועז שרעבי"
     },
     {
-      "index": 503,
+      "index": 502,
       "title": "סימני דרך",
       "alt_titles": [],
       "opening_line": "מי זוכר ומי יודע את הדרך אל ביתי",
@@ -58535,7 +58377,7 @@
       "matched_performer": "חנן בן ארי"
     },
     {
-      "index": 504,
+      "index": 503,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -58693,7 +58535,7 @@
       "ver_total": 5
     },
     {
-      "index": 505,
+      "index": 504,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -58860,7 +58702,7 @@
       "ver_total": 5
     },
     {
-      "index": 506,
+      "index": 505,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -59018,7 +58860,7 @@
       "ver_total": 5
     },
     {
-      "index": 507,
+      "index": 506,
       "title": "שלום כיתה א'",
       "alt_titles": [
         "שלום כיתה א",
@@ -59132,7 +58974,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 616,
+      "chrono_index": 615,
       "canonical_score": 312.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -59141,7 +58983,7 @@
       "ver_total": 3
     },
     {
-      "index": 508,
+      "index": 507,
       "title": "לא תנצחו אותי",
       "alt_titles": [
         "פתאום זה בא ומתבהר ולעצמי אני אומר"
@@ -59264,7 +59106,7 @@
       "matched_performer": "יהורם גאון והלהקות הצבאיות"
     },
     {
-      "index": 509,
+      "index": 508,
       "title": "אסיף",
       "alt_titles": [],
       "opening_line": "אסוף את המעשים את המלים והאותות",
@@ -59387,7 +59229,7 @@
       "ver_total": 4
     },
     {
-      "index": 510,
+      "index": 509,
       "title": "אסיף",
       "alt_titles": [],
       "opening_line": "אסוף את המעשים את המלים והאותות",
@@ -59510,7 +59352,7 @@
       "ver_total": 4
     },
     {
-      "index": 511,
+      "index": 510,
       "title": "הכול בגלל מסמר",
       "alt_titles": [
         "Alla fiera dell'est",
@@ -59664,7 +59506,7 @@
       "ver_total": 4
     },
     {
-      "index": 512,
+      "index": 511,
       "title": "הכול בגלל מסמר",
       "alt_titles": [
         "Alla fiera dell'est",
@@ -59827,7 +59669,7 @@
       "ver_total": 4
     },
     {
-      "index": 513,
+      "index": 512,
       "title": "על כנפי הכסף",
       "alt_titles": [],
       "opening_line": "על כנפי הכסף רכובים",
@@ -59956,7 +59798,7 @@
       "ver_total": 3
     },
     {
-      "index": 514,
+      "index": 513,
       "title": "כיבוי אורות",
       "alt_titles": [
         "כבוי אורות",
@@ -60121,7 +59963,7 @@
       "ver_total": 4
     },
     {
-      "index": 515,
+      "index": 514,
       "title": "כיבוי אורות",
       "alt_titles": [
         "כבוי אורות",
@@ -60286,7 +60128,7 @@
       "ver_total": 4
     },
     {
-      "index": 516,
+      "index": 515,
       "title": "מיכאל",
       "alt_titles": [],
       "opening_line": "חכיתי חכיתי בכיתי בכיתי ומי לא בא מיכאל",
@@ -60416,7 +60258,7 @@
       "ver_total": 3
     },
     {
-      "index": 517,
+      "index": 516,
       "title": "מיכאל",
       "alt_titles": [],
       "opening_line": "חכיתי חכיתי בכיתי בכיתי ומי לא בא מיכאל",
@@ -60536,7 +60378,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 618,
+      "chrono_index": 617,
       "canonical_score": 223.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -60546,7 +60388,7 @@
       "ver_total": 3
     },
     {
-      "index": 518,
+      "index": 517,
       "title": "נגיד",
       "alt_titles": [],
       "opening_line": "נגיד שאני הולכת לטיול",
@@ -60682,7 +60524,7 @@
       "ver_total": 3
     },
     {
-      "index": 519,
+      "index": 518,
       "title": "נגיד",
       "alt_titles": [],
       "opening_line": "נגיד שאני הולכת לטיול",
@@ -60808,7 +60650,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 605,
+      "chrono_index": 604,
       "canonical_score": 217.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -60818,7 +60660,7 @@
       "ver_total": 3
     },
     {
-      "index": 520,
+      "index": 519,
       "title": "חליל מקנה-סוף",
       "alt_titles": [
         "חליל מקנה סוף",
@@ -60969,7 +60811,7 @@
       "ver_total": 3
     },
     {
-      "index": 521,
+      "index": 520,
       "title": "חליל מקנה-סוף",
       "alt_titles": [
         "חליל מקנה סוף",
@@ -61120,7 +60962,7 @@
       "ver_total": 3
     },
     {
-      "index": 522,
+      "index": 521,
       "title": "בכל שנה בסתיו גיורא",
       "alt_titles": [
         "בכל שנה בסתיו, גיורא",
@@ -61248,6 +61090,165 @@
       "acum_versions_count": 23,
       "ver_idx": 3,
       "ver_total": 3
+    },
+    {
+      "index": 522,
+      "title": "הכל פתוח",
+      "alt_titles": [
+        "הכול פתוח",
+        "כל פתוח עוד לא מאוחר",
+        "ראיתי את הכנרת סוערת בטורקיז"
+      ],
+      "opening_line": "ראיתי ת'כנרת סוערת בטורקיז",
+      "year": "1993",
+      "album_group": "פסטיבל עין-גב (1993)",
+      "album_track_number": "",
+      "dual_role": "original_performance",
+      "roles": [
+        "author",
+        "composer",
+        "performer"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042230205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3535"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1040078",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1040078"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "wikipedia",
+        "shironet",
+        "acum",
+        "stereo_ve_mono",
+        "pizmonet",
+        "discogs",
+        "musicbrainz",
+        "nli"
+      ],
+      "catalog_performers": [
+        "נעמי שמר",
+        "נעמי שמר וחיים צינוביץ'",
+        "לאה לופטין ועופר לוי",
+        "לוי עופר",
+        "ירון גבאי",
+        "פרחי ירושלים",
+        "נתן כהן",
+        "לאה לופטין",
+        "אסנת וישינסקי",
+        "אבי וטלי",
+        "עופר לוי",
+        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
+      ],
+      "catalog_albums": [
+        "אצלנו בפסנתר, 1993",
+        "2 נעמי שמר - אסיף",
+        "לשיר נעמי שמר",
+        "נעמי שמר יש לי חג",
+        "שרים נעמי שמר",
+        "1 2014 קייטנת מוזיקה מפעלי בית",
+        "1 אני אוהבת את ישראל/ נכס צאן ברזל",
+        "1 האוסף הים תיכוני דיסק",
+        "1 קראוקה בראש צלול",
+        "1 שירת נעמי דיסק",
+        "11 שירים מודרניים - מאסטר",
+        "13 ירושלים של זהב - מאסטר",
+        "14 מאסטר",
+        "19.3.94 השתלמות",
+        "האוסף השלם, 100 שירים נבחרים (2002)",
+        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
+        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
+        "האוסף השלם: 100 שירים נבחרים",
+        "סימני דרך = Road Signs",
+        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
+        "נעמי שמר - אסיף",
+        "נעמי שמר - סימני דרך"
+      ],
+      "tier": "3_naomi_performance",
+      "tier_label": "3. ביצוע של נעמי שמר",
+      "selected_video": {
+        "video_id": "6hTkFqKThes",
+        "url": "https://www.youtube.com/watch?v=6hTkFqKThes",
+        "video_title": "הכל פתוח-נעמי שמר",
+        "channel": "alon eingev",
+        "duration": "6:26",
+        "description": "נעמי שמר בשרות מפלס הכנרת בקטע קישור על הספורט הלאומי והכל פתוח-השיר שנכתב ובוצע ע\"י נעמי שמר במיוחד לפסטיבל עין-גב 1993.",
+        "tier": "3_naomi_performance",
+        "tier_label": "3. ביצוע של נעמי שמר",
+        "matched_performer": "נעמי שמר וחיים צינוביץ' (פסטיבל עין-גב)",
+        "matched_album": "פסטיבל עין-גב (1993)",
+        "score": 4500
+      },
+      "alternative_videos": [
+        {
+          "video_id": "YcNPKKd43co",
+          "url": "https://www.youtube.com/watch?v=YcNPKKd43co",
+          "video_title": "נעמי שמר וחיים צינוביץ' - הכל פתוח (פסטיבל עין-גב, השיר נטו)",
+          "channel": "עמותת מבט",
+          "duration": "3:19",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "ryXmue6dutA",
+          "url": "https://www.youtube.com/watch?v=ryXmue6dutA",
+          "video_title": "עופר לוי ולאה לופטין - הכל פתוח",
+          "channel": "עופר יואל לוי הערוץ הרשמי",
+          "duration": "3:27",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "aAjhSm9aVWw",
+          "url": "https://www.youtube.com/watch?v=aAjhSm9aVWw",
+          "video_title": "עופר לוי ולאה לופטין - הכל פתוח | קליפ",
+          "channel": "ILTune",
+          "duration": "3:36",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "HsV5g6fFxo8",
+          "url": "https://www.youtube.com/watch?v=HsV5g6fFxo8",
+          "video_title": "לאה לופטין ועופר לוי - הכל פתוח (חי)",
+          "channel": "eyallz (new channel)",
+          "duration": "7:10",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "fiU_B2M84Ww",
+          "url": "https://www.youtube.com/watch?v=fiU_B2M84Ww",
+          "video_title": "אצלנו בפסנתר -12- הכל פתוח",
+          "channel": "Release - Topic",
+          "duration": "3:14",
+          "views": "",
+          "source": "same_song_performance"
+        }
+      ],
+      "chrono_index": 613,
+      "canonical_score": 215.0,
+      "canonical_layer": 1,
+      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "acum_versions_count": 124,
+      "ver_idx": 3,
+      "ver_total": 3,
+      "matched_performer": "נעמי שמר וחיים צינוביץ' (פסטיבל עין-גב)",
+      "is_true_original": true
     },
     {
       "index": 523,
@@ -63593,7 +63594,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 613,
+      "chrono_index": 612,
       "canonical_score": 192.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -63704,7 +63705,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 610,
+      "chrono_index": 609,
       "canonical_score": 190.0,
       "canonical_layer": 1,
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
@@ -67359,7 +67360,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 607,
+      "chrono_index": 606,
       "canonical_score": 382.0,
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
@@ -69807,7 +69808,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 617,
+      "chrono_index": 616,
       "canonical_score": 101.0,
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
@@ -76575,7 +76576,7 @@
           "source": "same_song_performance"
         }
       ],
-      "chrono_index": 620,
+      "chrono_index": 619,
       "canonical_score": 655.0,
       "canonical_layer": 3,
       "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
@@ -76698,7 +76699,7 @@
           "source": "direct_alternative"
         }
       ],
-      "chrono_index": 621,
+      "chrono_index": 620,
       "canonical_score": 655.0,
       "canonical_layer": 3,
       "canonical_layer_label": "שכבה ג': פנינים נדירות וארכיון",
