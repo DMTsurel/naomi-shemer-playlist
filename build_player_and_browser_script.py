@@ -811,7 +811,7 @@ def validate_and_normalize_playlist(data: dict) -> bool:
                 candidates = [
                     (
                         int(str(x.get("year", "")).strip()) if str(x.get("year", "")).strip().isdigit() else 9999,
-                        0 if x.get("tier") in ("1_album_naomi", "2_album_original", "4_original_performance") else 1,
+                        0 if x.get("tier") != "5_cover" else 1,
                         idx_g,
                     )
                     for idx_g, x in enumerate(group)

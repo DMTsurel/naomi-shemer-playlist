@@ -27689,7 +27689,7 @@
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
       "acum_versions_count": 16,
-      "dual_role": "naomi_performance",
+      "dual_role": "original_performance",
       "ver_idx": 1,
       "ver_total": 3,
       "matched_performer": "נעמי שמר וגידי גוב"
@@ -29080,7 +29080,7 @@
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
       "acum_versions_count": 14,
-      "dual_role": "naomi_performance",
+      "dual_role": "original_performance",
       "ver_idx": 1,
       "ver_total": 3
     },
@@ -34626,7 +34626,7 @@
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
       "acum_versions_count": 11,
-      "dual_role": "naomi_performance",
+      "dual_role": "original_performance",
       "ver_idx": 1,
       "ver_total": 2
     },
@@ -70493,7 +70493,7 @@
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
       "acum_versions_count": 16,
-      "dual_role": "original_performance",
+      "dual_role": "additional_performance",
       "ver_idx": 2,
       "ver_total": 3
     },
@@ -70982,7 +70982,7 @@
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
       "acum_versions_count": 14,
-      "dual_role": "original_performance",
+      "dual_role": "additional_performance",
       "ver_idx": 2,
       "ver_total": 3
     },
@@ -73631,7 +73631,7 @@
       "canonical_layer": 2,
       "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
       "acum_versions_count": 11,
-      "dual_role": "original_performance",
+      "dual_role": "additional_performance",
       "ver_idx": 2,
       "ver_total": 2
     },
