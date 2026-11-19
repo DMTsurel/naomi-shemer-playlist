@@ -1,7 +1,7 @@
 {
   "stats": {
-    "total_songs": 449,
-    "matched_songs": 368,
+    "total_songs": 450,
+    "matched_songs": 369,
     "dual_performance_songs": 172,
     "total_playlist_videos": 660,
     "unmatched_songs": 81,
@@ -16,7 +16,7 @@
     "total_videos": 660,
     "total_playlist_entries": 741,
     "matched_videos": 660,
-    "total_catalog_songs": 449,
+    "total_catalog_songs": 450,
     "tier_breakdown": {
       "4_original_performance": 203,
       "1_album_naomi": 64,
@@ -8710,349 +8710,6 @@
     },
     {
       "index": 55,
-      "title": "בארץ להד\"ם",
-      "alt_titles": [
-        "שיר הכזבים",
-        "בארץ להד''ם",
-        "לא היו דברים מעולם",
-        "ארץ להד\"ם",
-        "להד\"ם",
-        "פעם עוזי ואבנר רצו לראות אם קש"
-      ],
-      "opening_line": "בארץ להדם נשמע תמיד הדם של נבל וקתרוס",
-      "year": "1972",
-      "album_group": "שירי נעמי שמר (חבורת בימות)",
-      "album_track_number": 6,
-      "dual_role": "original_performance",
-      "roles": [
-        "author",
-        "composer",
-        "performer",
-        "arranger"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042040205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=530"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1005435",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1005435"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "wikipedia",
-        "shironet",
-        "acum",
-        "stereo_ve_mono",
-        "pizmonet",
-        "discogs",
-        "musicbrainz",
-        "nli"
-      ],
-      "catalog_performers": [
-        "מירי אלוני",
-        "הכל עובר חביבי",
-        "חבורת בימות",
-        "רינה גורדון",
-        "ליאור אלבו",
-        "דפנה עמר",
-        "רועי ששון",
-        "מיקי קם וחיים צינוביץ'",
-        "נעמי שמר",
-        "רבקה מיכאלי ובני אמדורסקי",
-        "נעמי שמר וחבורת ילדים",
-        "דודו זכאי",
-        "מיקי קם",
-        "חיים צינוביץ",
-        "קבוצת כנרת",
-        "עודד בן חור ורוחמה רז",
-        "אבי גרייניק וחמי רודנר",
-        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
-      ],
-      "catalog_albums": [
-        "אצלנו בפסנתר, 1993",
-        "2 נעמי שמר אסיף",
-        "נעמי שמר חורשת האקליפטוס",
-        "על כל אלה-שירי נעמי שמר",
-        "שירי נעמי שמר",
-        "שיריה היפים של נעמי שמר",
-        "1 הכל עובר חביבי המיטב",
-        "4 מי ידע שכך יהיה חלק ב דיסק",
-        "ארבע אחרי הצהריים 5 עוד לא אהבתי די",
-        "בית הספר אולפנת צביה אשקלון",
-        "במעגל השנה חלק ב",
-        "הרוח החושך המים",
-        "לקום מחר בבוקר עם שיר חדש בלב",
-        "מיטב השירים",
-        "הטיול הקטן כל שירי נעמי שמר לילדים",
-        "אני גיטרה השירים היפים של בני אמדור",
-        "אצלנו בפסנתר",
-        "ארץ להד\"ם",
-        "כיצד שוברים חמסין",
-        "מה עושים העצים",
-        "נעמי שמר - כיצד שוברים חמסין (1975)",
-        "לקום מחר בבוקר עם שיר חדש בלב, משירי נעמי שמר (1977)",
-        "מבצעים שונים - על כל אלה, שירי נעמי שמר (1981)",
-        "האוסף השלם, 100 שירים נבחרים (2002)",
-        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
-        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
-        "אסיף",
-        "האוסף השלם: 100 שירים נבחרים",
-        "חבורת בימות-שירי נעמי שמר",
-        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
-        "הטיול הקטן: כל שירי נעמי שמר לילדים",
-        "נעמי שמר - אסיף",
-        "הספר השני - נעמי שמר",
-        "נעמי שמר - הספר השני",
-        "שירונט"
-      ],
-      "tier": "2_album_original",
-      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-      "selected_video": {
-        "video_id": "ZLzkd2ui6PM",
-        "url": "https://www.youtube.com/watch?v=ZLzkd2ui6PM",
-        "video_title": "בארץ להד\"ם",
-        "channel": "Release - Topic",
-        "duration": "2:55",
-        "description": "Provided to YouTube · חבורת בימות · מתוך האלבום: שירי נעמי שמר (חבורת בימות)",
-        "tier": "2_album_original",
-        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-        "matched_performer": "חבורת בימות",
-        "matched_album": "שירי נעמי שמר (חבורת בימות)",
-        "score": 4000
-      },
-      "alternative_videos": [
-        {
-          "video_id": "RqHN-so83M4",
-          "url": "https://www.youtube.com/watch?v=RqHN-so83M4",
-          "video_title": "שיר הכזבים",
-          "channel": "נעמי שמר - Topic",
-          "duration": "2:23",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "vxQcorAdAXA",
-          "url": "https://www.youtube.com/watch?v=vxQcorAdAXA",
-          "video_title": "בארץ להד\"ם",
-          "channel": "Hakol Over Habibi - Topic",
-          "duration": "4:03",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "xGM5dCnBYgI",
-          "url": "https://www.youtube.com/watch?v=xGM5dCnBYgI",
-          "video_title": "Land of Lahadam - בארץ להד\"ם",
-          "channel": "ElinoarMoav",
-          "duration": "3:39",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "Omn_wSe-dKU",
-          "url": "https://www.youtube.com/watch?v=Omn_wSe-dKU",
-          "video_title": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
-          "channel": "ילדות ישראלית",
-          "duration": "2:12",
-          "views": "",
-          "source": "same_song_performance"
-        }
-      ],
-      "chrono_index": 309,
-      "canonical_score": 382.0,
-      "canonical_layer": 1,
-      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "acum_versions_count": 50,
-      "ver_idx": 1,
-      "ver_total": 4
-    },
-    {
-      "index": 56,
-      "title": "בארץ להד\"ם",
-      "alt_titles": [
-        "שיר הכזבים",
-        "בארץ להד''ם",
-        "לא היו דברים מעולם",
-        "ארץ להד\"ם",
-        "להד\"ם",
-        "פעם עוזי ואבנר רצו לראות אם קש"
-      ],
-      "opening_line": "בארץ להדם נשמע תמיד הדם של נבל וקתרוס",
-      "year": "1975",
-      "album_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-      "album_track_number": 15,
-      "dual_role": "naomi_performance",
-      "roles": [
-        "author",
-        "composer",
-        "performer",
-        "arranger"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042040205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=530"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1005435",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1005435"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "wikipedia",
-        "shironet",
-        "acum",
-        "stereo_ve_mono",
-        "pizmonet",
-        "discogs",
-        "musicbrainz",
-        "nli"
-      ],
-      "catalog_performers": [
-        "מירי אלוני",
-        "הכל עובר חביבי",
-        "חבורת בימות",
-        "רינה גורדון",
-        "ליאור אלבו",
-        "דפנה עמר",
-        "רועי ששון",
-        "מיקי קם וחיים צינוביץ'",
-        "נעמי שמר",
-        "רבקה מיכאלי ובני אמדורסקי",
-        "נעמי שמר וחבורת ילדים",
-        "דודו זכאי",
-        "מיקי קם",
-        "חיים צינוביץ",
-        "קבוצת כנרת",
-        "עודד בן חור ורוחמה רז",
-        "אבי גרייניק וחמי רודנר",
-        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
-      ],
-      "catalog_albums": [
-        "אצלנו בפסנתר, 1993",
-        "2 נעמי שמר אסיף",
-        "נעמי שמר חורשת האקליפטוס",
-        "על כל אלה-שירי נעמי שמר",
-        "שירי נעמי שמר",
-        "שיריה היפים של נעמי שמר",
-        "1 הכל עובר חביבי המיטב",
-        "4 מי ידע שכך יהיה חלק ב דיסק",
-        "ארבע אחרי הצהריים 5 עוד לא אהבתי די",
-        "בית הספר אולפנת צביה אשקלון",
-        "במעגל השנה חלק ב",
-        "הרוח החושך המים",
-        "לקום מחר בבוקר עם שיר חדש בלב",
-        "מיטב השירים",
-        "הטיול הקטן כל שירי נעמי שמר לילדים",
-        "אני גיטרה השירים היפים של בני אמדור",
-        "אצלנו בפסנתר",
-        "ארץ להד\"ם",
-        "כיצד שוברים חמסין",
-        "מה עושים העצים",
-        "נעמי שמר - כיצד שוברים חמסין (1975)",
-        "לקום מחר בבוקר עם שיר חדש בלב, משירי נעמי שמר (1977)",
-        "מבצעים שונים - על כל אלה, שירי נעמי שמר (1981)",
-        "האוסף השלם, 100 שירים נבחרים (2002)",
-        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
-        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
-        "אסיף",
-        "האוסף השלם: 100 שירים נבחרים",
-        "חבורת בימות-שירי נעמי שמר",
-        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
-        "הטיול הקטן: כל שירי נעמי שמר לילדים",
-        "נעמי שמר - אסיף",
-        "הספר השני - נעמי שמר",
-        "נעמי שמר - הספר השני",
-        "שירונט"
-      ],
-      "tier": "1_album_naomi",
-      "tier_label": "1. אלבום של נעמי שמר",
-      "selected_video": {
-        "video_id": "RqHN-so83M4",
-        "url": "https://www.youtube.com/watch?v=RqHN-so83M4",
-        "video_title": "שיר הכזבים",
-        "channel": "נעמי שמר - Topic",
-        "duration": "2:23",
-        "description": "Provided to YouTube · נעמי שמר · מתוך האלבום: כיצד שוברים חמסין",
-        "tier": "1_album_naomi",
-        "tier_label": "1. אלבום של נעמי שמר",
-        "matched_performer": "נעמי שמר",
-        "matched_album": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-        "score": 5000
-      },
-      "alternative_videos": [
-        {
-          "video_id": "ZLzkd2ui6PM",
-          "url": "https://www.youtube.com/watch?v=ZLzkd2ui6PM",
-          "video_title": "בארץ להד\"ם",
-          "channel": "Release - Topic",
-          "duration": "2:55",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "vxQcorAdAXA",
-          "url": "https://www.youtube.com/watch?v=vxQcorAdAXA",
-          "video_title": "בארץ להד\"ם",
-          "channel": "Hakol Over Habibi - Topic",
-          "duration": "4:03",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "xGM5dCnBYgI",
-          "url": "https://www.youtube.com/watch?v=xGM5dCnBYgI",
-          "video_title": "Land of Lahadam - בארץ להד\"ם",
-          "channel": "ElinoarMoav",
-          "duration": "3:39",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "Omn_wSe-dKU",
-          "url": "https://www.youtube.com/watch?v=Omn_wSe-dKU",
-          "video_title": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
-          "channel": "ילדות ישראלית",
-          "duration": "2:12",
-          "views": "",
-          "source": "same_song_performance"
-        }
-      ],
-      "chrono_index": 375,
-      "canonical_score": 382.0,
-      "canonical_layer": 1,
-      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "acum_versions_count": 50,
-      "ver_idx": 2,
-      "ver_total": 4,
-      "matched_performer": "נעמי שמר"
-    },
-    {
-      "index": 57,
       "title": "אל בורות המים",
       "alt_titles": [],
       "opening_line": "מאהבתי הלכתי אל בורות המים",
@@ -9183,7 +8840,7 @@
       "ver_total": 2
     },
     {
-      "index": 58,
+      "index": 56,
       "title": "החופש הגדול",
       "alt_titles": [
         "החפש הגדול",
@@ -9328,7 +8985,7 @@
       "ver_total": 3
     },
     {
-      "index": 59,
+      "index": 57,
       "title": "תלבשי לבן",
       "alt_titles": [],
       "opening_line": "בקיץ הזה תלבשי לבן תחשבי מחשבות",
@@ -9463,7 +9120,7 @@
       "ver_total": 2
     },
     {
-      "index": 60,
+      "index": 58,
       "title": "הו רב חובל",
       "alt_titles": [
         "הו רב-חובל",
@@ -9588,7 +9245,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 61,
+      "index": 59,
       "title": "כנרת",
       "alt_titles": [
         "כנרת (שם הרי גולן)",
@@ -9725,7 +9382,7 @@
       "ver_total": 3
     },
     {
-      "index": 62,
+      "index": 60,
       "title": "מטרייה בשניים",
       "alt_titles": [
         "מטריה בשניים",
@@ -9861,7 +9518,7 @@
       "ver_total": 1
     },
     {
-      "index": 63,
+      "index": 61,
       "title": "סימני דרך",
       "alt_titles": [],
       "opening_line": "מי זוכר ומי יודע את הדרך אל ביתי",
@@ -9997,7 +9654,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 64,
+      "index": 62,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -10164,7 +9821,7 @@
       "ver_total": 5
     },
     {
-      "index": 65,
+      "index": 63,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -10331,7 +9988,7 @@
       "ver_total": 5
     },
     {
-      "index": 66,
+      "index": 64,
       "title": "אילו ציפורים",
       "alt_titles": [
         "אלו ציפורים",
@@ -10523,7 +10180,7 @@
       "ver_total": 1
     },
     {
-      "index": 67,
+      "index": 65,
       "title": "שלום כיתה א'",
       "alt_titles": [
         "שלום כיתה א",
@@ -10646,7 +10303,7 @@
       "ver_total": 3
     },
     {
-      "index": 68,
+      "index": 66,
       "title": "שלום כיתה א'",
       "alt_titles": [
         "שלום כיתה א",
@@ -10769,7 +10426,7 @@
       "ver_total": 3
     },
     {
-      "index": 69,
+      "index": 67,
       "title": "לא תנצחו אותי",
       "alt_titles": [
         "פתאום זה בא ומתבהר ולעצמי אני אומר"
@@ -10900,7 +10557,7 @@
       "ver_total": 3
     },
     {
-      "index": 70,
+      "index": 68,
       "title": "לא תנצחו אותי",
       "alt_titles": [
         "פתאום זה בא ומתבהר ולעצמי אני אומר"
@@ -11031,7 +10688,7 @@
       "ver_total": 3
     },
     {
-      "index": 71,
+      "index": 69,
       "title": "שיר סיום",
       "alt_titles": [
         "DEDICATION",
@@ -11194,7 +10851,7 @@
       "ver_total": 1
     },
     {
-      "index": 72,
+      "index": 70,
       "title": "האורח",
       "alt_titles": [
         "אורח",
@@ -11311,7 +10968,7 @@
       "ver_total": 1
     },
     {
-      "index": 73,
+      "index": 71,
       "title": "אסיף",
       "alt_titles": [],
       "opening_line": "אסוף את המעשים את המלים והאותות",
@@ -11418,7 +11075,7 @@
       "matched_performer": "בנות בצל ירוק 80"
     },
     {
-      "index": 74,
+      "index": 72,
       "title": "אסיף",
       "alt_titles": [],
       "opening_line": "אסוף את המעשים את המלים והאותות",
@@ -11541,7 +11198,7 @@
       "ver_total": 4
     },
     {
-      "index": 75,
+      "index": 73,
       "title": "על הדרך עץ עומד",
       "alt_titles": [
         "OIFEN WEG SHTEIT A BOYM",
@@ -11716,7 +11373,7 @@
       "ver_total": 1
     },
     {
-      "index": 76,
+      "index": 74,
       "title": "ספירת מלאי",
       "alt_titles": [],
       "opening_line": "מדינה אחת פעמים ים ואגם אחד וקדחת גם",
@@ -11834,7 +11491,7 @@
       "ver_total": 1
     },
     {
-      "index": 77,
+      "index": 75,
       "title": "אין לי רגע דל",
       "alt_titles": [],
       "opening_line": "אתמול בשש או שבע בבקר זה התחיל",
@@ -11959,7 +11616,7 @@
       "ver_total": 1
     },
     {
-      "index": 78,
+      "index": 76,
       "title": "מה עושים העצים",
       "alt_titles": [
         "אני שואל",
@@ -12087,7 +11744,7 @@
       "ver_total": 2
     },
     {
-      "index": 79,
+      "index": 77,
       "title": "מה עושים העצים",
       "alt_titles": [
         "אני שואל",
@@ -12216,7 +11873,7 @@
       "matched_performer": "נעמי שמר"
     },
     {
-      "index": 80,
+      "index": 78,
       "title": "ארבעה אחים",
       "alt_titles": [
         "ארבעה בנים",
@@ -12357,7 +12014,7 @@
       "ver_total": 2
     },
     {
-      "index": 81,
+      "index": 79,
       "title": "ארבעה אחים",
       "alt_titles": [
         "ארבעה בנים",
@@ -12498,7 +12155,7 @@
       "ver_total": 2
     },
     {
-      "index": 82,
+      "index": 80,
       "title": "הדואר בא",
       "alt_titles": [
         "הדאר בא",
@@ -12639,7 +12296,7 @@
       "ver_total": 2
     },
     {
-      "index": 83,
+      "index": 81,
       "title": "הדואר בא",
       "alt_titles": [
         "הדאר בא",
@@ -12780,7 +12437,7 @@
       "ver_total": 2
     },
     {
-      "index": 84,
+      "index": 82,
       "title": "הכול בגלל מסמר",
       "alt_titles": [
         "Alla fiera dell'est",
@@ -12934,7 +12591,7 @@
       "ver_total": 4
     },
     {
-      "index": 85,
+      "index": 83,
       "title": "הכול בגלל מסמר",
       "alt_titles": [
         "Alla fiera dell'est",
@@ -13088,7 +12745,7 @@
       "ver_total": 4
     },
     {
-      "index": 86,
+      "index": 84,
       "title": "אחרי השקיעה בשדה",
       "alt_titles": [],
       "opening_line": "בין שדה התירס ושדה החיטה אחרי השקיעה בשדה",
@@ -13222,7 +12879,7 @@
       "ver_total": 2
     },
     {
-      "index": 87,
+      "index": 85,
       "title": "אחרי השקיעה בשדה",
       "alt_titles": [],
       "opening_line": "בין שדה התירס ושדה החיטה אחרי השקיעה בשדה",
@@ -13365,7 +13022,7 @@
       "ver_total": 2
     },
     {
-      "index": 88,
+      "index": 86,
       "title": "הלאה",
       "alt_titles": [
         "בסך הכל אנחנו די לבד נכון שלא כולנו"
@@ -13484,7 +13141,7 @@
       "ver_total": 2
     },
     {
-      "index": 89,
+      "index": 87,
       "title": "הלאה",
       "alt_titles": [
         "בסך הכל אנחנו די לבד נכון שלא כולנו"
@@ -13603,7 +13260,7 @@
       "ver_total": 2
     },
     {
-      "index": 90,
+      "index": 88,
       "title": "על כנפי הכסף",
       "alt_titles": [],
       "opening_line": "על כנפי הכסף רכובים",
@@ -13732,7 +13389,7 @@
       "ver_total": 3
     },
     {
-      "index": 91,
+      "index": 89,
       "title": "על כנפי הכסף",
       "alt_titles": [],
       "opening_line": "על כנפי הכסף רכובים",
@@ -13870,7 +13527,7 @@
       "ver_total": 3
     },
     {
-      "index": 92,
+      "index": 90,
       "title": "כיבוי אורות",
       "alt_titles": [
         "כבוי אורות",
@@ -14035,7 +13692,7 @@
       "ver_total": 4
     },
     {
-      "index": 93,
+      "index": 91,
       "title": "כיבוי אורות",
       "alt_titles": [
         "כבוי אורות",
@@ -14200,7 +13857,7 @@
       "ver_total": 4
     },
     {
-      "index": 94,
+      "index": 92,
       "title": "מיכאל",
       "alt_titles": [],
       "opening_line": "חכיתי חכיתי בכיתי בכיתי ומי לא בא מיכאל",
@@ -14330,7 +13987,7 @@
       "ver_total": 3
     },
     {
-      "index": 95,
+      "index": 93,
       "title": "התחדשות",
       "alt_titles": [],
       "opening_line": "עייפות בלתי מוסברת פיק ברכיים לא מובן",
@@ -14451,7 +14108,7 @@
       "ver_total": 1
     },
     {
-      "index": 96,
+      "index": 94,
       "title": "נגיד",
       "alt_titles": [],
       "opening_line": "נגיד שאני הולכת לטיול",
@@ -14587,7 +14244,7 @@
       "ver_total": 3
     },
     {
-      "index": 97,
+      "index": 95,
       "title": "עצוב למות באמצע תמוז",
       "alt_titles": [
         "אמצע התמוז"
@@ -14700,7 +14357,7 @@
       "ver_total": 1
     },
     {
-      "index": 98,
+      "index": 96,
       "title": "חליל מקנה-סוף",
       "alt_titles": [
         "חליל מקנה סוף",
@@ -14851,7 +14508,7 @@
       "ver_total": 3
     },
     {
-      "index": 99,
+      "index": 97,
       "title": "סרנדה לך",
       "alt_titles": [
         "סרנדה"
@@ -14981,7 +14638,7 @@
       "ver_total": 1
     },
     {
-      "index": 100,
+      "index": 98,
       "title": "בכל שנה בסתיו גיורא",
       "alt_titles": [
         "בכל שנה בסתיו, גיורא",
@@ -15111,7 +14768,7 @@
       "ver_total": 3
     },
     {
-      "index": 101,
+      "index": 99,
       "title": "בכל שנה בסתיו גיורא",
       "alt_titles": [
         "בכל שנה בסתיו, גיורא",
@@ -15241,7 +14898,7 @@
       "ver_total": 3
     },
     {
-      "index": 102,
+      "index": 100,
       "title": "מר נרקיס",
       "alt_titles": [],
       "opening_line": "יום ששי בצהרים דוקא בשעה טובה",
@@ -15375,7 +15032,7 @@
       "ver_total": 2
     },
     {
-      "index": 103,
+      "index": 101,
       "title": "הופה היי",
       "alt_titles": [
         "הופה הי",
@@ -15522,7 +15179,7 @@
       "ver_total": 4
     },
     {
-      "index": 104,
+      "index": 102,
       "title": "בשדות בית לחם",
       "alt_titles": [
         "לילה בשדות בית לחם",
@@ -15676,7 +15333,7 @@
       "ver_total": 3
     },
     {
-      "index": 105,
+      "index": 103,
       "title": "נומי נוגה",
       "alt_titles": [
         "נומי נגה",
@@ -15803,7 +15460,7 @@
       "ver_total": 1
     },
     {
-      "index": 106,
+      "index": 104,
       "title": "אין אהבות שמחות",
       "alt_titles": [
         "אין אהבה שמחה"
@@ -15901,7 +15558,7 @@
       "ver_total": 1
     },
     {
-      "index": 107,
+      "index": 105,
       "title": "עיר לבנה",
       "alt_titles": [
         "העיר הלבנה"
@@ -16062,7 +15719,7 @@
       "ver_total": 3
     },
     {
-      "index": 108,
+      "index": 106,
       "title": "אחותי רוחמה",
       "alt_titles": [
         "אחותי רחמה",
@@ -16180,7 +15837,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 109,
+      "index": 107,
       "title": "שלגיה",
       "alt_titles": [
         "שלגייה",
@@ -16355,7 +16012,7 @@
       "ver_total": 2
     },
     {
-      "index": 110,
+      "index": 108,
       "title": "שלגיה",
       "alt_titles": [
         "שלגייה",
@@ -16530,7 +16187,7 @@
       "ver_total": 2
     },
     {
-      "index": 111,
+      "index": 109,
       "title": "זמר נודד",
       "alt_titles": [
         "שיר הנודד",
@@ -16700,7 +16357,7 @@
       "ver_total": 5
     },
     {
-      "index": 112,
+      "index": 110,
       "title": "זמר נודד",
       "alt_titles": [
         "שיר הנודד",
@@ -16870,7 +16527,7 @@
       "ver_total": 5
     },
     {
-      "index": 113,
+      "index": 111,
       "title": "שיר סתיו",
       "alt_titles": [
         "שיר הסתיו",
@@ -16999,7 +16656,7 @@
       "ver_total": 3
     },
     {
-      "index": 114,
+      "index": 112,
       "title": "שיר סתיו",
       "alt_titles": [
         "שיר הסתיו",
@@ -17128,7 +16785,7 @@
       "ver_total": 3
     },
     {
-      "index": 115,
+      "index": 113,
       "title": "יש לי חבר",
       "alt_titles": [
         "אצא לי לטייל על כל ארץ ישראל",
@@ -17251,7 +16908,7 @@
       "ver_total": 2
     },
     {
-      "index": 116,
+      "index": 114,
       "title": "על ליל אמש",
       "alt_titles": [
         "ליל אמש"
@@ -17400,7 +17057,7 @@
       "ver_total": 2
     },
     {
-      "index": 117,
+      "index": 115,
       "title": "גיא",
       "alt_titles": [],
       "opening_line": "גיא אתה ואני ודי אני ואתה",
@@ -17518,7 +17175,7 @@
       "ver_total": 2
     },
     {
-      "index": 118,
+      "index": 116,
       "title": "כד הקמח",
       "alt_titles": [],
       "opening_line": "אני קורא בספר מלכים בפרק השבעה עשר",
@@ -17630,7 +17287,7 @@
       "ver_total": 1
     },
     {
-      "index": 119,
+      "index": 117,
       "title": "הטיול הגדול",
       "alt_titles": [],
       "opening_line": "יצאנו בבקר אלול לצעוד ארבעים קילומטר",
@@ -17760,7 +17417,7 @@
       "ver_total": 2
     },
     {
-      "index": 120,
+      "index": 118,
       "title": "הטיול הגדול",
       "alt_titles": [],
       "opening_line": "יצאנו בבקר אלול לצעוד ארבעים קילומטר",
@@ -17890,7 +17547,7 @@
       "ver_total": 2
     },
     {
-      "index": 121,
+      "index": 119,
       "title": "הפסנתר",
       "alt_titles": [
         "מתנה מיוחדת במינה"
@@ -18001,7 +17658,7 @@
       "ver_total": 2
     },
     {
-      "index": 122,
+      "index": 120,
       "title": "כמו חצב",
       "alt_titles": [],
       "opening_line": "כמו חצב להתבצר במעבה האדמה",
@@ -18125,7 +17782,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 123,
+      "index": 121,
       "title": "חיילים יצאו לדרך",
       "alt_titles": [
         "חילים יצאו לדרך",
@@ -18258,7 +17915,7 @@
       "ver_total": 2
     },
     {
-      "index": 124,
+      "index": 122,
       "title": "חיילים יצאו לדרך",
       "alt_titles": [
         "חילים יצאו לדרך",
@@ -18391,7 +18048,7 @@
       "ver_total": 2
     },
     {
-      "index": 125,
+      "index": 123,
       "title": "שנה טובה",
       "alt_titles": [],
       "opening_line": "על הדשא טל וגשם ושנה טובה",
@@ -18503,7 +18160,7 @@
       "ver_total": 3
     },
     {
-      "index": 126,
+      "index": 124,
       "title": "קומי צאי",
       "alt_titles": [],
       "opening_line": "קומי צאי אחותי כלה",
@@ -18649,7 +18306,7 @@
       "ver_total": 4
     },
     {
-      "index": 127,
+      "index": 125,
       "title": "קומי צאי",
       "alt_titles": [],
       "opening_line": "קומי צאי אחותי כלה",
@@ -18795,7 +18452,7 @@
       "ver_total": 4
     },
     {
-      "index": 128,
+      "index": 126,
       "title": "שיירת הרוכבים",
       "alt_titles": [
         "שיירת רוכבים",
@@ -18927,7 +18584,7 @@
       "ver_total": 2
     },
     {
-      "index": 129,
+      "index": 127,
       "title": "שיר ערש לצבעים",
       "alt_titles": [
         "ירוק הוא הברוש",
@@ -19066,7 +18723,7 @@
       "ver_total": 3
     },
     {
-      "index": 130,
+      "index": 128,
       "title": "שיר ערש לצבעים",
       "alt_titles": [
         "ירוק הוא הברוש",
@@ -19223,7 +18880,7 @@
       "ver_total": 3
     },
     {
-      "index": 131,
+      "index": 129,
       "title": "משנכנס אדר",
       "alt_titles": [
         "כשנכנס אדר"
@@ -19340,7 +18997,7 @@
       "dual_role": "original_performance"
     },
     {
-      "index": 132,
+      "index": 130,
       "title": "חבלי משיח",
       "alt_titles": [],
       "opening_line": "כאשר אני הולך בלי אין ובלי אן",
@@ -19474,7 +19131,7 @@
       "ver_total": 2
     },
     {
-      "index": 133,
+      "index": 131,
       "title": "למה צחקה מיכל",
       "alt_titles": [],
       "opening_line": "כשהחג היה בארץ והשמש בערה",
@@ -19566,7 +19223,7 @@
       "ver_total": 1
     },
     {
-      "index": 134,
+      "index": 132,
       "title": "ספני שלמה המלך",
       "alt_titles": [
         "ספני שלמה המלך (לחן א')",
@@ -19698,7 +19355,7 @@
       "ver_total": 2
     },
     {
-      "index": 135,
+      "index": 133,
       "title": "בית חלומותיי",
       "alt_titles": [
         "בית חלומותי",
@@ -19839,7 +19496,7 @@
       "ver_total": 2
     },
     {
-      "index": 136,
+      "index": 134,
       "title": "בית חלומותיי",
       "alt_titles": [
         "בית חלומותי",
@@ -19989,7 +19646,7 @@
       "ver_total": 2
     },
     {
-      "index": 137,
+      "index": 135,
       "title": "בשדה תלתן",
       "alt_titles": [
         "פגשתיך בשדה תלתן"
@@ -20141,7 +19798,7 @@
       "ver_total": 4
     },
     {
-      "index": 138,
+      "index": 136,
       "title": "סימן שעוד לא הגענו",
       "alt_titles": [
         "סימן שעוד לא הגענו והאפק עוד רחוק",
@@ -20290,7 +19947,7 @@
       "ver_total": 3
     },
     {
-      "index": 139,
+      "index": 137,
       "title": "סימן שעוד לא הגענו",
       "alt_titles": [
         "סימן שעוד לא הגענו והאפק עוד רחוק",
@@ -20439,7 +20096,7 @@
       "ver_total": 3
     },
     {
-      "index": 140,
+      "index": 138,
       "title": "הלילה הולך בשדרות",
       "alt_titles": [
         "הלילה הלך בשדרות"
@@ -20586,7 +20243,7 @@
       "ver_total": 3
     },
     {
-      "index": 141,
+      "index": 139,
       "title": "הלילה הולך בשדרות",
       "alt_titles": [
         "הלילה הלך בשדרות"
@@ -20733,7 +20390,7 @@
       "ver_total": 3
     },
     {
-      "index": 142,
+      "index": 140,
       "title": "רכב אש",
       "alt_titles": [],
       "opening_line": "מראשי המכתשים ומעבר לחומת החולות",
@@ -20884,7 +20541,7 @@
       "ver_total": 4
     },
     {
-      "index": 143,
+      "index": 141,
       "title": "רכב אש",
       "alt_titles": [],
       "opening_line": "מראשי המכתשים ומעבר לחומת החולות",
@@ -21035,7 +20692,7 @@
       "ver_total": 4
     },
     {
-      "index": 144,
+      "index": 142,
       "title": "מחבואים",
       "alt_titles": [
         "חפש אותי",
@@ -21185,7 +20842,7 @@
       "ver_total": 4
     },
     {
-      "index": 145,
+      "index": 143,
       "title": "מחבואים",
       "alt_titles": [
         "חפש אותי",
@@ -21344,7 +21001,7 @@
       "ver_total": 4
     },
     {
-      "index": 146,
+      "index": 144,
       "title": "תפוח בדבש",
       "alt_titles": [],
       "opening_line": "מה חדש תפוח בדבש",
@@ -21438,7 +21095,7 @@
       "ver_total": 2
     },
     {
-      "index": 147,
+      "index": 145,
       "title": "תפוח בדבש",
       "alt_titles": [],
       "opening_line": "מה חדש תפוח בדבש",
@@ -21532,7 +21189,7 @@
       "ver_total": 2
     },
     {
-      "index": 148,
+      "index": 146,
       "title": "כיצד שוברים חמסין",
       "alt_titles": [],
       "opening_line": "היה היתה גבעת עפר עם שמש וקוצים",
@@ -21664,7 +21321,7 @@
       "ver_total": 3
     },
     {
-      "index": 149,
+      "index": 147,
       "title": "כיצד שוברים חמסין",
       "alt_titles": [],
       "opening_line": "היה היתה גבעת עפר עם שמש וקוצים",
@@ -21796,7 +21453,7 @@
       "ver_total": 3
     },
     {
-      "index": 150,
+      "index": 148,
       "title": "נר ראשון של חנוכה",
       "alt_titles": [
         "נר ראשון של חנכה",
@@ -21933,7 +21590,7 @@
       "ver_total": 3
     },
     {
-      "index": 151,
+      "index": 149,
       "title": "גדי קטן",
       "alt_titles": [
         "הגדי",
@@ -22049,7 +21706,7 @@
       "ver_total": 2
     },
     {
-      "index": 152,
+      "index": 150,
       "title": "אשכולית",
       "alt_titles": [
         "אשכלית",
@@ -22154,7 +21811,7 @@
       "ver_total": 2
     },
     {
-      "index": 153,
+      "index": 151,
       "title": "אשכולית",
       "alt_titles": [
         "אשכלית",
@@ -22259,7 +21916,7 @@
       "ver_total": 2
     },
     {
-      "index": 154,
+      "index": 152,
       "title": "דוגרת",
       "alt_titles": [
         "הדוגרת",
@@ -22383,7 +22040,7 @@
       "ver_total": 3
     },
     {
-      "index": 155,
+      "index": 153,
       "title": "אנשים יפים",
       "alt_titles": [],
       "opening_line": "ליל שבת אחרי עשר",
@@ -22477,7 +22134,7 @@
       "ver_total": 2
     },
     {
-      "index": 156,
+      "index": 154,
       "title": "כריש",
       "alt_titles": [
         "הכריש",
@@ -22581,7 +22238,7 @@
       "ver_total": 1
     },
     {
-      "index": 157,
+      "index": 155,
       "title": "ילד רע תל אביב",
       "alt_titles": [
         "ילד רע תל-אביב"
@@ -22652,6 +22309,266 @@
       "acum_versions_count": 2,
       "ver_idx": 1,
       "ver_total": 1
+    },
+    {
+      "index": 156,
+      "title": "בארץ להד\"ם",
+      "alt_titles": [
+        "ארץ להד\"ם",
+        "להד\"ם"
+      ],
+      "opening_line": "בארץ להדם נשמע תמיד הדם של נבל וקתרוס",
+      "year": "1972",
+      "album_group": "שירי נעמי שמר (חבורת בימות)",
+      "album_track_number": 6,
+      "dual_role": "original_performance",
+      "roles": [
+        "author",
+        "composer",
+        "performer",
+        "arranger"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042040205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=530"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1005435",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1005435"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "wikipedia",
+        "shironet",
+        "acum",
+        "stereo_ve_mono",
+        "pizmonet",
+        "discogs",
+        "musicbrainz",
+        "nli"
+      ],
+      "catalog_performers": [
+        "חבורת בימות",
+        "מירי אלוני",
+        "הכל עובר חביבי",
+        "רינה גורדון"
+      ],
+      "catalog_albums": [
+        "אצלנו בפסנתר, 1993",
+        "2 נעמי שמר אסיף",
+        "נעמי שמר חורשת האקליפטוס",
+        "על כל אלה-שירי נעמי שמר",
+        "שירי נעמי שמר",
+        "שיריה היפים של נעמי שמר",
+        "1 הכל עובר חביבי המיטב",
+        "4 מי ידע שכך יהיה חלק ב דיסק",
+        "ארבע אחרי הצהריים 5 עוד לא אהבתי די",
+        "בית הספר אולפנת צביה אשקלון",
+        "במעגל השנה חלק ב",
+        "הרוח החושך המים",
+        "לקום מחר בבוקר עם שיר חדש בלב",
+        "מיטב השירים",
+        "הטיול הקטן כל שירי נעמי שמר לילדים",
+        "אני גיטרה השירים היפים של בני אמדור",
+        "אצלנו בפסנתר",
+        "ארץ להד\"ם",
+        "כיצד שוברים חמסין",
+        "מה עושים העצים",
+        "נעמי שמר - כיצד שוברים חמסין (1975)",
+        "לקום מחר בבוקר עם שיר חדש בלב, משירי נעמי שמר (1977)",
+        "מבצעים שונים - על כל אלה, שירי נעמי שמר (1981)",
+        "האוסף השלם, 100 שירים נבחרים (2002)",
+        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
+        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
+        "אסיף",
+        "האוסף השלם: 100 שירים נבחרים",
+        "חבורת בימות-שירי נעמי שמר",
+        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
+        "הטיול הקטן: כל שירי נעמי שמר לילדים",
+        "נעמי שמר - אסיף",
+        "הספר השני - נעמי שמר",
+        "נעמי שמר - הספר השני",
+        "שירונט"
+      ],
+      "tier": "2_album_original",
+      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+      "selected_video": {
+        "video_id": "ZLzkd2ui6PM",
+        "url": "https://www.youtube.com/watch?v=ZLzkd2ui6PM",
+        "video_title": "בארץ להד\"ם",
+        "channel": "Release - Topic",
+        "duration": "2:55",
+        "description": "Provided to YouTube · חבורת בימות · מתוך האלבום: שירי נעמי שמר (חבורת בימות)",
+        "tier": "2_album_original",
+        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+        "matched_performer": "חבורת בימות",
+        "matched_album": "שירי נעמי שמר (חבורת בימות)",
+        "score": 4000
+      },
+      "alternative_videos": [
+        {
+          "video_id": "vxQcorAdAXA",
+          "url": "https://www.youtube.com/watch?v=vxQcorAdAXA",
+          "video_title": "בארץ להד\"ם",
+          "channel": "Hakol Over Habibi - Topic",
+          "duration": "4:03",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "xGM5dCnBYgI",
+          "url": "https://www.youtube.com/watch?v=xGM5dCnBYgI",
+          "video_title": "Land of Lahadam - בארץ להד\"ם",
+          "channel": "ElinoarMoav",
+          "duration": "3:39",
+          "views": "",
+          "source": "direct_alternative"
+        }
+      ],
+      "chrono_index": 309,
+      "canonical_score": 382.0,
+      "canonical_layer": 2,
+      "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
+      "acum_versions_count": 50,
+      "ver_idx": 1,
+      "ver_total": 2
+    },
+    {
+      "index": 157,
+      "title": "שיר הכזבים",
+      "alt_titles": [
+        "לא היו דברים מעולם"
+      ],
+      "opening_line": "פעם עוזי ואבנר רצו לראות אם קש בוער",
+      "year": "1975",
+      "album_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
+      "album_track_number": 15,
+      "dual_role": "original_performance",
+      "roles": [
+        "author",
+        "composer",
+        "performer",
+        "arranger"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037041830205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=5894"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1033137",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1033137"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "wikipedia",
+        "shironet",
+        "acum",
+        "stereo_ve_mono",
+        "pizmonet",
+        "discogs",
+        "musicbrainz",
+        "nli"
+      ],
+      "catalog_performers": [
+        "נעמי שמר",
+        "משתתפי אצלנו בפסנתר",
+        "דודו זכאי"
+      ],
+      "catalog_albums": [
+        "אצלנו בפסנתר, 1993",
+        "2 נעמי שמר אסיף",
+        "נעמי שמר חורשת האקליפטוס",
+        "על כל אלה-שירי נעמי שמר",
+        "שירי נעמי שמר",
+        "שיריה היפים של נעמי שמר",
+        "1 הכל עובר חביבי המיטב",
+        "4 מי ידע שכך יהיה חלק ב דיסק",
+        "ארבע אחרי הצהריים 5 עוד לא אהבתי די",
+        "בית הספר אולפנת צביה אשקלון",
+        "במעגל השנה חלק ב",
+        "הרוח החושך המים",
+        "לקום מחר בבוקר עם שיר חדש בלב",
+        "מיטב השירים",
+        "הטיול הקטן כל שירי נעמי שמר לילדים",
+        "אני גיטרה השירים היפים של בני אמדור",
+        "אצלנו בפסנתר",
+        "ארץ להד\"ם",
+        "כיצד שוברים חמסין",
+        "מה עושים העצים",
+        "נעמי שמר - כיצד שוברים חמסין (1975)",
+        "לקום מחר בבוקר עם שיר חדש בלב, משירי נעמי שמר (1977)",
+        "מבצעים שונים - על כל אלה, שירי נעמי שמר (1981)",
+        "האוסף השלם, 100 שירים נבחרים (2002)",
+        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
+        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
+        "אסיף",
+        "האוסף השלם: 100 שירים נבחרים",
+        "חבורת בימות-שירי נעמי שמר",
+        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
+        "הטיול הקטן: כל שירי נעמי שמר לילדים",
+        "נעמי שמר - אסיף",
+        "הספר השני - נעמי שמר",
+        "נעמי שמר - הספר השני",
+        "שירונט"
+      ],
+      "tier": "1_album_naomi",
+      "tier_label": "1. אלבום של נעמי שמר",
+      "selected_video": {
+        "video_id": "RqHN-so83M4",
+        "url": "https://www.youtube.com/watch?v=RqHN-so83M4",
+        "video_title": "שיר הכזבים",
+        "channel": "נעמי שמר - Topic",
+        "duration": "2:23",
+        "description": "Provided to YouTube · נעמי שמר · מתוך האלבום: כיצד שוברים חמסין",
+        "tier": "1_album_naomi",
+        "tier_label": "1. אלבום של נעמי שמר",
+        "matched_performer": "נעמי שמר",
+        "matched_album": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
+        "score": 5000
+      },
+      "alternative_videos": [
+        {
+          "video_id": "Omn_wSe-dKU",
+          "url": "https://www.youtube.com/watch?v=Omn_wSe-dKU",
+          "video_title": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
+          "channel": "ילדות ישראלית",
+          "duration": "2:12",
+          "views": "",
+          "source": "same_song_performance"
+        }
+      ],
+      "chrono_index": 375,
+      "canonical_score": 382.0,
+      "canonical_layer": 2,
+      "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
+      "acum_versions_count": 50,
+      "ver_idx": 1,
+      "ver_total": 2,
+      "matched_performer": "נעמי שמר"
     },
     {
       "index": 158,
@@ -57525,348 +57442,6 @@
     },
     {
       "index": 496,
-      "title": "בארץ להד\"ם",
-      "alt_titles": [
-        "שיר הכזבים",
-        "בארץ להד''ם",
-        "לא היו דברים מעולם",
-        "ארץ להד\"ם",
-        "להד\"ם",
-        "פעם עוזי ואבנר רצו לראות אם קש"
-      ],
-      "opening_line": "בארץ להדם נשמע תמיד הדם של נבל וקתרוס",
-      "year": "1977",
-      "album_group": "שירים שמחוץ להצגה",
-      "album_track_number": "",
-      "dual_role": "additional_performance",
-      "roles": [
-        "author",
-        "composer",
-        "performer",
-        "arranger"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042040205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=530"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1005435",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1005435"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "wikipedia",
-        "shironet",
-        "acum",
-        "stereo_ve_mono",
-        "pizmonet",
-        "discogs",
-        "musicbrainz",
-        "nli"
-      ],
-      "catalog_performers": [
-        "מירי אלוני",
-        "הכל עובר חביבי",
-        "חבורת בימות",
-        "רינה גורדון",
-        "ליאור אלבו",
-        "דפנה עמר",
-        "רועי ששון",
-        "מיקי קם וחיים צינוביץ'",
-        "נעמי שמר",
-        "רבקה מיכאלי ובני אמדורסקי",
-        "נעמי שמר וחבורת ילדים",
-        "דודו זכאי",
-        "מיקי קם",
-        "חיים צינוביץ",
-        "קבוצת כנרת",
-        "עודד בן חור ורוחמה רז",
-        "אבי גרייניק וחמי רודנר",
-        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
-      ],
-      "catalog_albums": [
-        "אצלנו בפסנתר, 1993",
-        "2 נעמי שמר אסיף",
-        "נעמי שמר חורשת האקליפטוס",
-        "על כל אלה-שירי נעמי שמר",
-        "שירי נעמי שמר",
-        "שיריה היפים של נעמי שמר",
-        "1 הכל עובר חביבי המיטב",
-        "4 מי ידע שכך יהיה חלק ב דיסק",
-        "ארבע אחרי הצהריים 5 עוד לא אהבתי די",
-        "בית הספר אולפנת צביה אשקלון",
-        "במעגל השנה חלק ב",
-        "הרוח החושך המים",
-        "לקום מחר בבוקר עם שיר חדש בלב",
-        "מיטב השירים",
-        "הטיול הקטן כל שירי נעמי שמר לילדים",
-        "אני גיטרה השירים היפים של בני אמדור",
-        "אצלנו בפסנתר",
-        "ארץ להד\"ם",
-        "כיצד שוברים חמסין",
-        "מה עושים העצים",
-        "נעמי שמר - כיצד שוברים חמסין (1975)",
-        "לקום מחר בבוקר עם שיר חדש בלב, משירי נעמי שמר (1977)",
-        "מבצעים שונים - על כל אלה, שירי נעמי שמר (1981)",
-        "האוסף השלם, 100 שירים נבחרים (2002)",
-        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
-        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
-        "אסיף",
-        "האוסף השלם: 100 שירים נבחרים",
-        "חבורת בימות-שירי נעמי שמר",
-        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
-        "הטיול הקטן: כל שירי נעמי שמר לילדים",
-        "נעמי שמר - אסיף",
-        "הספר השני - נעמי שמר",
-        "נעמי שמר - הספר השני",
-        "שירונט"
-      ],
-      "tier": "2_album_original",
-      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-      "selected_video": {
-        "video_id": "vxQcorAdAXA",
-        "url": "https://www.youtube.com/watch?v=vxQcorAdAXA",
-        "video_title": "בארץ להד\"ם",
-        "channel": "Hakol Over Habibi - Topic",
-        "duration": "4:03",
-        "description": "Provided to YouTube by NMC United Entertainment Ltd בארץ להד\"ם · Hakol Over Habibi שירים שמחוץ להצגה ℗ 1977 Hed Arzi Ltd.",
-        "tier": "2_album_original",
-        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-        "matched_performer": "הכל עובר חביבי",
-        "matched_album": "שירים שמחוץ להצגה",
-        "score": 3800
-      },
-      "alternative_videos": [
-        {
-          "video_id": "ZLzkd2ui6PM",
-          "url": "https://www.youtube.com/watch?v=ZLzkd2ui6PM",
-          "video_title": "בארץ להד\"ם",
-          "channel": "Release - Topic",
-          "duration": "2:55",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "xGM5dCnBYgI",
-          "url": "https://www.youtube.com/watch?v=xGM5dCnBYgI",
-          "video_title": "Land of Lahadam - בארץ להד\"ם",
-          "channel": "ElinoarMoav",
-          "duration": "3:39",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "RqHN-so83M4",
-          "url": "https://www.youtube.com/watch?v=RqHN-so83M4",
-          "video_title": "שיר הכזבים",
-          "channel": "נעמי שמר - Topic",
-          "duration": "2:23",
-          "views": "",
-          "source": "same_song_performance"
-        },
-        {
-          "video_id": "Omn_wSe-dKU",
-          "url": "https://www.youtube.com/watch?v=Omn_wSe-dKU",
-          "video_title": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
-          "channel": "ילדות ישראלית",
-          "duration": "2:12",
-          "views": "",
-          "source": "same_song_performance"
-        }
-      ],
-      "chrono_index": 423,
-      "canonical_score": 382.0,
-      "canonical_layer": 1,
-      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "acum_versions_count": 50,
-      "ver_idx": 3,
-      "ver_total": 4
-    },
-    {
-      "index": 497,
-      "title": "בארץ להד\"ם",
-      "alt_titles": [
-        "שיר הכזבים",
-        "בארץ להד''ם",
-        "לא היו דברים מעולם",
-        "ארץ להד\"ם",
-        "להד\"ם",
-        "פעם עוזי ואבנר רצו לראות אם קש"
-      ],
-      "opening_line": "בארץ להדם נשמע תמיד הדם של נבל וקתרוס",
-      "year": "1993",
-      "album_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-      "album_track_number": "7",
-      "dual_role": "additional_performance",
-      "roles": [
-        "author",
-        "composer",
-        "performer",
-        "arranger"
-      ],
-      "role_category": "words_and_music",
-      "role_label_heb": "מילים ולחן: נעמי שמר",
-      "co_creators_heb": "",
-      "archive_links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042040205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=530"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1005435",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1005435"
-        }
-      ],
-      "notes": "",
-      "sources": [
-        "wikipedia",
-        "shironet",
-        "acum",
-        "stereo_ve_mono",
-        "pizmonet",
-        "discogs",
-        "musicbrainz",
-        "nli"
-      ],
-      "catalog_performers": [
-        "מירי אלוני",
-        "הכל עובר חביבי",
-        "חבורת בימות",
-        "רינה גורדון",
-        "ליאור אלבו",
-        "דפנה עמר",
-        "רועי ששון",
-        "מיקי קם וחיים צינוביץ'",
-        "נעמי שמר",
-        "רבקה מיכאלי ובני אמדורסקי",
-        "נעמי שמר וחבורת ילדים",
-        "דודו זכאי",
-        "מיקי קם",
-        "חיים צינוביץ",
-        "קבוצת כנרת",
-        "עודד בן חור ורוחמה רז",
-        "אבי גרייניק וחמי רודנר",
-        "מיקי קם, חיים צינוביץ, נעמי שמר, משה בקר, רינת גבאי"
-      ],
-      "catalog_albums": [
-        "אצלנו בפסנתר, 1993",
-        "2 נעמי שמר אסיף",
-        "נעמי שמר חורשת האקליפטוס",
-        "על כל אלה-שירי נעמי שמר",
-        "שירי נעמי שמר",
-        "שיריה היפים של נעמי שמר",
-        "1 הכל עובר חביבי המיטב",
-        "4 מי ידע שכך יהיה חלק ב דיסק",
-        "ארבע אחרי הצהריים 5 עוד לא אהבתי די",
-        "בית הספר אולפנת צביה אשקלון",
-        "במעגל השנה חלק ב",
-        "הרוח החושך המים",
-        "לקום מחר בבוקר עם שיר חדש בלב",
-        "מיטב השירים",
-        "הטיול הקטן כל שירי נעמי שמר לילדים",
-        "אני גיטרה השירים היפים של בני אמדור",
-        "אצלנו בפסנתר",
-        "ארץ להד\"ם",
-        "כיצד שוברים חמסין",
-        "מה עושים העצים",
-        "נעמי שמר - כיצד שוברים חמסין (1975)",
-        "לקום מחר בבוקר עם שיר חדש בלב, משירי נעמי שמר (1977)",
-        "מבצעים שונים - על כל אלה, שירי נעמי שמר (1981)",
-        "האוסף השלם, 100 שירים נבחרים (2002)",
-        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
-        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
-        "אסיף",
-        "האוסף השלם: 100 שירים נבחרים",
-        "חבורת בימות-שירי נעמי שמר",
-        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
-        "הטיול הקטן: כל שירי נעמי שמר לילדים",
-        "נעמי שמר - אסיף",
-        "הספר השני - נעמי שמר",
-        "נעמי שמר - הספר השני",
-        "שירונט"
-      ],
-      "tier": "5_cover",
-      "tier_label": "5. ביצוע מחודש / קאבר",
-      "selected_video": {
-        "video_id": "Omn_wSe-dKU",
-        "url": "https://www.youtube.com/watch?v=Omn_wSe-dKU",
-        "video_title": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
-        "channel": "ילדות ישראלית",
-        "duration": "2:12",
-        "description": "ביצוע: משתתפי אצלנו בפסנתר (אצלנו בפסנתר (1993))",
-        "tier": "5_cover",
-        "tier_label": "5. ביצוע מחודש / קאבר",
-        "matched_performer": "משתתפי אצלנו בפסנתר",
-        "matched_album": "אצלנו בפסנתר (1993)",
-        "score": 3000
-      },
-      "alternative_videos": [
-        {
-          "video_id": "ZLzkd2ui6PM",
-          "url": "https://www.youtube.com/watch?v=ZLzkd2ui6PM",
-          "video_title": "בארץ להד\"ם",
-          "channel": "Release - Topic",
-          "duration": "2:55",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "vxQcorAdAXA",
-          "url": "https://www.youtube.com/watch?v=vxQcorAdAXA",
-          "video_title": "בארץ להד\"ם",
-          "channel": "Hakol Over Habibi - Topic",
-          "duration": "4:03",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "xGM5dCnBYgI",
-          "url": "https://www.youtube.com/watch?v=xGM5dCnBYgI",
-          "video_title": "Land of Lahadam - בארץ להד\"ם",
-          "channel": "ElinoarMoav",
-          "duration": "3:39",
-          "views": "",
-          "source": "direct_alternative"
-        },
-        {
-          "video_id": "RqHN-so83M4",
-          "url": "https://www.youtube.com/watch?v=RqHN-so83M4",
-          "video_title": "שיר הכזבים",
-          "channel": "נעמי שמר - Topic",
-          "duration": "2:23",
-          "views": "",
-          "source": "same_song_performance"
-        }
-      ],
-      "chrono_index": 607,
-      "canonical_score": 382.0,
-      "canonical_layer": 1,
-      "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "acum_versions_count": 50,
-      "ver_idx": 4,
-      "ver_total": 4
-    },
-    {
-      "index": 498,
       "title": "אל בורות המים",
       "alt_titles": [],
       "opening_line": "מאהבתי הלכתי אל בורות המים",
@@ -57997,7 +57572,7 @@
       "ver_total": 2
     },
     {
-      "index": 499,
+      "index": 497,
       "title": "החופש הגדול",
       "alt_titles": [
         "החפש הגדול",
@@ -58142,7 +57717,7 @@
       "ver_total": 3
     },
     {
-      "index": 500,
+      "index": 498,
       "title": "החופש הגדול",
       "alt_titles": [
         "החפש הגדול",
@@ -58287,7 +57862,7 @@
       "ver_total": 3
     },
     {
-      "index": 501,
+      "index": 499,
       "title": "תלבשי לבן",
       "alt_titles": [],
       "opening_line": "בקיץ הזה תלבשי לבן תחשבי מחשבות",
@@ -58422,7 +57997,7 @@
       "ver_total": 2
     },
     {
-      "index": 502,
+      "index": 500,
       "title": "הו רב חובל",
       "alt_titles": [
         "הו רב-חובל",
@@ -58548,7 +58123,7 @@
       "matched_performer": "שירי מימון"
     },
     {
-      "index": 503,
+      "index": 501,
       "title": "כנרת",
       "alt_titles": [
         "כנרת (שם הרי גולן)",
@@ -58685,7 +58260,7 @@
       "ver_total": 3
     },
     {
-      "index": 504,
+      "index": 502,
       "title": "כנרת",
       "alt_titles": [
         "כנרת (שם הרי גולן)",
@@ -58823,7 +58398,7 @@
       "matched_performer": "בועז שרעבי"
     },
     {
-      "index": 505,
+      "index": 503,
       "title": "סימני דרך",
       "alt_titles": [],
       "opening_line": "מי זוכר ומי יודע את הדרך אל ביתי",
@@ -58960,7 +58535,7 @@
       "matched_performer": "חנן בן ארי"
     },
     {
-      "index": 506,
+      "index": 504,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -59118,7 +58693,7 @@
       "ver_total": 5
     },
     {
-      "index": 507,
+      "index": 505,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -59285,7 +58860,7 @@
       "ver_total": 5
     },
     {
-      "index": 508,
+      "index": 506,
       "title": "שירו של אבא",
       "alt_titles": [
         "שירו של אבא יבנה המקדש",
@@ -59443,7 +59018,7 @@
       "ver_total": 5
     },
     {
-      "index": 509,
+      "index": 507,
       "title": "שלום כיתה א'",
       "alt_titles": [
         "שלום כיתה א",
@@ -59566,7 +59141,7 @@
       "ver_total": 3
     },
     {
-      "index": 510,
+      "index": 508,
       "title": "לא תנצחו אותי",
       "alt_titles": [
         "פתאום זה בא ומתבהר ולעצמי אני אומר"
@@ -59689,7 +59264,7 @@
       "matched_performer": "יהורם גאון והלהקות הצבאיות"
     },
     {
-      "index": 511,
+      "index": 509,
       "title": "אסיף",
       "alt_titles": [],
       "opening_line": "אסוף את המעשים את המלים והאותות",
@@ -59812,7 +59387,7 @@
       "ver_total": 4
     },
     {
-      "index": 512,
+      "index": 510,
       "title": "אסיף",
       "alt_titles": [],
       "opening_line": "אסוף את המעשים את המלים והאותות",
@@ -59935,7 +59510,7 @@
       "ver_total": 4
     },
     {
-      "index": 513,
+      "index": 511,
       "title": "הכול בגלל מסמר",
       "alt_titles": [
         "Alla fiera dell'est",
@@ -60089,7 +59664,7 @@
       "ver_total": 4
     },
     {
-      "index": 514,
+      "index": 512,
       "title": "הכול בגלל מסמר",
       "alt_titles": [
         "Alla fiera dell'est",
@@ -60252,7 +59827,7 @@
       "ver_total": 4
     },
     {
-      "index": 515,
+      "index": 513,
       "title": "על כנפי הכסף",
       "alt_titles": [],
       "opening_line": "על כנפי הכסף רכובים",
@@ -60381,7 +59956,7 @@
       "ver_total": 3
     },
     {
-      "index": 516,
+      "index": 514,
       "title": "כיבוי אורות",
       "alt_titles": [
         "כבוי אורות",
@@ -60546,7 +60121,7 @@
       "ver_total": 4
     },
     {
-      "index": 517,
+      "index": 515,
       "title": "כיבוי אורות",
       "alt_titles": [
         "כבוי אורות",
@@ -60711,7 +60286,7 @@
       "ver_total": 4
     },
     {
-      "index": 518,
+      "index": 516,
       "title": "מיכאל",
       "alt_titles": [],
       "opening_line": "חכיתי חכיתי בכיתי בכיתי ומי לא בא מיכאל",
@@ -60841,7 +60416,7 @@
       "ver_total": 3
     },
     {
-      "index": 519,
+      "index": 517,
       "title": "מיכאל",
       "alt_titles": [],
       "opening_line": "חכיתי חכיתי בכיתי בכיתי ומי לא בא מיכאל",
@@ -60971,7 +60546,7 @@
       "ver_total": 3
     },
     {
-      "index": 520,
+      "index": 518,
       "title": "נגיד",
       "alt_titles": [],
       "opening_line": "נגיד שאני הולכת לטיול",
@@ -61107,7 +60682,7 @@
       "ver_total": 3
     },
     {
-      "index": 521,
+      "index": 519,
       "title": "נגיד",
       "alt_titles": [],
       "opening_line": "נגיד שאני הולכת לטיול",
@@ -61243,7 +60818,7 @@
       "ver_total": 3
     },
     {
-      "index": 522,
+      "index": 520,
       "title": "חליל מקנה-סוף",
       "alt_titles": [
         "חליל מקנה סוף",
@@ -61394,7 +60969,7 @@
       "ver_total": 3
     },
     {
-      "index": 523,
+      "index": 521,
       "title": "חליל מקנה-סוף",
       "alt_titles": [
         "חליל מקנה סוף",
@@ -61545,7 +61120,7 @@
       "ver_total": 3
     },
     {
-      "index": 524,
+      "index": 522,
       "title": "בכל שנה בסתיו גיורא",
       "alt_titles": [
         "בכל שנה בסתיו, גיורא",
@@ -61675,7 +61250,7 @@
       "ver_total": 3
     },
     {
-      "index": 525,
+      "index": 523,
       "title": "מר נרקיס",
       "alt_titles": [],
       "opening_line": "יום ששי בצהרים דוקא בשעה טובה",
@@ -61809,7 +61384,7 @@
       "ver_total": 2
     },
     {
-      "index": 526,
+      "index": 524,
       "title": "הופה היי",
       "alt_titles": [
         "הופה הי",
@@ -61956,7 +61531,7 @@
       "ver_total": 4
     },
     {
-      "index": 527,
+      "index": 525,
       "title": "הופה היי",
       "alt_titles": [
         "הופה הי",
@@ -62103,7 +61678,7 @@
       "ver_total": 4
     },
     {
-      "index": 528,
+      "index": 526,
       "title": "הופה היי",
       "alt_titles": [
         "הופה הי",
@@ -62250,7 +61825,7 @@
       "ver_total": 4
     },
     {
-      "index": 529,
+      "index": 527,
       "title": "בשדות בית לחם",
       "alt_titles": [
         "לילה בשדות בית לחם",
@@ -62404,7 +61979,7 @@
       "ver_total": 3
     },
     {
-      "index": 530,
+      "index": 528,
       "title": "בשדות בית לחם",
       "alt_titles": [
         "לילה בשדות בית לחם",
@@ -62558,7 +62133,7 @@
       "ver_total": 3
     },
     {
-      "index": 531,
+      "index": 529,
       "title": "עיר לבנה",
       "alt_titles": [
         "העיר הלבנה"
@@ -62719,7 +62294,7 @@
       "ver_total": 3
     },
     {
-      "index": 532,
+      "index": 530,
       "title": "עיר לבנה",
       "alt_titles": [
         "העיר הלבנה"
@@ -62880,7 +62455,7 @@
       "ver_total": 3
     },
     {
-      "index": 533,
+      "index": 531,
       "title": "אחותי רוחמה",
       "alt_titles": [
         "אחותי רחמה",
@@ -62999,7 +62574,7 @@
       "matched_performer": "להקת האירוסים"
     },
     {
-      "index": 534,
+      "index": 532,
       "title": "זמר נודד",
       "alt_titles": [
         "שיר הנודד",
@@ -63169,7 +62744,7 @@
       "ver_total": 5
     },
     {
-      "index": 535,
+      "index": 533,
       "title": "זמר נודד",
       "alt_titles": [
         "שיר הנודד",
@@ -63339,7 +62914,7 @@
       "ver_total": 5
     },
     {
-      "index": 536,
+      "index": 534,
       "title": "זמר נודד",
       "alt_titles": [
         "שיר הנודד",
@@ -63509,7 +63084,7 @@
       "ver_total": 5
     },
     {
-      "index": 537,
+      "index": 535,
       "title": "שיר סתיו",
       "alt_titles": [
         "שיר הסתיו",
@@ -63638,7 +63213,7 @@
       "ver_total": 3
     },
     {
-      "index": 538,
+      "index": 536,
       "title": "יש לי חבר",
       "alt_titles": [
         "אצא לי לטייל על כל ארץ ישראל",
@@ -63761,7 +63336,7 @@
       "ver_total": 2
     },
     {
-      "index": 539,
+      "index": 537,
       "title": "על ליל אמש",
       "alt_titles": [
         "ליל אמש"
@@ -63910,7 +63485,7 @@
       "ver_total": 2
     },
     {
-      "index": 540,
+      "index": 538,
       "title": "גיא",
       "alt_titles": [],
       "opening_line": "גיא אתה ואני ודי אני ואתה",
@@ -64028,7 +63603,7 @@
       "ver_total": 2
     },
     {
-      "index": 541,
+      "index": 539,
       "title": "הפסנתר",
       "alt_titles": [
         "מתנה מיוחדת במינה"
@@ -64139,7 +63714,7 @@
       "ver_total": 2
     },
     {
-      "index": 542,
+      "index": 540,
       "title": "כמו חצב",
       "alt_titles": [],
       "opening_line": "כמו חצב להתבצר במעבה האדמה",
@@ -64264,7 +63839,7 @@
       "matched_performer": "עמיר בניון"
     },
     {
-      "index": 543,
+      "index": 541,
       "title": "שנה טובה",
       "alt_titles": [],
       "opening_line": "על הדשא טל וגשם ושנה טובה",
@@ -64376,7 +63951,7 @@
       "ver_total": 3
     },
     {
-      "index": 544,
+      "index": 542,
       "title": "שנה טובה",
       "alt_titles": [],
       "opening_line": "על הדשא טל וגשם ושנה טובה",
@@ -64488,7 +64063,7 @@
       "ver_total": 3
     },
     {
-      "index": 545,
+      "index": 543,
       "title": "קומי צאי",
       "alt_titles": [],
       "opening_line": "קומי צאי אחותי כלה",
@@ -64634,7 +64209,7 @@
       "ver_total": 4
     },
     {
-      "index": 546,
+      "index": 544,
       "title": "קומי צאי",
       "alt_titles": [],
       "opening_line": "קומי צאי אחותי כלה",
@@ -64780,7 +64355,7 @@
       "ver_total": 4
     },
     {
-      "index": 547,
+      "index": 545,
       "title": "שיירת הרוכבים",
       "alt_titles": [
         "שיירת רוכבים",
@@ -64912,7 +64487,7 @@
       "ver_total": 2
     },
     {
-      "index": 548,
+      "index": 546,
       "title": "שיר ערש לצבעים",
       "alt_titles": [
         "ירוק הוא הברוש",
@@ -65051,7 +64626,7 @@
       "ver_total": 3
     },
     {
-      "index": 549,
+      "index": 547,
       "title": "משנכנס אדר",
       "alt_titles": [
         "כשנכנס אדר"
@@ -65169,7 +64744,7 @@
       "matched_performer": "צילה דגן"
     },
     {
-      "index": 550,
+      "index": 548,
       "title": "חבלי משיח",
       "alt_titles": [],
       "opening_line": "כאשר אני הולך בלי אין ובלי אן",
@@ -65303,7 +64878,7 @@
       "ver_total": 2
     },
     {
-      "index": 551,
+      "index": 549,
       "title": "ספני שלמה המלך",
       "alt_titles": [
         "ספני שלמה המלך (לחן א')",
@@ -65435,7 +65010,7 @@
       "ver_total": 2
     },
     {
-      "index": 552,
+      "index": 550,
       "title": "בשדה תלתן",
       "alt_titles": [
         "פגשתיך בשדה תלתן"
@@ -65587,7 +65162,7 @@
       "ver_total": 4
     },
     {
-      "index": 553,
+      "index": 551,
       "title": "בשדה תלתן",
       "alt_titles": [
         "פגשתיך בשדה תלתן"
@@ -65739,7 +65314,7 @@
       "ver_total": 4
     },
     {
-      "index": 554,
+      "index": 552,
       "title": "בשדה תלתן",
       "alt_titles": [
         "פגשתיך בשדה תלתן"
@@ -65891,7 +65466,7 @@
       "ver_total": 4
     },
     {
-      "index": 555,
+      "index": 553,
       "title": "סימן שעוד לא הגענו",
       "alt_titles": [
         "סימן שעוד לא הגענו והאפק עוד רחוק",
@@ -66040,7 +65615,7 @@
       "ver_total": 3
     },
     {
-      "index": 556,
+      "index": 554,
       "title": "הלילה הולך בשדרות",
       "alt_titles": [
         "הלילה הלך בשדרות"
@@ -66187,7 +65762,7 @@
       "ver_total": 3
     },
     {
-      "index": 557,
+      "index": 555,
       "title": "רכב אש",
       "alt_titles": [],
       "opening_line": "מראשי המכתשים ומעבר לחומת החולות",
@@ -66338,7 +65913,7 @@
       "ver_total": 4
     },
     {
-      "index": 558,
+      "index": 556,
       "title": "רכב אש",
       "alt_titles": [],
       "opening_line": "מראשי המכתשים ומעבר לחומת החולות",
@@ -66489,7 +66064,7 @@
       "ver_total": 4
     },
     {
-      "index": 559,
+      "index": 557,
       "title": "מחבואים",
       "alt_titles": [
         "חפש אותי",
@@ -66639,7 +66214,7 @@
       "ver_total": 4
     },
     {
-      "index": 560,
+      "index": 558,
       "title": "מחבואים",
       "alt_titles": [
         "חפש אותי",
@@ -66798,7 +66373,7 @@
       "ver_total": 4
     },
     {
-      "index": 561,
+      "index": 559,
       "title": "כיצד שוברים חמסין",
       "alt_titles": [],
       "opening_line": "היה היתה גבעת עפר עם שמש וקוצים",
@@ -66930,7 +66505,7 @@
       "ver_total": 3
     },
     {
-      "index": 562,
+      "index": 560,
       "title": "נר ראשון של חנוכה",
       "alt_titles": [
         "נר ראשון של חנכה",
@@ -67076,7 +66651,7 @@
       "ver_total": 3
     },
     {
-      "index": 563,
+      "index": 561,
       "title": "גדי קטן",
       "alt_titles": [
         "הגדי",
@@ -67192,7 +66767,7 @@
       "ver_total": 2
     },
     {
-      "index": 564,
+      "index": 562,
       "title": "דוגרת",
       "alt_titles": [
         "הדוגרת",
@@ -67316,7 +66891,7 @@
       "ver_total": 3
     },
     {
-      "index": 565,
+      "index": 563,
       "title": "דוגרת",
       "alt_titles": [
         "הדוגרת",
@@ -67440,7 +67015,7 @@
       "ver_total": 3
     },
     {
-      "index": 566,
+      "index": 564,
       "title": "אנשים יפים",
       "alt_titles": [],
       "opening_line": "ליל שבת אחרי עשר",
@@ -67530,6 +67105,265 @@
       "canonical_layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
       "acum_versions_count": 5,
       "dual_role": "additional_performance",
+      "ver_idx": 2,
+      "ver_total": 2
+    },
+    {
+      "index": 565,
+      "title": "בארץ להד\"ם",
+      "alt_titles": [
+        "ארץ להד\"ם",
+        "להד\"ם"
+      ],
+      "opening_line": "בארץ להדם נשמע תמיד הדם של נבל וקתרוס",
+      "year": "1977",
+      "album_group": "שירים שמחוץ להצגה",
+      "album_track_number": "",
+      "dual_role": "additional_performance",
+      "roles": [
+        "author",
+        "composer",
+        "performer",
+        "arranger"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037042040205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=530"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1005435",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1005435"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "wikipedia",
+        "shironet",
+        "acum",
+        "stereo_ve_mono",
+        "pizmonet",
+        "discogs",
+        "musicbrainz",
+        "nli"
+      ],
+      "catalog_performers": [
+        "חבורת בימות",
+        "מירי אלוני",
+        "הכל עובר חביבי",
+        "רינה גורדון"
+      ],
+      "catalog_albums": [
+        "אצלנו בפסנתר, 1993",
+        "2 נעמי שמר אסיף",
+        "נעמי שמר חורשת האקליפטוס",
+        "על כל אלה-שירי נעמי שמר",
+        "שירי נעמי שמר",
+        "שיריה היפים של נעמי שמר",
+        "1 הכל עובר חביבי המיטב",
+        "4 מי ידע שכך יהיה חלק ב דיסק",
+        "ארבע אחרי הצהריים 5 עוד לא אהבתי די",
+        "בית הספר אולפנת צביה אשקלון",
+        "במעגל השנה חלק ב",
+        "הרוח החושך המים",
+        "לקום מחר בבוקר עם שיר חדש בלב",
+        "מיטב השירים",
+        "הטיול הקטן כל שירי נעמי שמר לילדים",
+        "אני גיטרה השירים היפים של בני אמדור",
+        "אצלנו בפסנתר",
+        "ארץ להד\"ם",
+        "כיצד שוברים חמסין",
+        "מה עושים העצים",
+        "נעמי שמר - כיצד שוברים חמסין (1975)",
+        "לקום מחר בבוקר עם שיר חדש בלב, משירי נעמי שמר (1977)",
+        "מבצעים שונים - על כל אלה, שירי נעמי שמר (1981)",
+        "האוסף השלם, 100 שירים נבחרים (2002)",
+        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
+        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
+        "אסיף",
+        "האוסף השלם: 100 שירים נבחרים",
+        "חבורת בימות-שירי נעמי שמר",
+        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
+        "הטיול הקטן: כל שירי נעמי שמר לילדים",
+        "נעמי שמר - אסיף",
+        "הספר השני - נעמי שמר",
+        "נעמי שמר - הספר השני",
+        "שירונט"
+      ],
+      "tier": "2_album_original",
+      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+      "selected_video": {
+        "video_id": "vxQcorAdAXA",
+        "url": "https://www.youtube.com/watch?v=vxQcorAdAXA",
+        "video_title": "בארץ להד\"ם",
+        "channel": "Hakol Over Habibi - Topic",
+        "duration": "4:03",
+        "description": "Provided to YouTube by NMC United Entertainment Ltd בארץ להד\"ם · Hakol Over Habibi שירים שמחוץ להצגה ℗ 1977 Hed Arzi Ltd.",
+        "tier": "2_album_original",
+        "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+        "matched_performer": "הכל עובר חביבי",
+        "matched_album": "שירים שמחוץ להצגה",
+        "score": 3800
+      },
+      "alternative_videos": [
+        {
+          "video_id": "ZLzkd2ui6PM",
+          "url": "https://www.youtube.com/watch?v=ZLzkd2ui6PM",
+          "video_title": "בארץ להד\"ם",
+          "channel": "Release - Topic",
+          "duration": "2:55",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "xGM5dCnBYgI",
+          "url": "https://www.youtube.com/watch?v=xGM5dCnBYgI",
+          "video_title": "Land of Lahadam - בארץ להד\"ם",
+          "channel": "ElinoarMoav",
+          "duration": "3:39",
+          "views": "",
+          "source": "direct_alternative"
+        }
+      ],
+      "chrono_index": 423,
+      "canonical_score": 382.0,
+      "canonical_layer": 2,
+      "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
+      "acum_versions_count": 50,
+      "ver_idx": 2,
+      "ver_total": 2
+    },
+    {
+      "index": 566,
+      "title": "שיר הכזבים",
+      "alt_titles": [
+        "לא היו דברים מעולם"
+      ],
+      "opening_line": "פעם עוזי ואבנר רצו לראות אם קש בוער",
+      "year": "1993",
+      "album_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+      "album_track_number": "7",
+      "dual_role": "additional_performance",
+      "roles": [
+        "author",
+        "composer",
+        "performer",
+        "arranger"
+      ],
+      "role_category": "words_and_music",
+      "role_label_heb": "מילים ולחן: נעמי שמר",
+      "co_creators_heb": "",
+      "archive_links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037041830205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=5894"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1033137",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1033137"
+        }
+      ],
+      "notes": "",
+      "sources": [
+        "wikipedia",
+        "shironet",
+        "acum",
+        "stereo_ve_mono",
+        "pizmonet",
+        "discogs",
+        "musicbrainz",
+        "nli"
+      ],
+      "catalog_performers": [
+        "נעמי שמר",
+        "משתתפי אצלנו בפסנתר",
+        "דודו זכאי"
+      ],
+      "catalog_albums": [
+        "אצלנו בפסנתר, 1993",
+        "2 נעמי שמר אסיף",
+        "נעמי שמר חורשת האקליפטוס",
+        "על כל אלה-שירי נעמי שמר",
+        "שירי נעמי שמר",
+        "שיריה היפים של נעמי שמר",
+        "1 הכל עובר חביבי המיטב",
+        "4 מי ידע שכך יהיה חלק ב דיסק",
+        "ארבע אחרי הצהריים 5 עוד לא אהבתי די",
+        "בית הספר אולפנת צביה אשקלון",
+        "במעגל השנה חלק ב",
+        "הרוח החושך המים",
+        "לקום מחר בבוקר עם שיר חדש בלב",
+        "מיטב השירים",
+        "הטיול הקטן כל שירי נעמי שמר לילדים",
+        "אני גיטרה השירים היפים של בני אמדור",
+        "אצלנו בפסנתר",
+        "ארץ להד\"ם",
+        "כיצד שוברים חמסין",
+        "מה עושים העצים",
+        "נעמי שמר - כיצד שוברים חמסין (1975)",
+        "לקום מחר בבוקר עם שיר חדש בלב, משירי נעמי שמר (1977)",
+        "מבצעים שונים - על כל אלה, שירי נעמי שמר (1981)",
+        "האוסף השלם, 100 שירים נבחרים (2002)",
+        "מבצעים שונים - אצלנו בפסנתר, שירי הילדים של נעמי שמר",
+        "אצלנו בפסנתר (משירי הילדים של נעמי שמר)",
+        "אסיף",
+        "האוסף השלם: 100 שירים נבחרים",
+        "חבורת בימות-שירי נעמי שמר",
+        "שירי נעמי שמר לילדים - אצלנו בפסנתר",
+        "הטיול הקטן: כל שירי נעמי שמר לילדים",
+        "נעמי שמר - אסיף",
+        "הספר השני - נעמי שמר",
+        "נעמי שמר - הספר השני",
+        "שירונט"
+      ],
+      "tier": "5_cover",
+      "tier_label": "5. ביצוע מחודש / קאבר",
+      "selected_video": {
+        "video_id": "Omn_wSe-dKU",
+        "url": "https://www.youtube.com/watch?v=Omn_wSe-dKU",
+        "video_title": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
+        "channel": "ילדות ישראלית",
+        "duration": "2:12",
+        "description": "ביצוע: משתתפי אצלנו בפסנתר (אצלנו בפסנתר (1993))",
+        "tier": "5_cover",
+        "tier_label": "5. ביצוע מחודש / קאבר",
+        "matched_performer": "משתתפי אצלנו בפסנתר",
+        "matched_album": "אצלנו בפסנתר (1993)",
+        "score": 3000
+      },
+      "alternative_videos": [
+        {
+          "video_id": "RqHN-so83M4",
+          "url": "https://www.youtube.com/watch?v=RqHN-so83M4",
+          "video_title": "שיר הכזבים",
+          "channel": "נעמי שמר - Topic",
+          "duration": "2:23",
+          "views": "",
+          "source": "same_song_performance"
+        }
+      ],
+      "chrono_index": 607,
+      "canonical_score": 382.0,
+      "canonical_layer": 2,
+      "canonical_layer_label": "שכבה ב': אלבומים וביצועים מוכרים",
+      "acum_versions_count": 50,
       "ver_idx": 2,
       "ver_total": 2
     },
