@@ -3857,6 +3857,7 @@
       ],
       "catalog_performers": [
         "נעמי שמר",
+        "נעמי שמר וחיים צינוביץ'",
         "לאה לופטין ועופר לוי",
         "לוי עופר",
         "ירון גבאי",
@@ -4004,6 +4005,7 @@
       ],
       "catalog_performers": [
         "נעמי שמר",
+        "נעמי שמר וחיים צינוביץ'",
         "לאה לופטין ועופר לוי",
         "לוי עופר",
         "ירון גבאי",
@@ -4050,11 +4052,20 @@
         "description": "נעמי שמר בשרות מפלס הכנרת בקטע קישור על הספורט הלאומי והכל פתוח-השיר שנכתב ובוצע ע\"י נעמי שמר במיוחד לפסטיבל עין-גב 1993.",
         "tier": "3_naomi_performance",
         "tier_label": "3. ביצוע של נעמי שמר",
-        "matched_performer": "נעמי שמר (פסטיבל עין-גב, 1993)",
+        "matched_performer": "נעמי שמר וחיים צינוביץ' (פסטיבל עין-גב)",
         "matched_album": "פסטיבל עין-גב (1993)",
         "score": 4500
       },
       "alternative_videos": [
+        {
+          "video_id": "YcNPKKd43co",
+          "url": "https://www.youtube.com/watch?v=YcNPKKd43co",
+          "video_title": "נעמי שמר וחיים צינוביץ' - הכל פתוח (פסטיבל עין-גב, השיר נטו)",
+          "channel": "עמותת מבט",
+          "duration": "3:19",
+          "views": "",
+          "source": "direct_alternative"
+        },
         {
           "video_id": "ryXmue6dutA",
           "url": "https://www.youtube.com/watch?v=ryXmue6dutA",
@@ -4099,7 +4110,7 @@
       "acum_versions_count": 124,
       "ver_idx": 2,
       "ver_total": 3,
-      "matched_performer": "נעמי שמר (פסטיבל עין-גב, 1993)"
+      "matched_performer": "נעמי שמר וחיים צינוביץ' (פסטיבל עין-גב)"
     },
     {
       "index": 26,
@@ -53967,6 +53978,7 @@
       ],
       "catalog_performers": [
         "נעמי שמר",
+        "נעמי שמר וחיים צינוביץ'",
         "לאה לופטין ועופר לוי",
         "לוי עופר",
         "ירון גבאי",
@@ -54013,7 +54025,7 @@
         "description": "Provided to YouTube · משתתפי אצלנו בפסנתר · מתוך האלבום: אצלנו בפסנתר",
         "tier": "2_album_original",
         "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-        "matched_performer": "משתתפי אצלנו בפסנתר",
+        "matched_performer": "נעמי שמר, חיים צינוביץ', מיקי קם, משה בקר ורינת גבאי",
         "matched_album": "אצלנו בפסנתר",
         "score": 4800
       },
@@ -54062,7 +54074,7 @@
       "acum_versions_count": 124,
       "ver_idx": 3,
       "ver_total": 3,
-      "matched_performer": "משתתפי אצלנו בפסנתר"
+      "matched_performer": "נעמי שמר, חיים צינוביץ', מיקי קם, משה בקר ורינת גבאי"
     },
     {
       "index": 478,
