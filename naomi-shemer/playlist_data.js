@@ -50159,7 +50159,7 @@ window.PLAYLIST_DATA = {
         },
         {
           "source": "acum",
-          "label": "אקו\"ם #ACUM_WRKNBR:026081",
+          "label": "אקו\"ם #026081",
           "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=ACUM_WRKNBR:026081"
         }
       ]

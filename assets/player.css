@@ -43,6 +43,19 @@ body {
   padding-bottom: 16px;
   border-bottom: 1px solid var(--border);
 }
+.back-hub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-bottom: 4px;
+  transition: color 0.15s ease;
+}
+.back-hub-link:hover {
+  color: var(--gold);
+}
 .brand-title {
   font-family: "Frank Ruhl Libre", Georgia, serif;
   margin: 0 0 4px;
@@ -187,18 +200,33 @@ body {
   font-size: 0.92em;
   margin-right: 3px;
 }
+.tab-lbl-short { display: none; }
 
 /* Layout */
 .player-layout {
   display: grid;
   grid-template-columns: clamp(280px, 29vw, 380px) minmax(0, 1fr);
-  gap: 18px;
+  grid-template-areas:
+    "player search"
+    "player list";
+  grid-template-rows: auto 1fr;
+  gap: 14px 18px;
   align-items: start;
 }
 .player-layout > * { min-width: 0; }
+.sticky-player { grid-area: player; }
+.player-search-area { grid-area: search; margin-bottom: 0; }
+.playlist-card { grid-area: list; }
 @media (max-width: 980px) {
-  .player-layout { grid-template-columns: minmax(0, 1fr); }
+  .player-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "search"
+      "player"
+      "list";
+  }
   .sticky-player { position: static; max-height: none; overflow-y: visible; }
+  .yt-frame-wrap { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
 }
 @media (min-width: 981px) {
   .sticky-player {
@@ -264,13 +292,99 @@ body {
   }
   #nowPlayingTitle { font-size: 18px !important; }
   #nowPlayingMeta { font-size: 12.5px !important; margin-bottom: 5px !important; }
-  .tabs-bar { width: 100%; }
-  .tab-btn { flex: 1 1 auto; justify-content: center; text-align: center; padding: 8px 10px; font-size: 13px; }
   .arch-toggle-btn { white-space: normal; text-align: center; }
-  .table-wrap { max-height: none !important; overflow-y: visible !important; }
-  th { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35); z-index: 5; }
-  th, td { padding: 8px 7px; font-size: 12.5px; }
+  .table-wrap { max-height: none !important; overflow-y: visible !important; overflow-x: visible !important; }
+  .toolbar .btn-sm, .np-title-actions .btn-sm { min-height: 38px; }
+  .fav-btn {
+    min-width: 34px;
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .songs-table thead, .archive-table thead { display: none; }
+  .songs-table, .songs-table tbody, .archive-table, .archive-table tbody {
+    display: block;
+    width: 100%;
+  }
+  .songs-table tr.album-group-header,
+  .songs-table tr.sub-chapter-header,
+  .songs-table tr.empty-row,
+  .archive-table tr.empty-row {
+    display: block;
+    width: 100%;
+  }
+  .songs-table tr.album-group-header td,
+  .songs-table tr.sub-chapter-header td,
+  .songs-table tr.empty-row td,
+  .archive-table tr.empty-row td {
+    display: block;
+    width: 100%;
+  }
+  .songs-table tr.song-row {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "num song meta"
+      "num perf meta";
+    align-items: center;
+    column-gap: 8px;
+    row-gap: 3px;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .songs-table tr.song-row.active { border-right: 3px solid var(--gold); }
+  .songs-table tr.song-row.multi-ver-row:not(.active) { border-right: 3px solid rgba(56, 189, 248, 0.38); }
+  .songs-table tr.song-row.active td:first-child,
+  .songs-table tr.song-row.multi-ver-row:not(.active) td:first-child { border-right: none; }
+  .songs-table tr.song-row td,
+  .archive-table tr:not(.empty-row) td {
+    display: block;
+    border-bottom: none;
+    padding: 0;
+    min-width: 0;
+  }
+  .songs-table td.row-num { grid-area: num; width: auto; }
+  .songs-table td.col-song { grid-area: song; }
+  .songs-table td.col-perf { grid-area: perf; }
+  .songs-table td.col-meta { grid-area: meta; text-align: left; }
   .song-main-title { font-size: 13.5px; }
+  .archive-table tr:not(.empty-row) {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .archive-table tr:not(.empty-row) td { width: 100%; }
+  .archive-table td.row-num { display: none; }
+  .arch-mobile-num {
+    display: inline-block;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+  .archive-table td.col-arch-links { margin-top: 2px; }
+}
+@media (max-width: 640px) {
+  .tabs-bar { width: 100%; flex-wrap: nowrap; }
+  .tab-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 8px;
+    font-size: 13px;
+  }
+  .tab-lbl-full { display: none; }
+  .tab-lbl-short { display: inline; }
+}
+@media (min-width: 769px) {
+  .archive-table th:nth-child(4),
+  .archive-table td.col-arch-opening { min-width: 210px; }
+  .archive-table th:nth-child(5),
+  .archive-table td.col-arch-links { width: 220px; }
 }
 
 /* Now Playing Card */
@@ -357,6 +471,7 @@ body {
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 5px;
   margin-top: 10px;
+  direction: ltr;
 }
 .transport-bar .btn-icon {
   padding: 7px 4px;
@@ -518,6 +633,19 @@ input:focus, select:focus {
   outline: none;
   border-color: var(--accent);
 }
+input:focus-visible, select:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.28);
+}
+button:focus-visible, a:focus-visible, summary:focus-visible, [tabindex="0"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+@media (pointer: coarse), (max-width: 768px) {
+  .search-kbd { display: none !important; }
+  .search-wrap-hero input { padding-left: 42px; }
+}
 .advanced-drawer {
   display: none;
   gap: 8px;
@@ -596,6 +724,9 @@ input:focus, select:focus {
     flex-wrap: nowrap;
     overflow-x: auto;
     padding-bottom: 3px;
+    padding-left: 18px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22px, #000 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 22px, #000 100%);
   }
 }
 .block-jump-bar::-webkit-scrollbar { height: 4px; }
@@ -623,6 +754,33 @@ input:focus, select:focus {
   border-color: rgba(245, 158, 11, 0.55);
   background: rgba(245, 158, 11, 0.16);
 }
+.out-of-filter-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.10);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+mark.search-hl {
+  background: rgba(245, 158, 11, 0.28);
+  color: #fef08a;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.empty-state-cell {
+  text-align: center !important;
+  padding: 28px 16px !important;
+  color: var(--muted);
+}
+.col-meta { text-align: left; }
+.arch-mobile-num { display: none; }
 
 /* Clean 4-Column Song List Table */
 .table-wrap {
@@ -973,8 +1131,10 @@ kbd {
   color: var(--gold-soft);
   font-variant-numeric: tabular-nums;
   direction: ltr;
+  unicode-bidi: isolate;
   display: inline-block;
-  margin-right: 6px;
+  margin-left: 8px;
+  margin-right: 0;
   opacity: 0.9;
 }
 .mini-player-bar.visible {
@@ -1030,6 +1190,12 @@ kbd {
   gap: 6px;
   flex-shrink: 0;
 }
+.mini-transport {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  direction: ltr;
+}
 .share-toast {
   position: fixed;
   bottom: 74px;
@@ -1059,7 +1225,14 @@ kbd {
   #openOnYt { font-size: 12px; }
   .mini-player-bar { padding: 10px 10px 7px; }
   .mini-thumb { width: 40px; height: 30px; }
-  .mini-controls .btn-icon { padding: 6px 8px; font-size: 13px; min-height: 34px; }
+  .mini-hide-mobile { display: none !important; }
+  .mini-controls .btn-icon,
+  .mini-controls .btn-sm { padding: 7px 10px; font-size: 14px; min-height: 40px; min-width: 40px; }
   .mini-back-lbl { display: none; }
   .mini-hide-xs { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .btn:hover { transform: none; }
 }

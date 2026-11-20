@@ -4,6 +4,42 @@ function esc(s) {
   d.textContent = String(s);
   return d.innerHTML;
 }
+
+function highlightText(text, qRaw) {
+  const str = String(text || "");
+  if (!str) return "";
+  const q = String(qRaw || "").trim();
+  if (q.length < 2) return esc(str);
+  const tokens = q.split(/\s+/).filter(t => t.length >= 2);
+  if (!tokens.length) return esc(str);
+  const pattern = tokens
+    .slice()
+    .sort((a, b) => b.length - a.length)
+    .map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+    .join("|");
+  const re = new RegExp(pattern, "gi");
+  let out = "";
+  let lastIdx = 0;
+  let m;
+  while ((m = re.exec(str)) !== null) {
+    if (m.index > lastIdx) out += esc(str.slice(lastIdx, m.index));
+    out += `<mark class="search-hl">${esc(m[0])}</mark>`;
+    lastIdx = m.index + m[0].length;
+    if (m[0].length === 0) break;
+  }
+  if (lastIdx < str.length) out += esc(str.slice(lastIdx));
+  return out;
+}
+
+function handleActivatableKey(ev) {
+  if (ev.key === "Enter" || ev.key === " ") {
+    ev.preventDefault();
+    ev.stopPropagation();
+    if (ev.currentTarget && typeof ev.currentTarget.click === "function") {
+      ev.currentTarget.click();
+    }
+  }
+}
 const PLAYLIST_DATA = window.PLAYLIST_DATA || {};
 const COMPOSER_CFG = PLAYLIST_DATA.config || {};
 const SONGS = PLAYLIST_DATA.songs || [];
@@ -229,12 +265,31 @@ function initMediaSessionHandlers() {
   });
 }
 
+function getIdlePlayBtnLabel() {
+  if (filteredSongs.length === SONGS.length) return "▶ נגן פלייליסט";
+  if (favOnly) return `▶ נגן ${filteredSongs.length} מועדפים`;
+  return `▶ נגן ${filteredSongs.length} תוצאות`;
+}
+
+function updateOutOfFilterBanner() {
+  const el = document.getElementById("outOfFilterBanner");
+  if (!el) return;
+  if (playingSong && currentIndex < 0 && filteredSongs.length < SONGS.length) {
+    el.innerHTML = `<span>🎵 מתנגן מחוץ לסינון הנוכחי: <strong>${esc(playingSong.raw_title)}</strong></span><button type="button" class="btn btn-outline btn-sm" onclick="scrollToActiveRow(true)">הצג בפלייליסט</button>`;
+    el.style.display = "flex";
+  } else {
+    el.style.display = "none";
+    el.innerHTML = "";
+  }
+}
+
 function syncPlayButtonUI() {
   const btn = document.getElementById("playPlaylistBtn");
   const miniBtn = document.getElementById("miniPlayBtn");
   const mainBtn = document.getElementById("mainPlayPauseBtn");
+  const idleLabel = getIdlePlayBtnLabel();
   if (!ytApiReady || !ytPlayer || typeof ytPlayer.getPlayerState !== "function") {
-    if (btn) btn.textContent = "▶ נגן פלייליסט";
+    if (btn) btn.textContent = idleLabel;
     if (miniBtn) miniBtn.textContent = "▶";
     if (mainBtn) mainBtn.textContent = "⏯";
     updateMiniPlayerVisibility();
@@ -252,7 +307,7 @@ function syncPlayButtonUI() {
     if (mainBtn) mainBtn.textContent = "▶";
     if ("mediaSession" in navigator) navigator.mediaSession.playbackState = "paused";
   } else {
-    if (btn) btn.textContent = "▶ נגן פלייליסט";
+    if (btn) btn.textContent = idleLabel;
     if (miniBtn) miniBtn.textContent = "▶";
     if (mainBtn) mainBtn.textContent = "⏯";
   }
@@ -263,6 +318,10 @@ function startPlaylistPlayback() {
   if (currentTab !== "yt") switchTab("yt");
   if (!filteredSongs.length) return;
   hasUserStartedPlayback = true;
+  if (currentIndex < 0) {
+    playSongAt(0, true, false);
+    return;
+  }
   if (ytApiReady && ytPlayer && typeof ytPlayer.getPlayerState === "function") {
     const st = ytPlayer.getPlayerState();
     if (st === 1) {
@@ -494,10 +553,12 @@ function syncFavUI() {
     if (npFav) {
       npFav.textContent = isFav ? "❤️" : "♡";
       npFav.classList.toggle("btn-active", isFav);
+      npFav.setAttribute("aria-pressed", isFav ? "true" : "false");
     }
     if (miniFav) {
       miniFav.textContent = isFav ? "❤️" : "♡";
       miniFav.classList.toggle("btn-active", isFav);
+      miniFav.setAttribute("aria-pressed", isFav ? "true" : "false");
     }
   }
 }
@@ -516,6 +577,7 @@ function toggleFavorite(ev, vid) {
       if (btn.getAttribute("data-vid") === vid) {
         btn.classList.toggle("is-fav", isFav);
         btn.textContent = isFav ? "❤️" : "♡";
+        btn.setAttribute("aria-pressed", isFav ? "true" : "false");
       }
     });
     syncFavUI();
@@ -565,7 +627,10 @@ function toggleAdvancedFilters() {
   const btn = document.getElementById("advFilterBtn");
   if (!drw) return;
   const isOpen = drw.classList.toggle("open");
-  if (btn) btn.classList.toggle("btn-active", isOpen);
+  if (btn) {
+    btn.classList.toggle("btn-active", isOpen);
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  }
 }
 
 function updateSearchClearUI(which) {
@@ -814,10 +879,10 @@ function updateNowPlayingCard(s) {
   const cleanAlb = (s.alb || "").replace(/\s*\(#\d+\)\s*$/, "").trim();
   const albEscAttr = JSON.stringify(cleanAlb).replace(/"/g, "&quot;");
   const perfSpan = perfText
-    ? `<span class="clickable-meta" onclick="filterBySongTitle(event, ${perfEscAttr})" title="לחץ לסינון כל השירים של מבצע זה">${esc(perfText)}</span>`
+    ? `<span class="clickable-meta" role="button" tabindex="0" onclick="filterBySongTitle(event, ${perfEscAttr})" onkeydown="handleActivatableKey(event)" title="לחץ לסינון כל השירים של מבצע זה">${esc(perfText)}</span>`
     : "";
   const albSpan = s.alb
-    ? ` · <span class="clickable-meta" onclick="filterBySongTitle(event, ${albEscAttr})" title="לחץ לסינון כל שירי האלבום">${esc(s.alb)}</span>`
+    ? ` · <span class="clickable-meta" role="button" tabindex="0" onclick="filterBySongTitle(event, ${albEscAttr})" onkeydown="handleActivatableKey(event)" title="לחץ לסינון כל שירי האלבום">${esc(s.alb)}</span>`
     : "";
   document.getElementById("nowPlayingMeta").innerHTML = `${perfSpan}${albSpan}`;
   const isFav = favoriteVids.has(s.vid);
@@ -825,15 +890,17 @@ function updateNowPlayingCard(s) {
   if (npFav) {
     npFav.textContent = isFav ? "❤️" : "♡";
     npFav.classList.toggle("btn-active", isFav);
+    npFav.setAttribute("aria-pressed", isFav ? "true" : "false");
   }
   const miniFav = document.getElementById("miniFavBtn");
   if (miniFav) {
     miniFav.textContent = isFav ? "❤️" : "♡";
     miniFav.classList.toggle("btn-active", isFav);
+    miniFav.setAttribute("aria-pressed", isFav ? "true" : "false");
   }
   const isExactActive = (exactSongTitle && exactSongTitle === s.raw_title);
   const verBadgeHtml = s.ver_total > 1
-    ? `<span class="ver-badge ${isExactActive ? "active-ver-filter" : ""}" onclick="filterByExactSong(event, ${JSON.stringify(s.raw_title).replace(/"/g, '&quot;')})" title="לחץ להצגת כל ${s.ver_total} הביצועים של שיר זה בטבלה">ביצוע ${s.ver_idx}/${s.ver_total}</span>`
+    ? `<span class="ver-badge ${isExactActive ? "active-ver-filter" : ""}" role="button" tabindex="0" onclick="filterByExactSong(event, ${JSON.stringify(s.raw_title).replace(/"/g, '&quot;')})" onkeydown="handleActivatableKey(event)" title="לחץ להצגת כל ${s.ver_total} הביצועים של שיר זה בטבלה">ביצוע ${s.ver_idx}/${s.ver_total}</span>`
     : "";
   const tierShort = s.tier_label.replace(/^[0-9]\.\s*/, "");
   document.getElementById("nowPlayingRole").innerHTML = `<span class="badge t-${esc(s.tier)}">${esc(tierShort)}</span><span class="badge r-${esc(s.role_cat)}">${esc(s.role_label)}</span>${verBadgeHtml}`;
@@ -842,15 +909,34 @@ function updateNowPlayingCard(s) {
   if (verBox) {
     const sameVers = s.ver_total > 1 ? SONGS.filter(x => x.raw_title === s.raw_title) : [];
     if (sameVers.length > 1) {
-      const rawLabels = sameVers.map(v => {
-        const base = (v.perf || v.ch || `ביצוע ${v.ver_idx}`).replace(/\s*\([^)]*\)\s*$/, "").trim() || (v.perf || v.ch || `ביצוע ${v.ver_idx}`);
-        return `${base}${v.year ? " (" + v.year + ")" : ""}`;
+      const baseLabels = sameVers.map(v => {
+        const raw = (v.perf || v.ch || `ביצוע ${v.ver_idx}`);
+        return raw.replace(/\s*\([^)]*\)\s*$/, "").trim() || raw;
+      });
+      const baseCounts = {};
+      baseLabels.forEach(lbl => { baseCounts[lbl] = (baseCounts[lbl] || 0) + 1; });
+      const fullPerfCounts = {};
+      sameVers.forEach(v => {
+        const fp = v.perf || v.ch || `ביצוע ${v.ver_idx}`;
+        fullPerfCounts[fp] = (fullPerfCounts[fp] || 0) + 1;
       });
       const pills = sameVers.map((v, idx) => {
         const isCur = v.vid === s.vid;
-        const hasDup = rawLabels.filter(x => x === rawLabels[idx]).length > 1;
-        const dispBase = hasDup ? (v.perf || v.ch || `ביצוע ${v.ver_idx}`) : rawLabels[idx];
-        const lbl = `${isCur ? "▶ " : ""}${dispBase}${hasDup && v.year ? " (" + v.year + ")" : ""}`;
+        let dispLbl = baseLabels[idx];
+        if (baseCounts[dispLbl] > 1) {
+          const fp = v.perf || v.ch || "";
+          const cleanAlb = (v.alb || "").replace(/\s*\(#\d+\)\s*$/, "").trim();
+          if (fp && fp !== dispLbl && fullPerfCounts[fp] === 1) {
+            dispLbl = fp;
+          } else if (cleanAlb && !cleanAlb.startsWith("סינגל")) {
+            dispLbl = `${dispLbl} (${cleanAlb})`;
+          } else if (v.ch) {
+            dispLbl = `${dispLbl} (${v.ch})`;
+          } else {
+            dispLbl = `${dispLbl} (#${v.ver_idx})`;
+          }
+        }
+        const lbl = `${isCur ? "▶ " : ""}${dispLbl}`;
         const tip = `${v.perf || v.ch}${v.alb ? " · " + v.alb : ""} (#${v.n})`;
         return `<button type="button" class="np-ver-pill ${isCur ? "active" : ""}" onclick="playSongByVid('${esc(v.vid)}')" title="${esc(tip)}">${esc(lbl)}</button>`;
       }).join("");
@@ -888,11 +974,27 @@ function updateNowPlayingCard(s) {
   if (bBox && bSel) {
     if (alts.length > 0) {
       bBox.style.display = "block";
-      const opts = [`<option value="${esc(s.vid)}">⭐ מקור ראשי: ${esc(s.vtitle)} (${esc(s.ch)})</option>`];
+      const mirrors = [];
+      const otherVers = [];
       alts.forEach((a, i) => {
-        const tag = a.src === "same_song_performance" ? "ביצוע נוסף" : "עותק גיבוי";
-        opts.push(`<option value="${esc(a.vid)}">🔄 גיבוי #${i + 1} (${tag}): ${esc(a.vtitle || a.vid)} (${esc(a.ch || "")})</option>`);
+        if (a.src === "same_song_performance") otherVers.push({ a, i });
+        else mirrors.push({ a, i });
       });
+      const opts = [`<option value="${esc(s.vid)}">⭐ מקור ראשי: ${esc(s.vtitle)} (${esc(s.ch)})</option>`];
+      if (mirrors.length > 0) {
+        opts.push(`<optgroup label="עותקי גיבוי לאותו ביצוע">`);
+        mirrors.forEach(({ a, i }) => {
+          opts.push(`<option value="${esc(a.vid)}">🛡️ גיבוי #${i + 1}: ${esc(a.vtitle || a.vid)} (${esc(a.ch || "")})</option>`);
+        });
+        opts.push(`</optgroup>`);
+      }
+      if (otherVers.length > 0) {
+        opts.push(`<optgroup label="ביצועים חלופיים לשיר">`);
+        otherVers.forEach(({ a, i }) => {
+          opts.push(`<option value="${esc(a.vid)}">🔄 ביצוע #${i + 1}: ${esc(a.vtitle || a.vid)} (${esc(a.ch || "")})</option>`);
+        });
+        opts.push(`</optgroup>`);
+      }
       bSel.innerHTML = opts.join("");
       bSel.value = s.vid;
     } else {
@@ -954,7 +1056,16 @@ function playSongByVid(vid, shouldScroll = false) {
   });
   if (shouldScroll && currentIndex >= 0) scrollToActiveRow(true);
   syncBlockJumpHighlight();
+  updateOutOfFilterBanner();
   syncUrlAndStorageState();
+}
+
+function onSongRowKeydown(ev, idx) {
+  if (ev.target !== ev.currentTarget) return;
+  if (ev.key === "Enter" || ev.key === " ") {
+    ev.preventDefault();
+    playSongAt(idx, false);
+  }
 }
 
 function playSongAt(idx, shouldScroll = true, skipHistory = false) {
@@ -975,13 +1086,17 @@ function playSongAt(idx, shouldScroll = true, skipHistory = false) {
   });
   if (shouldScroll) scrollToActiveRow(true);
   syncBlockJumpHighlight();
+  updateOutOfFilterBanner();
   syncUrlAndStorageState();
 }
 
 function toggleShuffle() {
   shuffleEnabled = !shuffleEnabled;
   const btn = document.getElementById("shuffleBtn");
-  if (btn) btn.classList.toggle("btn-active", shuffleEnabled);
+  if (btn) {
+    btn.classList.toggle("btn-active", shuffleEnabled);
+    btn.setAttribute("aria-pressed", shuffleEnabled ? "true" : "false");
+  }
   syncUrlAndStorageState();
 }
 
@@ -1151,7 +1266,7 @@ function renderTable(skipSync = false) {
     if (df !== "ALL") chips.push({ kind: "decade", text: `📅 ${getSelectedOptionLabel("decadeFilter")}` });
     if (tf !== "ALL") chips.push({ kind: "tier", text: `🎙️ ${getSelectedOptionLabel("tierFilter")}` });
     if (rf !== "ALL") chips.push({ kind: "role", text: `✍️ ${getSelectedOptionLabel("roleFilter")}` });
-    if (onePerSongOnly && !exactSongTitle) chips.push({ kind: "oneper", text: "🎯 ביצוע אחד לשיר" });
+    if (onePerSongOnly && !exactSongTitle) chips.push({ kind: "oneper", text: "1️⃣ ביצוע אחד לשיר" });
     if (favOnly) chips.push({ kind: "fav", text: "❤️ מועדפים בלבד" });
 
     if (chips.length > 0) {
@@ -1212,10 +1327,14 @@ function renderTable(skipSync = false) {
   const tbody = document.getElementById("songsBody");
   const htmlRows = [];
   if (filteredSongs.length === 0) {
-    const emptyMsg = (favOnly && favoriteVids.size === 0)
+    const isEmptyFav = (favOnly && favoriteVids.size === 0);
+    const emptyMsg = isEmptyFav
       ? "עדיין לא סימנת ביצועים מועדפים — לחץ על ♡ ליד כל שיר בטבלה או בכרטיס הנגן כדי לשמור אותו ברשימה האישית שלך."
       : "לא נמצאו שירים התואמים לחיפוש או לסינון שנבחר.";
-    htmlRows.push(`<tr><td colspan="4" style="text-align:center; padding:28px 16px; color:var(--muted);">${esc(emptyMsg)}</td></tr>`);
+    const resetAction = isEmptyFav
+      ? `<button type="button" class="btn btn-outline btn-sm" onclick="clearSingleFilter('fav')" style="margin-top:10px;">← חזרה לכל הפלייליסט</button>`
+      : `<button type="button" class="btn btn-outline btn-sm" onclick="resetAllFilters()" style="margin-top:10px;">↺ נקה את כל המסננים</button>`;
+    htmlRows.push(`<tr class="empty-row"><td colspan="4" class="empty-state-cell"><div>${esc(emptyMsg)}</div>${resetAction}</td></tr>`);
   }
   filteredSongs.forEach((s, i) => {
     if (sortBy === "canonical" && filteredSongs.length > 1) {
@@ -1261,36 +1380,78 @@ function renderTable(skipSync = false) {
       : (sortBy !== "canonical" || filteredSongs.length !== SONGS.length ? `<div style="font-size:10.5px; opacity:0.65;">#${s.n}</div>` : "");
     const isFav = favoriteVids.has(s.vid);
     const isVerFiltered = (exactSongTitle && exactSongTitle === s.raw_title);
+    const hasSearchQ = qRaw.length >= 2;
+    const titleHtml = hasSearchQ ? highlightText(s.raw_title, rawInput) : esc(s.raw_title);
+    const perfHtml = hasSearchQ ? highlightText(perfDisp, rawInput) : esc(perfDisp);
+    const albHtml = s.alb ? (hasSearchQ ? highlightText(s.alb, rawInput) : esc(s.alb)) : "";
+    const titleMatched = hasSearchQ && (s.raw_title.toLowerCase().includes(qRaw) || (qNorm.length >= 2 && normHeb(s.raw_title).includes(qNorm)));
+    const metaMatched = hasSearchQ && ((perfDisp + " " + (s.alb || "")).toLowerCase().includes(qRaw) || (qNorm.length >= 2 && normHeb(perfDisp + " " + (s.alb || "")).includes(qNorm)));
+    const openingContextHtml = (hasSearchQ && s.opening_line && !titleMatched && !metaMatched)
+      ? `<div class="opening-line">מתוך המילים: "${highlightText(s.opening_line, rawInput)}"</div>`
+      : "";
     htmlRows.push(`
-    <tr class="song-row ${i === currentIndex ? "active" : ""} ${s.ver_total > 1 ? "multi-ver-row" : ""}" onclick="playSongAt(${i}, false)">
+    <tr class="song-row ${i === currentIndex ? "active" : ""} ${s.ver_total > 1 ? "multi-ver-row" : ""}" tabindex="0" onclick="playSongAt(${i}, false)" onkeydown="onSongRowKeydown(event, ${i})">
       <td class="row-num">
         <div><span class="playing-ind">▶</span>${i + 1}</div>
         ${subNumHtml}
       </td>
-      <td>
+      <td class="col-song">
         <div class="song-main-title">
-          <span>${esc(s.raw_title)}</span>
+          <span>${titleHtml}</span>
           ${s.year ? `<span class="song-year">(${esc(s.year)})</span>` : ""}
-          ${s.ver_total > 1 ? `<span class="ver-badge ${isVerFiltered ? "active-ver-filter" : ""}" onclick="filterByExactSong(event, ${titleAttrEsc})" title="לחץ להצגת כל ${s.ver_total} הביצועים של שיר זה בלבד">ביצוע ${s.ver_idx}/${s.ver_total}</span>` : ""}
+          ${s.ver_total > 1 ? `<span class="ver-badge ${isVerFiltered ? "active-ver-filter" : ""}" role="button" tabindex="0" onclick="filterByExactSong(event, ${titleAttrEsc})" onkeydown="handleActivatableKey(event)" title="לחץ להצגת כל ${s.ver_total} הביצועים של שיר זה בלבד">ביצוע ${s.ver_idx}/${s.ver_total}</span>` : ""}
           ${roleSub}
         </div>
+        ${openingContextHtml}
       </td>
-      <td>
-        <div class="perf-primary"><span class="clickable-meta" onclick="filterBySongTitle(event, ${perfAttrEsc})" title="לחץ לסינון כל השירים של מבצע זה">${esc(perfDisp)}</span></div>
-        ${s.alb ? `<div class="perf-album"><span class="clickable-meta" onclick="filterBySongTitle(event, ${albAttrEsc})" title="לחץ לסינון כל שירי האלבום">${esc(s.alb)}</span></div>` : ""}
+      <td class="col-perf">
+        <div class="perf-primary"><span class="clickable-meta" role="button" tabindex="0" onclick="filterBySongTitle(event, ${perfAttrEsc})" onkeydown="handleActivatableKey(event)" title="לחץ לסינון כל השירים של מבצע זה">${perfHtml}</span></div>
+        ${s.alb ? `<div class="perf-album"><span class="clickable-meta" role="button" tabindex="0" onclick="filterBySongTitle(event, ${albAttrEsc})" onkeydown="handleActivatableKey(event)" title="לחץ לסינון כל שירי האלבום">${albHtml}</span></div>` : ""}
       </td>
-      <td style="text-align:left;">
+      <td class="col-meta">
         <div class="dur-fav-wrap">
           <span class="dur-text">${esc(s.dur)}</span>
-          <button class="fav-btn ${isFav ? "is-fav" : ""}" type="button" data-vid="${esc(s.vid)}" onclick="toggleFavorite(event, '${esc(s.vid)}')" title="הוסף / הסר מהמועדפים">${isFav ? "❤️" : "♡"}</button>
+          <button class="fav-btn ${isFav ? "is-fav" : ""}" type="button" data-vid="${esc(s.vid)}" aria-label="הוסף או הסר מהמועדפים" aria-pressed="${isFav ? "true" : "false"}" onclick="toggleFavorite(event, '${esc(s.vid)}')" title="הוסף / הסר מהמועדפים">${isFav ? "❤️" : "♡"}</button>
         </div>
       </td>
     </tr>`);
   });
   tbody.innerHTML = htmlRows.join("");
   syncFavUI();
+  syncPlayButtonUI();
+  updateOutOfFilterBanner();
 
-  if (!skipSync) syncUrlAndStorageState();
+  if (!skipSync) {
+    const wrap = document.querySelector("#tabYtContent .table-wrap");
+    if (wrap) wrap.scrollTop = 0;
+    syncUrlAndStorageState();
+  }
+}
+
+function clearSingleArchiveFilter(kind) {
+  if (kind === "q") {
+    document.getElementById("archSearchInput").value = "";
+    updateSearchClearUI("arch");
+  } else if (kind === "audio") {
+    archAudioOnly = false;
+    syncArchAudioOnlyUI();
+  } else if (kind === "role") {
+    document.getElementById("archRoleFilter").value = "ALL";
+  } else if (kind === "source") {
+    document.getElementById("archSourceFilter").value = "ALL";
+  }
+  renderArchiveTable();
+}
+
+function resetArchiveFilters() {
+  const inp = document.getElementById("archSearchInput");
+  if (inp) inp.value = "";
+  updateSearchClearUI("arch");
+  archAudioOnly = false;
+  syncArchAudioOnlyUI();
+  document.getElementById("archRoleFilter").value = "ALL";
+  document.getElementById("archSourceFilter").value = "ALL";
+  renderArchiveTable();
 }
 
 function renderArchiveTable(skipSync = false) {
@@ -1320,57 +1481,96 @@ function renderArchiveTable(skipSync = false) {
     ? `${filteredArch.length} שירים עם הקלטה להאזנה (מתוך ${ARCHIVE_SONGS.length} שירי ארכיון)`
     : `${filteredArch.length} מתוך ${ARCHIVE_SONGS.length} שירי ארכיון`;
 
-  const tbody = document.getElementById("archiveBody");
-  tbody.innerHTML = filteredArch.map((s, idx) => {
-    let compactRole = s.role_label || "";
-    if (s.co_creators) {
-      compactRole = compactRole
-        .replace(` (${s.co_creators})`, "")
-        .replace(` · ${s.co_creators}`, "")
-        .trim();
+  const archChipsBox = document.getElementById("archActiveFilterChips");
+  const archResetBtn = document.getElementById("archResetBtn");
+  const archChips = [];
+  if (rawInput.trim()) archChips.push({ kind: "q", text: `🔍 חיפוש: "${rawInput.trim()}"` });
+  if (archAudioOnly) archChips.push({ kind: "audio", text: "🎧 קיימת הקלטה להאזנה" });
+  if (rf !== "ALL") archChips.push({ kind: "role", text: `✍️ ${getSelectedOptionLabel("archRoleFilter")}` });
+  if (sf !== "ALL") archChips.push({ kind: "source", text: `🏛️ ${getSelectedOptionLabel("archSourceFilter")}` });
+  if (archResetBtn) archResetBtn.style.display = archChips.length > 0 ? "" : "none";
+  if (archChipsBox) {
+    if (archChips.length > 0) {
+      const pillsHtml = archChips.map(c =>
+        `<button type="button" class="filter-chip" onclick="clearSingleArchiveFilter('${c.kind}')">${esc(c.text)} <span aria-hidden="true">✕</span></button>`
+      ).join("");
+      archChipsBox.innerHTML = `<span class="chips-lbl">מסננים פעילים:</span>${pillsHtml}<button type="button" class="filter-chip filter-chip-reset" onclick="resetArchiveFilters()">↺ נקה הכול</button>`;
+      archChipsBox.style.display = "flex";
+    } else {
+      archChipsBox.style.display = "none";
+      archChipsBox.innerHTML = "";
     }
-    return `
-    <tr>
-      <td class="row-num">${idx + 1}</td>
-      <td>
-        <div class="song-main-title">
-          <span>${esc(s.title)}</span>
-          ${s.year && s.year !== "ללא שנה" ? `<span class="song-year">(${esc(s.year)})</span>` : ""}
-          ${s.has_audio ? `<span class="badge audio-avail-badge">🎧 הקלטה להאזנה</span>` : ""}
-        </div>
-        ${s.alt_titles && s.alt_titles.length ? `<div class="perf-album">שמות נוספים: ${esc(s.alt_titles.join(", "))}</div>` : ""}
-      </td>
-      <td>
-        <div class="perf-primary">${s.perfs ? esc(s.perfs) : "<span style='color:var(--muted);'>לא מתועד מבצע</span>"}</div>
-        <div style="margin-top:3px;"><span class="badge r-${esc(s.role_cat)}">${esc(compactRole)}</span></div>
-        ${s.co_creators ? `<div class="perf-album" style="margin-top:3px;">שותפים ליצירה: ${esc(s.co_creators)}</div>` : ""}
-      </td>
-      <td>
-        ${s.opening_line ? `<div class="opening-line" style="-webkit-line-clamp:2;">"${esc(s.opening_line)}"</div>` : "<span style='color:var(--muted);'>—</span>"}
-      </td>
-      <td>${renderArchivePills(s.links, false)}</td>
-    </tr>
-  `;
-  }).join("");
+  }
 
-  if (!skipSync) syncUrlAndStorageState();
+  const tbody = document.getElementById("archiveBody");
+  if (filteredArch.length === 0) {
+    tbody.innerHTML = `<tr class="empty-row"><td colspan="5" class="empty-state-cell"><div>לא נמצאו שירי ארכיון התואמים לחיפוש או לסינון שנבחר.</div><button type="button" class="btn btn-outline btn-sm" onclick="resetArchiveFilters()" style="margin-top:10px;">↺ נקה את כל מסנני הארכיון</button></td></tr>`;
+  } else {
+    const hasSearchQ = qRaw.length >= 2;
+    tbody.innerHTML = filteredArch.map((s, idx) => {
+      let compactRole = s.role_label || "";
+      if (s.co_creators) {
+        compactRole = compactRole
+          .replace(` (${s.co_creators})`, "")
+          .replace(` · ${s.co_creators}`, "")
+          .trim();
+      }
+      const titleHtml = hasSearchQ ? highlightText(s.title, rawInput) : esc(s.title);
+      const perfsHtml = s.perfs
+        ? (hasSearchQ ? highlightText(s.perfs, rawInput) : esc(s.perfs))
+        : "<span style='color:var(--muted);'>לא מתועד מבצע</span>";
+      const openHtml = s.opening_line
+        ? `<div class="opening-line" style="-webkit-line-clamp:2;">"${hasSearchQ ? highlightText(s.opening_line, rawInput) : esc(s.opening_line)}"</div>`
+        : "<span style='color:var(--muted);'>—</span>";
+      return `
+      <tr>
+        <td class="row-num">${idx + 1}</td>
+        <td class="col-arch-title">
+          <div class="song-main-title">
+            <span class="arch-mobile-num">#${idx + 1}</span>
+            <span>${titleHtml}</span>
+            ${s.year && s.year !== "ללא שנה" ? `<span class="song-year">(${esc(s.year)})</span>` : ""}
+            ${s.has_audio ? `<span class="badge audio-avail-badge">🎧 הקלטה להאזנה</span>` : ""}
+          </div>
+          ${s.alt_titles && s.alt_titles.length ? `<div class="perf-album">שמות נוספים: ${esc(s.alt_titles.join(", "))}</div>` : ""}
+        </td>
+        <td class="col-arch-perf">
+          <div class="perf-primary">${perfsHtml}</div>
+          <div style="margin-top:3px;"><span class="badge r-${esc(s.role_cat)}">${esc(compactRole)}</span></div>
+          ${s.co_creators ? `<div class="perf-album" style="margin-top:3px;">שותפים ליצירה: ${esc(s.co_creators)}</div>` : ""}
+        </td>
+        <td class="col-arch-opening">${openHtml}</td>
+        <td class="col-arch-links">${renderArchivePills(s.links, false)}</td>
+      </tr>`;
+    }).join("");
+  }
+
+  if (!skipSync) {
+    const archWrap = document.querySelector("#tabArchContent .table-wrap");
+    if (archWrap) archWrap.scrollTop = 0;
+    syncUrlAndStorageState();
+  }
 }
 
 document.addEventListener("keydown", function(ev) {
-  const tag = (ev.target && ev.target.tagName) ? ev.target.tagName.toLowerCase() : "";
-  if (tag === "input" || tag === "textarea" || tag === "select" || (ev.target && ev.target.isContentEditable)) {
+  const target = ev.target;
+  const tag = (target && target.tagName) ? target.tagName.toLowerCase() : "";
+  if (tag === "input" || tag === "textarea" || tag === "select" || (target && target.isContentEditable)) {
     if (ev.key === "Escape") {
-      if (ev.target.id === "searchInput" && ev.target.value) {
+      if (target.id === "searchInput" && target.value) {
         clearSearch("yt");
-      } else if (ev.target.id === "archSearchInput" && ev.target.value) {
+      } else if (target.id === "archSearchInput" && target.value) {
         clearSearch("arch");
       } else {
-        ev.target.blur();
+        target.blur();
       }
     }
     return;
   }
   if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
+  const roleAttr = target && target.getAttribute ? target.getAttribute("role") : "";
+  const isInteractive = tag === "button" || tag === "a" || tag === "summary" || roleAttr === "button" || roleAttr === "tab" || roleAttr === "slider" || Boolean(target && target.classList && target.classList.contains("song-row"));
+  if (ev.key === " " && isInteractive) return;
   if (ev.key === "/" ) {
     ev.preventDefault();
     const inp = currentTab === "arch" ? document.getElementById("archSearchInput") : document.getElementById("searchInput");
@@ -1395,6 +1595,22 @@ document.addEventListener("keydown", function(ev) {
     toggleCurrentFavorite();
   }
 });
+
+(function initTabKeyNav() {
+  const bar = document.querySelector(".tabs-bar");
+  if (!bar) return;
+  bar.addEventListener("keydown", function(ev) {
+    if (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight" && ev.key !== "Home" && ev.key !== "End") return;
+    ev.preventDefault();
+    let nextTab = currentTab;
+    if (ev.key === "Home") nextTab = "yt";
+    else if (ev.key === "End") nextTab = "arch";
+    else nextTab = (currentTab === "yt") ? "arch" : "yt";
+    switchTab(nextTab);
+    const nextBtn = document.getElementById(nextTab === "arch" ? "tabBtnArch" : "tabBtnYt");
+    if (nextBtn) nextBtn.focus();
+  });
+})();
 
 (function initApp() {
   let saved = {};
@@ -1443,12 +1659,18 @@ document.addEventListener("keydown", function(ev) {
     const drw = document.getElementById("advancedDrawer");
     const btn = document.getElementById("advFilterBtn");
     if (drw) drw.classList.add("open");
-    if (btn) btn.classList.add("btn-active");
+    if (btn) {
+      btn.classList.add("btn-active");
+      btn.setAttribute("aria-expanded", "true");
+    }
   }
   if (shufParam === "1" || (shufParam === null && saved.shuffle)) {
     shuffleEnabled = true;
     const btn = document.getElementById("shuffleBtn");
-    if (btn) btn.classList.add("btn-active");
+    if (btn) {
+      btn.classList.add("btn-active");
+      btn.setAttribute("aria-pressed", "true");
+    }
   }
   if (repParam === "1" || (repParam === null && saved.repeat)) {
     repeatOneEnabled = true;

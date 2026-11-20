@@ -78,7 +78,7 @@
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
       gap: 20px;
       flex: 1 0 auto;
-      align-items: start;
+      align-items: stretch;
     }
     .card {
       min-width: 0;
@@ -137,7 +137,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 6px;
+      margin-top: auto;
+      padding-top: 6px;
     }
     .btn {
       display: inline-flex;
@@ -187,6 +188,14 @@
     }
     footer.hub-footer a:hover {
       text-decoration: underline;
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+      .card:hover { transform: none; }
     }
   </style>
 </head>

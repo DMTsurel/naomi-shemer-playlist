@@ -1031,6 +1031,17 @@ def generate_browser_scripts(matched_entries: list[dict[str, Any]], cfg: Compose
     return out_paths
 
 
+def _sanitize_archive_links(links: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Strip internal work-ID prefixes from displayed archive link labels without altering URLs."""
+    cleaned: list[dict[str, Any]] = []
+    for lk in links:
+        item = dict(lk)
+        if isinstance(item.get("label"), str):
+            item["label"] = item["label"].replace("ACUM_WRKNBR:", "")
+        cleaned.append(item)
+    return cleaned
+
+
 def _build_songs_and_archive_payloads(
     matched_entries: list[dict[str, Any]],
     unmatched_entries: list[dict[str, Any]],
@@ -1155,7 +1166,7 @@ def _build_songs_and_archive_payloads(
             "role_label": item.get("role_label_heb", cfg.default_role_label_heb),
             "co_creators": item.get("co_creators_heb", ""),
             "opening_line": item.get("opening_line", ""),
-            "links": item.get("archive_links", []),
+            "links": _sanitize_archive_links(item.get("archive_links", [])),
             "alts": alts_list,
         })
 
@@ -1168,7 +1179,7 @@ def _build_songs_and_archive_payloads(
         yr_display = yr if (yr and str(yr) != "2099") else "ללא שנה"
         rcat = item.get("role_category", "words_and_music")
         arch_role_counts[rcat] = arch_role_counts.get(rcat, 0) + 1
-        links_list = item.get("archive_links", [])
+        links_list = _sanitize_archive_links(item.get("archive_links", []))
         has_audio = any(lk.get("source") in ("nli_audio", "zemereshet_audio") for lk in links_list)
         if has_audio:
             as_audio += 1
@@ -1245,6 +1256,19 @@ def _render_player_html(
         f'<option value="{html.escape(key)}">{html.escape(GENERIC_ARCHIVE_ROLE_LABELS.get(key, label))} ({arch_role_counts.get(key, 0)})</option>'
         for key, label in cfg.role_filter_options
     )
+    decade_items = [
+        ("1950s", "שנות ה-50"),
+        ("1960s", "שנות ה-60"),
+        ("1970s", "שנות ה-70"),
+        ("1980s", "שנות ה-80"),
+        ("1990s+", "שנות ה-90+"),
+    ]
+    if decade_counts.get("unknown", 0) > 0:
+        decade_items.append(("unknown", "ללא שנה"))
+    decade_options_html = "\n              ".join(
+        f'<option value="{key}">{label} ({decade_counts.get(key, 0)})</option>'
+        for key, label in decade_items
+    )
 
     yt_playlist_btn_html = (
         f'\n        <a class="btn btn-outline" href="https://www.youtube.com/playlist?list={html.escape(cfg.youtube_playlist_id)}" target="_blank" rel="noopener">פתח ב-YouTube ↗</a>'
@@ -1300,7 +1324,7 @@ def _render_player_html(
     <!-- כותרת עליונה אלגנטית ומאוחדת -->
     <header class="top-header">
       <div>
-        <a href="../" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; color:var(--text-secondary); text-decoration:none; margin-bottom:4px; transition:color 0.15s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-secondary)'">← כל אוספי המלחינים</a>
+        <a class="back-hub-link" href="../">→ כל אוספי המלחינים</a>
         <h1 class="brand-title">
           {html.escape(cfg.playlist_title_he)}
           <span class="brand-count">{total_videos} ביצועים · {total_catalog_songs} שירים בקטלוג</span>
@@ -1310,7 +1334,7 @@ def _render_player_html(
         </p>
       </div>
       <div class="header-actions">
-        <button id="playPlaylistBtn" class="btn btn-gold btn-hero-play" onclick="startPlaylistPlayback()">▶ נגן פלייליסט</button>{yt_playlist_btn_html}
+        <button id="playPlaylistBtn" class="btn btn-gold btn-hero-play" type="button" onclick="startPlaylistPlayback()">▶ נגן פלייליסט</button>{yt_playlist_btn_html}
       </div>
     </header>
 
@@ -1318,29 +1342,30 @@ def _render_player_html(
     <div id="topStatusRow" class="nav-bar" style="margin-bottom: 12px;">
       <div class="tabs-bar" role="tablist" aria-label="תצוגת אוסף">
         <button id="tabBtnYt" class="tab-btn active" type="button" role="tab" aria-selected="true" aria-controls="tabYtContent" onclick="switchTab('yt')">
-          🎵 הפלייליסט המרכזי <span class="tab-count">({total_videos})</span>
+          🎵 <span class="tab-lbl-full">הפלייליסט המרכזי</span><span class="tab-lbl-short">פלייליסט</span> <span class="tab-count">({total_videos})</span>
         </button>
         <button id="tabBtnArch" class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tabArchContent" onclick="switchTab('arch')">
-          🏛️ ארכיון נדירים — ללא יוטיוב <span class="tab-count">({unmatched_songs_count})</span>
+          🏛️ <span class="tab-lbl-full">ארכיון נדירים — ללא יוטיוב</span><span class="tab-lbl-short">ארכיון נדירים</span> <span class="tab-count">({unmatched_songs_count})</span>
         </button>
       </div>
       <span id="ytCountChip" class="count-chip"></span>
     </div>
 
     <!-- לשונית 1: פלייליסט יוטיוב -->
-    <div id="tabYtContent">
-      <div class="search-hero" role="search">
-        <div class="search-wrap search-wrap-hero">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="7.5"></circle>
-            <line x1="20" y1="20" x2="16.4" y2="16.4"></line>
-          </svg>
-          <input type="text" id="searchInput" role="searchbox" aria-label="חיפוש שיר, מבצע, אלבום או שורת פתיחה" placeholder="חיפוש שיר, מבצע, אלבום או שורת פתיחה..." oninput="onSearchInput('yt')" />
-          <span id="searchKbd" class="search-kbd" title="קיצור מקלדת לחיפוש">/</span>
-          <button id="searchClearBtn" class="search-clear" type="button" onclick="clearSearch('yt')" title="נקה חיפוש (Esc)" aria-label="נקה חיפוש">✕</button>
-        </div>
-      </div>
+    <div id="tabYtContent" role="tabpanel" aria-labelledby="tabBtnYt">
       <div class="player-layout">
+        <div class="search-hero player-search-area" role="search">
+          <div class="search-wrap search-wrap-hero">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7.5"></circle>
+              <line x1="20" y1="20" x2="16.4" y2="16.4"></line>
+            </svg>
+            <input type="text" id="searchInput" role="searchbox" aria-label="חיפוש שיר, מבצע, אלבום או שורת פתיחה" placeholder="חיפוש שיר, מבצע, אלבום או שורת פתיחה..." oninput="onSearchInput('yt')" />
+            <span id="searchKbd" class="search-kbd" title="קיצור מקלדת לחיפוש" aria-hidden="true">/</span>
+            <button id="searchClearBtn" class="search-clear" type="button" onclick="clearSearch('yt')" title="נקה חיפוש (Esc)" aria-label="נקה חיפוש">✕</button>
+          </div>
+        </div>
+
         <!-- כרטיס הנגן הדביק -->
         <div class="card sticky-player">
           <div id="failoverBanner" style="display:none; background:rgba(245,158,11,0.18); border:1px solid var(--gold); color:#fcd34d; padding:7px 10px; border-radius:8px; font-size:12.5px; margin-bottom:8px;"></div>
@@ -1348,22 +1373,22 @@ def _render_player_html(
             <div id="ytFrame"></div>
           </div>
 
-          <div class="transport-bar">
-            <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
-            <button id="mainPlayPauseBtn" class="btn btn-outline btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯</button>
-            <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
-            <button id="shuffleBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀</button>
-            <button id="repeatBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleRepeatOne()" aria-pressed="false" title="ניגון חוזר לשיר הנוכחי (R)">🔂</button>
-            <button id="npShareBtn" class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="שתף או העתק קישור ישיר לשיר זה">🔗</button>
-            <a id="openOnYt" class="btn btn-outline btn-icon" href="#" target="_blank" rel="noopener" title="פתח ביוטיוב">↗ YT</a>
+          <div class="transport-bar" aria-label="פקדי ניגון">
+            <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)" aria-label="השיר הקודם">⏮</button>
+            <button id="mainPlayPauseBtn" class="btn btn-outline btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)" aria-label="ניגון או השהיה">⏯</button>
+            <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)" aria-label="השיר הבא">⏭</button>
+            <button id="shuffleBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleShuffle()" aria-pressed="false" title="ניגון אקראי (S)" aria-label="ניגון אקראי">🔀</button>
+            <button id="repeatBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleRepeatOne()" aria-pressed="false" title="ניגון חוזר לשיר הנוכחי (R)" aria-label="ניגון חוזר לשיר הנוכחי">🔂</button>
+            <button id="npShareBtn" class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="שתף או העתק קישור ישיר לשיר זה" aria-label="שתף או העתק קישור ישיר לשיר זה">🔗</button>
+            <a id="openOnYt" class="btn btn-outline btn-icon" href="#" target="_blank" rel="noopener" title="פתח ביוטיוב" aria-label="פתח ביוטיוב">↗ YT</a>
           </div>
 
           <div class="np-header">
             <div class="np-title-row">
               <div id="nowPlayingTitle">בחר שיר מהרשימה</div>
               <div class="np-title-actions">
-                <button class="btn btn-outline btn-sm" type="button" onclick="scrollToActiveRow()" title="גלול לשיר המתנגן בטבלה">🎯</button>
-                <button id="npFavBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleCurrentFavorite()" title="הוסף / הסר מהמועדפים (F)">♡</button>
+                <button class="btn btn-outline btn-sm" type="button" onclick="scrollToActiveRow()" title="גלול לשיר המתנגן בטבלה" aria-label="גלול לשיר המתנגן בטבלה">🎯</button>
+                <button id="npFavBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleCurrentFavorite()" aria-pressed="false" title="הוסף / הסר מהמועדפים (F)" aria-label="הוסף או הסר מהמועדפים">♡</button>
               </div>
             </div>
             <div id="nowPlayingMeta"></div>
@@ -1378,11 +1403,10 @@ def _render_player_html(
             <summary id="npDetailsSummary">⚙️ מקורות גיבוי וקיצורי מקלדת</summary>
             <div style="margin-top:8px; display:flex; flex-direction:column; gap:8px;">
               <div id="backupSourcesBox" style="display:none;">
-                <label style="display:block; margin-bottom:4px; color:var(--text-secondary);">🛡️ החלף למקור גיבוי / ביצוע חלופי:</label>
+                <label for="backupSelect" style="display:block; margin-bottom:4px; color:var(--text-secondary);">🛡️ החלף למקור גיבוי / ביצוע חלופי:</label>
                 <select id="backupSelect" onchange="switchVideoSource(this.value)" style="width:100%; padding:6px 8px; font-size:12px;"></select>
               </div>
               <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
-                <button class="btn btn-outline btn-sm" onclick="scrollToActiveRow()">🎯 גלול לשיר המתנגן בטבלה</button>
                 <span>קיצורים: <kbd>Space</kbd> השהיה · <kbd>N</kbd>/<kbd>P</kbd> מעבר · <kbd>S</kbd> אקראי · <kbd>R</kbd> חוזר · <kbd>F</kbd> מועדף · <kbd>/</kbd> חיפוש</span>
               </div>
             </div>
@@ -1390,10 +1414,10 @@ def _render_player_html(
         </div>
 
         <!-- כרטיס רשימת השירים -->
-        <div class="card">
+        <div class="card playlist-card">
           <!-- שורת מיון וסינון מהיר -->
           <div class="toolbar">
-            <select id="sortSelect" onchange="renderTable()">
+            <select id="sortSelect" aria-label="מיון שירים" onchange="renderTable()">
               <option value="canonical">🌟 מיון: קלאסיקות תחילה</option>
               <option value="chrono_asc">📅 כרונולוגי (לפי שנת הקלטה)</option>
               <option value="chrono_desc">⏪ כרונולוגי הפוך</option>
@@ -1402,37 +1426,32 @@ def _render_player_html(
               <option value="title_asc">🔤 שם השיר (א'–ת')</option>
               <option value="perf_asc">🎤 שם המבצע (א'–ת')</option>
             </select>
-            <select id="decadeFilter" onchange="renderTable()">
+            <select id="decadeFilter" aria-label="סינון לפי עשור" onchange="renderTable()">
               <option value="ALL">כל העשורים ({total_videos})</option>
-              <option value="1950s">שנות ה-50 ({decade_counts.get('1950s', 0)})</option>
-              <option value="1960s">שנות ה-60 ({decade_counts.get('1960s', 0)})</option>
-              <option value="1970s">שנות ה-70 ({decade_counts.get('1970s', 0)})</option>
-              <option value="1980s">שנות ה-80 ({decade_counts.get('1980s', 0)})</option>
-              <option value="1990s+">שנות ה-90+ ({decade_counts.get('1990s+', 0)})</option>
-              <option value="unknown">ללא שנה ({decade_counts.get('unknown', 0)})</option>
+              {decade_options_html}
             </select>
             <button id="onePerSongBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleOnePerSong()" aria-pressed="false" title="סנן לביצוע מוביל אחד לכל שיר (מדלג על גרסאות כפולות בלי למחוק אותן)">
-              🎯 ביצוע אחד לכל שיר ({unique_songs_count})
+              1️⃣ ביצוע אחד לכל שיר ({unique_songs_count})
             </button>
             <button id="favOnlyBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleFavOnly()" aria-pressed="false" title="הצג רק ביצועים שסימנת כמועדפים">
               ❤️ מועדפים (<span id="favCountSpan">0</span>)
             </button>
-            <button id="advFilterBtn" class="btn btn-outline btn-sm" onclick="toggleAdvancedFilters()">
+            <button id="advFilterBtn" class="btn btn-outline btn-sm" type="button" aria-expanded="false" aria-controls="advancedDrawer" onclick="toggleAdvancedFilters()">
               ⚙️ סינון מתקדם <span id="activeFiltersBadge" style="display:none; background:var(--gold); color:#000; padding:0 6px; border-radius:999px; font-size:11px;"></span>
             </button>
           </div>
 
           <!-- מגירת סינון מתקדם (מוסתרת כברירת מחדל) -->
           <div id="advancedDrawer" class="advanced-drawer">
-            <select id="tierFilter" onchange="renderTable()">
+            <select id="tierFilter" aria-label="סינון לפי סוג ביצוע" onchange="renderTable()">
               <option value="ALL">כל סוגי הביצועים ({total_videos})</option>
               {tier_options_html}
             </select>
-            <select id="roleFilter" onchange="renderTable()">
+            <select id="roleFilter" aria-label="סינון לפי תפקיד יצירה" onchange="renderTable()">
               <option value="ALL">כל תפקידי היצירה ({total_videos})</option>
               {role_options_html}
             </select>
-            <button class="btn btn-outline btn-sm" onclick="resetAllFilters()" title="אפס את כל המסננים">↺ איפוס</button>
+            <button class="btn btn-outline btn-sm" type="button" onclick="resetAllFilters()" title="אפס את כל המסננים">↺ איפוס</button>
           </div>
 
           <!-- שורת תגיות מסננים פעילים -->
@@ -1441,8 +1460,10 @@ def _render_player_html(
           <!-- ניווט מהיר בין בלוקים במיון קלאסיקות -->
           <div id="blockJumpBar" class="block-jump-bar" style="display:none;"></div>
 
+          <div id="outOfFilterBanner" class="out-of-filter-banner" style="display:none;" role="status" aria-live="polite"></div>
+
           <div class="table-wrap">
-            <table>
+            <table class="songs-table">
               <thead>
                 <tr>
                   <th style="width:44px; text-align:center;">#</th>
@@ -1459,7 +1480,7 @@ def _render_player_html(
     </div>
 
     <!-- לשונית 2: ארכיון שירים נדירים שלא ביוטיוב -->
-    <div id="tabArchContent" style="display:none;">
+    <div id="tabArchContent" role="tabpanel" aria-labelledby="tabBtnArch" style="display:none;">
       <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
           <div>
@@ -1477,7 +1498,7 @@ def _render_player_html(
               <line x1="20" y1="20" x2="16.4" y2="16.4"></line>
             </svg>
             <input type="text" id="archSearchInput" role="searchbox" aria-label="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע..." oninput="onSearchInput('arch')" />
-            <span id="archSearchKbd" class="search-kbd" title="קיצור מקלדת לחיפוש">/</span>
+            <span id="archSearchKbd" class="search-kbd" title="קיצור מקלדת לחיפוש" aria-hidden="true">/</span>
             <button id="archSearchClearBtn" class="search-clear" type="button" onclick="clearSearch('arch')" title="נקה חיפוש (Esc)" aria-label="נקה חיפוש">✕</button>
           </div>
         </div>
@@ -1485,20 +1506,22 @@ def _render_player_html(
           <button id="archAudioOnlyBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleArchAudioOnly()" aria-pressed="false" title="סנן לשירים שקיימת עבורם הקלטת שמע פתוחה להאזנה חופשית באתר הספרייה הלאומית או בזמרשת">
             🎧 קיימת הקלטה להאזנה ({as_audio})
           </button>
-          <select id="archRoleFilter" onchange="renderArchiveTable()">
+          <select id="archRoleFilter" aria-label="סינון ארכיון לפי תפקיד" onchange="renderArchiveTable()">
             <option value="ALL">כל התפקידים ({unmatched_songs_count})</option>
             {arch_role_options_html}
           </select>
-          <select id="archSourceFilter" onchange="renderArchiveTable()">
+          <select id="archSourceFilter" aria-label="סינון ארכיון לפי מאגר" onchange="renderArchiveTable()">
             <option value="ALL">כל המאגרים ({unmatched_songs_count})</option>
             <option value="nli">הספרייה הלאומית ({arch_src_counts.get('nli', 0)})</option>
             <option value="acum">אקו"ם ({arch_src_counts.get('acum', 0)})</option>
             <option value="shironet">שירונט ({arch_src_counts.get('shironet', 0)})</option>
             <option value="zemereshet">זמרשת ({arch_src_counts.get('zemereshet', 0)})</option>
           </select>
+          <button id="archResetBtn" class="btn btn-outline btn-sm" type="button" onclick="resetArchiveFilters()" style="display:none;" title="אפס את מסנני הארכיון">↺ איפוס</button>
         </div>
+        <div id="archActiveFilterChips" class="active-chips-bar" style="display:none;"></div>
         <div class="table-wrap">
-          <table>
+          <table class="archive-table">
             <thead>
               <tr>
                 <th style="width:44px;">#</th>
@@ -1517,14 +1540,14 @@ def _render_player_html(
     <!-- פוטר שקט בתחתית העמוד למעבר לארכיון המשלים -->
     <footer style="margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 13px;">
       <span>{html.escape(cfg.footer_label_he)} · {total_videos} ביצועים ביוטיוב</span>
-      <button id="footerArchToggleBtn" class="btn btn-outline btn-sm arch-toggle-btn" onclick="switchTab(currentTab === 'yt' ? 'arch' : 'yt')">
+      <button id="footerArchToggleBtn" class="btn btn-outline btn-sm arch-toggle-btn" type="button" onclick="switchTab(currentTab === 'yt' ? 'arch' : 'yt')">
         🏛️ מעבר לארכיון {unmatched_songs_count} שירים נדירים שאינם ביוטיוב
       </button>
     </footer>
   </div>
 
   <div id="miniPlayerBar" class="mini-player-bar" role="region" aria-label="נגן מוקטן">
-    <div id="miniProgressWrap" class="mini-progress-wrap" onclick="seekFromMiniBar(event)" title="לחץ לדילוג לנקודה בשיר">
+    <div id="miniProgressWrap" class="mini-progress-wrap" role="slider" tabindex="0" aria-label="סרגל התקדמות ניגון" onclick="seekFromMiniBar(event)" title="לחץ לדילוג לנקודה בשיר">
       <div id="miniProgressFill" class="mini-progress-fill"></div>
     </div>
     <div class="mini-player-inner">
@@ -1536,13 +1559,15 @@ def _render_player_html(
         </div>
       </div>
       <div class="mini-controls">
-        <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
-        <button id="miniPlayBtn" class="btn btn-gold btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">▶</button>
-        <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
-        <button class="btn btn-outline btn-icon" type="button" onclick="scrollToActiveRow(true)" title="גלול לשיר המתנגן בטבלה">🎯</button>
-        <button id="miniFavBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleCurrentFavorite()" title="הוסף / הסר מהמועדפים (F)">♡</button>
-        <button class="btn btn-outline btn-icon mini-hide-xs" type="button" onclick="copyShareUrl()" title="שתף או העתק קישור ישיר לשיר זה">🔗</button>
-        <button class="btn btn-outline btn-sm" type="button" onclick="scrollToTopPlayer()" title="חזרה לנגן הווידאו">⬆ <span class="mini-back-lbl">לנגן</span></button>
+        <div class="mini-transport">
+          <button class="btn btn-outline btn-icon mini-hide-mobile" type="button" onclick="playPrev()" title="השיר הקודם (P)" aria-label="השיר הקודם">⏮</button>
+          <button id="miniPlayBtn" class="btn btn-gold btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)" aria-label="ניגון או השהיה">▶</button>
+          <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)" aria-label="השיר הבא">⏭</button>
+        </div>
+        <button class="btn btn-outline btn-icon mini-hide-mobile" type="button" onclick="scrollToActiveRow(true)" title="גלול לשיר המתנגן בטבלה" aria-label="גלול לשיר המתנגן בטבלה">🎯</button>
+        <button id="miniFavBtn" class="btn btn-outline btn-icon mini-hide-mobile" type="button" onclick="toggleCurrentFavorite()" aria-pressed="false" title="הוסף / הסר מהמועדפים (F)" aria-label="הוסף או הסר מהמועדפים">♡</button>
+        <button class="btn btn-outline btn-icon mini-hide-xs mini-hide-mobile" type="button" onclick="copyShareUrl()" title="שתף או העתק קישור ישיר לשיר זה" aria-label="העתק קישור לשיר">🔗</button>
+        <button class="btn btn-outline btn-sm" type="button" onclick="scrollToTopPlayer()" title="חזרה לנגן הווידאו" aria-label="חזרה לנגן הווידאו">⬆ <span class="mini-back-lbl">לנגן</span></button>
       </div>
     </div>
   </div>
@@ -1794,7 +1819,7 @@ def build_hub() -> Path:
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
       gap: 20px;
       flex: 1 0 auto;
-      align-items: start;
+      align-items: stretch;
     }}
     .card {{
       min-width: 0;
@@ -1853,7 +1878,8 @@ def build_hub() -> Path:
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 6px;
+      margin-top: auto;
+      padding-top: 6px;
     }}
     .btn {{
       display: inline-flex;
@@ -1903,6 +1929,14 @@ def build_hub() -> Path:
     }}
     footer.hub-footer a:hover {{
       text-decoration: underline;
+    }}
+    a:focus-visible, button:focus-visible {{
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }}
+    @media (prefers-reduced-motion: reduce) {{
+      *, *::before, *::after {{ transition: none !important; }}
+      .card:hover {{ transform: none; }}
     }}
   </style>
 </head>
