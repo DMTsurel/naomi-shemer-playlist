@@ -6,7 +6,7 @@
 
 ## 📂 אוספים זמינים
 
-* **[נעמי שמר (`naomi-shemer/`)](naomi-shemer/README.md)** — `703` ביצועי יוטיוב על פני `370` שירים + `81` שירי ארכיון משלימים (`451` שירים בקטלוג).
+* **[נעמי שמר (`naomi-shemer/`)](naomi-shemer/README.md)** — `705` ביצועי יוטיוב על פני `370` שירים + `81` שירי ארכיון משלימים (`451` שירים בקטלוג).
   * 🌐 **הנגן האינטראקטיבי:** https://dmtsurel.github.io/playlists/naomi-shemer/
   * ▶️ **פלייליסט ב-YouTube:** https://www.youtube.com/playlist?list=PLFHErlX6i22g
 
