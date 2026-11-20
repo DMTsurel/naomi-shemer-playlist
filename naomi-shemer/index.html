@@ -39,17 +39,32 @@
       </div>
     </header>
 
-    <!-- סרגל עליון למעבר מהיר לארכיון ומונה -->
-    <div id="topStatusRow" class="nav-bar" style="margin-bottom: 10px;">
-      <button id="topArchToggleBtn" class="btn btn-outline btn-sm arch-toggle-btn" onclick="switchTab('arch')">
-        🏛️ הצג גם 81 שירים נדירים מהארכיון שאינם ביוטיוב
-      </button>
-      <button id="backToPlayerBtn" class="btn btn-outline btn-sm" style="display:none;" onclick="switchTab('yt')">← חזרה לנגן הפלייליסט (695 ביצועים)</button>
+    <!-- סרגל לשוניות ברור למעבר בין הפלייליסט המרכזי לארכיון המשלים -->
+    <div id="topStatusRow" class="nav-bar" style="margin-bottom: 12px;">
+      <div class="tabs-bar" role="tablist" aria-label="תצוגת אוסף">
+        <button id="tabBtnYt" class="tab-btn active" type="button" role="tab" aria-selected="true" aria-controls="tabYtContent" onclick="switchTab('yt')">
+          🎵 הפלייליסט המרכזי <span class="tab-count">(695)</span>
+        </button>
+        <button id="tabBtnArch" class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tabArchContent" onclick="switchTab('arch')">
+          🏛️ ארכיון נדירים — ללא יוטיוב <span class="tab-count">(81)</span>
+        </button>
+      </div>
       <span id="ytCountChip" class="count-chip"></span>
     </div>
 
     <!-- לשונית 1: פלייליסט יוטיוב -->
     <div id="tabYtContent">
+      <div class="search-hero" role="search">
+        <div class="search-wrap search-wrap-hero">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7.5"></circle>
+            <line x1="20" y1="20" x2="16.4" y2="16.4"></line>
+          </svg>
+          <input type="text" id="searchInput" role="searchbox" aria-label="חיפוש שיר, מבצע, אלבום או שורת פתיחה" placeholder="חיפוש שיר, מבצע, אלבום או שורת פתיחה..." oninput="onSearchInput('yt')" />
+          <span id="searchKbd" class="search-kbd" title="קיצור מקלדת לחיפוש">/</span>
+          <button id="searchClearBtn" class="search-clear" type="button" onclick="clearSearch('yt')" title="נקה חיפוש (Esc)" aria-label="נקה חיפוש">✕</button>
+        </div>
+      </div>
       <div class="player-layout">
         <!-- כרטיס הנגן הדביק -->
         <div class="card sticky-player">
@@ -101,13 +116,8 @@
 
         <!-- כרטיס רשימת השירים -->
         <div class="card">
-          <!-- שורת חיפוש ומיון נקייה -->
+          <!-- שורת מיון וסינון מהיר -->
           <div class="toolbar">
-            <div class="search-wrap">
-              <input type="text" id="searchInput" placeholder="חיפוש שיר, שורת פתיחה, מבצע או אלבום..." oninput="onSearchInput('yt')" />
-              <span id="searchKbd" class="search-kbd">/</span>
-              <button id="searchClearBtn" class="search-clear" type="button" onclick="clearSearch('yt')" title="נקה חיפוש (Esc)">✕</button>
-            </div>
             <select id="sortSelect" onchange="renderTable()">
               <option value="canonical">🌟 מיון: קלאסיקות תחילה</option>
               <option value="chrono_asc">📅 כרונולוגי (לפי שנת הקלטה)</option>
@@ -193,11 +203,18 @@
           </div>
           <span id="archCountChip" class="count-chip"></span>
         </div>
-        <div class="toolbar">
-          <div class="search-wrap">
-            <input type="text" id="archSearchInput" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע..." oninput="onSearchInput('arch')" />
-            <button id="archSearchClearBtn" class="search-clear" type="button" onclick="clearSearch('arch')" title="נקה חיפוש (Esc)">✕</button>
+        <div class="search-hero" role="search">
+          <div class="search-wrap search-wrap-hero">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7.5"></circle>
+              <line x1="20" y1="20" x2="16.4" y2="16.4"></line>
+            </svg>
+            <input type="text" id="archSearchInput" role="searchbox" aria-label="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע" placeholder="חיפוש בארכיון לפי שם שיר, שורת פתיחה או מבצע..." oninput="onSearchInput('arch')" />
+            <span id="archSearchKbd" class="search-kbd" title="קיצור מקלדת לחיפוש">/</span>
+            <button id="archSearchClearBtn" class="search-clear" type="button" onclick="clearSearch('arch')" title="נקה חיפוש (Esc)" aria-label="נקה חיפוש">✕</button>
           </div>
+        </div>
+        <div class="toolbar">
           <button id="archAudioOnlyBtn" class="btn btn-outline btn-sm" type="button" onclick="toggleArchAudioOnly()" aria-pressed="false" title="סנן לשירים שקיימת עבורם הקלטת שמע פתוחה להאזנה חופשית באתר הספרייה הלאומית או בזמרשת">
             🎧 קיימת הקלטה להאזנה (8)
           </button>
@@ -238,7 +255,7 @@
     <footer style="margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 13px;">
       <span>קטלוג שירי נעמי שמר · 695 ביצועים ביוטיוב</span>
       <button id="footerArchToggleBtn" class="btn btn-outline btn-sm arch-toggle-btn" onclick="switchTab(currentTab === 'yt' ? 'arch' : 'yt')">
-        🏛️ הצג גם 81 שירים נדירים מהארכיון שאינם ביוטיוב
+        🏛️ מעבר לארכיון 81 שירים נדירים שאינם ביוטיוב
       </button>
     </footer>
   </div>

@@ -445,17 +445,23 @@ function switchTab(tab, skipSync = false) {
     ytTabEl.classList.toggle("tab-offscreen", !isYt);
   }
   document.getElementById("tabArchContent").style.display = isYt ? "none" : "block";
-  const topArchBtn = document.getElementById("topArchToggleBtn");
-  if (topArchBtn) topArchBtn.style.display = isYt ? "inline-flex" : "none";
-  const backBtn = document.getElementById("backToPlayerBtn");
-  if (backBtn) backBtn.style.display = isYt ? "none" : "inline-flex";
+  const tabBtnYt = document.getElementById("tabBtnYt");
+  if (tabBtnYt) {
+    tabBtnYt.classList.toggle("active", isYt);
+    tabBtnYt.setAttribute("aria-selected", isYt ? "true" : "false");
+  }
+  const tabBtnArch = document.getElementById("tabBtnArch");
+  if (tabBtnArch) {
+    tabBtnArch.classList.toggle("active", !isYt);
+    tabBtnArch.setAttribute("aria-selected", isYt ? "false" : "true");
+  }
   const ytChip = document.getElementById("ytCountChip");
   if (ytChip) ytChip.style.display = isYt ? "" : "none";
   const footerBtn = document.getElementById("footerArchToggleBtn");
   if (footerBtn) {
     footerBtn.textContent = isYt
-      ? `🏛️ הצג גם ${ARCHIVE_SONGS.length} שירים נדירים מהארכיון שאינם ביוטיוב`
-      : `🎵 חזרה לנגן הפלייליסט הראשי (${SONGS.length} ביצועים)`;
+      ? `🏛️ מעבר לארכיון ${ARCHIVE_SONGS.length} שירים נדירים שאינם ביוטיוב`
+      : `🎵 חזרה לפלייליסט המרכזי (${SONGS.length} ביצועים)`;
   }
   updateMiniPlayerVisibility();
   if (!skipSync) {
@@ -566,7 +572,10 @@ function updateSearchClearUI(which) {
   if (which === "arch") {
     const inp = document.getElementById("archSearchInput");
     const clr = document.getElementById("archSearchClearBtn");
-    if (inp && clr) clr.style.display = inp.value.length > 0 ? "inline-flex" : "none";
+    const kbd = document.getElementById("archSearchKbd");
+    const hasVal = inp && inp.value.length > 0;
+    if (clr) clr.style.display = hasVal ? "inline-flex" : "none";
+    if (kbd) kbd.style.display = hasVal ? "none" : "inline";
   } else {
     const inp = document.getElementById("searchInput");
     const clr = document.getElementById("searchClearBtn");
