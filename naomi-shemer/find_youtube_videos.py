@@ -920,6 +920,7 @@ def classify_and_score_candidate(
         "lDNtdPiL584",  # חורשת האקליפטוס (Snakserge2) - אינה נעמי שמר (הוחלף ב-My9HiZIPsak מהופעה חיה בכנרת 1988)
         "zFJUpGoNWPc",  # למה צחקה מיכל (יהונתן בוהדנה) - הקלטה ביתית של זמר אחר המיוחסת בטעות להגשש החיוור
         "zTCbwh0WyXM",  # שיר סתיו (יפה ירקוני) - עותק באיכות נמוכה (הוחלף ב-06dUzmJF7H0 הרשמי של NMC)
+        "h2OehrbqLRA",  # להקת גייסות השריון - האם השלישית (לחן יאיר רוזנבלום, לא נעמי שמר)
     }
     if cand.get("video_id") in BAD_VIDEO_IDS:
         return None
