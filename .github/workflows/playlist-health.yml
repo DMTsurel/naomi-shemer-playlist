@@ -11,8 +11,10 @@ permissions:
   issues: write
 
 jobs:
-  check-videos:
+  discover:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,12 +24,33 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run YouTube playability & hidden-video check
+      - name: Discover enabled composer slugs
+        id: set-matrix
+        run: |
+          MATRIX_JSON=$(python3 scripts/cli.py matrix-json)
+          echo "matrix=${MATRIX_JSON}" >> "$GITHUB_OUTPUT"
+
+  check-videos:
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        slug: ${{ fromJson(needs.discover.outputs.matrix) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run YouTube playability check
         id: health
         continue-on-error: true
-        working-directory: naomi-shemer
         run: |
-          python3 check_playlist_health.py --skip-live-playlist --json-report health_report.json
+          python3 scripts/cli.py health "${{ matrix.slug }}" --skip-live-playlist --json-report "${{ matrix.slug }}/health_report.json"
 
       - name: Open or update GitHub Issue if unavailable videos are found
         if: steps.health.outcome == 'failure'
@@ -35,11 +58,14 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const report = JSON.parse(fs.readFileSync('naomi-shemer/health_report.json', 'utf8'));
+            const slug = '${{ matrix.slug }}';
+            const reportPath = `${slug}/health_report.json`;
+            if (!fs.existsSync(reportPath)) return;
+            const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
             if (!report.unavailable || report.unavailable.length === 0) return;
 
             const lines = [
-              `בבדיקה האוטומטית השבועית התגלו **${report.unavailable.length}** סרטונים שהפכו ללא-זמינים ביוטיוב:`,
+              `בבדיקה האוטומטית השבועית עבור \`${slug}\` התגלו **${report.unavailable.length}** סרטונים שהפכו ללא-זמינים ביוטיוב:`,
               '',
               '| # | שיר | מבצע | מזהה שהוסר | גיבויים תקינים מומלצים |',
               '|---|---|---|---|---|'
@@ -51,9 +77,9 @@ jobs:
                 .join('<br/>') || 'אין גיבוי אוטומטי';
               lines.push(`| #${u.index} | **${u.title}** | ${u.performer} | \`${u.video_id}\` | ${alts} |`);
             }
-            lines.push('', 'להרצה מקומית של בדיקת התקינות: `python3 check_playlist_health.py`');
+            lines.push('', `להרצה מקומית של בדיקת התקינות: \`python3 scripts/cli.py health ${slug}\``);
             const body = lines.join('\n');
-            const title = '⚠️ התראת זמינות בפלייליסט: נמצאו סרטונים שהוסרו מיוטיוב';
+            const title = `⚠️ התראת זמינות בפלייליסט (${slug}): נמצאו סרטונים שהוסרו מיוטיוב`;
 
             const existing = await github.rest.issues.listForRepo({
               owner: context.repo.owner,

@@ -78,6 +78,10 @@
     "streaming_import_csv": "naomi_shemer_streaming_import.csv",
     "stream_m3u8": "naomi_shemer_youtube_stream.m3u8",
     "wayback_txt": "wayback_backup_urls.txt",
+    "metadata_backup_json": "youtube_full_metadata_backup.json",
+    "health_report_md": "health_check_report.md",
+    "health_report_json": "health_report.json",
+    "spotify_export_dir": "spotify_export",
     "legacy_player_html": "naomi_shemer_playlist_player.html"
   },
   "sources": {
@@ -221,6 +225,19 @@
       "כיצד שוברים חמסין",
       "נעמי שמר שרה לילדים",
       "ט\"ו בשבט שלי"
+    ],
+    "musical_album_keywords": [
+      "אצלנו בפסנתר",
+      "etslenu bapsanter",
+      "מסעות בנימין השלישי",
+      "חמש חמש",
+      "hamesh hamesh",
+      "המלך ואני",
+      "חבורת בימות",
+      "bimot",
+      "חפצים אישיים",
+      "שירי נעמי שמר",
+      "naomi shemer"
     ]
   },
   "ranking": {

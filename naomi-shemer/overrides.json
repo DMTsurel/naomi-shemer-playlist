@@ -524,5 +524,25 @@
       "title": "אור וירושלים",
       "reason": "מילים ולחן: יוסף שריג (performance_only לנעמי שמר — הפרברים/יהורם גאון הוחרגו)"
     }
-  ]
+  ],
+  "streaming_performer_overrides": {
+    "למה צחקה מיכל": {
+      "performer": "הגשש החיוור",
+      "note": "שדרוג לביצוע האולפן המקורי של הגשש החיוור הקיים בסטרימינג!"
+    }
+  },
+  "split_composition_guards": {
+    "ספני שלמה המלך": [
+      {
+        "title_contains": "(לחן ב')",
+        "reject_any": ["סמבטיון", "sambatyon", "אטאס", "atas", "איינשטיין", "einstein"],
+        "require_any": ["רובינא", "rovina", "ruvina", "נעמי שמר", "naomi shemer"]
+      },
+      {
+        "title_contains": "(לחן א')",
+        "reject_any": ["רובינא", "rovina", "ruvina"],
+        "require_any": ["סמבטיון", "sambatyon", "אטאס", "atas", "איינשטיין", "einstein", "פרוסט"]
+      }
+    ]
+  }
 }

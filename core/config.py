@@ -100,6 +100,31 @@ class ComposerConfig:
         return self._file_path("wayback_txt", "wayback_backup_urls.txt")
 
     @property
+    def metadata_backup_json(self) -> Path:
+        return self._file_path("metadata_backup_json", "youtube_full_metadata_backup.json")
+
+    @property
+    def health_report_md(self) -> Path:
+        return self._file_path("health_report_md", "health_check_report.md")
+
+    @property
+    def health_report_json(self) -> Path:
+        return self._file_path("health_report_json", "health_report.json")
+
+    @property
+    def spotify_export_dir(self) -> Path:
+        return self._file_path("spotify_export_dir", "spotify_export")
+
+    @property
+    def default_streaming_cache(self) -> Path:
+        custom = self.files.get("streaming_cache_json", "")
+        return (self.dir / custom) if custom else (self.dir / "raw_cache" / "streaming_api_cache.json")
+
+    @property
+    def musical_album_keywords(self) -> list[str]:
+        return list(self.discography.get("musical_album_keywords", []))
+
+    @property
     def index_html(self) -> Path:
         return self.dir / "index.html"
 

@@ -147,3 +147,60 @@ def title_similarity(query_title: str, cand_title: str) -> float:
             return 0.85
     denom = len(set(q_toks) | set(c_toks))
     return round(matched_q / denom, 3) if denom else 0.0
+
+
+_HEB_TO_LATIN_CHAR: dict[str, str] = {
+    "א": "[aeouiyh]?",
+    "ב": "[bv]",
+    "ג": "[gj]",
+    "ד": "d",
+    "ה": "[haeiou]?",
+    "ו": "[vouwi]?",
+    "ז": "z",
+    "ח": "(?:ch|kh|h)",
+    "ט": "t",
+    "י": "[yi]?",
+    "כ": "(?:ch|kh|k|c)",
+    "ך": "(?:ch|kh|k)",
+    "ל": "l",
+    "מ": "m",
+    "ם": "m",
+    "נ": "n",
+    "ן": "n",
+    "ס": "[sc]",
+    "ע": "[aeoiuyh']?",
+    "פ": "[pf]",
+    "ף": "[pf]",
+    "צ": "(?:tz|ts|z|c)",
+    "ץ": "(?:tz|ts|z)",
+    "ק": "[kq]",
+    "ר": "r",
+    "ש": "(?:sh|s)",
+    "ת": "t",
+}
+
+
+def ascii_translit_matches(heb_title: str, cand_title: str) -> bool:
+    """Check whether an ASCII-only track title is a phonetic romanization of a Hebrew song title."""
+    c_ascii = re.sub(r"[^a-z\s]", " ", norm_heb(strip_title_noise(cand_title))).strip()
+    if not c_ascii or re.search(r"[א-ת]", norm_heb(cand_title)):
+        return False
+    h_words = [w for w in norm_heb(strip_title_noise(heb_title)).split() if w]
+    if not h_words:
+        return False
+    c_compact = re.sub(r"[\s']+", "", c_ascii)
+    # Single short word (like אור -> Or) must match tightly by word count and pattern
+    if len(h_words) == 1 and len(c_ascii.split()) != 1:
+        return False
+    pat_parts = []
+    for hw in h_words:
+        p = "[aeoiuyh']*".join(_HEB_TO_LATIN_CHAR.get(ch, "") for ch in hw)
+        pat_parts.append(p)
+    full_pat = "^[aeoiuyh']*" + "[aeoiuyh']*".join(pat_parts) + "[aeoiuyh']*$"
+    return bool(re.match(full_pat, c_compact))
+
+
+def has_bad_keyword(cand_title: str, cand_artist: str, cand_album: str) -> bool:
+    """Return True if a candidate track mentions karaoke, backing tracks, skits, or interviews."""
+    blob = f"{cand_title} {cand_artist} {cand_album}".lower()
+    return any(kw in blob for kw in BAD_TRACK_KEYWORDS)
