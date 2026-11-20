@@ -647,6 +647,7 @@ def score_candidate(
     catalog_albums: list[str],
     allow_fallback_perf: bool,
     is_archive: bool,
+    role_category: str = "",
 ) -> tuple[float, str] | None:
     """Evaluate candidate streaming track and return (score, match_kind) or None."""
     ctitle = str(cand.get("title") or "")
@@ -660,6 +661,12 @@ def score_candidate(
         return None
     if hits_homonym_block(song_title, ctitle, cartist, calbum):
         return None
+
+    # For songs where Naomi Shemer is ONLY a performer (not author/composer/translator),
+    # strictly accept ONLY recordings performed by Naomi Shemer herself.
+    if role_category == "performance_only":
+        if not artist_matches_target(cartist, ctitle, calbum, "נעמי שמר"):
+            return None
 
     # Special guard on split Sapaney compositions
     if "ספני שלמה המלך" in song_title:
@@ -922,7 +929,15 @@ def main() -> None:
     ) -> dict[str, Any] | None:
         sv = it.get("selected_video") or {}
         cs = cmap.get(it["title"], {})
-        cat_perfs = list(dict.fromkeys((it.get("catalog_performers") or []) + (cs.get("performers") or []) + ["נעמי שמר"]))
+        role_cat = it.get("role_category", "")
+        if role_cat == "performance_only":
+            cat_perfs = ["נעמי שמר"]
+            eff_target = "נעמי שמר"
+            eff_fallback = False
+        else:
+            cat_perfs = list(dict.fromkeys((it.get("catalog_performers") or []) + (cs.get("performers") or []) + ["נעמי שמר"]))
+            eff_target = target_perf
+            eff_fallback = allow_fallback
         cat_albs = list(dict.fromkeys((it.get("catalog_albums") or []) + (cs.get("albums") or [])))
         scored = []
         for cand in pool:
@@ -933,13 +948,14 @@ def main() -> None:
                 cand=cand,
                 song_title=it["title"],
                 alt_titles=it.get("alt_titles") or [],
-                target_perf=target_perf,
+                target_perf=eff_target,
                 allowed_fallbacks=cat_perfs,
                 row_album_group=it.get("album_group", ""),
                 matched_album=sv.get("matched_album", ""),
                 catalog_albums=cat_albs,
-                allow_fallback_perf=allow_fallback,
+                allow_fallback_perf=eff_fallback,
                 is_archive=is_archive,
+                role_category=role_cat,
             )
             if res:
                 scored.append((res[0], res[1], cand))
@@ -1148,7 +1164,7 @@ def main() -> None:
                 }
                 committed = try_commit_match(uid, rec2)
 
-        if not committed and is_arch:
+        if not committed and is_arch and it.get("role_category") != "performance_only":
             hints = find_unverified_hints(collect_deezer_pool(it, ""), it["title"], it.get("alt_titles") or [])
             if hints:
                 unverified_archive_hints.append({"song": it["title"], "year": it.get("year", ""), "hints": hints[:2]})
