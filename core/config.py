@@ -63,10 +63,16 @@ class ComposerConfig:
     block_meta: dict[str, dict[str, str]] = field(default_factory=dict)
     jump_groups: list[dict[str, Any]] = field(default_factory=list)
     base_url: str = "https://dmtsurel.github.io/playlists"
+    creator_aliases: list[str] = field(default_factory=list)
+    creator_surname_tokens: list[str] = field(default_factory=list)
+    creator_tie_markers: list[str] = field(default_factory=list)
+    creator_dual_role: str = "creator_performance"
+    active_year_range: tuple[int, int] = (1920, 2030)
+    custom_dir: Path | None = None
 
     @property
     def dir(self) -> Path:
-        return REPO_ROOT / self.slug
+        return self.custom_dir if self.custom_dir is not None else (REPO_ROOT / self.slug)
 
     def _file_path(self, key: str, default_name: str) -> Path:
         return self.dir / self.files.get(key, default_name)
@@ -78,6 +84,18 @@ class ComposerConfig:
     @property
     def catalog_json(self) -> Path:
         return self._file_path("catalog_json", "catalog.json")
+
+    @property
+    def songs_csv(self) -> Path:
+        return self._file_path("songs_csv", "songs.csv")
+
+    @property
+    def albums_csv(self) -> Path:
+        return self._file_path("albums_csv", "albums.csv")
+
+    @property
+    def summary_md(self) -> Path:
+        return self._file_path("summary_md", "summary.md")
 
     @property
     def playlist_csv(self) -> Path:
@@ -165,6 +183,59 @@ class ComposerConfig:
     def tv_album_group(self) -> str:
         return str(self.ranking.get("tv_album_group", "תוכניות טלוויזיה ומופעים מלאים"))
 
+    @property
+    def raw_cache_dir(self) -> Path:
+        return self.dir / "raw_cache"
+
+    @property
+    def youtube_search_cache_json(self) -> Path:
+        return self.raw_cache_dir / "youtube_search_cache.json"
+
+    @property
+    def youtube_topic_albums_cache_json(self) -> Path:
+        return self.raw_cache_dir / "youtube_topic_albums.json"
+
+    @property
+    def upload_progress_json(self) -> Path:
+        return self.raw_cache_dir / "youtube_upload_progress.json"
+
+    @property
+    def oauth_token_json(self) -> Path:
+        return self.raw_cache_dir / "youtube_oauth_token.json"
+
+    @property
+    def creator_album_tier(self) -> str:
+        return self.creator_album_tiers[0] if self.creator_album_tiers else "1_album_creator"
+
+    @property
+    def creator_performance_tier(self) -> str:
+        album_tier = self.creator_album_tier
+        for t in self.creator_performance_tiers:
+            if t != album_tier:
+                return t
+        return "3_creator_performance"
+
+    @property
+    def creator_acum_reversed_name(self) -> str:
+        explicit = str(self.sources.get("acum_reversed_name") or "").strip()
+        if explicit:
+            return explicit
+        words = [w for w in self.name_he.split() if w]
+        if len(words) == 2:
+            return f"{words[1]} {words[0]}"
+        return self.name_he
+
+    @property
+    def nli_creator_inverted(self) -> str:
+        explicit = str(self.sources.get("nli_creator_inverted") or "").strip()
+        if explicit:
+            return explicit
+        base = str(self.sources.get("nli_author") or self.name_he).strip()
+        parts = [p for p in base.split() if p]
+        if len(parts) >= 2:
+            return f"{parts[-1]}, {' '.join(parts[:-1])}"
+        return base
+
 
 def load_registry() -> dict[str, Any]:
     """Load root creators.json registry."""
@@ -177,19 +248,52 @@ def list_enabled_slugs() -> list[str]:
     return [c["slug"] for c in reg.get("creators", []) if c.get("enabled", True)]
 
 
-def load_composer(slug: str) -> ComposerConfig:
+def _default_creator_aliases(name_he: str, name_en: str) -> list[str]:
+    aliases: list[str] = []
+    words_he = [w for w in name_he.split() if w]
+    candidates = [name_he]
+    if len(words_he) == 2:
+        candidates.append(f"{words_he[1]} {words_he[0]}")
+    if name_en:
+        candidates.append(name_en)
+    for item in candidates:
+        s = item.strip()
+        if s and s not in aliases:
+            aliases.append(s)
+    return aliases
+
+
+def _default_surname_tokens(name_he: str, name_en: str) -> list[str]:
+    tokens: list[str] = []
+    for raw in (name_he, name_en.lower()):
+        parts = [p.strip() for p in raw.split() if p.strip()]
+        if parts and len(parts[-1]) >= 3 and parts[-1] not in tokens:
+            tokens.append(parts[-1])
+    return tokens
+
+
+def load_composer(slug: str, composer_dir: Path | None = None) -> ComposerConfig:
     """Load and validate `<slug>/composer.json`."""
-    reg = load_registry()
-    cfg_path = REPO_ROOT / slug / "composer.json"
+    reg = load_registry() if CREATORS_JSON_PATH.exists() else {}
+    target_dir = composer_dir if composer_dir is not None else (REPO_ROOT / slug)
+    cfg_path = target_dir / "composer.json"
     if not cfg_path.exists():
         raise FileNotFoundError(f"Missing composer config: {cfg_path}")
     raw = json.loads(cfg_path.read_text(encoding="utf-8"))
     prof = raw.get("profile", {})
     name_he = raw["name_he"]
+    name_en = raw.get("name_en", slug)
+    aliases = list(prof.get("creator_aliases") or _default_creator_aliases(name_he, name_en))
+    surname_tokens = list(prof.get("creator_surname_tokens") or _default_surname_tokens(name_he, name_en))
+    yr_raw = prof.get("active_year_range")
+    if isinstance(yr_raw, (list, tuple)) and len(yr_raw) == 2:
+        year_range = (int(yr_raw[0]), int(yr_raw[1]))
+    else:
+        year_range = (1920, 2030)
     return ComposerConfig(
         slug=raw.get("slug", slug),
         name_he=name_he,
-        name_en=raw.get("name_en", slug),
+        name_en=name_en,
         playlist_title_he=raw.get("playlist_title_he", f"שירי {name_he}"),
         collection_prefix_he=raw.get("collection_prefix_he", f"משירי {name_he}"),
         subtitle_he=raw.get("subtitle_he", ""),
@@ -218,12 +322,19 @@ def load_composer(slug: str) -> ComposerConfig:
         block_meta=dict(raw.get("block_meta", {})),
         jump_groups=list(raw.get("jump_groups", [])),
         base_url=raw.get("base_url") or reg.get("base_url", "https://dmtsurel.github.io/playlists"),
+        creator_aliases=aliases,
+        creator_surname_tokens=surname_tokens,
+        creator_tie_markers=list(prof.get("creator_tie_markers", [])),
+        creator_dual_role=str(prof.get("creator_dual_role") or "creator_performance"),
+        active_year_range=year_range,
+        custom_dir=composer_dir,
     )
 
 
-def load_overrides(slug: str) -> dict[str, Any]:
+def load_overrides(slug: str, composer_dir: Path | None = None) -> dict[str, Any]:
     """Load optional `<slug>/overrides.json` curation rules."""
-    ov_path = REPO_ROOT / slug / "overrides.json"
+    target_dir = composer_dir if composer_dir is not None else (REPO_ROOT / slug)
+    ov_path = target_dir / "overrides.json"
     if not ov_path.exists():
         return {}
     return json.loads(ov_path.read_text(encoding="utf-8"))

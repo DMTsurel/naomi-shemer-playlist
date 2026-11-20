@@ -14,12 +14,15 @@ if str(REPO_ROOT) not in sys.path:
 
 from core.backup import archive_composer_wayback, backup_composer_metadata  # noqa: E402
 from core.build_site import build_all, build_composer, build_hub  # noqa: E402
+from core.catalog_collector import collect_composer_catalog  # noqa: E402
 from core.config import list_enabled_slugs, load_composer  # noqa: E402
 from core.health import check_composer_health, heal_composer_playlist  # noqa: E402
 from core.qa import audit_composer, format_qa_report  # noqa: E402
 from core.ranking import rank_composer_playlist  # noqa: E402
 from core.scaffold import scaffold_composer  # noqa: E402
 from core.streaming_matcher import match_composer_streaming  # noqa: E402
+from core.youtube_finder import find_composer_videos  # noqa: E402
+from core.youtube_uploader import upload_composer_via_cookies, upload_composer_via_oauth  # noqa: E402
 
 
 def _resolve_targets(parser: argparse.ArgumentParser, slug: str | None, all_flag: bool) -> list[str]:
@@ -95,6 +98,30 @@ def main() -> int:
     p_init.add_argument("--name-en", required=True, help="Composer English name")
     p_init.add_argument("--is-performer", action="store_true", help="Set if composer also recorded studio albums/performances")
     p_init.add_argument("--enable", action="store_true", help="Mark enabled=true immediately in creators.json")
+
+    p_collect = sub.add_parser("collect", help="Collect & merge multi-source song catalog (`catalog.json`)")
+    p_collect.add_argument("slug", help="Composer slug")
+    p_collect.add_argument("--cache-only", action="store_true", help="Read raw_cache only without network calls")
+    p_collect.add_argument("--refresh", action="store_true", help="Bypass cached raw files and re-fetch enabled sources")
+    p_collect.add_argument("--sources", help="Comma-separated source names filter (e.g. wikipedia,acum,nli)")
+    p_collect.add_argument("--output-dir", help="Optional directory to write outputs into")
+    p_collect.add_argument("--dry-run", action="store_true", help="Merge catalog in memory without writing output files")
+
+    p_find = sub.add_parser("find-videos", help="Match catalog songs on YouTube and emit initial `playlist.json`")
+    p_find.add_argument("slug", help="Composer slug")
+    p_find.add_argument("--cache-only", action="store_true", help="Read cached Topic/search results without network requests")
+    p_find.add_argument("--catalog", help="Optional override path to catalog JSON")
+    p_find.add_argument("--output-dir", help="Optional directory to write playlist JSON/CSV/MD outputs into")
+    p_find.add_argument("--dry-run", action="store_true", help="Score & rank in memory without writing files")
+    p_find.add_argument("--no-rebuild", action="store_true", help="Skip rebuilding player HTML/JS exports after finding")
+    p_find.add_argument("--standalone", action="store_true", help="Emit standalone HTML when rebuilding")
+
+    p_up = sub.add_parser("upload", help="Upload composer playlist to YouTube via cookies or OAuth v3")
+    p_up.add_argument("slug", help="Composer slug")
+    p_up.add_argument("--cookies", help="Path to Netscape/Mozilla cookies.txt")
+    p_up.add_argument("--oauth", action="store_true", help="Use official YouTube Data API v3 + OAuth 2.0")
+    p_up.add_argument("--client-secret", help="Optional path to client_secret.json (for --oauth)")
+    p_up.add_argument("--privacy", default="unlisted", help="Playlist privacy status (unlisted/public/private)")
 
     args = parser.parse_args()
 
@@ -209,6 +236,54 @@ def main() -> int:
             enable=args.enable,
         )
         print(f"✔ Scaffolded composer '{res['slug']}' in {res['dir']} (registered={res['registered']}, enabled={res['enabled']})")
+        return 0
+
+    if args.command == "collect":
+        src_filter = {s.strip() for s in args.sources.split(",") if s.strip()} if args.sources else None
+        cat = collect_composer_catalog(
+            args.slug,
+            cache_only=args.cache_only,
+            refresh=args.refresh,
+            sources_filter=src_filter,
+            output_dir=Path(args.output_dir) if args.output_dir else None,
+            dry_run=args.dry_run,
+        )
+        print(f"✔ [{args.slug}] total_unique_songs={cat['stats']['total_unique_songs']} | dry_run={args.dry_run}")
+        return 0
+
+    if args.command == "find-videos":
+        res = find_composer_videos(
+            args.slug,
+            cache_only=args.cache_only,
+            catalog_path=Path(args.catalog) if args.catalog else None,
+            output_dir=Path(args.output_dir) if args.output_dir else None,
+            dry_run=args.dry_run,
+            rebuild=not args.no_rebuild,
+            standalone=args.standalone,
+        )
+        st = res["stats"]
+        print(
+            f"✔ [{args.slug}] songs={st['total_songs']} | matched={st['matched_songs']} | "
+            f"videos={st['total_playlist_videos']} | dry_run={args.dry_run}"
+        )
+        return 0
+
+    if args.command == "upload":
+        if args.cookies:
+            upload_composer_via_cookies(args.slug, args.cookies, privacy=args.privacy)
+            return 0
+        if args.oauth:
+            upload_composer_via_oauth(
+                args.slug,
+                client_secret=Path(args.client_secret) if args.client_secret else None,
+                privacy=args.privacy,
+            )
+            return 0
+        cfg = load_composer(args.slug)
+        print("בחר שיטת העלאה:")
+        print(f"  1. המהירה ביותר (דפדפן): פתח {cfg.create_js} או הדף בנגן")
+        print(f"  2. עם cookies.txt: python3 scripts/cli.py upload {args.slug} --cookies cookies.txt")
+        print(f"  3. עם OAuth v3: python3 scripts/cli.py upload {args.slug} --oauth")
         return 0
 
     return 1

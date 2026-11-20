@@ -680,3 +680,145 @@ ARTIST_ALIASES: dict[str, tuple[str, ...]] = {
 }
 
 assert all(isinstance(v, tuple) for v in ARTIST_ALIASES.values()), "All alias values must be tuples!"
+
+ENGLISH_TO_HEB_ARTISTS: list[tuple[str, str]] = [
+    ("lehakat hanachal", "להקת הנחל"),
+    ("lehakat ha nachal", "להקת הנחל"),
+    ("tsevet havay shel hanachal", "צוות הווי של הנחל"),
+    ("tsevet havay pikud merkaz", "צוות הווי פיקוד מרכז"),
+    ("tzevet havai", "צוות הווי"),
+    ("lehakat pikud tsafon", "להקת פיקוד צפון"),
+    ("lehakat pikud darom", "להקת פיקוד דרום"),
+    ("lehakat pikud merkaz", "להקת פיקוד מרכז"),
+    ("lehakat geisot hashirion", "להקת גייסות השריון"),
+    ("armored corps choir", "מקהלת גברי השריון"),
+    ("havurat bimot", "חבורת בימות"),
+    ("batzal yarok", "בצל ירוק"),
+    ("green onion", "בצל ירוק"),
+    ("gesher hayarkon", "גשר הירקון"),
+    ("the roosters", "התרנגולים"),
+    ("the twins", "שלישיית התאומים"),
+    ("ran & nama", "רן ונמה"),
+    ("chava alberstein", "חוה אלברשטיין"),
+    ("hava alberstein", "חוה אלברשטיין"),
+    ("yaffa yarkoni", "יפה ירקוני"),
+    ("yafa yarkoni", "יפה ירקוני"),
+    ("yehoram gaon", "יהורם גאון"),
+    ("arik einstein", "אריק איינשטיין"),
+    ("arik lavie", "אריק לביא"),
+    ("shoshik shani", "שושיק שני"),
+    ("shula chen", "שולה חן"),
+    ("yossi banai", "יוסי בנאי"),
+    ("moshe beker", "משה בקר"),
+    ("moshe becker", "משה בקר"),
+    ("ruhama raz", "רוחמה רז"),
+    ("rivka raz", "רבקה רז"),
+    ("ofira gluska", "אופירה גלוסקא"),
+    ("cilla dagan", "צילה דגן"),
+    ("dudu zakai", "דודו זכאי"),
+    ("ilanit", "אילנית"),
+    ("hadudaim", "הדודאים"),
+    ("the dudaim", "הדודאים"),
+    ("haparvarim", "הפרברים"),
+    ("the parvarim", "הפרברים"),
+    ("nehama hendel", "נחמה הנדל"),
+    ("nechama hendel", "נחמה הנדל"),
+    ("shoshana damari", "שושנה דמארי"),
+    ("gidi gov", "גידי גוב"),
+    ("matti caspi", "מתי כספי"),
+    ("nurit galron", "נורית גלרון"),
+    ("hagashash hachiver", "הגשש החיוור"),
+    ("hagevatron", "הגבעטרון"),
+    ("netanela", "נתנאלה"),
+    ("ariel horowitz", "אריאל הורוביץ"),
+    ("rona kenan", "רונה קינן"),
+    ("shlomo gronich", "שלמה גרוניך"),
+    ("rivka michaeli", "רבקה מיכאלי"),
+    ("tamar giladi", "תמר גלעדי"),
+    ("tiki dayan", "תיקי דיין"),
+    ("gitit shoval", "גיתית שובל"),
+    ("hanan yovel", "חנן יובל"),
+    ("michal tal", "מיכל טל"),
+    ("ofra diron", "עפרה דירון"),
+    ("michal peres", "מיכל פרס"),
+    ("danny ben israel", "דני בן ישראל"),
+    ('cast of "ani pashosh"', "צוות אני פשוש"),
+    ("ani pashosh", "צוות אני פשוש"),
+    ("hakol over habibi", "הכל עובר חביבי"),
+    ("riki gal", "ריקי גל"),
+    ("uzi meiri", "עוזי מאירי"),
+    ("tzila dagan", "צילה דגן"),
+]
+
+KNOWN_1WORD_GROUPS: dict[str, str] = {
+    "גבעטרון": "הגבעטרון",
+    "פרברים": "הפרברים",
+    "דודאים": "הדודאים",
+    "תרנגולים": "התרנגולים",
+    "שלושרים": "השלושרים",
+}
+
+CREATOR_NAME_MAP: dict[str, str] = {
+    "CHARLES AZNAOURIAN": "שארל אזנבור",
+    "MILTON AGER": "מילטון אייג'ר",
+    "RAYMOND O SULLIVAN": "גילברט או'סאליבן",
+    "MONIQUE ANDREE SERF": "ברברה (מוניק סרף)",
+    "HANS CARSTE": "הנס קרסטה",
+    "ULISES HERMOSA": "האחים הרמוסה (לוס קיארקס)",
+    "GONZALO HERMOSA GONZALES": "האחים הרמוסה (לוס קיארקס)",
+    "MICHEL JEAN LEGRAND": "מישל לגראן",
+    "JACQUES LOUIS RAYMOND MARCEL DEMY": "ז'אק דמי",
+    "ANTONIO CARLOS JOBIM": "אנטוניו קרלוס ז'ובים",
+    "NEWTON FERREIRA DE MENDONCA": "ניוטון מנדונסה",
+    "רי'צרד רוג'רס": "ריצ'רד רוג'רס",
+    "אוסקר המרשטין": "אוסקר המרשטיין",
+    "אהרון זאב": "אהרן זאב",
+    "רחל בלובשטיין": "רחל המשוררת",
+    "רחל": "רחל המשוררת",
+    "נחמן ביאליק חיים": "חיים נחמן ביאליק",
+    "שאול טשרנחובסקי": "שאול טשרניחובסקי",
+    "הלל עומר": "ע. הלל",
+    "ע הלל": "ע. הלל",
+    "מאנגר איציק": "איציק מאנגר",
+    "אלתרמן נתן": "נתן אלתרמן",
+    "שטרן אברהם": "אברהם שטרן (יאיר)",
+    "אברהם שטרן": "אברהם שטרן (יאיר)",
+}
+
+
+def expand_performer_variants(perf: str) -> list[str]:
+    """Expand a performer name (reversing ACUM 'Last First' and splitting duos) for matching."""
+    base = re.sub(r"\s*\([^)]*\)", "", perf).strip()
+    if not base:
+        return []
+    variants: list[str] = [base]
+    sub_parts = [base]
+    if " ו" in base and len(base.split()) >= 4:
+        sp = [
+            p.strip()
+            for p in re.split(r"\s+ו(?!(?:רדה|ישינסקי|יואלדי|ילנסקי|רד)\b)(?=[א-ת])", base)
+            if p.strip()
+        ]
+        if len(sp) >= 2 and all(len(p.split()) >= 2 for p in sp):
+            sub_parts.extend(sp)
+
+    for part in sub_parts:
+        if part not in variants:
+            variants.append(part)
+        words = part.split()
+        if len(words) == 1:
+            w = words[0]
+            if w in KNOWN_1WORD_GROUPS and KNOWN_1WORD_GROUPS[w] not in variants:
+                variants.append(KNOWN_1WORD_GROUPS[w])
+            for k_no_h, k_with_h in KNOWN_1WORD_GROUPS.items():
+                if w == k_with_h and k_no_h not in variants:
+                    variants.append(k_no_h)
+        if len(words) == 2 and all(any("\u0590" <= c <= "\u05FF" for c in w) for w in words):
+            if words[0] not in (
+                "להקת", "צוות", "שלישיית", "רביעיית", "חמישיית", "תזמורת",
+                "מקהלת", "אנסמבל", "חבורת", "האחיות", "ילדי", "זמרי", "קבוצת",
+            ):
+                rev = f"{words[1]} {words[0]}"
+                if rev not in variants:
+                    variants.append(rev)
+    return variants

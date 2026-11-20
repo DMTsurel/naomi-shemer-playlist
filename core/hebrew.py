@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import html
 import re
 
 NIKUD_RE = re.compile(r"[\u0591-\u05C7]")
@@ -204,3 +205,99 @@ def has_bad_keyword(cand_title: str, cand_artist: str, cand_album: str) -> bool:
     """Return True if a candidate track mentions karaoke, backing tracks, skits, or interviews."""
     blob = f"{cand_title} {cand_artist} {cand_album}".lower()
     return any(kw in blob for kw in BAD_TRACK_KEYWORDS)
+
+
+FINDER_SPELLING_VARIANTS: list[tuple[str, str]] = [
+    ("איילת", "אילת"),
+    ("סתיו", "סתו"),
+    ("דואר", "דאר"),
+    ("חופש", "חפש"),
+    ("ציפורים", "צפורים"),
+    ("ציפור", "צפור"),
+    ("פירות", "פרות"),
+    ("סוכה", "סכה"),
+    ("סוכת", "סכת"),
+    ("הולדת", "הלדת"),
+    ("שייטת", "שיטת"),
+    ("חייל", "חיל"),
+    ("טיילת", "טילת"),
+    ("האומנם", "האמנם"),
+    ("היאחזות", "האחזות"),
+    ("איקליפטוס", "אקליפטוס"),
+    ("כלייזמרים", "כליזמרים"),
+    ("מטרייה", "מטריה"),
+    ("רביעייה", "רביעיה"),
+    ("שלישיית", "שלישית"),
+    ("שלישייה", "שלישיה"),
+    ("נייר", "ניר"),
+    ("סיפרתי", "ספרתי"),
+    ("כיתה", "כתה"),
+    ("נידחת", "נדחת"),
+    ("פרידה", "פרדה"),
+    ("מוזיקה", "מוסיקה"),
+    ("נועה", "נעה"),
+    ("נוגה", "נגה"),
+    ("ליבבתיני", "לבבתיני"),
+    ("עקידת", "עקדת"),
+    ('אל"ף בי"ת', "אלף בית"),
+    ("דוב", "דב"),
+    ("בבית חלומותי", "בית חלומותי"),
+    ("יושיעני", "יושיענו"),
+    ("ומיכאלי", "ומיכלי"),
+    ("הצלילים", "הצללים"),
+    ("שייקספיר", "שקספיר"),
+    ("לאין", "לאן"),
+    ("אוניית", "אניית"),
+    ("אונית", "אניית"),
+    ("הנדל הלנה", "נחמה הנדל"),
+    ("הלנה הנדל", "נחמה הנדל"),
+    ("אימי", "אמי"),
+    ("בנייך", "בניך"),
+]
+
+
+def clean_wiki_markup(text: str) -> str:
+    """Strip Hebrew Wikipedia tags, internal links, and footnotes."""
+    if not text:
+        return ""
+    text = re.sub(r"<ref[^>]*>.*?</ref>", "", text, flags=re.DOTALL)
+    text = re.sub(r"<ref[^/>]*/\s*>", "", text)
+    text = re.sub(r"\{\{הערה\|.*?\}\}", "", text, flags=re.DOTALL)
+    text = re.sub(r"\[\[(?:[^|\]]*\|)?([^\]]+)\]\]", r"\1", text)
+    text = text.replace("'''", "").replace("''", "")
+    text = re.sub(r"<[^>]+>", "", text)
+    return html.unescape(text).strip()
+
+
+def clean_wiki_song_title(title: str) -> str:
+    """Remove Wikipedia/Pizmonet parenthetical disambiguations like '(שיר)'."""
+    title = clean_wiki_markup(title)
+    title = re.sub(r"\s*\((?:שיר|אלבום|מחזמר|סרט|תוכנית)[^)]*\)\s*$", "", title)
+    return title.strip()
+
+
+def _strip_punct_for_catalog(text: str) -> str:
+    text = re.sub(r'(?<=[\u0590-\u05FF])["״׳\'\u2018\u2019\u201c\u201d]+(?=[\u0590-\u05FF])', "", text)
+    text = re.sub(r"[\"'״׳`\u2018\u2019\u201c\u201d־\-–—,.!:?()\[\]/\\]", " ", text)
+    return re.sub(r"\s+", " ", text).strip().lower()
+
+
+def normalize_catalog_song_title(title: str, synonym_map: dict[str, str] | None = None) -> str:
+    """Normalize a Hebrew song title for cross-database deduplication with synonym resolution."""
+    if not title:
+        return ""
+    t = html.unescape(title).strip()
+    t = NIKUD_RE.sub("", t)
+    t = re.sub(r"[\u200e\u200f\u202a-\u202e]", "", t)
+    t = re.sub(r"\s*\((?:שיר|אלבום|מחזמר|סרט|תוכנית)[^)]*\)\s*$", "", t)
+    m_num = re.match(r"^(\d+)\s+([\u0590-\u05FF].*)$", t)
+    if m_num:
+        t = f"{m_num.group(2)} {m_num.group(1)}"
+    t_clean = _strip_punct_for_catalog(t)
+    smap = synonym_map or {}
+    while t_clean in smap:
+        nxt = _strip_punct_for_catalog(smap[t_clean])
+        if nxt == t_clean:
+            break
+        t_clean = nxt
+    return t_clean

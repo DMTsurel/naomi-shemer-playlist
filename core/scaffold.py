@@ -27,6 +27,19 @@ def scaffold_composer(
     target_dir.mkdir(parents=True, exist_ok=True)
     storage_prefix = f"{slug.replace('-', '_')}_playlist_"
 
+    he_words = [w for w in name_he.split() if w]
+    en_words = [w for w in name_en.lower().split() if w]
+    default_aliases = [name_he]
+    if len(he_words) == 2:
+        default_aliases.append(f"{he_words[1]} {he_words[0]}")
+    if name_en and name_en not in default_aliases:
+        default_aliases.append(name_en)
+    default_surnames: list[str] = []
+    for tok in (he_words[-1] if he_words else "", en_words[-1] if en_words else ""):
+        if len(tok) >= 3 and tok not in default_surnames:
+            default_surnames.append(tok)
+    nli_inverted = f"{he_words[-1]}, {' '.join(he_words[:-1])}" if len(he_words) >= 2 else name_he
+
     if is_performer:
         dual_mode = "original_plus_creator"
         tier_filter_options = [
@@ -81,10 +94,18 @@ def scaffold_composer(
             "creator_performance_tiers": ["1_album_creator", "3_creator_performance"],
             "tier_filter_options": tier_filter_options,
             "role_filter_options": role_filter_options,
+            "creator_aliases": default_aliases,
+            "creator_surname_tokens": default_surnames,
+            "creator_tie_markers": [],
+            "creator_dual_role": "creator_performance",
+            "active_year_range": [1920, 2030],
         },
         "files": {
             "playlist_json": "playlist.json",
             "catalog_json": "catalog.json",
+            "songs_csv": "songs.csv",
+            "albums_csv": "albums.csv",
+            "summary_md": "summary.md",
             "playlist_csv": "playlist.csv",
             "playlist_md": "playlist.md",
             "streaming_import_csv": "streaming_import.csv",
@@ -101,8 +122,15 @@ def scaffold_composer(
             "acum_performer_ids": [],
             "shironet_prfid": None,
             "discogs_artist_id": None,
+            "musicbrainz_artist_id": "",
+            "zemereshet_artist_id": None,
+            "stereo_ve_mono_artist": name_he.replace(" ", "_"),
             "nli_author": name_he,
+            "nli_creator_inverted": nli_inverted,
+            "nli_archive_queries": [],
             "wiki_page": name_he,
+            "wiki_works_sections": ["יצירותיו", "יצירותיה", "דיסקוגרפיה"],
+            "wiki_extra_pages": [],
             "zemereshet_slug": name_he,
             "pizmonet_slug": name_he,
         },
@@ -110,6 +138,9 @@ def scaffold_composer(
             "official_topic_playlists": [],
             "solo_album_keywords": [],
             "musical_album_keywords": [f"שירי {name_he}", name_en.lower()],
+            "verified_albums": [],
+            "trusted_creator_channels": [],
+            "canonical_albums": [],
         },
         "ranking": {
             "mode": "sqrt_mult",
@@ -153,6 +184,8 @@ def scaffold_composer(
         "excluded_non_creator_notes": [],
         "streaming_performer_overrides": {},
         "split_composition_guards": {},
+        "collector_overrides": {},
+        "finder_overrides": {},
     }
 
     readme_text = "\n".join([
@@ -162,9 +195,10 @@ def scaffold_composer(
         "",
         "## זרימת עבודה",
         "1. מלאו את מזהי המקורות ב-`composer.json` (אקו\"ם, הספרייה הלאומית, שירונט, ויקיפדיה, זמרשת, Discogs, MusicBrainz).",
-        f"2. בנו `catalog.json` ו-`playlist.json` לפי כללי האוצרות והדירוג (`AGENTS.md` וה־skill `.agents/skills/new-composer-playlist/`).",
-        f"3. הריצו בדיקות איכות ובנייה: `python3 scripts/cli.py qa {slug} --strict` ו-`python3 scripts/cli.py build {slug}`.",
-        "4. העבירו ל-`\"enabled\": true` ב-`creators.json` ובנו את השער: `python3 scripts/cli.py build --all`.",
+        f"2. איסוף ואיתור ראשוני: `python3 scripts/cli.py collect {slug}` ולאחר מכן `python3 scripts/cli.py find-videos {slug}`.",
+        "3. עברו על `catalog.json` ו-`playlist.json` לפי כללי האוצרות והדירוג (`AGENTS.md` וה־skill `.agents/skills/new-composer-playlist/`).",
+        f"4. הריצו בדיקות איכות ובנייה: `python3 scripts/cli.py qa {slug} --strict` ו-`python3 scripts/cli.py build {slug}`.",
+        "5. העבירו ל-`\"enabled\": true` ב-`creators.json` ובנו את השער: `python3 scripts/cli.py build --all`.",
         "",
     ])
 

@@ -9,8 +9,8 @@ This repository powers curated, source-merged Israeli composer catalogs, YouTube
   - `config.py`: `creators.json` + `<slug>/composer.json` + `<slug>/overrides.json`.
   - `hebrew.py` & `artists.py`: Hebrew normalization (`norm_heb`, `heb_loose`), title similarity, transliteration, ACUM `"שם משפחה שם פרטי"` reversal fixes, and artist alias tables.
   - `build_site.py`: Normalization, integrity validation (`bad_video_ids`, unique primary `video_id`s, valid tiers), HTML/JS build (`index.html`, `playlist_data.js`), YouTube browser sync scripts (`create_playlist_in_browser.js`, `update_existing_playlist_in_browser.js`), exports (`.csv`, `.md`, `.m3u8`, `wayback_backup_urls.txt`), and root Hub (`index.html`).
-  - `ranking.py`, `health.py`, `backup.py`, `streaming_matcher.py`, `qa.py`, `scaffold.py`.
-- `scripts/cli.py` — Unified CLI (`list`, `matrix-json`, `build`, `hub`, `health`, `heal`, `backup`, `wayback`, `rank`, `spotify`, `qa`, `init-composer`).
+  - `catalog_collector.py`, `youtube_finder.py`, `youtube_uploader.py`, `ranking.py`, `health.py`, `backup.py`, `streaming_matcher.py`, `qa.py`, `scaffold.py`.
+- `scripts/cli.py` — Unified CLI (`list`, `matrix-json`, `init-composer`, `collect`, `find-videos`, `build`, `hub`, `qa`, `health`, `heal`, `backup`, `wayback`, `rank`, `spotify`, `upload`).
 - `<slug>/` — Composer-specific configs (`composer.json`, `overrides.json`) and generated/curated datasets (`playlist.json`, `catalog.json`, exports). **Do not duplicate shared CSS/JS/Python logic inside `<slug>/`.**
 
 ## 2. Attribution & Catalog Integrity Rules
@@ -61,6 +61,11 @@ This repository powers curated, source-merged Israeli composer catalogs, YouTube
   5. Sync YouTube updater to macOS clipboard when playlist changed: `pbcopy < <slug>/update_existing_playlist_in_browser.js`
 - **Never commit** `.github_deploy_key*`, `raw_cache/`, `__pycache__/`, or temporary `/tmp` test outputs.
 
-## 7. Multi-Composer Roadmap (Future Phase 3)
+## 7. End-to-End Multi-Composer Pipeline (Phase 3 Active)
 
-Collection and initial YouTube matching (`naomi-shemer/collect_naomi_shemer.py`, `naomi-shemer/find_youtube_videos.py`) are not yet extracted into `core/`. When onboarding composer #2, extract those into `core/catalog_collector.py` and `core/youtube_finder.py` driven by `composer.json["sources"]` and `composer.json["discography"]`, then follow `.agents/skills/new-composer-playlist/SKILL.md`.
+All core stages run generically via `core/` + `scripts/cli.py` driven by `<slug>/composer.json` (`sources`, `discography`, `profile`) and `<slug>/overrides.json`:
+1. `python3 scripts/cli.py init-composer <slug> --name-he "..." --name-en "..." [--is-performer]`
+2. Fill `<slug>/composer.json` sources & official discography, then run `python3 scripts/cli.py collect <slug>` (`core/catalog_collector.py`) -> `<slug>/catalog.json`
+3. Run `python3 scripts/cli.py find-videos <slug>` (`core/youtube_finder.py`) -> initial `<slug>/playlist.json`
+4. Curate attribution, homonyms, and recording years -> `python3 scripts/cli.py rank <slug>` -> `python3 scripts/cli.py qa <slug> --strict`
+5. Enable in `creators.json`, run `python3 scripts/cli.py build --all`, and publish via `python3 scripts/cli.py upload <slug>` or `<slug>/create_playlist_in_browser.js`. Follow `.agents/skills/new-composer-playlist/SKILL.md`.

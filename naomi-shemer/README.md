@@ -31,7 +31,8 @@
 * `naomi_shemer_youtube_playlist.json` / `.csv` / `.md` – נתוני הפלייליסט והארכיון המלאים (705 ביצועי יוטיוב + 81 שירי ארכיון).
 * `naomi_shemer_streaming_import.csv` / `naomi_shemer_youtube_stream.m3u8` / `wayback_backup_urls.txt` – קובצי ייצוא לשירותי סטרימינג (Soundiiz / TuneMyMusic), נגני מדיה (`VLC` / `mpv` / `yt-dlp`) וגיבוי.
 * `naomi_shemer_catalog.json` / `naomi_shemer_songs.csv` / `naomi_shemer_albums.csv` – קטלוג 451 השירים והאלבומים המאוחד מ-9 המאגרים.
-* `collect_naomi_shemer.py` – סקריפט איסוף, ניקוי ואיחוד הקטלוג מ-9 המאגרים.
-* `find_youtube_videos.py` – סקריפט איתור, סיווג ודירוג של ביצועי היוטיוב.
-* `build_player_and_browser_script.py` – סקריפט בניית הנגן האינטראקטיבי, בדיקות השלמות וכל קובצי הייצוא המשניים.
+* `collect_naomi_shemer.py` – מעטפת המפנה ל־`core/catalog_collector.py` (`python3 scripts/cli.py collect naomi-shemer`).
+* `find_youtube_videos.py` – מעטפת המפנה ל־`core/youtube_finder.py` (`python3 scripts/cli.py find-videos naomi-shemer`).
+* `build_player_and_browser_script.py` – מעטפת המפנה ל־`core/build_site.py` (`python3 scripts/cli.py build naomi-shemer`).
+* `upload_youtube_playlist.py` – מעטפת המפנה ל־`core/youtube_uploader.py` (`python3 scripts/cli.py upload naomi-shemer`).
 * `check_playlist_health.py` + `.github/workflows/playlist-health.yml` – כלי בדיקה וניטור שבועי אוטומטי (GitHub Actions) המזהה סרטונים שהוסרו או נחסמו ביוטיוב ומציע אוטומטית מקורות גיבוי תקינים.
