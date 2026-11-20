@@ -19,6 +19,7 @@ from core.config import (
     ComposerConfig,
     list_enabled_slugs,
     load_composer,
+    load_overrides,
     load_registry,
 )
 from core.hebrew import get_decade, parse_duration_seconds
@@ -168,8 +169,11 @@ def validate_and_normalize_playlist(data: dict[str, Any], cfg: ComposerConfig) -
             changed = True
 
     errors = []
+    bad_ids = set((load_overrides(cfg.slug).get("bad_video_ids") or {}).keys())
     for it in matched_entries:
         vid = it["selected_video"]["video_id"]
+        if vid in bad_ids:
+            errors.append(f"Blacklisted video_id {vid} selected at #{it['index']} ({it['title']})")
         if vid in seen_primary_vids:
             errors.append(f"Duplicate primary video_id {vid} at #{it['index']} and #{seen_primary_vids[vid]}")
         seen_primary_vids[vid] = it["index"]

@@ -13,13 +13,16 @@
 ## 🏗️ ארכיטקטורה משותפת ובנייה
 
 * `assets/` — נגן ה-Web המשותף לכל המלחינים (`player.css`, `player.js`).
-* `core/` — מנוע Python משותף (`config.py`, `hebrew.py`, `artists.py`, `build_site.py`, `backup.py`, `health.py`, `ranking.py`, `streaming_matcher.py`).
+* `core/` — מנוע Python משותף (`config.py`, `hebrew.py`, `artists.py`, `build_site.py`, `backup.py`, `health.py`, `ranking.py`, `streaming_matcher.py`, `qa.py`, `scaffold.py`).
+* `AGENTS.md` + `.agents/skills/new-composer-playlist/` — כללי אוצרות, נגישות, איכות קול ומדריך הקמה לסוכן עבור מלחינים נוספים.
 * `creators.json` — מרשם האוספים המזין אוטומטית את שער המלחינים ואת כלי הבנייה.
 * `<slug>/composer.json` + `<slug>/overrides.json` — הגדרות דקלרטיביות ואוצרות ידנית פר מלחין.
 * `scripts/cli.py` — כלי שורת פקודה אחיד לבניית אוספים, ניטור תקינות, דירוג וייצוא סטרימינג:
   * `python3 scripts/cli.py list` / `matrix-json`
+  * `python3 scripts/cli.py init-composer <slug> --name-he "..." --name-en "..."`
   * `python3 scripts/cli.py build --all` (או `--standalone` להטמעה עצמאית בקובץ יחיד)
   * `python3 scripts/cli.py hub`
+  * `python3 scripts/cli.py qa <slug>|--all [--strict]`
   * `python3 scripts/cli.py health <slug>|--all` / `heal <slug>|--all`
   * `python3 scripts/cli.py backup <slug>|--all` / `wayback <slug>|--all`
   * `python3 scripts/cli.py rank <slug>` / `spotify <slug>`

@@ -16,7 +16,9 @@ from core.backup import archive_composer_wayback, backup_composer_metadata  # no
 from core.build_site import build_all, build_composer, build_hub  # noqa: E402
 from core.config import list_enabled_slugs, load_composer  # noqa: E402
 from core.health import check_composer_health, heal_composer_playlist  # noqa: E402
+from core.qa import audit_composer, format_qa_report  # noqa: E402
 from core.ranking import rank_composer_playlist  # noqa: E402
+from core.scaffold import scaffold_composer  # noqa: E402
 from core.streaming_matcher import match_composer_streaming  # noqa: E402
 
 
@@ -80,6 +82,19 @@ def main() -> int:
     p_sp.add_argument("--cache-file", help="Path to Deezer/iTunes JSON cache")
     p_sp.add_argument("--output-dir", help="Override streaming export directory")
     p_sp.add_argument("--cache-only", action="store_true", help="Do not make network requests; read cache only")
+
+    p_qa = sub.add_parser("qa", help="Run automated playlist, attribution, quality, and export QA audit")
+    p_qa.add_argument("slug", nargs="?", help="Composer slug")
+    p_qa.add_argument("--all", action="store_true", help="Audit all enabled composers")
+    p_qa.add_argument("--strict", action="store_true", help="Exit with code 1 if any hard QA errors are found")
+    p_qa.add_argument("--json-report", help="Optional path to write JSON QA report")
+
+    p_init = sub.add_parser("init-composer", help="Scaffold a new composer directory, config, and overrides")
+    p_init.add_argument("slug", help="Directory slug (lowercase hyphenated, e.g. sasha-argov)")
+    p_init.add_argument("--name-he", required=True, help="Composer Hebrew display name")
+    p_init.add_argument("--name-en", required=True, help="Composer English name")
+    p_init.add_argument("--is-performer", action="store_true", help="Set if composer also recorded studio albums/performances")
+    p_init.add_argument("--enable", action="store_true", help="Mark enabled=true immediately in creators.json")
 
     args = parser.parse_args()
 
@@ -169,6 +184,31 @@ def main() -> int:
             output_dir=Path(args.output_dir) if args.output_dir else None,
             cache_only=args.cache_only,
         )
+        return 0
+
+    if args.command == "qa":
+        targets = _resolve_targets(p_qa, args.slug, args.all)
+        reports = [audit_composer(slug) for slug in targets]
+        for rep in reports:
+            print(format_qa_report(rep))
+        if args.json_report:
+            out_path = Path(args.json_report)
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            payload: object = reports[0] if len(reports) == 1 else {"composers": reports}
+            out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        if args.strict and any(rep["error_count"] > 0 for rep in reports):
+            return 1
+        return 0
+
+    if args.command == "init-composer":
+        res = scaffold_composer(
+            args.slug,
+            name_he=args.name_he,
+            name_en=args.name_en,
+            is_performer=args.is_performer,
+            enable=args.enable,
+        )
+        print(f"✔ Scaffolded composer '{res['slug']}' in {res['dir']} (registered={res['registered']}, enabled={res['enabled']})")
         return 0
 
     return 1
