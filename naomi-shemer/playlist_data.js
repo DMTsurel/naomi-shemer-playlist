@@ -4032,6 +4032,168 @@ window.PLAYLIST_DATA = {
     },
     {
       "n": 48,
+      "chrono_n": 202,
+      "canon_score": 622.5,
+      "acum_v": 2,
+      "layer": 1,
+      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "blk": "p1",
+      "ch_lbl": "",
+      "title": "שלגיה [ביצוע מקורי] (1966)",
+      "raw_title": "שלגיה",
+      "alt_titles": [
+        "שלגייה",
+        "חורפים שבעה חכינו לך לא קראת אבל ענינו לך"
+      ],
+      "ver_idx": 1,
+      "ver_total": 2,
+      "year": "1966",
+      "decade": "1960s",
+      "vid": "whmUk6hiVE4",
+      "vtitle": "שלישית התאומים - שלגיה",
+      "ch": "Israphon Music (‫ישראפון‬‎)",
+      "dur": "2:20",
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "perf": "שלישיית התאומים",
+      "alb": "",
+      "alb_group": "סינגל / ביצוע בודד",
+      "alb_trk": 999,
+      "role_cat": "translation",
+      "role_label": "תרגום: נעמי שמר (מקור: גי ביאר)",
+      "co_creators": "מקור: גי ביאר",
+      "opening_line": "כבר ירד השלג בהרים רחוקים ובשלג",
+      "links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037044000205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3784"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1429721",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1429721"
+        }
+      ],
+      "alts": [
+        {
+          "vid": "ZmEj47Xeo_E",
+          "vtitle": "שלישיית התאומים - שלגיה",
+          "ch": "Israphon Music (‫ישראפון‬‎)",
+          "dur": "2:21",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "QM4f7AVmPos",
+          "vtitle": "שלגיה - שלישיית התאומים",
+          "ch": "avigail67",
+          "dur": "2:16",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "nK912D3Yt5c",
+          "vtitle": "שלגיה - שלישיית התאומים",
+          "ch": "coolsummerrainn",
+          "dur": "2:20",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "I00dlNJc6BI",
+          "vtitle": "שלגיה נעמי שמר-מילים ולחן גי ביאר עברית נעמי שמר",
+          "ch": "רחל פרומן קומלוש",
+          "dur": "1:51",
+          "src": "same_song_performance"
+        }
+      ]
+    },
+    {
+      "n": 49,
+      "chrono_n": 203,
+      "canon_score": 622.5,
+      "acum_v": 2,
+      "layer": 1,
+      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "blk": "p1",
+      "ch_lbl": "",
+      "title": "שלגיה [ביצוע נעמי שמר] (1966)",
+      "raw_title": "שלגיה",
+      "alt_titles": [
+        "שלגייה",
+        "חורפים שבעה חכינו לך לא קראת אבל ענינו לך"
+      ],
+      "ver_idx": 2,
+      "ver_total": 2,
+      "year": "1966",
+      "decade": "1960s",
+      "vid": "I00dlNJc6BI",
+      "vtitle": "שלגיה נעמי שמר-מילים ולחן גי ביאר עברית נעמי שמר",
+      "ch": "רחל פרומן קומלוש",
+      "dur": "1:51",
+      "tier": "3_naomi_performance",
+      "tier_label": "3. ביצוע של נעמי שמר",
+      "perf": "נעמי שמר",
+      "alb": "נעמי שמר",
+      "alb_group": "סינגל / ביצוע בודד",
+      "alb_trk": 999,
+      "role_cat": "translation",
+      "role_label": "תרגום: נעמי שמר (מקור: גי ביאר)",
+      "co_creators": "מקור: גי ביאר",
+      "opening_line": "כבר ירד השלג בהרים רחוקים ובשלג",
+      "links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037044000205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3784"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1429721",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1429721"
+        }
+      ],
+      "alts": [
+        {
+          "vid": "ZmEj47Xeo_E",
+          "vtitle": "שלישיית התאומים - שלגיה",
+          "ch": "Israphon Music (‫ישראפון‬‎)",
+          "dur": "2:21",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "QM4f7AVmPos",
+          "vtitle": "שלגיה - שלישיית התאומים",
+          "ch": "avigail67",
+          "dur": "2:16",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "nK912D3Yt5c",
+          "vtitle": "שלגיה - שלישיית התאומים",
+          "ch": "coolsummerrainn",
+          "dur": "2:20",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "whmUk6hiVE4",
+          "vtitle": "שלישית התאומים - שלגיה",
+          "ch": "Israphon Music (‫ישראפון‬‎)",
+          "dur": "2:20",
+          "src": "same_song_performance"
+        }
+      ]
+    },
+    {
+      "n": 50,
       "chrono_n": 158,
       "canon_score": 622.0,
       "acum_v": 87,
@@ -4107,7 +4269,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 49,
+      "n": 51,
       "chrono_n": 146,
       "canon_score": 617.8,
       "acum_v": 93,
@@ -4197,7 +4359,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 50,
+      "n": 52,
       "chrono_n": 349,
       "canon_score": 611.5,
       "acum_v": 79,
@@ -4292,7 +4454,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 51,
+      "n": 53,
       "chrono_n": 397,
       "canon_score": 611.5,
       "acum_v": 79,
@@ -4387,7 +4549,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 52,
+      "n": 54,
       "chrono_n": 262,
       "canon_score": 610.2,
       "acum_v": 45,
@@ -4461,7 +4623,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 53,
+      "n": 55,
       "chrono_n": 296,
       "canon_score": 610.2,
       "acum_v": 45,
@@ -4535,7 +4697,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 54,
+      "n": 56,
       "chrono_n": 388,
       "canon_score": 602.8,
       "acum_v": 41,
@@ -4618,7 +4780,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 55,
+      "n": 57,
       "chrono_n": 356,
       "canon_score": 601.1,
       "acum_v": 72,
@@ -4703,7 +4865,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 56,
+      "n": 58,
       "chrono_n": 532,
       "canon_score": 601.1,
       "acum_v": 72,
@@ -4788,7 +4950,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 57,
+      "n": 59,
       "chrono_n": 457,
       "canon_score": 594.8,
       "acum_v": 92,
@@ -4870,7 +5032,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 58,
+      "n": 60,
       "chrono_n": 535,
       "canon_score": 594.8,
       "acum_v": 92,
@@ -4952,7 +5114,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 59,
+      "n": 61,
       "chrono_n": 125,
       "canon_score": 563.3,
       "acum_v": 86,
@@ -5026,7 +5188,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 60,
+      "n": 62,
       "chrono_n": 550,
       "canon_score": 538.7,
       "acum_v": 59,
@@ -5093,7 +5255,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 61,
+      "n": 63,
       "chrono_n": 392,
       "canon_score": 522.8,
       "acum_v": 95,
@@ -5192,7 +5354,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 62,
+      "n": 64,
       "chrono_n": 241,
       "canon_score": 521.8,
       "acum_v": 94,
@@ -5265,7 +5427,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 63,
+      "n": 65,
       "chrono_n": 212,
       "canon_score": 513.7,
       "acum_v": 39,
@@ -5336,7 +5498,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 64,
+      "n": 66,
       "chrono_n": 102,
       "canon_score": 512.6,
       "acum_v": 97,
@@ -5412,7 +5574,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 65,
+      "n": 67,
       "chrono_n": 305,
       "canon_score": 504.9,
       "acum_v": 90,
@@ -5501,7 +5663,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 66,
+      "n": 68,
       "chrono_n": 540,
       "canon_score": 504.0,
       "acum_v": 58,
@@ -5579,7 +5741,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 67,
+      "n": 69,
       "chrono_n": 322,
       "canon_score": 497.8,
       "acum_v": 73,
@@ -5660,7 +5822,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 68,
+      "n": 70,
       "chrono_n": 491,
       "canon_score": 489.9,
       "acum_v": 73,
@@ -5745,7 +5907,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 69,
+      "n": 71,
       "chrono_n": 510,
       "canon_score": 489.9,
       "acum_v": 73,
@@ -5830,7 +5992,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 70,
+      "n": 72,
       "chrono_n": 57,
       "canon_score": 484.8,
       "acum_v": 80,
@@ -5918,7 +6080,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 71,
+      "n": 73,
       "chrono_n": 531,
       "canon_score": 484.8,
       "acum_v": 80,
@@ -6006,7 +6168,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 72,
+      "n": 74,
       "chrono_n": 377,
       "canon_score": 472.6,
       "acum_v": 61,
@@ -6077,7 +6239,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 73,
+      "n": 75,
       "chrono_n": 672,
       "canon_score": 466.0,
       "acum_v": 39,
@@ -6151,7 +6313,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 74,
+      "n": 76,
       "chrono_n": 12,
       "canon_score": 450.5,
       "acum_v": 57,
@@ -6246,7 +6408,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 75,
+      "n": 77,
       "chrono_n": 467,
       "canon_score": 450.5,
       "acum_v": 57,
@@ -6341,7 +6503,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 76,
+      "n": 78,
       "chrono_n": 314,
       "canon_score": 446.8,
       "acum_v": 66,
@@ -6408,7 +6570,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 77,
+      "n": 79,
       "chrono_n": 72,
       "canon_score": 418.2,
       "acum_v": 83,
@@ -6508,7 +6670,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 78,
+      "n": 80,
       "chrono_n": 208,
       "canon_score": 418.2,
       "acum_v": 83,
@@ -6608,7 +6770,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 79,
+      "n": 81,
       "chrono_n": 343,
       "canon_score": 417.3,
       "acum_v": 2,
@@ -6684,7 +6846,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 80,
+      "n": 82,
       "chrono_n": 237,
       "canon_score": 409.4,
       "acum_v": 1,
@@ -6753,7 +6915,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 81,
+      "n": 83,
       "chrono_n": 498,
       "canon_score": 376.2,
       "acum_v": 66,
@@ -6812,7 +6974,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 82,
+      "n": 84,
       "chrono_n": 630,
       "canon_score": 376.2,
       "acum_v": 66,
@@ -6885,7 +7047,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 83,
+      "n": 85,
       "chrono_n": 500,
       "canon_score": 375.6,
       "acum_v": 22,
@@ -6970,7 +7132,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 84,
+      "n": 86,
       "chrono_n": 492,
       "canon_score": 364.0,
       "acum_v": 50,
@@ -7041,7 +7203,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 85,
+      "n": 87,
       "chrono_n": 152,
       "canon_score": 363.8,
       "acum_v": 43,
@@ -7126,7 +7288,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 86,
+      "n": 88,
       "chrono_n": 153,
       "canon_score": 363.8,
       "acum_v": 43,
@@ -7211,7 +7373,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 87,
+      "n": 89,
       "chrono_n": 559,
       "canon_score": 349.9,
       "acum_v": 34,
@@ -7282,7 +7444,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 88,
+      "n": 90,
       "chrono_n": 22,
       "canon_score": 345.3,
       "acum_v": 75,
@@ -7363,7 +7525,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 89,
+      "n": 91,
       "chrono_n": 128,
       "canon_score": 337.8,
       "acum_v": 48,
@@ -7451,7 +7613,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 90,
+      "n": 92,
       "chrono_n": 222,
       "canon_score": 337.8,
       "acum_v": 48,
@@ -7546,7 +7708,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 91,
+      "n": 93,
       "chrono_n": 89,
       "canon_score": 333.3,
       "acum_v": 66,
@@ -7626,7 +7788,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 92,
+      "n": 94,
       "chrono_n": 312,
       "canon_score": 329.1,
       "acum_v": 16,
@@ -7690,7 +7852,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 93,
+      "n": 95,
       "chrono_n": 99,
       "canon_score": 326.8,
       "acum_v": 35,
@@ -7777,7 +7939,163 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 94,
+      "n": 96,
+      "chrono_n": 488,
+      "canon_score": 320.0,
+      "acum_v": 11,
+      "layer": 1,
+      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "blk": "p1",
+      "ch_lbl": "",
+      "title": "אין דבר [ביצוע מקורי] (1979)",
+      "raw_title": "אין דבר",
+      "alt_titles": [],
+      "ver_idx": 1,
+      "ver_total": 3,
+      "year": "1979",
+      "decade": "1970s",
+      "vid": "2BfY0duzEpE",
+      "vtitle": "הגשש החיוור - אין דבר (1979)",
+      "ch": "הגשש החיוור",
+      "dur": "3:34",
+      "tier": "4_original_performance",
+      "tier_label": "4. ביצוע מקורי",
+      "perf": "הגשש החיוור",
+      "alb": "",
+      "alb_group": "סינגל / ביצוע בודד",
+      "alb_trk": 999,
+      "role_cat": "words_and_music",
+      "role_label": "מילים ולחן: נעמי שמר",
+      "co_creators": "",
+      "opening_line": "ליל אביב מלא ירח עוד מעט ויגמר",
+      "links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043050205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=18110"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1002116",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1002116"
+        }
+      ],
+      "alts": [
+        {
+          "vid": "idxeAB4kNVI",
+          "vtitle": "נעמי שמר - אין דבר",
+          "ch": "MrOrirose",
+          "dur": "2:45",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "pTlgYtrDSPI",
+          "vtitle": "אין דבר - צמד רעים (מתוך האלבום \"מה יביא לי המחר?\")",
+          "ch": "צמד רעים Duo Reim",
+          "dur": "3:52",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "VYnr4qY8WmA",
+          "vtitle": "צמד רעים- אין דבר",
+          "ch": "smog83",
+          "dur": "3:52",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "7cZaZp3xfDM",
+          "vtitle": "אין דבר",
+          "ch": "נעמי שמר - Topic",
+          "dur": "3:00",
+          "src": "same_song_performance"
+        }
+      ]
+    },
+    {
+      "n": 97,
+      "chrono_n": 514,
+      "canon_score": 320.0,
+      "acum_v": 11,
+      "layer": 1,
+      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "blk": "p1",
+      "ch_lbl": "",
+      "title": "אין דבר [ביצוע נעמי שמר] (1981)",
+      "raw_title": "אין דבר",
+      "alt_titles": [],
+      "ver_idx": 2,
+      "ver_total": 3,
+      "year": "1981",
+      "decade": "1980s",
+      "vid": "7cZaZp3xfDM",
+      "vtitle": "אין דבר",
+      "ch": "נעמי שמר - Topic",
+      "dur": "3:00",
+      "tier": "1_album_naomi",
+      "tier_label": "1. אלבום של נעמי שמר",
+      "perf": "נעמי שמר",
+      "alb": "על הדבש ועל העוקץ (נעמי שמר) (#9)",
+      "alb_group": "על הדבש ועל העוקץ (נעמי שמר)",
+      "alb_trk": 9,
+      "role_cat": "words_and_music",
+      "role_label": "מילים ולחן: נעמי שמר",
+      "co_creators": "",
+      "opening_line": "ליל אביב מלא ירח עוד מעט ויגמר",
+      "links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043050205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=18110"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1002116",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1002116"
+        }
+      ],
+      "alts": [
+        {
+          "vid": "idxeAB4kNVI",
+          "vtitle": "נעמי שמר - אין דבר",
+          "ch": "MrOrirose",
+          "dur": "2:45",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "pTlgYtrDSPI",
+          "vtitle": "אין דבר - צמד רעים (מתוך האלבום \"מה יביא לי המחר?\")",
+          "ch": "צמד רעים Duo Reim",
+          "dur": "3:52",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "VYnr4qY8WmA",
+          "vtitle": "צמד רעים- אין דבר",
+          "ch": "smog83",
+          "dur": "3:52",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "2BfY0duzEpE",
+          "vtitle": "הגשש החיוור - אין דבר (1979)",
+          "ch": "הגשש החיוור",
+          "dur": "3:34",
+          "src": "same_song_performance"
+        }
+      ]
+    },
+    {
+      "n": 98,
       "chrono_n": 24,
       "canon_score": 315.3,
       "acum_v": 24,
@@ -7872,7 +8190,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 95,
+      "n": 99,
       "chrono_n": 235,
       "canon_score": 312.1,
       "acum_v": 52,
@@ -7950,7 +8268,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 96,
+      "n": 100,
       "chrono_n": 218,
       "canon_score": 312.1,
       "acum_v": 52,
@@ -8035,7 +8353,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 97,
+      "n": 101,
       "chrono_n": 185,
       "canon_score": 297.6,
       "acum_v": 41,
@@ -8116,7 +8434,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 98,
+      "n": 102,
       "chrono_n": 220,
       "canon_score": 297.6,
       "acum_v": 41,
@@ -8204,7 +8522,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 99,
+      "n": 103,
       "chrono_n": 424,
       "canon_score": 292.5,
       "acum_v": 32,
@@ -8285,7 +8603,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 100,
+      "n": 104,
       "chrono_n": 528,
       "canon_score": 292.5,
       "acum_v": 32,
@@ -8366,7 +8684,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 101,
+      "n": 105,
       "chrono_n": 31,
       "canon_score": 291.4,
       "acum_v": 19,
@@ -8450,7 +8768,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 102,
+      "n": 106,
       "chrono_n": 37,
       "canon_score": 291.4,
       "acum_v": 19,
@@ -8527,66 +8845,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 103,
-      "chrono_n": 399,
-      "canon_score": 279.9,
-      "acum_v": 50,
-      "layer": 1,
-      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "blk": "p1",
-      "ch_lbl": "",
-      "title": "שיר הכזבים [ביצוע מקורי] (1975)",
-      "raw_title": "שיר הכזבים",
-      "alt_titles": [
-        "לא היו דברים מעולם"
-      ],
-      "ver_idx": 1,
-      "ver_total": 2,
-      "year": "1975",
-      "decade": "1970s",
-      "vid": "RqHN-so83M4",
-      "vtitle": "שיר הכזבים",
-      "ch": "נעמי שמר - Topic",
-      "dur": "2:23",
-      "tier": "1_album_naomi",
-      "tier_label": "1. אלבום של נעמי שמר",
-      "perf": "נעמי שמר",
-      "alb": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות (#15)",
-      "alb_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
-      "alb_trk": 15,
-      "role_cat": "words_and_music",
-      "role_label": "מילים ולחן: נעמי שמר",
-      "co_creators": "",
-      "opening_line": "פעם עוזי ואבנר רצו לראות אם קש בוער",
-      "links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037041830205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=5894"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1033137",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1033137"
-        }
-      ],
-      "alts": [
-        {
-          "vid": "Omn_wSe-dKU",
-          "vtitle": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
-          "ch": "ילדות ישראלית",
-          "dur": "2:12",
-          "src": "same_song_performance"
-        }
-      ]
-    },
-    {
-      "n": 104,
+      "n": 107,
       "chrono_n": 466,
       "canon_score": 279.6,
       "acum_v": 23,
@@ -8660,7 +8919,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 105,
+      "n": 108,
       "chrono_n": 536,
       "canon_score": 279.6,
       "acum_v": 23,
@@ -8734,7 +8993,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 106,
+      "n": 109,
       "chrono_n": 342,
       "canon_score": 276.1,
       "acum_v": 26,
@@ -8805,7 +9064,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 107,
+      "n": 110,
       "chrono_n": 144,
       "canon_score": 272.2,
       "acum_v": 1,
@@ -8878,7 +9137,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 108,
+      "n": 111,
       "chrono_n": 191,
       "canon_score": 268.7,
       "acum_v": 41,
@@ -8951,7 +9210,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 109,
+      "n": 112,
       "chrono_n": 582,
       "canon_score": 266.2,
       "acum_v": 30,
@@ -9024,7 +9283,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 110,
+      "n": 113,
       "chrono_n": 627,
       "canon_score": 263.9,
       "acum_v": 29,
@@ -9090,7 +9349,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 111,
+      "n": 114,
       "chrono_n": 49,
       "canon_score": 254.7,
       "acum_v": 31,
@@ -9170,7 +9429,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 112,
+      "n": 115,
       "chrono_n": 50,
       "canon_score": 254.7,
       "acum_v": 31,
@@ -9250,7 +9509,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 113,
+      "n": 116,
       "chrono_n": 192,
       "canon_score": 254.6,
       "acum_v": 42,
@@ -9344,7 +9603,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 114,
+      "n": 117,
       "chrono_n": 266,
       "canon_score": 254.1,
       "acum_v": 27,
@@ -9422,7 +9681,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 115,
+      "n": 118,
       "chrono_n": 47,
       "canon_score": 243.8,
       "acum_v": 32,
@@ -9497,7 +9756,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 116,
+      "n": 119,
       "chrono_n": 170,
       "canon_score": 243.8,
       "acum_v": 32,
@@ -9572,7 +9831,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 117,
+      "n": 120,
       "chrono_n": 684,
       "canon_score": 238.3,
       "acum_v": 19,
@@ -9647,7 +9906,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 118,
+      "n": 121,
       "chrono_n": 199,
       "canon_score": 228.3,
       "acum_v": 23,
@@ -9728,7 +9987,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 119,
+      "n": 122,
       "chrono_n": 217,
       "canon_score": 228.3,
       "acum_v": 23,
@@ -9816,7 +10075,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 120,
+      "n": 123,
       "chrono_n": 91,
       "canon_score": 221.0,
       "acum_v": 41,
@@ -9906,7 +10165,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 121,
+      "n": 124,
       "chrono_n": 551,
       "canon_score": 217.5,
       "acum_v": 25,
@@ -9979,7 +10238,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 122,
+      "n": 125,
       "chrono_n": 585,
       "canon_score": 217.5,
       "acum_v": 25,
@@ -10052,7 +10311,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 123,
+      "n": 126,
       "chrono_n": 476,
       "canon_score": 216.9,
       "acum_v": 25,
@@ -10129,7 +10388,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 124,
+      "n": 127,
       "chrono_n": 483,
       "canon_score": 216.9,
       "acum_v": 25,
@@ -10206,7 +10465,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 125,
+      "n": 128,
       "chrono_n": 502,
       "canon_score": 216.2,
       "acum_v": 25,
@@ -10286,7 +10545,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 126,
+      "n": 129,
       "chrono_n": 503,
       "canon_score": 216.2,
       "acum_v": 25,
@@ -10366,7 +10625,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 127,
+      "n": 130,
       "chrono_n": 386,
       "canon_score": 212.9,
       "acum_v": 17,
@@ -10444,7 +10703,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 128,
+      "n": 131,
       "chrono_n": 446,
       "canon_score": 212.0,
       "acum_v": 23,
@@ -10519,7 +10778,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 129,
+      "n": 132,
       "chrono_n": 183,
       "canon_score": 211.9,
       "acum_v": 41,
@@ -10600,7 +10859,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 130,
+      "n": 133,
       "chrono_n": 214,
       "canon_score": 211.9,
       "acum_v": 41,
@@ -10681,7 +10940,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 131,
+      "n": 134,
       "chrono_n": 464,
       "canon_score": 210.3,
       "acum_v": 24,
@@ -10770,7 +11029,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 132,
+      "n": 135,
       "chrono_n": 391,
       "canon_score": 205.3,
       "acum_v": 35,
@@ -10844,7 +11103,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 133,
+      "n": 136,
       "chrono_n": 137,
       "canon_score": 201.4,
       "acum_v": 27,
@@ -10938,7 +11197,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 134,
+      "n": 137,
       "chrono_n": 225,
       "canon_score": 201.4,
       "acum_v": 27,
@@ -11032,7 +11291,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 135,
+      "n": 138,
       "chrono_n": 380,
       "canon_score": 200.4,
       "acum_v": 22,
@@ -11106,7 +11365,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 136,
+      "n": 139,
       "chrono_n": 379,
       "canon_score": 200.4,
       "acum_v": 22,
@@ -11180,7 +11439,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 137,
+      "n": 140,
       "chrono_n": 678,
       "canon_score": 198.9,
       "acum_v": 16,
@@ -11251,7 +11510,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 138,
+      "n": 141,
       "chrono_n": 28,
       "canon_score": 198.1,
       "acum_v": 40,
@@ -11337,7 +11596,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 139,
+      "n": 142,
       "chrono_n": 29,
       "canon_score": 198.1,
       "acum_v": 40,
@@ -11423,7 +11682,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 140,
+      "n": 143,
       "chrono_n": 333,
       "canon_score": 197.2,
       "acum_v": 23,
@@ -11501,7 +11760,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 141,
+      "n": 144,
       "chrono_n": 110,
       "canon_score": 192.0,
       "acum_v": 30,
@@ -11572,7 +11831,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 142,
+      "n": 145,
       "chrono_n": 223,
       "canon_score": 192.0,
       "acum_v": 30,
@@ -11650,7 +11909,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 143,
+      "n": 146,
       "chrono_n": 372,
       "canon_score": 188.1,
       "acum_v": 33,
@@ -11723,7 +11982,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 144,
+      "n": 147,
       "chrono_n": 687,
       "canon_score": 178.2,
       "acum_v": 8,
@@ -11796,7 +12055,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 145,
+      "n": 148,
       "chrono_n": 275,
       "canon_score": 167.1,
       "acum_v": 14,
@@ -11877,7 +12136,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 146,
+      "n": 149,
       "chrono_n": 441,
       "canon_score": 158.8,
       "acum_v": 28,
@@ -11951,7 +12210,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 147,
+      "n": 150,
       "chrono_n": 680,
       "canon_score": 157.8,
       "acum_v": 149,
@@ -12032,7 +12291,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 148,
+      "n": 151,
       "chrono_n": 635,
       "canon_score": 155.2,
       "acum_v": 12,
@@ -12103,7 +12362,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 149,
+      "n": 152,
       "chrono_n": 444,
       "canon_score": 151.9,
       "acum_v": 12,
@@ -12192,7 +12451,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 150,
+      "n": 153,
       "chrono_n": 626,
       "canon_score": 151.4,
       "acum_v": 13,
@@ -12267,169 +12526,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 151,
-      "chrono_n": 202,
-      "canon_score": 150.2,
-      "acum_v": 2,
-      "layer": 1,
-      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "blk": "p1",
-      "ch_lbl": "",
-      "title": "שלגיה [ביצוע מקורי] (1966)",
-      "raw_title": "שלגיה",
-      "alt_titles": [
-        "שלגייה",
-        "חורפים שבעה חכינו לך לא קראת אבל ענינו לך"
-      ],
-      "ver_idx": 1,
-      "ver_total": 2,
-      "year": "1966",
-      "decade": "1960s",
-      "vid": "whmUk6hiVE4",
-      "vtitle": "שלישית התאומים - שלגיה",
-      "ch": "Israphon Music (‫ישראפון‬‎)",
-      "dur": "2:20",
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "perf": "שלישיית התאומים",
-      "alb": "",
-      "alb_group": "סינגל / ביצוע בודד",
-      "alb_trk": 999,
-      "role_cat": "translation",
-      "role_label": "תרגום: נעמי שמר (מקור: גי ביאר)",
-      "co_creators": "מקור: גי ביאר",
-      "opening_line": "כבר ירד השלג בהרים רחוקים ובשלג",
-      "links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037044000205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3784"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1429721",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1429721"
-        }
-      ],
-      "alts": [
-        {
-          "vid": "ZmEj47Xeo_E",
-          "vtitle": "שלישיית התאומים - שלגיה",
-          "ch": "Israphon Music (‫ישראפון‬‎)",
-          "dur": "2:21",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "QM4f7AVmPos",
-          "vtitle": "שלגיה - שלישיית התאומים",
-          "ch": "avigail67",
-          "dur": "2:16",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "nK912D3Yt5c",
-          "vtitle": "שלגיה - שלישיית התאומים",
-          "ch": "coolsummerrainn",
-          "dur": "2:20",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "I00dlNJc6BI",
-          "vtitle": "שלגיה נעמי שמר-מילים ולחן גי ביאר עברית נעמי שמר",
-          "ch": "רחל פרומן קומלוש",
-          "dur": "1:51",
-          "src": "same_song_performance"
-        }
-      ]
-    },
-    {
-      "n": 152,
-      "chrono_n": 203,
-      "canon_score": 150.2,
-      "acum_v": 2,
-      "layer": 1,
-      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "blk": "p1",
-      "ch_lbl": "",
-      "title": "שלגיה [ביצוע נעמי שמר] (1966)",
-      "raw_title": "שלגיה",
-      "alt_titles": [
-        "שלגייה",
-        "חורפים שבעה חכינו לך לא קראת אבל ענינו לך"
-      ],
-      "ver_idx": 2,
-      "ver_total": 2,
-      "year": "1966",
-      "decade": "1960s",
-      "vid": "I00dlNJc6BI",
-      "vtitle": "שלגיה נעמי שמר-מילים ולחן גי ביאר עברית נעמי שמר",
-      "ch": "רחל פרומן קומלוש",
-      "dur": "1:51",
-      "tier": "3_naomi_performance",
-      "tier_label": "3. ביצוע של נעמי שמר",
-      "perf": "נעמי שמר",
-      "alb": "נעמי שמר",
-      "alb_group": "סינגל / ביצוע בודד",
-      "alb_trk": 999,
-      "role_cat": "translation",
-      "role_label": "תרגום: נעמי שמר (מקור: גי ביאר)",
-      "co_creators": "מקור: גי ביאר",
-      "opening_line": "כבר ירד השלג בהרים רחוקים ובשלג",
-      "links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037044000205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=3784"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1429721",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1429721"
-        }
-      ],
-      "alts": [
-        {
-          "vid": "ZmEj47Xeo_E",
-          "vtitle": "שלישיית התאומים - שלגיה",
-          "ch": "Israphon Music (‫ישראפון‬‎)",
-          "dur": "2:21",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "QM4f7AVmPos",
-          "vtitle": "שלגיה - שלישיית התאומים",
-          "ch": "avigail67",
-          "dur": "2:16",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "nK912D3Yt5c",
-          "vtitle": "שלגיה - שלישיית התאומים",
-          "ch": "coolsummerrainn",
-          "dur": "2:20",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "whmUk6hiVE4",
-          "vtitle": "שלישית התאומים - שלגיה",
-          "ch": "Israphon Music (‫ישראפון‬‎)",
-          "dur": "2:20",
-          "src": "same_song_performance"
-        }
-      ]
-    },
-    {
-      "n": 153,
+      "n": 154,
       "chrono_n": 516,
       "canon_score": 147.0,
       "acum_v": 21,
@@ -12488,7 +12585,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 154,
+      "n": 155,
       "chrono_n": 219,
       "canon_score": 144.9,
       "acum_v": 17,
@@ -12568,163 +12665,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 155,
-      "chrono_n": 488,
-      "canon_score": 139.9,
-      "acum_v": 11,
-      "layer": 1,
-      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "blk": "p1",
-      "ch_lbl": "",
-      "title": "אין דבר [ביצוע מקורי] (1979)",
-      "raw_title": "אין דבר",
-      "alt_titles": [],
-      "ver_idx": 1,
-      "ver_total": 3,
-      "year": "1979",
-      "decade": "1970s",
-      "vid": "2BfY0duzEpE",
-      "vtitle": "הגשש החיוור - אין דבר (1979)",
-      "ch": "הגשש החיוור",
-      "dur": "3:34",
-      "tier": "4_original_performance",
-      "tier_label": "4. ביצוע מקורי",
-      "perf": "הגשש החיוור",
-      "alb": "",
-      "alb_group": "סינגל / ביצוע בודד",
-      "alb_trk": 999,
-      "role_cat": "words_and_music",
-      "role_label": "מילים ולחן: נעמי שמר",
-      "co_creators": "",
-      "opening_line": "ליל אביב מלא ירח עוד מעט ויגמר",
-      "links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043050205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=18110"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1002116",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1002116"
-        }
-      ],
-      "alts": [
-        {
-          "vid": "idxeAB4kNVI",
-          "vtitle": "נעמי שמר - אין דבר",
-          "ch": "MrOrirose",
-          "dur": "2:45",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "pTlgYtrDSPI",
-          "vtitle": "אין דבר - צמד רעים (מתוך האלבום \"מה יביא לי המחר?\")",
-          "ch": "צמד רעים Duo Reim",
-          "dur": "3:52",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "VYnr4qY8WmA",
-          "vtitle": "צמד רעים- אין דבר",
-          "ch": "smog83",
-          "dur": "3:52",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "7cZaZp3xfDM",
-          "vtitle": "אין דבר",
-          "ch": "נעמי שמר - Topic",
-          "dur": "3:00",
-          "src": "same_song_performance"
-        }
-      ]
-    },
-    {
       "n": 156,
-      "chrono_n": 514,
-      "canon_score": 139.9,
-      "acum_v": 11,
-      "layer": 1,
-      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "blk": "p1",
-      "ch_lbl": "",
-      "title": "אין דבר [ביצוע נעמי שמר] (1981)",
-      "raw_title": "אין דבר",
-      "alt_titles": [],
-      "ver_idx": 2,
-      "ver_total": 3,
-      "year": "1981",
-      "decade": "1980s",
-      "vid": "7cZaZp3xfDM",
-      "vtitle": "אין דבר",
-      "ch": "נעמי שמר - Topic",
-      "dur": "3:00",
-      "tier": "1_album_naomi",
-      "tier_label": "1. אלבום של נעמי שמר",
-      "perf": "נעמי שמר",
-      "alb": "על הדבש ועל העוקץ (נעמי שמר) (#9)",
-      "alb_group": "על הדבש ועל העוקץ (נעמי שמר)",
-      "alb_trk": 9,
-      "role_cat": "words_and_music",
-      "role_label": "מילים ולחן: נעמי שמר",
-      "co_creators": "",
-      "opening_line": "ליל אביב מלא ירח עוד מעט ויגמר",
-      "links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043050205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=18110"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1002116",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1002116"
-        }
-      ],
-      "alts": [
-        {
-          "vid": "idxeAB4kNVI",
-          "vtitle": "נעמי שמר - אין דבר",
-          "ch": "MrOrirose",
-          "dur": "2:45",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "pTlgYtrDSPI",
-          "vtitle": "אין דבר - צמד רעים (מתוך האלבום \"מה יביא לי המחר?\")",
-          "ch": "צמד רעים Duo Reim",
-          "dur": "3:52",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "VYnr4qY8WmA",
-          "vtitle": "צמד רעים- אין דבר",
-          "ch": "smog83",
-          "dur": "3:52",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "2BfY0duzEpE",
-          "vtitle": "הגשש החיוור - אין דבר (1979)",
-          "ch": "הגשש החיוור",
-          "dur": "3:34",
-          "src": "same_song_performance"
-        }
-      ]
-    },
-    {
-      "n": 157,
       "chrono_n": 292,
       "canon_score": 116.5,
       "acum_v": 3,
@@ -12795,7 +12736,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 158,
+      "n": 157,
       "chrono_n": 387,
       "canon_score": 108.2,
       "acum_v": 8,
@@ -12869,7 +12810,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 159,
+      "n": 158,
       "chrono_n": 317,
       "canon_score": 83.0,
       "acum_v": 14,
@@ -12943,7 +12884,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 160,
+      "n": 159,
       "chrono_n": 385,
       "canon_score": 76.5,
       "acum_v": 16,
@@ -13009,7 +12950,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 161,
+      "n": 160,
       "chrono_n": 475,
       "canon_score": 71.6,
       "acum_v": 12,
@@ -13066,7 +13007,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 162,
+      "n": 161,
       "chrono_n": 482,
       "canon_score": 71.6,
       "acum_v": 12,
@@ -13123,7 +13064,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 163,
+      "n": 162,
       "chrono_n": 389,
       "canon_score": 64.3,
       "acum_v": 8,
@@ -13194,7 +13135,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 164,
+      "n": 163,
       "chrono_n": 215,
       "canon_score": 60.2,
       "acum_v": 6,
@@ -13265,7 +13206,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 165,
+      "n": 164,
       "chrono_n": 537,
       "canon_score": 57.3,
       "acum_v": 8,
@@ -13317,7 +13258,7 @@ window.PLAYLIST_DATA = {
       "alts": []
     },
     {
-      "n": 166,
+      "n": 165,
       "chrono_n": 539,
       "canon_score": 56.8,
       "acum_v": 5,
@@ -13388,7 +13329,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 167,
+      "n": 166,
       "chrono_n": 383,
       "canon_score": 47.8,
       "acum_v": 3,
@@ -13465,6 +13406,65 @@ window.PLAYLIST_DATA = {
           "vtitle": "דוגרת",
           "ch": "Yafa Yarkoni - Topic",
           "dur": "1:17",
+          "src": "same_song_performance"
+        }
+      ]
+    },
+    {
+      "n": 167,
+      "chrono_n": 399,
+      "canon_score": 45.0,
+      "acum_v": 50,
+      "layer": 1,
+      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "blk": "p1",
+      "ch_lbl": "",
+      "title": "שיר הכזבים [ביצוע מקורי] (1975)",
+      "raw_title": "שיר הכזבים",
+      "alt_titles": [
+        "לא היו דברים מעולם"
+      ],
+      "ver_idx": 1,
+      "ver_total": 2,
+      "year": "1975",
+      "decade": "1970s",
+      "vid": "RqHN-so83M4",
+      "vtitle": "שיר הכזבים",
+      "ch": "נעמי שמר - Topic",
+      "dur": "2:23",
+      "tier": "1_album_naomi",
+      "tier_label": "1. אלבום של נעמי שמר",
+      "perf": "נעמי שמר",
+      "alb": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות (#15)",
+      "alb_group": "נעמי שמר שרה לילדים ועודד תאומי עושה להם הצגות",
+      "alb_trk": 15,
+      "role_cat": "words_and_music",
+      "role_label": "מילים ולחן: נעמי שמר",
+      "co_creators": "",
+      "opening_line": "פעם עוזי ואבנר רצו לראות אם קש בוער",
+      "links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037041830205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=5894"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1033137",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1033137"
+        }
+      ],
+      "alts": [
+        {
+          "vid": "Omn_wSe-dKU",
+          "vtitle": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
+          "ch": "ילדות ישראלית",
+          "dur": "2:12",
           "src": "same_song_performance"
         }
       ]
@@ -40280,6 +40280,84 @@ window.PLAYLIST_DATA = {
     },
     {
       "n": 573,
+      "chrono_n": 518,
+      "canon_score": 320.0,
+      "acum_v": 11,
+      "layer": 1,
+      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "blk": "e1",
+      "ch_lbl": "",
+      "title": "אין דבר [ביצוע: צמד רעים] (1981)",
+      "raw_title": "אין דבר",
+      "alt_titles": [],
+      "ver_idx": 3,
+      "ver_total": 3,
+      "year": "1981",
+      "decade": "1980s",
+      "vid": "pTlgYtrDSPI",
+      "vtitle": "צמד רעים - אין דבר (1981)",
+      "ch": "צמד רעים",
+      "dur": "3:52",
+      "tier": "2_album_original",
+      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
+      "perf": "צמד רעים",
+      "alb": "",
+      "alb_group": "סינגל / ביצוע בודד",
+      "alb_trk": 999,
+      "role_cat": "words_and_music",
+      "role_label": "מילים ולחן: נעמי שמר",
+      "co_creators": "",
+      "opening_line": "ליל אביב מלא ירח עוד מעט ויגמר",
+      "links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043050205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=18110"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1002116",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1002116"
+        }
+      ],
+      "alts": [
+        {
+          "vid": "idxeAB4kNVI",
+          "vtitle": "נעמי שמר - אין דבר",
+          "ch": "MrOrirose",
+          "dur": "2:45",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "VYnr4qY8WmA",
+          "vtitle": "צמד רעים- אין דבר",
+          "ch": "smog83",
+          "dur": "3:52",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "2BfY0duzEpE",
+          "vtitle": "הגשש החיוור - אין דבר (1979)",
+          "ch": "הגשש החיוור",
+          "dur": "3:34",
+          "src": "same_song_performance"
+        },
+        {
+          "vid": "7cZaZp3xfDM",
+          "vtitle": "אין דבר",
+          "ch": "נעמי שמר - Topic",
+          "dur": "3:00",
+          "src": "same_song_performance"
+        }
+      ]
+    },
+    {
+      "n": 574,
       "chrono_n": 101,
       "canon_score": 315.3,
       "acum_v": 24,
@@ -40367,7 +40445,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 574,
+      "n": 575,
       "chrono_n": 381,
       "canon_score": 315.3,
       "acum_v": 24,
@@ -40441,7 +40519,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 575,
+      "n": 576,
       "chrono_n": 64,
       "canon_score": 315.3,
       "acum_v": 24,
@@ -40515,7 +40593,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 576,
+      "n": 577,
       "chrono_n": 236,
       "canon_score": 312.1,
       "acum_v": 52,
@@ -40593,7 +40671,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 577,
+      "n": 578,
       "chrono_n": 186,
       "canon_score": 297.6,
       "acum_v": 41,
@@ -40653,7 +40731,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 578,
+      "n": 579,
       "chrono_n": 429,
       "canon_score": 292.5,
       "acum_v": 32,
@@ -40734,7 +40812,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 579,
+      "n": 580,
       "chrono_n": 38,
       "canon_score": 291.4,
       "acum_v": 19,
@@ -40806,65 +40884,6 @@ window.PLAYLIST_DATA = {
           "vtitle": "נעמי שמר - שיר סתיו",
           "ch": "כאן | מוזיקה",
           "dur": "1:12",
-          "src": "same_song_performance"
-        }
-      ]
-    },
-    {
-      "n": 580,
-      "chrono_n": 646,
-      "canon_score": 279.9,
-      "acum_v": 50,
-      "layer": 1,
-      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "blk": "e1",
-      "ch_lbl": "",
-      "title": "שיר הכזבים [ביצוע: משתתפי אצלנו בפסנתר] (1993)",
-      "raw_title": "שיר הכזבים",
-      "alt_titles": [
-        "לא היו דברים מעולם"
-      ],
-      "ver_idx": 2,
-      "ver_total": 2,
-      "year": "1993",
-      "decade": "1990s+",
-      "vid": "Omn_wSe-dKU",
-      "vtitle": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
-      "ch": "ילדות ישראלית",
-      "dur": "2:12",
-      "tier": "5_cover",
-      "tier_label": "5. ביצוע מחודש / קאבר",
-      "perf": "משתתפי אצלנו בפסנתר",
-      "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#7)",
-      "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
-      "alb_trk": 7,
-      "role_cat": "words_and_music",
-      "role_label": "מילים ולחן: נעמי שמר",
-      "co_creators": "",
-      "opening_line": "פעם עוזי ואבנר רצו לראות אם קש בוער",
-      "links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037041830205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=5894"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1033137",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1033137"
-        }
-      ],
-      "alts": [
-        {
-          "vid": "RqHN-so83M4",
-          "vtitle": "שיר הכזבים",
-          "ch": "נעמי שמר - Topic",
-          "dur": "2:23",
           "src": "same_song_performance"
         }
       ]
@@ -43972,84 +43991,6 @@ window.PLAYLIST_DATA = {
     },
     {
       "n": 620,
-      "chrono_n": 518,
-      "canon_score": 139.9,
-      "acum_v": 11,
-      "layer": 1,
-      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
-      "blk": "e1",
-      "ch_lbl": "",
-      "title": "אין דבר [ביצוע: צמד רעים] (1981)",
-      "raw_title": "אין דבר",
-      "alt_titles": [],
-      "ver_idx": 3,
-      "ver_total": 3,
-      "year": "1981",
-      "decade": "1980s",
-      "vid": "pTlgYtrDSPI",
-      "vtitle": "צמד רעים - אין דבר (1981)",
-      "ch": "צמד רעים",
-      "dur": "3:52",
-      "tier": "2_album_original",
-      "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
-      "perf": "צמד רעים",
-      "alb": "",
-      "alb_group": "סינגל / ביצוע בודד",
-      "alb_trk": 999,
-      "role_cat": "words_and_music",
-      "role_label": "מילים ולחן: נעמי שמר",
-      "co_creators": "",
-      "opening_line": "ליל אביב מלא ירח עוד מעט ויגמר",
-      "links": [
-        {
-          "source": "nli",
-          "label": "הספרייה הלאומית (בית לזמר העברי)",
-          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037043050205171/NLI"
-        },
-        {
-          "source": "shironet",
-          "label": "מילים בשירונט",
-          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=18110"
-        },
-        {
-          "source": "acum",
-          "label": "אקו\"ם #1002116",
-          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1002116"
-        }
-      ],
-      "alts": [
-        {
-          "vid": "idxeAB4kNVI",
-          "vtitle": "נעמי שמר - אין דבר",
-          "ch": "MrOrirose",
-          "dur": "2:45",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "VYnr4qY8WmA",
-          "vtitle": "צמד רעים- אין דבר",
-          "ch": "smog83",
-          "dur": "3:52",
-          "src": "direct_alternative"
-        },
-        {
-          "vid": "2BfY0duzEpE",
-          "vtitle": "הגשש החיוור - אין דבר (1979)",
-          "ch": "הגשש החיוור",
-          "dur": "3:34",
-          "src": "same_song_performance"
-        },
-        {
-          "vid": "7cZaZp3xfDM",
-          "vtitle": "אין דבר",
-          "ch": "נעמי שמר - Topic",
-          "dur": "3:00",
-          "src": "same_song_performance"
-        }
-      ]
-    },
-    {
-      "n": 621,
       "chrono_n": 401,
       "canon_score": 108.2,
       "acum_v": 8,
@@ -44123,7 +44064,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 622,
+      "n": 621,
       "chrono_n": 400,
       "canon_score": 76.5,
       "acum_v": 16,
@@ -44189,7 +44130,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 623,
+      "n": 622,
       "chrono_n": 440,
       "canon_score": 64.3,
       "acum_v": 8,
@@ -44260,7 +44201,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 624,
+      "n": 623,
       "chrono_n": 316,
       "canon_score": 60.2,
       "acum_v": 6,
@@ -44331,7 +44272,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 625,
+      "n": 624,
       "chrono_n": 245,
       "canon_score": 60.2,
       "acum_v": 6,
@@ -44402,7 +44343,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 626,
+      "n": 625,
       "chrono_n": 506,
       "canon_score": 47.8,
       "acum_v": 3,
@@ -44484,7 +44425,7 @@ window.PLAYLIST_DATA = {
       ]
     },
     {
-      "n": 627,
+      "n": 626,
       "chrono_n": 448,
       "canon_score": 47.8,
       "acum_v": 3,
@@ -44561,6 +44502,65 @@ window.PLAYLIST_DATA = {
           "vtitle": "נ.שמר - דוגרת",
           "ch": "נוסטלגיה ישראלית",
           "dur": "0:41",
+          "src": "same_song_performance"
+        }
+      ]
+    },
+    {
+      "n": 627,
+      "chrono_n": 646,
+      "canon_score": 45.0,
+      "acum_v": 50,
+      "layer": 1,
+      "layer_label": "שכבה א': קלאסיקות ושירי ילדים קאנוניים",
+      "blk": "e1",
+      "ch_lbl": "",
+      "title": "שיר הכזבים [ביצוע: משתתפי אצלנו בפסנתר] (1993)",
+      "raw_title": "שיר הכזבים",
+      "alt_titles": [
+        "לא היו דברים מעולם"
+      ],
+      "ver_idx": 2,
+      "ver_total": 2,
+      "year": "1993",
+      "decade": "1990s+",
+      "vid": "Omn_wSe-dKU",
+      "vtitle": "אצלנו בפסנתר -3- שיר הכזבים (1993)",
+      "ch": "ילדות ישראלית",
+      "dur": "2:12",
+      "tier": "5_cover",
+      "tier_label": "5. ביצוע מחודש / קאבר",
+      "perf": "משתתפי אצלנו בפסנתר",
+      "alb": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993) (#7)",
+      "alb_group": "אצלנו בפסנתר – שירי הילדים של נעמי שמר (1993)",
+      "alb_trk": 7,
+      "role_cat": "words_and_music",
+      "role_label": "מילים ולחן: נעמי שמר",
+      "co_creators": "",
+      "opening_line": "פעם עוזי ואבנר רצו לראות אם קש בוער",
+      "links": [
+        {
+          "source": "nli",
+          "label": "הספרייה הלאומית (בית לזמר העברי)",
+          "url": "https://www.nli.org.il/he/items/NNL_MUSIC_AL990037041830205171/NLI"
+        },
+        {
+          "source": "shironet",
+          "label": "מילים בשירונט",
+          "url": "https://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=738&wrkid=5894"
+        },
+        {
+          "source": "acum",
+          "label": "אקו\"ם #1033137",
+          "url": "https://nocs.acum.org.il/acumsitesearchdb/issearch?workid=1033137"
+        }
+      ],
+      "alts": [
+        {
+          "vid": "RqHN-so83M4",
+          "vtitle": "שיר הכזבים",
+          "ch": "נעמי שמר - Topic",
+          "dur": "2:23",
           "src": "same_song_performance"
         }
       ]

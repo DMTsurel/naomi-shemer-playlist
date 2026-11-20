@@ -87,12 +87,16 @@ def compute_canonical_score(
 ) -> float:
     """Compute composer-parameterized canonical score (`sqrt_mult`, `log`, or `linear`)."""
     ranking_cfg = cfg.ranking
+    title = item.get("title", "")
+    score_overrides = ranking_cfg.get("score_overrides") or {}
+    if title in score_overrides:
+        return round(float(score_overrides[title]), 1)
+
     mode = str(ranking_cfg.get("mode", "sqrt_mult"))
     anthology_cap = float(ranking_cfg.get("anthology_cap", 100.0))
     anthologies = ranking_cfg.get("canonical_anthologies", [])
     full_credit_trans = set(ranking_cfg.get("translation_full_credit_titles", []))
 
-    title = item.get("title", "")
     rcat = item.get("role_category", "")
     acum_raw = int(item.get("acum_versions_count") or 0)
     eff_acum = acum_raw * 0.20 if (rcat == "translation" and title not in full_credit_trans) else float(acum_raw)

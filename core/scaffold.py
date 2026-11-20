@@ -147,6 +147,7 @@ def scaffold_composer(
             "anthology_cap": 100.0,
             "canonical_anthologies": [],
             "translation_full_credit_titles": [],
+            "score_overrides": {},
             "tail_video_ids": [],
             "tail_performer_keywords": ["סקיצה נדירה"],
             "tv_album_group": "תוכניות טלוויזיה ומופעים מלאים",

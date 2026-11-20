@@ -94,6 +94,10 @@ https://www.youtube.com/watch?v=6OWfRHNgEtg
 https://www.youtube.com/watch?v=2iljNf6XqsA
 #EXTINF:197,נעמי שמר - אנחנו שנינו מאותו הכפר (1968)
 https://www.youtube.com/watch?v=fE8xcZiFRO8
+#EXTINF:140,שלישיית התאומים - שלגיה (1966)
+https://www.youtube.com/watch?v=whmUk6hiVE4
+#EXTINF:111,נעמי שמר - שלגיה (1966)
+https://www.youtube.com/watch?v=I00dlNJc6BI
 #EXTINF:140,להקת פיקוד המרכז - כנרת (1964)
 https://www.youtube.com/watch?v=-nzLbN3sFRQ
 #EXTINF:197,שלישיית גשר הירקון - העיר באפור (1964)
@@ -186,6 +190,10 @@ https://www.youtube.com/watch?v=jMlzihkguOU
 https://www.youtube.com/watch?v=CeRvSDeJx-I
 #EXTINF:208,להקת פיקוד הצפון - בשדה תלתן (1961)
 https://www.youtube.com/watch?v=8y5KQ8UWi0A
+#EXTINF:214,הגשש החיוור - אין דבר (1979)
+https://www.youtube.com/watch?v=2BfY0duzEpE
+#EXTINF:180,נעמי שמר - אין דבר (1981)
+https://www.youtube.com/watch?v=7cZaZp3xfDM
 #EXTINF:253,אילי גורליצקי ולהקת פיקוד המרכז - חמסינים במשלט (1958)
 https://www.youtube.com/watch?v=neNKCSaT1T8
 #EXTINF:151,מקהלת צדיקוב - על כנפי הכסף (1967)
@@ -204,8 +212,6 @@ https://www.youtube.com/watch?v=GgYxh_MoCDA
 https://www.youtube.com/watch?v=06dUzmJF7H0
 #EXTINF:72,נעמי שמר - שיר סתיו (1958)
 https://www.youtube.com/watch?v=gkPyKqEFNSE
-#EXTINF:143,נעמי שמר - שיר הכזבים (1975)
-https://www.youtube.com/watch?v=RqHN-so83M4
 #EXTINF:207,רוחמה רז - בכל שנה בסתיו גיורא (1977)
 https://www.youtube.com/watch?v=OS9uUlfBrbA
 #EXTINF:182,נעמי שמר - בכל שנה בסתיו גיורא (1982)
@@ -300,18 +306,10 @@ https://www.youtube.com/watch?v=OvN5nJ9bn2Y
 https://www.youtube.com/watch?v=E3V70DpK_EI
 #EXTINF:181,נעמי שמר - לחם האוהבים (1991)
 https://www.youtube.com/watch?v=NGtt4OBuh2E
-#EXTINF:140,שלישיית התאומים - שלגיה (1966)
-https://www.youtube.com/watch?v=whmUk6hiVE4
-#EXTINF:111,נעמי שמר - שלגיה (1966)
-https://www.youtube.com/watch?v=I00dlNJc6BI
 #EXTINF:118,נעמי שמר - הפסנתר (1981)
 https://www.youtube.com/watch?v=pDLQ_FrzKL4
 #EXTINF:136,נעמי שמר - עקידת יצחק (1967)
 https://www.youtube.com/watch?v=p64TXGU2ipM
-#EXTINF:214,הגשש החיוור - אין דבר (1979)
-https://www.youtube.com/watch?v=2BfY0duzEpE
-#EXTINF:180,נעמי שמר - אין דבר (1981)
-https://www.youtube.com/watch?v=7cZaZp3xfDM
 #EXTINF:186,שלמה ארצי - האם השלישית (1970)
 https://www.youtube.com/watch?v=Im8ze1yI8Aw
 #EXTINF:149,נעמי שמר - נצא השדה (1975)
@@ -334,6 +332,8 @@ https://www.youtube.com/watch?v=24JJpjDS8QY
 https://www.youtube.com/watch?v=dtbSIHcMWjY
 #EXTINF:41,נעמי שמר - דוגרת (1975)
 https://www.youtube.com/watch?v=Ke6iImauSj4
+#EXTINF:143,נעמי שמר - שיר הכזבים (1975)
+https://www.youtube.com/watch?v=RqHN-so83M4
 #EXTINF:81,נעמי שמר - קלי קלות (1971)
 https://www.youtube.com/watch?v=m58C3mRgm5E
 #EXTINF:162,נעמי שמר - קולך מן הסופה (1982)
@@ -1144,6 +1144,8 @@ https://www.youtube.com/watch?v=gXM9-IpEzEc
 https://www.youtube.com/watch?v=nruQWhRsem4
 #EXTINF:219,הכל עובר חביבי - בשדה תלתן (1977)
 https://www.youtube.com/watch?v=7m9YwTJwFrE
+#EXTINF:232,צמד רעים - אין דבר (1981)
+https://www.youtube.com/watch?v=pTlgYtrDSPI
 #EXTINF:194,אילי גורליצקי, אריק איינשטיין ולהקת הצעירים (1961) - חמסינים במשלט (1961)
 https://www.youtube.com/watch?v=3st5EgoczRM
 #EXTINF:276,אף אוזן גרון (1975) - חמסינים במשלט (1975)
@@ -1158,8 +1160,6 @@ https://www.youtube.com/watch?v=TGRVtcThDf4
 https://www.youtube.com/watch?v=p320GUpKgkQ
 #EXTINF:197,אריק לביא - שיר סתיו (1958)
 https://www.youtube.com/watch?v=hA92uD-XpQs
-#EXTINF:132,משתתפי אצלנו בפסנתר - שיר הכזבים (1993)
-https://www.youtube.com/watch?v=Omn_wSe-dKU
 #EXTINF:230,יהודית רביץ - בכל שנה בסתיו גיורא (1979)
 https://www.youtube.com/watch?v=YgYyQjI4UeY
 #EXTINF:198,יהורם גאון והדודאים - איילת אהבים (1993)
@@ -1238,8 +1238,6 @@ https://www.youtube.com/watch?v=mpPxqJrum-M
 https://www.youtube.com/watch?v=Sah0hB6rSFY
 #EXTINF:153,דני גרנות וחבורת בימות - עקידת יצחק (1972)
 https://www.youtube.com/watch?v=x0IPLHoV9Yc
-#EXTINF:232,צמד רעים - אין דבר (1981)
-https://www.youtube.com/watch?v=pTlgYtrDSPI
 #EXTINF:125,שולי נתן - נצא השדה (1975)
 https://www.youtube.com/watch?v=vAT50nuKMh8
 #EXTINF:86,צילה דגן - משנכנס אדר (1975)
@@ -1254,6 +1252,8 @@ https://www.youtube.com/watch?v=A9erliXTS6o
 https://www.youtube.com/watch?v=6EEIW68j5lY
 #EXTINF:77,יפה ירקוני - דוגרת (1977)
 https://www.youtube.com/watch?v=ipzIvlpBkbU
+#EXTINF:132,משתתפי אצלנו בפסנתר - שיר הכזבים (1993)
+https://www.youtube.com/watch?v=Omn_wSe-dKU
 #EXTINF:120,נתנאלה - שבת (1974)
 https://www.youtube.com/watch?v=rLucwp89lnE
 #EXTINF:176,שולי נתן - בקיץ (1968)
