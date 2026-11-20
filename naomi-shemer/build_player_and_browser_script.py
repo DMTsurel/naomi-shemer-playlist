@@ -3039,16 +3039,25 @@ def generate_files():
     const SONGS = {json.dumps(songs_js, ensure_ascii=False, indent=2)};
     const ARCHIVE_SONGS = {json.dumps(archive_songs_js, ensure_ascii=False, indent=2)};
     const BLOCK_ORDER = ["p1", "p2", "p3", "e1", "e2", "e3", "tail", "tv"];
+    const EXTRAS_BLOCKS = new Set(["e1", "e2", "e3"]);
     const BLOCK_META = {{
-      p1:   {{ label: "🌟 שכבה א' — קלאסיקות ושירי ילדים קאנוניים", short: "🌟 קלאסיקות" }},
-      p2:   {{ label: "💿 שכבה ב' — אלבומים וביצועים מוכרים", short: "💿 שכבה ב'" }},
-      p3:   {{ label: "💎 שכבה ג' — פנינים נדירות וארכיון", short: "💎 נדירים" }},
-      e1:   {{ label: "➕ ביצועים נוספים — שכבה א'", short: "➕ נוספים א'" }},
-      e2:   {{ label: "➕ ביצועים נוספים — שכבה ב'", short: "➕ נוספים ב'" }},
-      e3:   {{ label: "➕ ביצועים נוספים — שכבה ג'", short: "➕ נוספים ג'" }},
+      p1:   {{ label: "🌟 הקלאסיקות הגדולות", short: "🌟 קלאסיקות" }},
+      p2:   {{ label: "💿 אלבומים, הצגות והרכבים", short: "💿 אלבומים והרכבים" }},
+      p3:   {{ label: "💎 פנינים נדירות וארכיון", short: "💎 פנינים נדירות" }},
+      e1:   {{ label: "➕ גרסאות נוספות — הקלאסיקות", short: "➕ ביצועים נוספים" }},
+      e2:   {{ label: "➕ גרסאות נוספות — אלבומים והרכבים", short: "➕ ביצועים נוספים" }},
+      e3:   {{ label: "➕ גרסאות נוספות — פנינים נדירות", short: "➕ ביצועים נוספים" }},
       tail: {{ label: "🎙️ סקיצות אולפן וראיונות ארכיוניים", short: "🎙️ סקיצות" }},
       tv:   {{ label: "📺 תוכניות טלוויזיה ומופעים מלאים", short: "📺 תוכניות מלאות" }}
     }};
+    const JUMP_GROUPS = [
+      {{ id: "p1",     blocks: ["p1"],             short: "🌟 קלאסיקות",       title: "הקלאסיקות הגדולות" }},
+      {{ id: "p2",     blocks: ["p2"],             short: "💿 אלבומים והרכבים", title: "אלבומים, הצגות והרכבים" }},
+      {{ id: "p3",     blocks: ["p3"],             short: "💎 פנינים נדירות",   title: "פנינים נדירות וארכיון" }},
+      {{ id: "extras", blocks: ["e1", "e2", "e3"], short: "➕ ביצועים נוספים",  title: "גרסאות וביצועים נוספים" }},
+      {{ id: "tail",   blocks: ["tail"],           short: "🎙️ סקיצות",         title: "סקיצות אולפן וראיונות ארכיוניים" }},
+      {{ id: "tv",     blocks: ["tv"],             short: "📺 תוכניות מלאות",   title: "תוכניות טלוויזיה ומופעים מלאים" }}
+    ];
 
     function normHeb(str) {{
       if (!str) return "";
@@ -3912,9 +3921,10 @@ def generate_files():
     }}
 
     function syncBlockJumpHighlight() {{
-      const activeBlk = playingSong ? playingSong.blk : "";
+      const rawBlk = playingSong ? playingSong.blk : "";
+      const activeGroup = EXTRAS_BLOCKS.has(rawBlk) ? "extras" : rawBlk;
       document.querySelectorAll("#blockJumpBar .block-jump-pill").forEach(btn => {{
-        btn.classList.toggle("active-blk", btn.getAttribute("data-blk") === activeBlk);
+        btn.classList.toggle("active-blk", btn.getAttribute("data-blk") === activeGroup);
       }});
     }}
 
@@ -4180,15 +4190,19 @@ def generate_files():
           blockCounts[b] = (blockCounts[b] || 0) + 1;
         }});
       }}
-      const presentBlocks = BLOCK_ORDER.filter(b => blockCounts[b] > 0);
+      const presentGroups = JUMP_GROUPS.map(g => {{
+        const count = g.blocks.reduce((sum, b) => sum + (blockCounts[b] || 0), 0);
+        const firstBlk = g.blocks.find(b => blockCounts[b] > 0) || "";
+        return {{ ...g, count, firstBlk }};
+      }}).filter(g => g.count > 0);
       const jumpBar = document.getElementById("blockJumpBar");
       if (jumpBar) {{
-        if (sortBy === "canonical" && presentBlocks.length >= 2) {{
-          const activeBlk = playingSong ? playingSong.blk : "";
-          jumpBar.innerHTML = presentBlocks.map(b => {{
-            const meta = BLOCK_META[b] || {{ short: b, label: b }};
-            const isAct = b === activeBlk;
-            return `<button type="button" class="block-jump-pill ${{isAct ? "active-blk" : ""}}" data-blk="${{esc(b)}}" onclick="jumpToBlock('${{esc(b)}}')" title="${{esc(meta.label)}} (${{blockCounts[b]}} רצועות)">${{esc(meta.short)}} <span style="opacity:0.7; font-weight:400;">(${{blockCounts[b]}})</span></button>`;
+        if (sortBy === "canonical" && presentGroups.length >= 2) {{
+          const rawBlk = playingSong ? playingSong.blk : "";
+          const activeGroup = EXTRAS_BLOCKS.has(rawBlk) ? "extras" : rawBlk;
+          jumpBar.innerHTML = presentGroups.map(g => {{
+            const isAct = g.id === activeGroup;
+            return `<button type="button" class="block-jump-pill ${{isAct ? "active-blk" : ""}}" data-blk="${{esc(g.id)}}" onclick="jumpToBlock('${{esc(g.firstBlk)}}')" title="${{esc(g.title)}} (${{g.count}} רצועות)">${{esc(g.short)}} <span style="opacity:0.7; font-weight:400;">(${{g.count}})</span></button>`;
           }}).join("");
           jumpBar.style.display = "flex";
         }} else {{
