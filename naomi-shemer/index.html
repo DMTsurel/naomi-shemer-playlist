@@ -1048,6 +1048,16 @@
             <div id="ytFrame"></div>
           </div>
 
+          <div class="transport-bar">
+            <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
+            <button id="mainPlayPauseBtn" class="btn btn-outline btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯</button>
+            <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
+            <button id="shuffleBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀</button>
+            <button id="repeatBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleRepeatOne()" aria-pressed="false" title="ניגון חוזר לשיר הנוכחי (R)">🔂</button>
+            <button id="npShareBtn" class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="שתף או העתק קישור ישיר לשיר זה">🔗</button>
+            <a id="openOnYt" class="btn btn-outline btn-icon" href="#" target="_blank" rel="noopener" title="פתח ביוטיוב">↗ YT</a>
+          </div>
+
           <div class="np-header">
             <div class="np-title-row">
               <div id="nowPlayingTitle">בחר שיר מהרשימה</div>
@@ -1061,16 +1071,6 @@
             <div id="nowPlayingVersions" class="np-versions" style="display:none;"></div>
             <div id="nowPlayingQuote" class="quote-box" style="display:none;"></div>
             <div id="nowPlayingLinks" class="archive-pills" style="margin-bottom:6px;"></div>
-          </div>
-
-          <div class="transport-bar">
-            <button class="btn btn-outline btn-icon" type="button" onclick="playPrev()" title="השיר הקודם (P)">⏮</button>
-            <button id="mainPlayPauseBtn" class="btn btn-outline btn-icon" type="button" onclick="togglePlayPause()" title="ניגון / השהיה (Space / K)">⏯</button>
-            <button class="btn btn-outline btn-icon" type="button" onclick="playNext()" title="השיר הבא (N)">⏭</button>
-            <button id="shuffleBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleShuffle()" title="ניגון אקראי (S)">🔀</button>
-            <button id="repeatBtn" class="btn btn-outline btn-icon" type="button" onclick="toggleRepeatOne()" aria-pressed="false" title="ניגון חוזר לשיר הנוכחי (R)">🔂</button>
-            <button id="npShareBtn" class="btn btn-outline btn-icon" type="button" onclick="copyShareUrl()" title="שתף או העתק קישור ישיר לשיר זה">🔗</button>
-            <a id="openOnYt" class="btn btn-outline btn-icon" href="#" target="_blank" rel="noopener" title="פתח ביוטיוב">↗ YT</a>
           </div>
 
           <!-- פרטים משניים מוסתרים במגירה נקייה -->
