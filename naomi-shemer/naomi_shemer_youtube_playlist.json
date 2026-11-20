@@ -12776,12 +12776,12 @@
       "tier": "2_album_original",
       "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
       "selected_video": {
-        "video_id": "WDzRA91O678",
-        "url": "https://www.youtube.com/watch?v=WDzRA91O678",
-        "video_title": "יהורם גאון - כמו חצב",
-        "channel": "Release - Topic",
-        "duration": "4:46",
-        "description": "Provided to YouTube · יהורם גאון · מתוך האלבום: אלף נשיקות",
+        "video_id": "QPPugl_l2ak",
+        "url": "https://www.youtube.com/watch?v=QPPugl_l2ak",
+        "video_title": "כמו חצב - יהורם גאון (מתוך האלבום \"אלף נשיקות... כן כן...\") הביצוע המקורי",
+        "channel": "YehoramGaonOfficial",
+        "duration": "4:51",
+        "description": "הקלטת האולפן המקורית (1981) · יהורם גאון · מתוך האלבום: אלף נשיקות (עיבוד: רמי לוין)",
         "tier": "2_album_original",
         "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
         "matched_performer": "יהורם גאון",
@@ -12790,6 +12790,24 @@
       },
       "alternative_videos": [
         {
+          "video_id": "KhU9CZW62jU",
+          "url": "https://www.youtube.com/watch?v=KhU9CZW62jU",
+          "video_title": "כמו חצב",
+          "channel": "Yehoram Gaon - Topic",
+          "duration": "4:51",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
+          "video_id": "WDzRA91O678",
+          "url": "https://www.youtube.com/watch?v=WDzRA91O678",
+          "video_title": "יהורם גאון - כמו חצב",
+          "channel": "Release - Topic",
+          "duration": "4:46",
+          "views": "",
+          "source": "direct_alternative"
+        },
+        {
           "video_id": "qEYW8pnCu48",
           "url": "https://www.youtube.com/watch?v=qEYW8pnCu48",
           "video_title": "עמיר בניון כמו חצב Amir Benayoun",
@@ -12797,15 +12815,6 @@
           "duration": "4:02",
           "views": "",
           "source": "same_song_performance"
-        },
-        {
-          "video_id": "QPPugl_l2ak",
-          "url": "https://www.youtube.com/watch?v=QPPugl_l2ak",
-          "video_title": "כמו חצב - יהורם גאון (מתוך האלבום \"אלף נשיקות... כן כן...\") הביצוע המקורי",
-          "channel": "YehoramGaonOfficial",
-          "duration": "4:51",
-          "views": "",
-          "source": "direct_alternative"
         },
         {
           "video_id": "ZtyiQ57nRD0",
@@ -66790,22 +66799,13 @@
       },
       "alternative_videos": [
         {
-          "video_id": "WDzRA91O678",
-          "url": "https://www.youtube.com/watch?v=WDzRA91O678",
-          "video_title": "יהורם גאון - כמו חצב",
-          "channel": "Release - Topic",
-          "duration": "4:46",
-          "views": "",
-          "source": "same_song_performance"
-        },
-        {
           "video_id": "QPPugl_l2ak",
           "url": "https://www.youtube.com/watch?v=QPPugl_l2ak",
           "video_title": "כמו חצב - יהורם גאון (מתוך האלבום \"אלף נשיקות... כן כן...\") הביצוע המקורי",
           "channel": "YehoramGaonOfficial",
           "duration": "4:51",
           "views": "",
-          "source": "direct_alternative"
+          "source": "same_song_performance"
         },
         {
           "video_id": "ZtyiQ57nRD0",
@@ -66915,11 +66915,11 @@
       },
       "alternative_videos": [
         {
-          "video_id": "WDzRA91O678",
-          "url": "https://www.youtube.com/watch?v=WDzRA91O678",
-          "video_title": "יהורם גאון - כמו חצב",
-          "channel": "Release - Topic",
-          "duration": "4:46",
+          "video_id": "QPPugl_l2ak",
+          "url": "https://www.youtube.com/watch?v=QPPugl_l2ak",
+          "video_title": "כמו חצב - יהורם גאון (מתוך האלבום \"אלף נשיקות... כן כן...\") הביצוע המקורי",
+          "channel": "YehoramGaonOfficial",
+          "duration": "4:51",
           "views": "",
           "source": "same_song_performance"
         }

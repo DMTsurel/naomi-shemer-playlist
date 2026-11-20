@@ -6900,10 +6900,10 @@ window.PLAYLIST_DATA = {
       "ver_total": 3,
       "year": "1981",
       "decade": "1980s",
-      "vid": "WDzRA91O678",
-      "vtitle": "יהורם גאון - כמו חצב",
-      "ch": "Release - Topic",
-      "dur": "4:46",
+      "vid": "QPPugl_l2ak",
+      "vtitle": "כמו חצב - יהורם גאון (מתוך האלבום \"אלף נשיקות... כן כן...\") הביצוע המקורי",
+      "ch": "YehoramGaonOfficial",
+      "dur": "4:51",
       "tier": "2_album_original",
       "tier_label": "2. אלבום של המבצע המקורי / אוסף רשמי",
       "perf": "יהורם גאון",
@@ -6933,18 +6933,25 @@ window.PLAYLIST_DATA = {
       ],
       "alts": [
         {
+          "vid": "KhU9CZW62jU",
+          "vtitle": "כמו חצב",
+          "ch": "Yehoram Gaon - Topic",
+          "dur": "4:51",
+          "src": "direct_alternative"
+        },
+        {
+          "vid": "WDzRA91O678",
+          "vtitle": "יהורם גאון - כמו חצב",
+          "ch": "Release - Topic",
+          "dur": "4:46",
+          "src": "direct_alternative"
+        },
+        {
           "vid": "qEYW8pnCu48",
           "vtitle": "עמיר בניון כמו חצב Amir Benayoun",
           "ch": "nevelasorpr",
           "dur": "4:02",
           "src": "same_song_performance"
-        },
-        {
-          "vid": "QPPugl_l2ak",
-          "vtitle": "כמו חצב - יהורם גאון (מתוך האלבום \"אלף נשיקות... כן כן...\") הביצוע המקורי",
-          "ch": "YehoramGaonOfficial",
-          "dur": "4:51",
-          "src": "direct_alternative"
         },
         {
           "vid": "ZtyiQ57nRD0",
@@ -39417,18 +39424,11 @@ window.PLAYLIST_DATA = {
       ],
       "alts": [
         {
-          "vid": "WDzRA91O678",
-          "vtitle": "יהורם גאון - כמו חצב",
-          "ch": "Release - Topic",
-          "dur": "4:46",
-          "src": "same_song_performance"
-        },
-        {
           "vid": "QPPugl_l2ak",
           "vtitle": "כמו חצב - יהורם גאון (מתוך האלבום \"אלף נשיקות... כן כן...\") הביצוע המקורי",
           "ch": "YehoramGaonOfficial",
           "dur": "4:51",
-          "src": "direct_alternative"
+          "src": "same_song_performance"
         },
         {
           "vid": "ZtyiQ57nRD0",
@@ -39495,10 +39495,10 @@ window.PLAYLIST_DATA = {
       ],
       "alts": [
         {
-          "vid": "WDzRA91O678",
-          "vtitle": "יהורם גאון - כמו חצב",
-          "ch": "Release - Topic",
-          "dur": "4:46",
+          "vid": "QPPugl_l2ak",
+          "vtitle": "כמו חצב - יהורם גאון (מתוך האלבום \"אלף נשיקות... כן כן...\") הביצוע המקורי",
+          "ch": "YehoramGaonOfficial",
+          "dur": "4:51",
           "src": "same_song_performance"
         }
       ]
