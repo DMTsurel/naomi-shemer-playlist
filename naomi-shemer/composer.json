@@ -1,0 +1,254 @@
+{
+  "slug": "naomi-shemer",
+  "name_he": "נעמי שמר",
+  "name_en": "Naomi Shemer",
+  "playlist_title_he": "שירי נעמי שמר",
+  "collection_prefix_he": "משירי נעמי שמר",
+  "subtitle_he": "האוסף המקיף מאוחד מ-9 מאגרים (אקו\"ם, הספרייה הלאומית, שירונט, זמרשת ועוד) — מסודר מהקלאסיקות הגדולות אל הפנינים הנדירות.",
+  "hub_description_he": "האוסף הכרונולוגי והקאנוני המקיף של שירי נעמי שמר מ-9 מאגרים: אלבומי הסולו, הלהקות הצבאיות, ביצועים מקוריים ונדירים, תוכניות טלוויזיה מלאות ו-{unmatched_songs} שירי ארכיון משלימים שאינם ביוטיוב.",
+  "playlist_description_he": "אוסף מקיף של שירי נעמי שמר (אלבומיה של נעמי שמר, ביצועים מקוריים מתוך אלבומים, הקלטות ארכיון וקאברים נבחרים). נוצר מתוך איחוד 9 מאגרים (אקו\"ם, הספרייה הלאומית, שירונט, ויקיפדיה, סטריאו ומונו, פזמונט, זמרשת, Discogs ו-MusicBrainz).",
+  "meta_description_template": "האוסף הכרונולוגי המקיף של שירי נעמי שמר ({total_catalog_songs} שירים מאוחדים מ-9 מאגרים): {total_videos} ביצועים מקוריים ביוטיוב ו-{unmatched_songs} שירי ארכיון נדירים עם קישורים לספרייה הלאומית, שירונט, זמרשת ואקו\"ם.",
+  "og_description_template": "נגן אינטראקטיבי וקטלוג כרונולוגי מלא של כל {total_catalog_songs} שירי נעמי שמר: אלבומים מקוריים, ביצועי נעמי שמר, תרגומים וארכיון הספרייה הלאומית.",
+  "footer_label_he": "קטלוג שירי נעמי שמר",
+  "storage_prefix": "naomi_playlist_",
+  "youtube_playlist_id": "PLFHErlX6i22g",
+  "spotify_playlist_url": "",
+  "profile": {
+    "is_performer": true,
+    "dual_performance_mode": "original_plus_creator",
+    "default_role_label_heb": "מילים ולחן: נעמי שמר",
+    "creator_performance_tag_he": "ביצוע נעמי שמר",
+    "creator_album_tiers": [
+      "1_album_naomi"
+    ],
+    "creator_performance_tiers": [
+      "1_album_naomi",
+      "3_naomi_performance"
+    ],
+    "tier_filter_options": [
+      [
+        "1_album_naomi",
+        "אלבום של נעמי שמר"
+      ],
+      [
+        "2_album_original",
+        "אלבום מבצע מקורי"
+      ],
+      [
+        "3_naomi_performance",
+        "ביצוע נעמי שמר"
+      ],
+      [
+        "4_original_performance",
+        "ביצוע מקורי"
+      ],
+      [
+        "5_cover",
+        "ביצוע נוסף / קאבר"
+      ]
+    ],
+    "role_filter_options": [
+      [
+        "words_and_music",
+        "מילים ולחן: נעמי שמר"
+      ],
+      [
+        "music_only",
+        "לחן בלבד"
+      ],
+      [
+        "words_only",
+        "מילים בלבד"
+      ],
+      [
+        "translation",
+        "תרגום"
+      ],
+      [
+        "performance_only",
+        "ביצוע בלבד"
+      ]
+    ]
+  },
+  "files": {
+    "playlist_json": "naomi_shemer_youtube_playlist.json",
+    "catalog_json": "naomi_shemer_catalog.json",
+    "playlist_csv": "naomi_shemer_youtube_playlist.csv",
+    "playlist_md": "naomi_shemer_youtube_playlist.md",
+    "streaming_import_csv": "naomi_shemer_streaming_import.csv",
+    "stream_m3u8": "naomi_shemer_youtube_stream.m3u8",
+    "wayback_txt": "wayback_backup_urls.txt",
+    "legacy_player_html": "naomi_shemer_playlist_player.html"
+  },
+  "sources": {
+    "acum_creator_id": "I-000202452-2",
+    "acum_performer_ids": [
+      {
+        "id": "1267",
+        "label": "נעמי שמר"
+      },
+      {
+        "id": "101393",
+        "label": "אנסמבל נעמי שמר"
+      },
+      {
+        "id": "15697",
+        "label": "משתתפי מופע הצדעה לנעמי שמר"
+      }
+    ],
+    "shironet_prfid": 738,
+    "discogs_artist_id": 800979,
+    "nli_author": "נעמי שמר",
+    "wiki_page": "נעמי שמר",
+    "zemereshet_slug": "נעמי שמר",
+    "pizmonet_slug": "נעמי שמר"
+  },
+  "discography": {
+    "official_topic_playlists": [
+      {
+        "playlist_id": "OLAK5uy_l89Mqw7PCC2HIQIdvl6jBjLIsiw9i9-Ak",
+        "album": "אל בורות המים",
+        "performer": "נעמי שמר",
+        "tier": "1_album_naomi"
+      },
+      {
+        "playlist_id": "OLAK5uy_m7Hyhou0eslurREtMD2UyyavX05Oi7jFQ",
+        "album": "על הדבש ועל העוקץ",
+        "performer": "נעמי שמר",
+        "tier": "1_album_naomi"
+      },
+      {
+        "playlist_id": "OLAK5uy_nANx6hX5o4pQG4ZfsSCP-Wfaptxrgk7Lw",
+        "album": "נעמי שמר שרה נעמי שמר",
+        "performer": "נעמי שמר",
+        "tier": "1_album_naomi"
+      },
+      {
+        "playlist_id": "OLAK5uy_mkiALYmJvnQ-r3QBjHycmoElLK9T5sA4E",
+        "album": "כיצד שוברים חמסין",
+        "performer": "נעמי שמר",
+        "tier": "1_album_naomi"
+      },
+      {
+        "playlist_id": "OLAK5uy_lrb5MmUbeDU1kora45gvUIwBCWM7achw0",
+        "album": "נעמי שמר שרה לילדים",
+        "performer": "נעמי שמר",
+        "tier": "1_album_naomi"
+      },
+      {
+        "playlist_id": "OLAK5uy_nvxVqjp2ccpDiaRfiN633rdF5aBqjSXKU",
+        "album": "ט\"ו בשבט שלי",
+        "performer": "נעמי שמר",
+        "tier": "1_album_naomi"
+      },
+      {
+        "playlist_id": "OLAK5uy_l2Lpo0FLbV-UQJcvkzLQIKfV9J_AeMD6Q",
+        "album": "חמש חמש",
+        "performer": "משתתפי המחזמר חמש חמש",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_mI4dspMQc4Gvf6zV0hR7jF7wl-ocPhjuc",
+        "album": "עשרת הצדיקים",
+        "performer": "להקת השעות הקטנות",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_lDhDSRbd0rCvj3jPqA7P-aPFXyD8e2Kig",
+        "album": "שמש במדבר",
+        "performer": "להקת הנח\"ל",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_mMLMzmKasK8X7uALL6rte-cTszwdh-CME",
+        "album": "בגלל מסמר",
+        "performer": "להקת פיקוד צפון",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_kBX_NVjfqdVim_DhdxC7M0Vd8Ywf8nQdI",
+        "album": "המלך ואני",
+        "performer": "משתתפי המחזמר המלך ואני",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_mbRFvEepYyLXJqYTMAwiBVo_Hr6kT5CXg",
+        "album": "שולי נתן שרה נעמי שמר",
+        "performer": "שולי נתן",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_me4EHg5QPVBx7iSonp43eomGH4u1uBAkY",
+        "album": "שירי נעמי שמר (חבורת בימות)",
+        "performer": "חבורת בימות",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_mP0E75hkT8REoqBO3MFZ3rdffUlKEGLsU",
+        "album": "יוסי בנאי שר ברסאנס",
+        "performer": "יוסי בנאי",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "PLevkTfR01kC7I6Cb5HgviCmGAOkNXc5l5",
+        "album": "מסעות בנימין השלישי",
+        "performer": "משתתפי המחזמר מסעות בנימין השלישי",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_ltpJe3wlmQEQh0zqoeGCEP9q_7XHH1bfc",
+        "album": "אלף נשיקות",
+        "performer": "יהורם גאון",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "OLAK5uy_nJDeRbUjYS2d3iWzW65PakbRdEyIJ5ZCk",
+        "album": "חפצים אישיים",
+        "performer": "משה בקר",
+        "tier": "2_album_original"
+      },
+      {
+        "playlist_id": "PLevkTfR01kC5ZsCMLYKvVkRotT8EGMD7E",
+        "album": "אצלנו בפסנתר",
+        "performer": "משתתפי אצלנו בפסנתר",
+        "tier": "2_album_original"
+      }
+    ],
+    "solo_album_keywords": [
+      "אל בורות המים",
+      "על הדבש ועל העוקץ",
+      "נעמי שמר שרה נעמי שמר",
+      "כיצד שוברים חמסין",
+      "נעמי שמר שרה לילדים",
+      "ט\"ו בשבט שלי"
+    ]
+  },
+  "ranking": {
+    "mode": "sqrt_mult",
+    "anthology_cap": 100.0,
+    "canonical_anthologies": [
+      {
+        "keyword": "סימני דרך",
+        "points": 55.0
+      },
+      {
+        "keyword": "100 שירים נבחרים",
+        "points": 45.0
+      }
+    ],
+    "translation_full_credit_titles": [
+      "אהבה בת עשרים",
+      "שלגיה",
+      "איילת אהבים",
+      "הכול בגלל מסמר",
+      "אין אהבות שמחות"
+    ],
+    "tail_video_ids": [
+      "k0RE3k8k1pQ"
+    ],
+    "tail_performer_keywords": [
+      "סקיצה נדירה"
+    ],
+    "tv_album_group": "תוכניות טלוויזיה ומופעים מלאים"
+  }
+}

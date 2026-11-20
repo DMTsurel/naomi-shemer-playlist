@@ -1,0 +1,15 @@
+{
+  "site_title_he": "אוספי מלחינים ישראלים — נגן אינטראקטיבי וקטלוג",
+  "site_eyebrow_he": "♫ ארכיון ונגני מוזיקה עברית",
+  "site_heading_he": "אוספי מלחינים ישראלים",
+  "site_lead_he": "פלייליסטים וקטלוגים מקיפים שנבנו מתוך איחוד שיטתי של מאגרי אקו\"ם, הספרייה הלאומית (בית לזמר העברי), שירונט, זמרשת, ויקיפדיה, Discogs ו-MusicBrainz — מונגשים עם נגן אינטראקטיבי, גיבויי וידאו ומקורות ארכיון.",
+  "base_url": "https://dmtsurel.github.io/playlists",
+  "repo_url": "https://github.com/DMTsurel/playlists",
+  "show_coming_soon_card": true,
+  "creators": [
+    {
+      "slug": "naomi-shemer",
+      "enabled": true
+    }
+  ]
+}

@@ -31,7 +31,7 @@ jobs:
       - name: Check for healed or modified files
         id: git_diff
         run: |
-          if [ -n "$(git status --porcelain naomi-shemer/naomi_shemer_youtube_playlist.json naomi-shemer/index.html naomi-shemer/naomi_shemer_playlist_player.html)" ]; then
+          if [ -n "$(git status --porcelain naomi-shemer/naomi_shemer_youtube_playlist.json naomi-shemer/playlist_data.js naomi-shemer/index.html naomi-shemer/naomi_shemer_playlist_player.html index.html)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -42,9 +42,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add naomi-shemer/naomi_shemer_youtube_playlist.json naomi-shemer/naomi_shemer_youtube_playlist.csv naomi-shemer/naomi_shemer_youtube_playlist.md \
+          git add index.html naomi-shemer/naomi_shemer_youtube_playlist.json naomi-shemer/naomi_shemer_youtube_playlist.csv naomi-shemer/naomi_shemer_youtube_playlist.md \
                   naomi-shemer/create_playlist_in_browser.js naomi-shemer/update_existing_playlist_in_browser.js \
-                  naomi-shemer/naomi_shemer_playlist_player.html naomi-shemer/index.html \
+                  naomi-shemer/playlist_data.js naomi-shemer/naomi_shemer_playlist_player.html naomi-shemer/index.html \
                   naomi-shemer/youtube_full_metadata_backup.json naomi-shemer/health_check_report.md \
                   naomi-shemer/naomi_shemer_streaming_import.csv naomi-shemer/naomi_shemer_youtube_stream.m3u8 naomi-shemer/wayback_backup_urls.txt
           git commit -m "chore(auto-heal): replace unavailable YouTube video(s) with healthy backup"
